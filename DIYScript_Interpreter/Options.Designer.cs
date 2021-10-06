@@ -38,6 +38,9 @@ namespace DIYScript_Interpreter
             this.tabControlSettings = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textEditorControl1 = new ICSharpCode.TextEditor.TextEditorControl();
             this.buttonCBG = new System.Windows.Forms.Button();
             this.buttonCFront = new System.Windows.Forms.Button();
             this.buttonFont = new System.Windows.Forms.Button();
@@ -54,9 +57,7 @@ namespace DIYScript_Interpreter
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textEditorControl1 = new ICSharpCode.TextEditor.TextEditorControl();
-            this.label3 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControlSettings.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -96,10 +97,42 @@ namespace DIYScript_Interpreter
             this.groupBox1.Controls.Add(this.buttonFont);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(756, 155);
+            this.groupBox1.Size = new System.Drawing.Size(756, 197);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "脚本编辑器外观";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(6, 107);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(72, 16);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "显示行号";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(420, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 12);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "恶 俗 预 览";
+            // 
+            // textEditorControl1
+            // 
+            this.textEditorControl1.BackColor = System.Drawing.Color.Transparent;
+            this.textEditorControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.textEditorControl1.IsReadOnly = false;
+            this.textEditorControl1.Location = new System.Drawing.Point(422, 32);
+            this.textEditorControl1.Name = "textEditorControl1";
+            this.textEditorControl1.Size = new System.Drawing.Size(328, 159);
+            this.textEditorControl1.TabIndex = 3;
+            this.textEditorControl1.Text = "textEditorControl1";
+            this.textEditorControl1.Load += new System.EventHandler(this.textEditorControl1_Load);
             // 
             // buttonCBG
             // 
@@ -151,7 +184,7 @@ namespace DIYScript_Interpreter
             this.groupBox2.Controls.Add(this.listViewExample);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(756, 266);
+            this.groupBox2.Size = new System.Drawing.Size(756, 222);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "对象/背景列表";
@@ -197,9 +230,9 @@ namespace DIYScript_Interpreter
             listViewItem3,
             listViewItem4});
             this.listViewExample.LargeImageList = this.imageList1;
-            this.listViewExample.Location = new System.Drawing.Point(414, 35);
+            this.listViewExample.Location = new System.Drawing.Point(414, 32);
             this.listViewExample.Name = "listViewExample";
-            this.listViewExample.Size = new System.Drawing.Size(336, 225);
+            this.listViewExample.Size = new System.Drawing.Size(336, 178);
             this.listViewExample.SmallImageList = this.imageList2;
             this.listViewExample.TabIndex = 0;
             this.listViewExample.UseCompatibleStateImageBehavior = false;
@@ -225,7 +258,7 @@ namespace DIYScript_Interpreter
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "应用";
+            this.button1.Text = "取消";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -236,43 +269,24 @@ namespace DIYScript_Interpreter
             this.button2.TabIndex = 2;
             this.button2.Text = "应用";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textEditorControl1
+            // button3
             // 
-            this.textEditorControl1.BackColor = System.Drawing.Color.Transparent;
-            this.textEditorControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.textEditorControl1.IsReadOnly = false;
-            this.textEditorControl1.Location = new System.Drawing.Point(308, 32);
-            this.textEditorControl1.Name = "textEditorControl1";
-            this.textEditorControl1.Size = new System.Drawing.Size(442, 117);
-            this.textEditorControl1.TabIndex = 3;
-            this.textEditorControl1.Text = "textEditorControl1";
-            this.textEditorControl1.Load += new System.EventHandler(this.textEditorControl1_Load);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(306, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "恶 俗 预 览";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(87, 24);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(72, 16);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "显示行号";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(551, 415);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "确定";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControlSettings);
@@ -315,5 +329,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label3;
         private ICSharpCode.TextEditor.TextEditorControl textEditorControl1;
+        private System.Windows.Forms.Button button3;
     }
 }

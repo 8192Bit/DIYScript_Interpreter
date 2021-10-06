@@ -167,7 +167,7 @@ namespace DIYScript_Interpreter
             this.trackBar1.Location = new System.Drawing.Point(546, 501);
             this.trackBar1.Maximum = 480;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(661, 45);
+            this.trackBar1.Size = new System.Drawing.Size(661, 42);
             this.trackBar1.TabIndex = 8;
             // 
             // trackBar2
@@ -175,7 +175,7 @@ namespace DIYScript_Interpreter
             this.trackBar2.Location = new System.Drawing.Point(546, 532);
             this.trackBar2.Maximum = 480;
             this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(661, 45);
+            this.trackBar2.Size = new System.Drawing.Size(661, 42);
             this.trackBar2.TabIndex = 9;
             // 
             // trackBar3
@@ -184,7 +184,7 @@ namespace DIYScript_Interpreter
             this.trackBar3.Maximum = 640;
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar3.Size = new System.Drawing.Size(45, 503);
+            this.trackBar3.Size = new System.Drawing.Size(42, 503);
             this.trackBar3.TabIndex = 10;
             // 
             // trackBar4
@@ -193,7 +193,7 @@ namespace DIYScript_Interpreter
             this.trackBar4.Maximum = 640;
             this.trackBar4.Name = "trackBar4";
             this.trackBar4.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar4.Size = new System.Drawing.Size(45, 503);
+            this.trackBar4.Size = new System.Drawing.Size(42, 503);
             this.trackBar4.TabIndex = 11;
             // 
             // label2
@@ -255,6 +255,7 @@ namespace DIYScript_Interpreter
             this.buttonNewART.TabIndex = 15;
             this.buttonNewART.Text = "新建";
             this.buttonNewART.UseVisualStyleBackColor = true;
+            this.buttonNewART.Click += new System.EventHandler(this.buttonNewART_Click);
             // 
             // listViewART
             // 
@@ -266,6 +267,7 @@ namespace DIYScript_Interpreter
             this.listViewART.Size = new System.Drawing.Size(244, 126);
             this.listViewART.TabIndex = 14;
             this.listViewART.UseCompatibleStateImageBehavior = false;
+            this.listViewART.SelectedIndexChanged += new System.EventHandler(this.listViewART_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -300,6 +302,7 @@ namespace DIYScript_Interpreter
             this.Controls.Add(this.textBoxOBJName);
             this.Name = "OBJMaker";
             this.Text = "新建OBJ......";
+            this.Load += new System.EventHandler(this.OBJMaker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -170,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PerfCenterCpl.ico" />
+    <None Include="Resources\OIP-C.dgtB_f92LGrw6igoaGVw7QHaHa.jpg" />
     <None Include="Resources\index.jpg" />
   </ItemGroup>
   <ItemGroup>

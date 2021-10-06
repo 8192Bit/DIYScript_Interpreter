@@ -16,7 +16,7 @@ namespace DIYScript_Interpreter
             InitializeComponent();
             this.Text = String.Format("关于 {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("版本 {0}", AssemblyVersion);
+            this.labelVersion.Text = "版本 " + "0.0.0.4";
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
         }
@@ -102,6 +102,11 @@ namespace DIYScript_Interpreter
         #endregion
 
         private void textBoxDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelVersion_Click(object sender, EventArgs e)
         {
 
         }

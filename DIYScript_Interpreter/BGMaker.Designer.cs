@@ -41,7 +41,7 @@ namespace DIYScript_Interpreter
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(400, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(264, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(640, 480);
             this.pictureBox1.TabIndex = 4;
@@ -87,7 +87,7 @@ namespace DIYScript_Interpreter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 508);
+            this.ClientSize = new System.Drawing.Size(914, 508);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxBGName);
             this.Controls.Add(this.Cancel);

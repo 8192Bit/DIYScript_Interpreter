@@ -69,5 +69,15 @@ namespace DIYScript_Interpreter.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap OIP_C_dgtB_f92LGrw6igoaGVw7QHaHa {
+            get {
+                object obj = ResourceManager.GetObject("OIP-C.dgtB_f92LGrw6igoaGVw7QHaHa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

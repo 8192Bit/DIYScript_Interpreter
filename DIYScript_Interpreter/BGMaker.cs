@@ -26,19 +26,15 @@ namespace DIYScript_Interpreter
         {
             try
             {
-              BG BackGround = new BG();
-                BackGround.Name = textBoxBGName.Text;
-                BackGround.ID = BGAddingStatus.CurrentBGID;
-                BackGround.bitmap = BGAddingStatus.bitmap;
-                BackGround.Resolution[0] = BGAddingStatus.bitmap.Width;
-                BackGround.Resolution[1] = BGAddingStatus.bitmap.Height;
-                Close();
+                GAME.Current.AddBG(BGAddingStatus.bitmap, textBoxBGName.Text);
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("SystemERR. DEAD-END-CODE = "+ ex.GetType());
                 Console.WriteLine();
             }
+            Close();
 
         }
 
