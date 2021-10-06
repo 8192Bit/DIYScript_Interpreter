@@ -60,6 +60,7 @@ namespace DIYScript_Interpreter
             this.groupBoxAIBGMMdata = new System.Windows.Forms.GroupBox();
             this.tabControlAIOBJMdata = new System.Windows.Forms.TabControl();
             this.AI = new System.Windows.Forms.TabPage();
+            this.textEditorControl1 = new ICSharpCode.TextEditor.TextEditorControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -246,7 +247,7 @@ namespace DIYScript_Interpreter
             this.buttonEditBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonEditBG.FlatAppearance.BorderSize = 5;
             this.buttonEditBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEditBG.Location = new System.Drawing.Point(172, 287);
+            this.buttonEditBG.Location = new System.Drawing.Point(182, 287);
             this.buttonEditBG.Name = "buttonEditBG";
             this.buttonEditBG.Size = new System.Drawing.Size(77, 22);
             this.buttonEditBG.TabIndex = 5;
@@ -258,7 +259,7 @@ namespace DIYScript_Interpreter
             this.buttonDeleteBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDeleteBG.FlatAppearance.BorderSize = 5;
             this.buttonDeleteBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonDeleteBG.Location = new System.Drawing.Point(89, 287);
+            this.buttonDeleteBG.Location = new System.Drawing.Point(94, 287);
             this.buttonDeleteBG.Name = "buttonDeleteBG";
             this.buttonDeleteBG.Size = new System.Drawing.Size(77, 22);
             this.buttonDeleteBG.TabIndex = 4;
@@ -321,9 +322,9 @@ namespace DIYScript_Interpreter
             this.buttonEditOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonEditOBJ.FlatAppearance.BorderSize = 5;
             this.buttonEditOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEditOBJ.Location = new System.Drawing.Point(242, 497);
+            this.buttonEditOBJ.Location = new System.Drawing.Point(257, 497);
             this.buttonEditOBJ.Name = "buttonEditOBJ";
-            this.buttonEditOBJ.Size = new System.Drawing.Size(112, 38);
+            this.buttonEditOBJ.Size = new System.Drawing.Size(118, 38);
             this.buttonEditOBJ.TabIndex = 5;
             this.buttonEditOBJ.Text = "编辑";
             this.buttonEditOBJ.UseVisualStyleBackColor = true;
@@ -333,9 +334,9 @@ namespace DIYScript_Interpreter
             this.buttonDelOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDelOBJ.FlatAppearance.BorderSize = 5;
             this.buttonDelOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonDelOBJ.Location = new System.Drawing.Point(124, 497);
+            this.buttonDelOBJ.Location = new System.Drawing.Point(133, 497);
             this.buttonDelOBJ.Name = "buttonDelOBJ";
-            this.buttonDelOBJ.Size = new System.Drawing.Size(112, 38);
+            this.buttonDelOBJ.Size = new System.Drawing.Size(118, 38);
             this.buttonDelOBJ.TabIndex = 4;
             this.buttonDelOBJ.Text = "删除";
             this.buttonDelOBJ.UseVisualStyleBackColor = true;
@@ -346,9 +347,9 @@ namespace DIYScript_Interpreter
             this.buttonNewOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewOBJ.FlatAppearance.BorderSize = 5;
             this.buttonNewOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNewOBJ.Location = new System.Drawing.Point(6, 497);
+            this.buttonNewOBJ.Location = new System.Drawing.Point(9, 497);
             this.buttonNewOBJ.Name = "buttonNewOBJ";
-            this.buttonNewOBJ.Size = new System.Drawing.Size(112, 38);
+            this.buttonNewOBJ.Size = new System.Drawing.Size(118, 38);
             this.buttonNewOBJ.TabIndex = 3;
             this.buttonNewOBJ.Text = "新建";
             this.buttonNewOBJ.UseVisualStyleBackColor = true;
@@ -394,6 +395,7 @@ namespace DIYScript_Interpreter
             // 
             // AI
             // 
+            this.AI.Controls.Add(this.textEditorControl1);
             this.AI.Controls.Add(this.toolStrip1);
             this.AI.ForeColor = System.Drawing.Color.Black;
             this.AI.Location = new System.Drawing.Point(4, 25);
@@ -405,6 +407,13 @@ namespace DIYScript_Interpreter
             // 
             // textEditorControl1
             // 
+            this.textEditorControl1.ForeColor = System.Drawing.Color.Black;
+            this.textEditorControl1.IsReadOnly = false;
+            this.textEditorControl1.Location = new System.Drawing.Point(6, 31);
+            this.textEditorControl1.Name = "textEditorControl1";
+            this.textEditorControl1.Size = new System.Drawing.Size(776, 449);
+            this.textEditorControl1.TabIndex = 2;
+            this.textEditorControl1.Text = "textEditorControl1";
             // 
             // toolStrip1
             // 
@@ -497,7 +506,7 @@ namespace DIYScript_Interpreter
             // 打印ToolStripMenuItem
             // 
             this.打印ToolStripMenuItem.Name = "打印ToolStripMenuItem";
-            this.打印ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.打印ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.打印ToolStripMenuItem.Text = "打印...";
             this.打印ToolStripMenuItem.Click += new System.EventHandler(this.打印ToolStripMenuItem_Click);
             // 
@@ -694,6 +703,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.ToolStripMenuItem 全选ToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem 打印ToolStripMenuItem;
+        private ICSharpCode.TextEditor.TextEditorControl textEditorControl1;
     }
 }
 

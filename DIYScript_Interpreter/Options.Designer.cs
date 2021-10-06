@@ -30,9 +30,9 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "田所"}, 0, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128))));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "現 代 ア ー ト"}, "現代アートアイコン.png", System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
             this.tabControlSettings = new System.Windows.Forms.TabControl();
@@ -52,6 +52,11 @@ namespace DIYScript_Interpreter
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textEditorControl1 = new ICSharpCode.TextEditor.TextEditorControl();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabControlSettings.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,7 +71,7 @@ namespace DIYScript_Interpreter
             this.tabControlSettings.Location = new System.Drawing.Point(12, 12);
             this.tabControlSettings.Name = "tabControlSettings";
             this.tabControlSettings.SelectedIndex = 0;
-            this.tabControlSettings.Size = new System.Drawing.Size(776, 426);
+            this.tabControlSettings.Size = new System.Drawing.Size(776, 396);
             this.tabControlSettings.TabIndex = 0;
             // 
             // tabPage1
@@ -75,13 +80,17 @@ namespace DIYScript_Interpreter
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 400);
+            this.tabPage1.Size = new System.Drawing.Size(768, 370);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "编辑";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.textEditorControl1);
             this.groupBox1.Controls.Add(this.buttonCBG);
             this.groupBox1.Controls.Add(this.buttonCFront);
             this.groupBox1.Controls.Add(this.buttonFont);
@@ -95,7 +104,7 @@ namespace DIYScript_Interpreter
             // buttonCBG
             // 
             this.buttonCBG.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonCBG.Location = new System.Drawing.Point(341, 66);
+            this.buttonCBG.Location = new System.Drawing.Point(6, 78);
             this.buttonCBG.Name = "buttonCBG";
             this.buttonCBG.Size = new System.Drawing.Size(75, 23);
             this.buttonCBG.TabIndex = 2;
@@ -129,7 +138,7 @@ namespace DIYScript_Interpreter
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 400);
+            this.tabPage2.Size = new System.Drawing.Size(768, 370);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "视图";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -183,10 +192,10 @@ namespace DIYScript_Interpreter
             // listViewExample
             // 
             this.listViewExample.HideSelection = false;
-            listViewItem1.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
             this.listViewExample.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.listViewExample.LargeImageList = this.imageList1;
             this.listViewExample.Location = new System.Drawing.Point(414, 35);
             this.listViewExample.Name = "listViewExample";
@@ -210,11 +219,62 @@ namespace DIYScript_Interpreter
             this.imageList2.Images.SetKeyName(0, "index.jpg");
             this.imageList2.Images.SetKeyName(1, "現代アートアイコン.png");
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(713, 415);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "应用";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(632, 415);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "应用";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textEditorControl1
+            // 
+            this.textEditorControl1.BackColor = System.Drawing.Color.Transparent;
+            this.textEditorControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.textEditorControl1.IsReadOnly = false;
+            this.textEditorControl1.Location = new System.Drawing.Point(308, 32);
+            this.textEditorControl1.Name = "textEditorControl1";
+            this.textEditorControl1.Size = new System.Drawing.Size(442, 117);
+            this.textEditorControl1.TabIndex = 3;
+            this.textEditorControl1.Text = "textEditorControl1";
+            this.textEditorControl1.Load += new System.EventHandler(this.textEditorControl1_Load);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(306, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 12);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "恶 俗 预 览";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(87, 24);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(72, 16);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "显示行号";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControlSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Options";
@@ -223,6 +283,7 @@ namespace DIYScript_Interpreter
             this.tabControlSettings.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -249,5 +310,10 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColorDialog colorDialog2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label3;
+        private ICSharpCode.TextEditor.TextEditorControl textEditorControl1;
     }
 }

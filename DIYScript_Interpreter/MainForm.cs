@@ -95,39 +95,39 @@ namespace DIYScript_Interpreter {
 
         private void 复制ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-    //        string str = textEditorControl1.ActiveTextAreaControl.SelectionManager.SelectedText;
-      //      if (str == "") return;
-        //    Clipboard.SetText(str);
+            string str = textEditorControl1.ActiveTextAreaControl.SelectionManager.SelectedText;
+            if (str == "") return;
+            Clipboard.SetText(str);
         }
 
         private void 粘贴ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string str = Clipboard.GetText();
- //           textEditorControl1.ActiveTextAreaControl.TextArea.InsertString(str);
- //
-   //         if (textEditorControl1.ActiveTextAreaControl.SelectionManager.HasSomethingSelected)
-     //           textEditorControl1.ActiveTextAreaControl.SelectionManager.RemoveSelectedText();
+            textEditorControl1.ActiveTextAreaControl.TextArea.InsertString(str);
+ 
+            if (textEditorControl1.ActiveTextAreaControl.SelectionManager.HasSomethingSelected)
+                textEditorControl1.ActiveTextAreaControl.SelectionManager.RemoveSelectedText();
         }
 
         private void 剪切ToolStripMenuItem_Click(object sender, EventArgs e)
         {
- //           string str = textEditorControl1.ActiveTextAreaControl.SelectionManager.SelectedText;
-   //         if (str == "") return;
-     //       Clipboard.SetText(str);
-       //     textEditorControl1.ActiveTextAreaControl.SelectionManager.RemoveSelectedText();
+            string str = textEditorControl1.ActiveTextAreaControl.SelectionManager.SelectedText;
+            if (str == "") return;
+            Clipboard.SetText(str);
+            textEditorControl1.ActiveTextAreaControl.SelectionManager.RemoveSelectedText();
         }
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-//            string str = textEditorControl1.ActiveTextAreaControl.SelectionManager.SelectedText;
-  //          if (str != "") textEditorControl1.ActiveTextAreaControl.SelectionManager.RemoveSelectedText();
+            string str = textEditorControl1.ActiveTextAreaControl.SelectionManager.SelectedText;
+            if (str != "") textEditorControl1.ActiveTextAreaControl.SelectionManager.RemoveSelectedText();
         }
 
         private void 全选ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-//            this.textEditorControl1.ActiveTextAreaControl.SelectionManager.SetSelection(
-  //              textEditorControl1.Document.OffsetToPosition(0),
-    //            textEditorControl1.Document.OffsetToPosition(textEditorControl1.Document.TextLength));
+            this.textEditorControl1.ActiveTextAreaControl.SelectionManager.SetSelection(
+                textEditorControl1.Document.OffsetToPosition(0),
+                textEditorControl1.Document.OffsetToPosition(textEditorControl1.Document.TextLength));
         }
 
         private void 打印ToolStripMenuItem_Click(object sender, EventArgs e)
