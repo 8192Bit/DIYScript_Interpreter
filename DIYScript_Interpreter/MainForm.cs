@@ -66,16 +66,12 @@ namespace DIYScript_Interpreter {
         }
         private void OptionsRefresh() {
             listViewBG.View = listViewOBJ.View = listView1.View = Properties.Settings.Default.LViewValue;
-            textEditorControl1.BackColor = Properties.Settings.Default.BackColor;
-            textEditorControl1.ForeColor = Properties.Settings.Default.ForeColor;
-            textEditorControl1.Font = Properties.Settings.Default.Font;
+
         }
         private void MainForm_Load(object sender, EventArgs e) {
             OBJAddingStatus.CurrentOBJID = 0;
             listViewBG.View = listViewOBJ.View = listView1.View = Properties.Settings.Default.LViewValue;
-            textEditorControl1.BackColor = Properties.Settings.Default.BackColor;
-            textEditorControl1.ForeColor = Properties.Settings.Default.ForeColor;
-            textEditorControl1.Font = Properties.Settings.Default.Font;
+
         }
 
         private void buttonNewOBJ_Click_1(object sender, EventArgs e) {
@@ -110,53 +106,6 @@ namespace DIYScript_Interpreter {
             }
         }
 
-        private void 复制ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string str = textEditorControl1.ActiveTextAreaControl.SelectionManager.SelectedText;
-            if (str == "") return;
-            Clipboard.SetText(str);
-            
-        }
-
-        private void 粘贴ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string str = Clipboard.GetText();
-            textEditorControl1.ActiveTextAreaControl.TextArea.InsertString(str);
- 
-            if (textEditorControl1.ActiveTextAreaControl.SelectionManager.HasSomethingSelected)
-                textEditorControl1.ActiveTextAreaControl.SelectionManager.RemoveSelectedText();
-        }
-
-        private void 剪切ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string str = textEditorControl1.ActiveTextAreaControl.SelectionManager.SelectedText;
-            if (str == "") return;
-            Clipboard.SetText(str);
-            textEditorControl1.ActiveTextAreaControl.SelectionManager.RemoveSelectedText();
-        }
-
-        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string str = textEditorControl1.ActiveTextAreaControl.SelectionManager.SelectedText;
-            if (str != "") textEditorControl1.ActiveTextAreaControl.SelectionManager.RemoveSelectedText();
-        }
-
-        private void 全选ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.textEditorControl1.ActiveTextAreaControl.SelectionManager.SetSelection(
-                textEditorControl1.Document.OffsetToPosition(0),
-                textEditorControl1.Document.OffsetToPosition(textEditorControl1.Document.TextLength));
-        }
-
-        private void 撤销ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            textEditorControl1.Undo();
-        }
-
-        private void 重做ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            textEditorControl1.Redo();
-        }
 
         private void buttonRefreshBG_Click(object sender, EventArgs e)
         {
@@ -181,6 +130,13 @@ namespace DIYScript_Interpreter {
         {
             GAME.Current.DelBG(listViewBG.CheckedIndices.Count);
         }
+
+        private void NUT_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 
     public class OBJChoose {

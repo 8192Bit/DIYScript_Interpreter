@@ -25,52 +25,6 @@ namespace DIYScript_Interpreter.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Drawing.Color ForeColor {
-            get {
-                return ((global::System.Drawing.Color)(this["ForeColor"]));
-            }
-            set {
-                this["ForeColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Drawing.Color BackColor {
-            get {
-                return ((global::System.Drawing.Color)(this["BackColor"]));
-            }
-            set {
-                this["BackColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Consolas, 9pt")]
-        public global::System.Drawing.Font Font {
-            get {
-                return ((global::System.Drawing.Font)(this["Font"]));
-            }
-            set {
-                this["Font"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool LineNumber {
-            get {
-                return ((bool)(this["LineNumber"]));
-            }
-            set {
-                this["LineNumber"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("LargeIcon")]
         public global::System.Windows.Forms.View LViewValue {
             get {
