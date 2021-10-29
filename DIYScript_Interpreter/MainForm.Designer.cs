@@ -63,10 +63,17 @@ namespace DIYScript_Interpreter
             this.groupBoxAIBGMMdata = new System.Windows.Forms.GroupBox();
             this.tabControlAIOBJMdata = new System.Windows.Forms.TabControl();
             this.AI = new System.Windows.Forms.TabPage();
+            this.groupBoxAction = new System.Windows.Forms.GroupBox();
+            this.groupBoxWhen = new System.Windows.Forms.GroupBox();
+            this.listBoxCondition = new System.Windows.Forms.ListBox();
+            this.labelOBJName = new System.Windows.Forms.Label();
+            this.buttonDel = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDown = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.labelScriptsList = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxScript = new System.Windows.Forms.ListBox();
             this.BGM = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -79,16 +86,23 @@ namespace DIYScript_Interpreter
             this.labelGameName = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.buttonDown = new System.Windows.Forms.Button();
+            this.buttonCDel = new System.Windows.Forms.Button();
+            this.buttonCAdd = new System.Windows.Forms.Button();
+            this.buttonCDown = new System.Windows.Forms.Button();
+            this.buttonCUp = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.labelOBJName = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.listBoxAction = new System.Windows.Forms.ListBox();
             this.toolStrip.SuspendLayout();
             this.groupBoxBG.SuspendLayout();
             this.groupBoxOBJ.SuspendLayout();
             this.groupBoxAIBGMMdata.SuspendLayout();
             this.tabControlAIOBJMdata.SuspendLayout();
             this.AI.SuspendLayout();
+            this.groupBoxAction.SuspendLayout();
+            this.groupBoxWhen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.BGM.SuspendLayout();
             this.Metadata.SuspendLayout();
@@ -428,14 +442,16 @@ namespace DIYScript_Interpreter
             // 
             // AI
             // 
+            this.AI.Controls.Add(this.groupBoxAction);
+            this.AI.Controls.Add(this.groupBoxWhen);
             this.AI.Controls.Add(this.labelOBJName);
-            this.AI.Controls.Add(this.button4);
-            this.AI.Controls.Add(this.button5);
+            this.AI.Controls.Add(this.buttonDel);
+            this.AI.Controls.Add(this.buttonAdd);
             this.AI.Controls.Add(this.buttonDown);
             this.AI.Controls.Add(this.buttonUp);
             this.AI.Controls.Add(this.labelScriptsList);
             this.AI.Controls.Add(this.pictureBox1);
-            this.AI.Controls.Add(this.listBox1);
+            this.AI.Controls.Add(this.listBoxScript);
             this.AI.ForeColor = System.Drawing.Color.Black;
             this.AI.Location = new System.Drawing.Point(4, 25);
             this.AI.Name = "AI";
@@ -443,6 +459,83 @@ namespace DIYScript_Interpreter
             this.AI.Size = new System.Drawing.Size(785, 486);
             this.AI.TabIndex = 0;
             this.AI.Text = "脚本";
+            // 
+            // groupBoxAction
+            // 
+            this.groupBoxAction.Controls.Add(this.button4);
+            this.groupBoxAction.Controls.Add(this.button5);
+            this.groupBoxAction.Controls.Add(this.button6);
+            this.groupBoxAction.Controls.Add(this.button7);
+            this.groupBoxAction.Controls.Add(this.listBoxAction);
+            this.groupBoxAction.Location = new System.Drawing.Point(216, 276);
+            this.groupBoxAction.Name = "groupBoxAction";
+            this.groupBoxAction.Size = new System.Drawing.Size(563, 202);
+            this.groupBoxAction.TabIndex = 9;
+            this.groupBoxAction.TabStop = false;
+            this.groupBoxAction.Text = "做......";
+            // 
+            // groupBoxWhen
+            // 
+            this.groupBoxWhen.Controls.Add(this.buttonCDel);
+            this.groupBoxWhen.Controls.Add(this.buttonCAdd);
+            this.groupBoxWhen.Controls.Add(this.buttonCDown);
+            this.groupBoxWhen.Controls.Add(this.buttonCUp);
+            this.groupBoxWhen.Controls.Add(this.listBoxCondition);
+            this.groupBoxWhen.Location = new System.Drawing.Point(216, 114);
+            this.groupBoxWhen.Name = "groupBoxWhen";
+            this.groupBoxWhen.Size = new System.Drawing.Size(563, 156);
+            this.groupBoxWhen.TabIndex = 8;
+            this.groupBoxWhen.TabStop = false;
+            this.groupBoxWhen.Text = "当......";
+            // 
+            // listBoxCondition
+            // 
+            this.listBoxCondition.FormattingEnabled = true;
+            this.listBoxCondition.ItemHeight = 12;
+            this.listBoxCondition.Location = new System.Drawing.Point(6, 20);
+            this.listBoxCondition.Name = "listBoxCondition";
+            this.listBoxCondition.Size = new System.Drawing.Size(135, 124);
+            this.listBoxCondition.TabIndex = 1;
+            // 
+            // labelOBJName
+            // 
+            this.labelOBJName.AutoSize = true;
+            this.labelOBJName.Font = new System.Drawing.Font("宋体", 32F);
+            this.labelOBJName.Location = new System.Drawing.Point(103, 7);
+            this.labelOBJName.Name = "labelOBJName";
+            this.labelOBJName.Size = new System.Drawing.Size(234, 43);
+            this.labelOBJName.TabIndex = 7;
+            this.labelOBJName.Text = "未选中对象";
+            // 
+            // buttonDel
+            // 
+            this.buttonDel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonDel.Location = new System.Drawing.Point(187, 201);
+            this.buttonDel.Name = "buttonDel";
+            this.buttonDel.Size = new System.Drawing.Size(23, 23);
+            this.buttonDel.TabIndex = 6;
+            this.buttonDel.Text = "-";
+            this.buttonDel.UseVisualStyleBackColor = true;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonAdd.Location = new System.Drawing.Point(187, 172);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(23, 23);
+            this.buttonAdd.TabIndex = 5;
+            this.buttonAdd.Text = "+";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            // 
+            // buttonDown
+            // 
+            this.buttonDown.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonDown.Location = new System.Drawing.Point(187, 143);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(23, 23);
+            this.buttonDown.TabIndex = 4;
+            this.buttonDown.Text = "▽";
+            this.buttonDown.UseVisualStyleBackColor = true;
             // 
             // buttonUp
             // 
@@ -473,14 +566,14 @@ namespace DIYScript_Interpreter
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // listBox1
+            // listBoxScript
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(6, 114);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(175, 364);
-            this.listBox1.TabIndex = 0;
+            this.listBoxScript.FormattingEnabled = true;
+            this.listBoxScript.ItemHeight = 12;
+            this.listBoxScript.Location = new System.Drawing.Point(6, 114);
+            this.listBoxScript.Name = "listBoxScript";
+            this.listBoxScript.Size = new System.Drawing.Size(175, 364);
+            this.listBoxScript.TabIndex = 0;
             // 
             // BGM
             // 
@@ -595,45 +688,94 @@ namespace DIYScript_Interpreter
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // buttonDown
+            // buttonCDel
             // 
-            this.buttonDown.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonDown.Location = new System.Drawing.Point(187, 143);
-            this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(23, 23);
-            this.buttonDown.TabIndex = 4;
-            this.buttonDown.Text = "▽";
-            this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonCDel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCDel.Location = new System.Drawing.Point(147, 107);
+            this.buttonCDel.Name = "buttonCDel";
+            this.buttonCDel.Size = new System.Drawing.Size(23, 23);
+            this.buttonCDel.TabIndex = 10;
+            this.buttonCDel.Text = "-";
+            this.buttonCDel.UseVisualStyleBackColor = true;
+            // 
+            // buttonCAdd
+            // 
+            this.buttonCAdd.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCAdd.Location = new System.Drawing.Point(147, 78);
+            this.buttonCAdd.Name = "buttonCAdd";
+            this.buttonCAdd.Size = new System.Drawing.Size(23, 23);
+            this.buttonCAdd.TabIndex = 9;
+            this.buttonCAdd.Text = "+";
+            this.buttonCAdd.UseVisualStyleBackColor = true;
+            // 
+            // buttonCDown
+            // 
+            this.buttonCDown.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCDown.Location = new System.Drawing.Point(147, 49);
+            this.buttonCDown.Name = "buttonCDown";
+            this.buttonCDown.Size = new System.Drawing.Size(23, 23);
+            this.buttonCDown.TabIndex = 8;
+            this.buttonCDown.Text = "▽";
+            this.buttonCDown.UseVisualStyleBackColor = true;
+            // 
+            // buttonCUp
+            // 
+            this.buttonCUp.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCUp.Location = new System.Drawing.Point(147, 20);
+            this.buttonCUp.Name = "buttonCUp";
+            this.buttonCUp.Size = new System.Drawing.Size(23, 23);
+            this.buttonCUp.TabIndex = 7;
+            this.buttonCUp.Text = "△";
+            this.buttonCUp.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(187, 201);
+            this.button4.Location = new System.Drawing.Point(147, 107);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(23, 23);
-            this.button4.TabIndex = 6;
+            this.button4.TabIndex = 15;
             this.button4.Text = "-";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.Location = new System.Drawing.Point(187, 172);
+            this.button5.Location = new System.Drawing.Point(147, 78);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(23, 23);
-            this.button5.TabIndex = 5;
+            this.button5.TabIndex = 14;
             this.button5.Text = "+";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // labelOBJName
+            // button6
             // 
-            this.labelOBJName.AutoSize = true;
-            this.labelOBJName.Font = new System.Drawing.Font("宋体", 32F);
-            this.labelOBJName.Location = new System.Drawing.Point(103, 7);
-            this.labelOBJName.Name = "labelOBJName";
-            this.labelOBJName.Size = new System.Drawing.Size(234, 43);
-            this.labelOBJName.TabIndex = 7;
-            this.labelOBJName.Text = "未选中对象";
+            this.button6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button6.Location = new System.Drawing.Point(147, 49);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(23, 23);
+            this.button6.TabIndex = 13;
+            this.button6.Text = "▽";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button7.Location = new System.Drawing.Point(147, 20);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(23, 23);
+            this.button7.TabIndex = 12;
+            this.button7.Text = "△";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // listBoxAction
+            // 
+            this.listBoxAction.FormattingEnabled = true;
+            this.listBoxAction.ItemHeight = 12;
+            this.listBoxAction.Location = new System.Drawing.Point(6, 20);
+            this.listBoxAction.Name = "listBoxAction";
+            this.listBoxAction.Size = new System.Drawing.Size(135, 172);
+            this.listBoxAction.TabIndex = 11;
             // 
             // MainForm
             // 
@@ -657,6 +799,8 @@ namespace DIYScript_Interpreter
             this.tabControlAIOBJMdata.ResumeLayout(false);
             this.AI.ResumeLayout(false);
             this.AI.PerformLayout();
+            this.groupBoxAction.ResumeLayout(false);
+            this.groupBoxWhen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.BGM.ResumeLayout(false);
             this.Metadata.ResumeLayout(false);
@@ -713,12 +857,24 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Label labelScriptsList;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxScript;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Label labelOBJName;
+        private System.Windows.Forms.Button buttonDel;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.GroupBox groupBoxAction;
+        private System.Windows.Forms.GroupBox groupBoxWhen;
+        private System.Windows.Forms.ListBox listBoxCondition;
+        private System.Windows.Forms.Button buttonCDel;
+        private System.Windows.Forms.Button buttonCAdd;
+        private System.Windows.Forms.Button buttonCDown;
+        private System.Windows.Forms.Button buttonCUp;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ListBox listBoxAction;
     }
 }
 

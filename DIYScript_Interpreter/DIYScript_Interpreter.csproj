@@ -90,6 +90,12 @@
     <Compile Include="BGMaker.Designer.cs">
       <DependentUpon>BGMaker.cs</DependentUpon>
     </Compile>
+    <Compile Include="GamePlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GamePlay.Designer.cs">
+      <DependentUpon>GamePlay.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BGMaker.resx">
       <DependentUpon>BGMaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GamePlay.resx">
+      <DependentUpon>GamePlay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
