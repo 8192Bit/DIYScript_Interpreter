@@ -50,11 +50,13 @@ namespace DIYScript_Interpreter
             this.labelRefresh = new System.Windows.Forms.Label();
             this.comboBoxRefresh = new System.Windows.Forms.ComboBox();
             this.groupBoxDebugger = new System.Windows.Forms.GroupBox();
+            this.trackBarSmooth = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.groupBoxState.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxRender.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSmooth)).BeginInit();
             this.SuspendLayout();
             // 
             // labelMM42
@@ -189,6 +191,7 @@ namespace DIYScript_Interpreter
             // 
             // groupBoxRender
             // 
+            this.groupBoxRender.Controls.Add(this.trackBarSmooth);
             this.groupBoxRender.Controls.Add(this.comboBoxSmooth);
             this.groupBoxRender.Controls.Add(this.labelTicked);
             this.groupBoxRender.Controls.Add(this.labelSmooth);
@@ -240,9 +243,7 @@ namespace DIYScript_Interpreter
             this.comboBoxRefresh.FormattingEnabled = true;
             this.comboBoxRefresh.Items.AddRange(new object[] {
             "Ticker Only",
-            "Ticker+Code DBuffer",
-            "Ticker+WinForm DBuffer",
-            "Winform RePaint"});
+            "Ticker+WinForm DBuffer"});
             this.comboBoxRefresh.Location = new System.Drawing.Point(65, 20);
             this.comboBoxRefresh.Name = "comboBoxRefresh";
             this.comboBoxRefresh.Size = new System.Drawing.Size(198, 20);
@@ -257,6 +258,16 @@ namespace DIYScript_Interpreter
             this.groupBoxDebugger.TabIndex = 7;
             this.groupBoxDebugger.TabStop = false;
             this.groupBoxDebugger.Text = "调试器";
+            // 
+            // trackBarSmooth
+            // 
+            this.trackBarSmooth.LargeChange = 1;
+            this.trackBarSmooth.Location = new System.Drawing.Point(100, 96);
+            this.trackBarSmooth.Maximum = 4;
+            this.trackBarSmooth.Name = "trackBarSmooth";
+            this.trackBarSmooth.Size = new System.Drawing.Size(104, 42);
+            this.trackBarSmooth.TabIndex = 6;
+            this.trackBarSmooth.Scroll += new System.EventHandler(this.trackBarSmooth_Scroll);
             // 
             // GamePlay
             // 
@@ -281,6 +292,7 @@ namespace DIYScript_Interpreter
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxRender.ResumeLayout(false);
             this.groupBoxRender.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSmooth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,5 +318,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.Button buttonTickStrat;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TrackBar trackBarSmooth;
     }
 }

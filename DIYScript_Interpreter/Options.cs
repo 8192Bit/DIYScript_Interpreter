@@ -34,11 +34,11 @@ namespace DIYScript_Interpreter
 
         private void Options_Load(object sender, EventArgs e)
         {
-            
+
             Properties.Settings.Default.LViewValue = (View)comboBox1.SelectedIndex;
             Properties.Settings.Default.LViewValue = listViewExample.View;
 
- 
+
 
         }
 
@@ -67,7 +67,14 @@ namespace DIYScript_Interpreter
             Close();
         }
 
+        private void listViewExample_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(":)");
+        }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,9 @@ namespace DIYScript_Interpreter
 {
     public partial class GamePlay : Form
     {
-        public static class InterpreterState{
+
+        public static class InterpreterState
+        {
             public static Bitmap FrameBuffer = new Bitmap(640, 480);
             public static Int64 Ticked = 0;
             public static Graphics render = Graphics.FromImage(FrameBuffer);
@@ -22,6 +25,7 @@ namespace DIYScript_Interpreter
         public GamePlay()
         {
             InitializeComponent();
+            InterpreterState.render.Clear(Color.AliceBlue);
         }
 
         private void GamePlay_Load(object sender, EventArgs e)
@@ -45,15 +49,19 @@ namespace DIYScript_Interpreter
             InterpreterState.render.DrawLine(p, 10, 10, InterpreterState.Ticked, InterpreterState.Ticked);//在画板上画直线,起始坐标为(10,10),终点坐标为(100,100)
             InterpreterState.render.DrawRectangle(p, 10, 10, InterpreterState.Ticked, InterpreterState.Ticked);//在画板上画矩形,起始坐标为(10,10),宽为,高为
 
-            InterpreterState.render.DrawRectangle(w, 10, 10, InterpreterState.Ticked-10, InterpreterState.Ticked-10);//在画板上画矩形,起始坐标为(10,10),宽为,高为
+            InterpreterState.render.DrawRectangle(w, 10, 10, InterpreterState.Ticked - 10, InterpreterState.Ticked - 10);//在画板上画矩形,起始坐标为(10,10),宽为,高为
             InterpreterState.render.DrawEllipse(p, 10, 10, InterpreterState.Ticked, InterpreterState.Ticked);//在画板上画椭圆,起始坐标为(10,10),外接矩形的宽为,高为
-            if (comboBoxRefresh.SelectedIndex == 1)
+            if (comboBoxRefresh.SelectedIndex == 1 | comboBoxRefresh.SelectedIndex == 2)
             {
-                //InterpreterState.render.Clear(Color.White);
                 VRamCopy();
-            } else if (comboBoxRefresh.SelectedIndex == 3)
+            }
+            if (comboBoxRefresh.SelectedIndex == 2)
             {
-                GamePlay.d
+                GAME.Current.player.DoubleBuffered = true;
+            }
+            else
+            {
+                GAME.Current.player.DoubleBuffered = false;
             }
 
 
@@ -67,7 +75,7 @@ namespace DIYScript_Interpreter
 
         private void trackBarSpeed_Scroll(object sender, EventArgs e)
         {
-            labelSpeed.Text = "时间速度: "+trackBarSpeed.Value;
+            labelSpeed.Text = "时间速度: " + trackBarSpeed.Value;
             ticker.Interval = trackBarSpeed.Value;
         }
 
@@ -89,14 +97,32 @@ namespace DIYScript_Interpreter
 
         private void comboBoxSmooth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InterpreterState.render.SmoothingMode = (System.Drawing.Drawing2D.SmoothingMode)comboBoxSmooth.SelectedIndex; 
         }
 
         private void GamePlay_Paint(object sender, PaintEventArgs e)
         {
-            if (comboBoxRefresh.SelectedIndex == 3)
+
+        }
+
+        private void trackBarSmooth_Scroll(object sender, EventArgs e)
+        {
+            switch (this.trackBarSmooth.Value)
             {
-                VRamCopy();
+                case 0:
+                    InterpreterState.render.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+                    break;
+                case 1:
+                    InterpreterState.render.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
+                    break;
+                case 2:
+                    InterpreterState.render.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
+                    break;
+                case 3:
+                    InterpreterState.render.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                    break;
+                case 4:
+                    InterpreterState.render.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                    break;
             }
         }
     }

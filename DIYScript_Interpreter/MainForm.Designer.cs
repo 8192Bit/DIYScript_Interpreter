@@ -143,14 +143,14 @@ namespace DIYScript_Interpreter
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.保存ToolStripMenuItem.Text = "保存";
             // 
             // Option
@@ -169,6 +169,7 @@ namespace DIYScript_Interpreter
             this.首选项ToolStripMenuItem.Name = "首选项ToolStripMenuItem";
             this.首选项ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.首选项ToolStripMenuItem.Text = "首选项";
+            this.首选项ToolStripMenuItem.Click += new System.EventHandler(this.首选项ToolStripMenuItem_Click);
             // 
             // Help
             // 
@@ -185,14 +186,14 @@ namespace DIYScript_Interpreter
             // 程序帮助ToolStripMenuItem
             // 
             this.程序帮助ToolStripMenuItem.Name = "程序帮助ToolStripMenuItem";
-            this.程序帮助ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.程序帮助ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.程序帮助ToolStripMenuItem.Text = "程序帮助";
             this.程序帮助ToolStripMenuItem.Click += new System.EventHandler(this.程序帮助ToolStripMenuItem_Click);
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
@@ -605,6 +606,7 @@ namespace DIYScript_Interpreter
             this.buttonDel.TabIndex = 6;
             this.buttonDel.Text = "-";
             this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // buttonAdd
             // 
@@ -615,6 +617,7 @@ namespace DIYScript_Interpreter
             this.buttonAdd.TabIndex = 5;
             this.buttonAdd.Text = "+";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonDown
             // 
@@ -791,6 +794,7 @@ namespace DIYScript_Interpreter
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "DIYScript Interpreter";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.groupBoxBG.ResumeLayout(false);

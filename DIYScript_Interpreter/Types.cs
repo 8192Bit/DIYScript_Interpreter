@@ -8,6 +8,20 @@ using System.Threading.Tasks;
 
 namespace DIYScript_Interpreter
 {
+// put all your classes here!!
+    
+    public enum Conditions
+    {
+
+    }
+    public enum Command{
+
+    }
+    public class Script
+    {
+
+    }
+
     public class OBJChoose
     {
         public static bool isAttach;
@@ -22,6 +36,8 @@ namespace DIYScript_Interpreter
 
     public class GAME
     {
+
+        public GamePlay player = new GamePlay();
         public static GAME Current = new GAME();
         public List<OBJ> OBJList = new List<OBJ>();
         public List<BG> BGList = new List<BG>();
@@ -84,8 +100,18 @@ namespace DIYScript_Interpreter
     {
         public UInt64 ID;
         public string Name;
+        
+
         public Int16 PosX;
         public Int16 PosY;
+        public bool[] Switch = new bool[4];
+        // Switch A, B, C, D
+        public int Rotation = 0;
+        public int[] Scale = new int[2];
+        // Scale = {XScale, YScale}
+        // rotate z axis == decrease scale X axis.
+        // Yeah.:)
+    
         public Int16 StartMode;
         // 1 == Location, Point
         // 2 == Location, Area, Anywhere
@@ -98,27 +124,28 @@ namespace DIYScript_Interpreter
         public UInt64 AttachTargetID;
         public Int16[] AttachOffset = new Int16[2];
         // AttachOffset = {offsetx, offsety}
-        public bool[] Switch = new bool[4];
-        // Switch A, B, C, D
+
+        public List<OBJArt> ArtList = new List<OBJArt>();
         public int[] OBJSize = new int[2];
         public OBJArt Arts = new OBJArt();
         public OBJArt CurrentArt;
-        public int Rotation = 0;
-        public int[] Scale = new int[2];
-        // Scale = {XScale, YScale}
-        // rotate z axis == decrease scale X axis.
-        // Yeah.:)
-        public List<OBJArt> ArtList = new List<OBJArt>();
 
-        public void AddArt()
-        {
-            OBJArt ART = new OBJArt();
-            ArtList.Add(ART);
-        }
-        public void DelArt(int index)
-        {
-            ArtList.RemoveAt(index);
-        }
+        public List<Script> ScriptList = new List<Script>();
+    
 
+
+
+
+
+    public void AddArt()
+    {
+        OBJArt ART = new OBJArt();
+        ArtList.Add(ART);
     }
+    public void DelArt(int index)
+    {
+        ArtList.RemoveAt(index);
+    }
+
+}
 }

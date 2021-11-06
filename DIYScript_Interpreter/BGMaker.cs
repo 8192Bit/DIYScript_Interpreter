@@ -27,11 +27,11 @@ namespace DIYScript_Interpreter
             try
             {
                 GAME.Current.AddBG(BGAddingStatus.bitmap, textBoxBGName.Text);
-                
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("SystemERR. DEAD-END-CODE = "+ ex.GetType());
+                MessageBox.Show("SystemERR. DEAD-END-CODE = " + ex.GetType());
                 Console.WriteLine();
             }
             Close();

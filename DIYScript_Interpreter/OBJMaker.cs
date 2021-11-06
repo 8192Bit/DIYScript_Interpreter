@@ -17,7 +17,7 @@ using System.Windows.Forms;
 namespace DIYScript_Interpreter
 {
     public partial class OBJMaker : Form
-    { 
+    {
         public OBJMaker()
         {
             InitializeComponent();
@@ -27,11 +27,12 @@ namespace DIYScript_Interpreter
         private void OK_Click(object sender, EventArgs e)
         {
             Int16 StartMode = 0;
-            if (radioButton1.Checked) {
+            if (radioButton1.Checked)
+            {
                 StartMode = 1;
                 //fixed
             }
-            else if(radioButton2.Checked)
+            else if (radioButton2.Checked)
             {
                 if (!checkBox1.Checked)
                 {
@@ -43,7 +44,8 @@ namespace DIYScript_Interpreter
                     StartMode = 3;
                     //not2overlap
                 }
-            } else if (OBJChoose.isAttach)
+            }
+            else if (OBJChoose.isAttach)
             {
                 StartMode = 4;
             }
@@ -53,8 +55,8 @@ namespace DIYScript_Interpreter
             (OBJAddingStatus.CurrentOBJID, textBoxOBJName.Text, StartMode,
              new Int16[] { (short)trackBar1.Value, (short)trackBar2.Value },
              new Int16[] { (short)trackBar3.Value, (short)trackBar4.Value });
-            
-            
+
+
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

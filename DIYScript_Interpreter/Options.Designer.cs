@@ -35,7 +35,7 @@ namespace DIYScript_Interpreter
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "田所"}, 0, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128))));
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
-            "現 代 ア ー ト"}, "現代アートアイコン.png", System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            "現 代 ア ー ト（ART）"}, "現代アートアイコン.png", System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
             this.tabControlSettings = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -140,6 +140,7 @@ namespace DIYScript_Interpreter
             this.listViewExample.TabIndex = 0;
             this.listViewExample.UseCompatibleStateImageBehavior = false;
             this.listViewExample.View = System.Windows.Forms.View.SmallIcon;
+            this.listViewExample.SelectedIndexChanged += new System.EventHandler(this.listViewExample_SelectedIndexChanged);
             // 
             // imageList1
             // 
@@ -164,6 +165,7 @@ namespace DIYScript_Interpreter
             this.button1.TabIndex = 1;
             this.button1.Text = "取消";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
