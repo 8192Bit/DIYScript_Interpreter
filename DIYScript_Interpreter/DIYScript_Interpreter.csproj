@@ -66,6 +66,11 @@
     <StartupObject>DIYScript_Interpreter.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="PresentationFramework.Royale" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -90,6 +95,13 @@
     <Compile Include="BGMaker.Designer.cs">
       <DependentUpon>BGMaker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Types.cs" />
     <Compile Include="GamePlay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BGMaker.resx">
       <DependentUpon>BGMaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GamePlay.resx">
       <DependentUpon>GamePlay.cs</DependentUpon>

@@ -32,9 +32,9 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "田所"}, 0, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128))));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "現 代 ア ー ト"}, "現代アートアイコン.png", System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
             this.tabControlSettings = new System.Windows.Forms.TabControl();
@@ -46,9 +46,6 @@ namespace DIYScript_Interpreter
             this.listViewExample = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -83,6 +80,7 @@ namespace DIYScript_Interpreter
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.listViewExample);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(756, 222);
@@ -93,6 +91,7 @@ namespace DIYScript_Interpreter
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(6, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
@@ -101,6 +100,7 @@ namespace DIYScript_Interpreter
             // 
             // comboBox1
             // 
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "LargeIcon",
@@ -117,6 +117,7 @@ namespace DIYScript_Interpreter
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(412, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 12);
@@ -125,11 +126,12 @@ namespace DIYScript_Interpreter
             // 
             // listViewExample
             // 
+            this.listViewExample.ForeColor = System.Drawing.SystemColors.ControlText;
             this.listViewExample.HideSelection = false;
-            listViewItem1.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
             this.listViewExample.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.listViewExample.LargeImageList = this.imageList1;
             this.listViewExample.Location = new System.Drawing.Point(414, 32);
             this.listViewExample.Name = "listViewExample";
@@ -155,6 +157,7 @@ namespace DIYScript_Interpreter
             // 
             // button1
             // 
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(713, 415);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -164,6 +167,7 @@ namespace DIYScript_Interpreter
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button2.Location = new System.Drawing.Point(632, 415);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -174,6 +178,7 @@ namespace DIYScript_Interpreter
             // 
             // button3
             // 
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button3.Location = new System.Drawing.Point(551, 415);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -208,16 +213,13 @@ namespace DIYScript_Interpreter
 
         private System.Windows.Forms.TabControl tabControlSettings;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListView listViewExample;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ImageList imageList2;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ColorDialog colorDialog2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

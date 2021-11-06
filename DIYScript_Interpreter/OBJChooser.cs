@@ -35,8 +35,8 @@ namespace DIYScript_Interpreter {
 
         private void OBJChooser_Load(object sender, EventArgs e) {
             listViewOBJ.Clear();
-            foreach (OBJ obj in GAME.Current.OBJList) {
-
+            foreach (OBJ obj in GAME.Current.OBJList)
+            {
                 listViewOBJ.Items.Add(obj.Name, (int)obj.ID);
                 //imageList.Images.Add();
             }
