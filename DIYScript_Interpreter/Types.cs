@@ -99,10 +99,11 @@ namespace DIYScript_Interpreter {
         public static UInt64 CurrentBGID = 0;
         public static Bitmap bitmap;
         public static Graphics graphics = Graphics.FromImage(bitmap);
+        public static bool isEdit;
     }
     public class OBJAddingStatus {
         public static UInt64 CurrentOBJID = 0;
-
+        public static bool isEdit;
     }
     public class OBJ {
         public UInt64 ID;

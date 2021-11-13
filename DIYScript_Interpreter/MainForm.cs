@@ -48,6 +48,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonNewBG_Click(object sender, EventArgs e) {
+            BGAddingStatus.isEdit = false;
             openFileDialog.Filter = "位图|*.bmp";
             openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
@@ -74,6 +75,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonNewOBJ_Click_1(object sender, EventArgs e) {
+            OBJAddingStatus.isEdit = false;
             Form OBJ = new OBJMaker();
             OBJ.ShowDialog();
             buttonRefreshOBJ.PerformClick();
@@ -147,11 +149,18 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonEditBG_Click(object sender, EventArgs e) {
-
+            BGAddingStatus.isEdit = true;
+            openFileDialog.Filter = "位图|*.bmp";
+            openFileDialog.FileName = "11145141919810.bmp";
+            openFileDialog.ShowDialog();
+            buttonRefreshBG.PerformClick();
         }
 
         private void buttonEditOBJ_Click(object sender, EventArgs e) {
-
+            Form OBJ = new OBJMaker();
+            OBJAddingStatus.isEdit = true;
+            OBJ.ShowDialog();
+            buttonRefreshOBJ.PerformClick();
         }
         private void CommandRefresh() {
             listBoxScript.Items.Clear();
