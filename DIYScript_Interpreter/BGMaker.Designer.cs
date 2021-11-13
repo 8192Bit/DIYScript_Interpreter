@@ -29,12 +29,15 @@ namespace DIYScript_Interpreter
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Cancel = new System.Windows.Forms.Button();
             this.OK = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxBGName = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -80,8 +83,13 @@ namespace DIYScript_Interpreter
             // 
             this.textBoxBGName.Location = new System.Drawing.Point(59, 9);
             this.textBoxBGName.Name = "textBoxBGName";
-            this.textBoxBGName.Size = new System.Drawing.Size(199, 21);
+            this.textBoxBGName.Size = new System.Drawing.Size(176, 21);
             this.textBoxBGName.TabIndex = 10;
+            this.textBoxBGName.TextChanged += new System.EventHandler(this.textBoxBGName_TextChanged);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // BGMaker
             // 
@@ -97,6 +105,7 @@ namespace DIYScript_Interpreter
             this.Text = "BGMaker";
             this.Load += new System.EventHandler(this.BGMaker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +118,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button OK;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxBGName;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

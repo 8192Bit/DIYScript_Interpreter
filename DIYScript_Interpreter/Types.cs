@@ -4,6 +4,8 @@ using System.Drawing;
 
 namespace DIYScript_Interpreter {
     // put all your classes here!!
+    //mariokate
+    //:P
 
     enum TypeCondotions {
         Tap,
@@ -146,5 +148,27 @@ namespace DIYScript_Interpreter {
             ArtList.RemoveAt(index);
         }
 
+
+        public class Author {
+            public string state;
+        }
+
+
+
+
+
+        void somethingiwanttosay() {
+            Author I = new Author();
+            I.state = "tired";
+            if (I.state != "tired") {
+#pragma warning disable IDE1006
+                I.state = "say 'fxxu microsoft'";
+            }
+            I.state = "???" +
+                "oh it seemed i did it";
+            I.state = "died";
+        }
+
     }
 }
+

@@ -33,7 +33,7 @@ namespace DIYScript_Interpreter
             this.textBoxOBJName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.OK = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.canvas = new System.Windows.Forms.PictureBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -52,12 +52,14 @@ namespace DIYScript_Interpreter
             this.buttonNewART = new System.Windows.Forms.Button();
             this.listViewART = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxOBJName
@@ -66,6 +68,7 @@ namespace DIYScript_Interpreter
             this.textBoxOBJName.Name = "textBoxOBJName";
             this.textBoxOBJName.Size = new System.Drawing.Size(199, 21);
             this.textBoxOBJName.TabIndex = 0;
+            this.textBoxOBJName.TextChanged += new System.EventHandler(this.textBoxOBJName_TextChanged);
             // 
             // label1
             // 
@@ -86,15 +89,14 @@ namespace DIYScript_Interpreter
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
-            // pictureBox1
+            // canvas
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(559, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(640, 480);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.canvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.canvas.Location = new System.Drawing.Point(559, 15);
+            this.canvas.Name = "canvas";
+            this.canvas.Size = new System.Drawing.Size(640, 480);
+            this.canvas.TabIndex = 3;
+            this.canvas.TabStop = false;
             // 
             // radioButton1
             // 
@@ -165,36 +167,40 @@ namespace DIYScript_Interpreter
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(546, 501);
-            this.trackBar1.Maximum = 480;
+            this.trackBar1.Maximum = 639;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(661, 42);
             this.trackBar1.TabIndex = 8;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // trackBar2
             // 
             this.trackBar2.Location = new System.Drawing.Point(546, 532);
-            this.trackBar2.Maximum = 480;
+            this.trackBar2.Maximum = 639;
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(661, 42);
             this.trackBar2.TabIndex = 9;
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // trackBar3
             // 
             this.trackBar3.Location = new System.Drawing.Point(508, 5);
-            this.trackBar3.Maximum = 640;
+            this.trackBar3.Maximum = 479;
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3.Size = new System.Drawing.Size(42, 503);
             this.trackBar3.TabIndex = 10;
+            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
             // trackBar4
             // 
             this.trackBar4.Location = new System.Drawing.Point(457, 5);
-            this.trackBar4.Maximum = 640;
+            this.trackBar4.Maximum = 479;
             this.trackBar4.Name = "trackBar4";
             this.trackBar4.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar4.Size = new System.Drawing.Size(42, 503);
             this.trackBar4.TabIndex = 11;
+            this.trackBar4.Scroll += new System.EventHandler(this.trackBar4_Scroll);
             // 
             // label2
             // 
@@ -278,6 +284,10 @@ namespace DIYScript_Interpreter
             this.label4.TabIndex = 18;
             this.label4.Text = "形象";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // OBJMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -296,20 +306,21 @@ namespace DIYScript_Interpreter
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.canvas);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxOBJName);
             this.Name = "OBJMaker";
             this.Text = "新建OBJ......";
             this.Load += new System.EventHandler(this.OBJMaker_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,7 +331,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.TextBox textBoxOBJName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button OK;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox canvas;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -339,5 +350,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button buttonNewART;
         private System.Windows.Forms.ListView listViewART;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

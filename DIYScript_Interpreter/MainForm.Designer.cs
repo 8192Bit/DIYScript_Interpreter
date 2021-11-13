@@ -45,15 +45,16 @@ namespace DIYScript_Interpreter
             this.Run = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.NUT = new System.Windows.Forms.Button();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.imageListOBJSmall = new System.Windows.Forms.ImageList(this.components);
             this.groupBoxBG = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.buttonRefreshBG = new System.Windows.Forms.Button();
             this.buttonEditBG = new System.Windows.Forms.Button();
             this.buttonDeleteBG = new System.Windows.Forms.Button();
             this.buttonNewBG = new System.Windows.Forms.Button();
             this.listViewBG = new System.Windows.Forms.ListView();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
+            this.imageListBGLarge = new System.Windows.Forms.ImageList(this.components);
+            this.imageListBGSmall = new System.Windows.Forms.ImageList(this.components);
             this.groupBoxOBJ = new System.Windows.Forms.GroupBox();
             this.buttonRefreshOBJ = new System.Windows.Forms.Button();
             this.buttonEditOBJ = new System.Windows.Forms.Button();
@@ -94,7 +95,7 @@ namespace DIYScript_Interpreter
             this.textBoxGameName = new System.Windows.Forms.TextBox();
             this.labelGameName = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageListOBJLarge = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip.SuspendLayout();
             this.groupBoxBG.SuspendLayout();
             this.groupBoxOBJ.SuspendLayout();
@@ -167,7 +168,7 @@ namespace DIYScript_Interpreter
             // 首选项ToolStripMenuItem
             // 
             this.首选项ToolStripMenuItem.Name = "首选项ToolStripMenuItem";
-            this.首选项ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.首选项ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.首选项ToolStripMenuItem.Text = "首选项";
             this.首选项ToolStripMenuItem.Click += new System.EventHandler(this.首选项ToolStripMenuItem_Click);
             // 
@@ -228,23 +229,24 @@ namespace DIYScript_Interpreter
             this.NUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.NUT.Font = new System.Drawing.Font("Calibri", 32F);
             this.NUT.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.NUT.Location = new System.Drawing.Point(1216, 349);
+            this.NUT.Location = new System.Drawing.Point(1216, 369);
             this.NUT.Name = "NUT";
-            this.NUT.Size = new System.Drawing.Size(260, 220);
+            this.NUT.Size = new System.Drawing.Size(260, 200);
             this.NUT.TabIndex = 6;
             this.NUT.Text = "NUT";
             this.NUT.UseVisualStyleBackColor = false;
             this.NUT.Click += new System.EventHandler(this.NUT_Click);
             // 
-            // imageList
+            // imageListOBJSmall
             // 
-            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListOBJSmall.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageListOBJSmall.ImageSize = new System.Drawing.Size(32, 32);
+            this.imageListOBJSmall.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // groupBoxBG
             // 
             this.groupBoxBG.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.groupBoxBG.Controls.Add(this.button8);
             this.groupBoxBG.Controls.Add(this.buttonRefreshBG);
             this.groupBoxBG.Controls.Add(this.buttonEditBG);
             this.groupBoxBG.Controls.Add(this.buttonDeleteBG);
@@ -253,10 +255,23 @@ namespace DIYScript_Interpreter
             this.groupBoxBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBoxBG.Location = new System.Drawing.Point(1210, 28);
             this.groupBoxBG.Name = "groupBoxBG";
-            this.groupBoxBG.Size = new System.Drawing.Size(265, 315);
+            this.groupBoxBG.Size = new System.Drawing.Size(265, 323);
             this.groupBoxBG.TabIndex = 8;
             this.groupBoxBG.TabStop = false;
             this.groupBoxBG.Text = "背景";
+            // 
+            // button8
+            // 
+            this.button8.Enabled = false;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button8.FlatAppearance.BorderSize = 5;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button8.Location = new System.Drawing.Point(6, 294);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(253, 21);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "设为默认背景";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // buttonRefreshBG
             // 
@@ -277,19 +292,20 @@ namespace DIYScript_Interpreter
             this.buttonEditBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonEditBG.FlatAppearance.BorderSize = 5;
             this.buttonEditBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEditBG.Location = new System.Drawing.Point(182, 287);
+            this.buttonEditBG.Location = new System.Drawing.Point(182, 266);
             this.buttonEditBG.Name = "buttonEditBG";
             this.buttonEditBG.Size = new System.Drawing.Size(77, 22);
             this.buttonEditBG.TabIndex = 5;
             this.buttonEditBG.Text = "编辑";
             this.buttonEditBG.UseVisualStyleBackColor = true;
+            this.buttonEditBG.Click += new System.EventHandler(this.buttonEditBG_Click);
             // 
             // buttonDeleteBG
             // 
             this.buttonDeleteBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDeleteBG.FlatAppearance.BorderSize = 5;
             this.buttonDeleteBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonDeleteBG.Location = new System.Drawing.Point(94, 287);
+            this.buttonDeleteBG.Location = new System.Drawing.Point(94, 266);
             this.buttonDeleteBG.Name = "buttonDeleteBG";
             this.buttonDeleteBG.Size = new System.Drawing.Size(77, 22);
             this.buttonDeleteBG.TabIndex = 4;
@@ -302,7 +318,7 @@ namespace DIYScript_Interpreter
             this.buttonNewBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewBG.FlatAppearance.BorderSize = 5;
             this.buttonNewBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNewBG.Location = new System.Drawing.Point(6, 287);
+            this.buttonNewBG.Location = new System.Drawing.Point(6, 266);
             this.buttonNewBG.Name = "buttonNewBG";
             this.buttonNewBG.Size = new System.Drawing.Size(77, 22);
             this.buttonNewBG.TabIndex = 3;
@@ -314,25 +330,25 @@ namespace DIYScript_Interpreter
             // 
             this.listViewBG.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listViewBG.HideSelection = false;
-            this.listViewBG.LargeImageList = this.imageList2;
+            this.listViewBG.LargeImageList = this.imageListBGLarge;
             this.listViewBG.Location = new System.Drawing.Point(6, 45);
             this.listViewBG.Name = "listViewBG";
-            this.listViewBG.Size = new System.Drawing.Size(253, 236);
-            this.listViewBG.SmallImageList = this.imageList3;
+            this.listViewBG.Size = new System.Drawing.Size(253, 215);
+            this.listViewBG.SmallImageList = this.imageListBGSmall;
             this.listViewBG.TabIndex = 2;
             this.listViewBG.UseCompatibleStateImageBehavior = false;
             // 
-            // imageList2
+            // imageListBGLarge
             // 
-            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList2.ImageSize = new System.Drawing.Size(64, 48);
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListBGLarge.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageListBGLarge.ImageSize = new System.Drawing.Size(64, 48);
+            this.imageListBGLarge.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // imageList3
+            // imageListBGSmall
             // 
-            this.imageList3.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList3.ImageSize = new System.Drawing.Size(32, 24);
-            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListBGSmall.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageListBGSmall.ImageSize = new System.Drawing.Size(32, 24);
+            this.imageListBGSmall.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // groupBoxOBJ
             // 
@@ -376,6 +392,7 @@ namespace DIYScript_Interpreter
             this.buttonEditOBJ.TabIndex = 5;
             this.buttonEditOBJ.Text = "编辑";
             this.buttonEditOBJ.UseVisualStyleBackColor = true;
+            this.buttonEditOBJ.Click += new System.EventHandler(this.buttonEditOBJ_Click);
             // 
             // buttonDelOBJ
             // 
@@ -408,11 +425,14 @@ namespace DIYScript_Interpreter
             this.listViewOBJ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listViewOBJ.HideSelection = false;
+            this.listViewOBJ.LargeImageList = this.imageListOBJLarge;
             this.listViewOBJ.Location = new System.Drawing.Point(6, 45);
             this.listViewOBJ.Name = "listViewOBJ";
             this.listViewOBJ.Size = new System.Drawing.Size(369, 446);
+            this.listViewOBJ.SmallImageList = this.imageListOBJSmall;
             this.listViewOBJ.TabIndex = 2;
             this.listViewOBJ.UseCompatibleStateImageBehavior = false;
+            this.listViewOBJ.SelectedIndexChanged += new System.EventHandler(this.listViewOBJ_SelectedIndexChanged);
             // 
             // groupBoxAIBGMMdata
             // 
@@ -774,11 +794,11 @@ namespace DIYScript_Interpreter
             this.openFileDialog.FileName = "1145141919810.bmp";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
             // 
-            // imageList1
+            // imageListOBJLarge
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListOBJLarge.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageListOBJLarge.ImageSize = new System.Drawing.Size(64, 64);
+            this.imageListOBJLarge.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // MainForm
             // 
@@ -825,7 +845,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button NUT;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton Run;
-        private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.ImageList imageListOBJSmall;
         private System.Windows.Forms.ToolStripMenuItem 保存ToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBoxBG;
         private System.Windows.Forms.Button buttonEditBG;
@@ -855,9 +875,9 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button buttonRefreshBG;
         private System.Windows.Forms.Button buttonRefreshOBJ;
         private System.Windows.Forms.ToolStripMenuItem 首选项ToolStripMenuItem;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ImageList imageList2;
-        private System.Windows.Forms.ImageList imageList3;
+        private System.Windows.Forms.ImageList imageListOBJLarge;
+        private System.Windows.Forms.ImageList imageListBGSmall;
+        private System.Windows.Forms.ImageList imageListBGLarge;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Label labelScriptsList;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -879,6 +899,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ListBox listBoxAction;
+        private System.Windows.Forms.Button button8;
     }
 }
 

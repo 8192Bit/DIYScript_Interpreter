@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-
 
 #pragma warning disable IDE1006
 //Fxxk u microsoft ide1006 is the silliest suggestion in all of the ides
@@ -15,29 +16,47 @@ namespace DIYScript_Interpreter {
         }
 
         private void OK_Click(object sender, EventArgs e) {
-            Int16 StartMode = 0;
-            if (radioButton1.Checked) {
-                StartMode = 1;
-                //fixed
-            } else if (radioButton2.Checked) {
-                if (!checkBox1.Checked) {
-                    StartMode = 2;
-                    //any
-                } else {
-                    StartMode = 3;
-                    //not2overlap
+            if (textBoxOBJName.Text == "") {
+                errorProvider.SetError(textBoxOBJName, "抄一百遍名字！");
+
+            } else {
+                Int16 StartMode = 0;
+                if (radioButton1.Checked) {
+                    StartMode = 1;
+                    //fixed
+                } else if (radioButton2.Checked) {
+                    if (!checkBox1.Checked) {
+                        StartMode = 2;
+                        //any
+                    } else {
+                        StartMode = 3;
+                        //not2overlap
+                    }
+                } else if (OBJChoose.isAttach) {
+                    StartMode = 4;
                 }
-            } else if (OBJChoose.isAttach) {
-                StartMode = 4;
+                OBJAddingStatus.CurrentOBJID++;
+                GAME.Current.AddOBJ();
+                GAME.Current.EditOBJ
+                (OBJAddingStatus.CurrentOBJID, textBoxOBJName.Text, StartMode,
+                 new Int16[] { (short)trackBar1.Value, (short)trackBar2.Value },
+                 new Int16[] { (short)trackBar3.Value, (short)trackBar4.Value });
+                Dispose();
             }
-            OBJAddingStatus.CurrentOBJID++;
-            GAME.Current.AddOBJ();
-            GAME.Current.EditOBJ
-            (OBJAddingStatus.CurrentOBJID, textBoxOBJName.Text, StartMode,
-             new Int16[] { (short)trackBar1.Value, (short)trackBar2.Value },
-             new Int16[] { (short)trackBar3.Value, (short)trackBar4.Value });
 
 
+
+        }
+
+        void reDraw(int x1, int y1, int x2, int y2, bool isArea) {
+            Bitmap b = new Bitmap(640, 480);
+            Point p1 = new Point(x1, y1);
+            Graphics g = Graphics.FromImage(b);
+            if (isArea) {
+                Point p2 = new Point(x2, y2);
+                g.DrawRectangle(new Pen(new LinearGradientBrush(p1, p2, Color.Cyan, Color.Magenta)), p1.X, p1.Y, p2.X - p1.X, p2.Y - p1.Y);
+            }
+            canvas.Image = b;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e) {
@@ -63,6 +82,30 @@ namespace DIYScript_Interpreter {
 
         private void listViewART_SelectedIndexChanged(object sender, EventArgs e) {
 
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e) {
+
+            reDraw(trackBar1.Value, 480 - trackBar3.Value, trackBar2.Value, 480 - trackBar4.Value, radioButton2.Checked);
+        }
+
+        private void trackBar2_Scroll(object sender, EventArgs e) {
+
+            reDraw(trackBar1.Value, 480 - trackBar3.Value, trackBar2.Value, 480 - trackBar4.Value, radioButton2.Checked);
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e) {
+
+            reDraw(trackBar1.Value, 480 - trackBar3.Value, trackBar2.Value, 480 - trackBar4.Value, radioButton2.Checked);
+        }
+
+        private void trackBar4_Scroll(object sender, EventArgs e) {
+
+            reDraw(trackBar1.Value, 480 - trackBar3.Value, trackBar2.Value, 480 - trackBar4.Value, radioButton2.Checked);
+        }
+
+        private void textBoxOBJName_TextChanged(object sender, EventArgs e) {
+            errorProvider.SetError(textBoxOBJName, null);
         }
     }
 }

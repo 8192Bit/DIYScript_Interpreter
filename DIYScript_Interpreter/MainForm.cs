@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using static DIYScript_Interpreter.GAME;
 
 #pragma warning disable IDE1006
 //Fxxk u microsoft ide1006 is the silliest suggestion in all of the ides
@@ -49,6 +50,7 @@ namespace DIYScript_Interpreter {
             openFileDialog.Filter = "位图|*.bmp";
             openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
+
             buttonRefreshBG.PerformClick();
         }
 
@@ -82,7 +84,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonDelOBJ_Click(object sender, EventArgs e) {
-            GAME.Current.OBJList.RemoveAt(listViewOBJ.CheckedIndices.Count);
+            GAME.Current.OBJList.RemoveAt(listViewOBJ.FocusedItem.Index);
         }
 
 
@@ -99,12 +101,12 @@ namespace DIYScript_Interpreter {
 
         private void buttonRefreshBG_Click(object sender, EventArgs e) {
             listViewBG.Clear();
-            imageList2.Images.Clear();
-            imageList3.Images.Clear();
+            imageListBGSmall.Images.Clear();
+            imageListBGLarge.Images.Clear();
             foreach (BG bg in GAME.Current.BGList) {
-                imageList2.Images.Add(bg.bitmap);
-                imageList3.Images.Add(bg.bitmap);
-                listViewBG.Items.Add(bg.Name, (int)bg.ID);
+                imageListBGSmall.Images.Add(bg.bitmap);
+                imageListBGLarge.Images.Add(bg.bitmap);
+                listViewBG.Items.Add(bg.Name, Current.BGList.IndexOf(bg));
 
             }
         }
@@ -114,7 +116,11 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonDeleteBG_Click(object sender, EventArgs e) {
-            GAME.Current.DelBG(listViewBG.CheckedIndices.Count);
+            try {
+                Current.BGList.RemoveAt(listViewBG.FocusedItem.Index);
+            } catch(Exception err) {
+                MessageBox.Show(err.Message);
+            }
         }
 
         public void NUT_Click(object sender, EventArgs e) {
@@ -130,6 +136,18 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonDel_Click(object sender, EventArgs e) {
+
+        }
+
+        private void listViewOBJ_SelectedIndexChanged(object sender, EventArgs e) {
+            labelOBJName.Text = Current.OBJList[listViewOBJ.FocusedItem.Index].Name;
+        }
+
+        private void buttonEditBG_Click(object sender, EventArgs e) {
+
+        }
+
+        private void buttonEditOBJ_Click(object sender, EventArgs e) {
 
         }
     }

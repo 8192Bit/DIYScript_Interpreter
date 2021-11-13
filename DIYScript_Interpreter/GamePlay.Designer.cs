@@ -30,33 +30,35 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GamePlay));
             this.labelMM42 = new System.Windows.Forms.Label();
             this.labelSmall = new System.Windows.Forms.Label();
             this.labelGDI = new System.Windows.Forms.Label();
             this.canvas = new System.Windows.Forms.PictureBox();
             this.ticker = new System.Windows.Forms.Timer(this.components);
             this.groupBoxState = new System.Windows.Forms.GroupBox();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.buttonPause = new System.Windows.Forms.Button();
             this.buttonTickStrat = new System.Windows.Forms.Button();
             this.trackBarSpeed = new System.Windows.Forms.TrackBar();
             this.labelSpeed = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelTicked = new System.Windows.Forms.Label();
             this.labelRenderedFrame = new System.Windows.Forms.Label();
             this.groupBoxRender = new System.Windows.Forms.GroupBox();
-            this.comboBoxSmooth = new System.Windows.Forms.ComboBox();
+            this.trackBarSmooth = new System.Windows.Forms.TrackBar();
             this.labelSmooth = new System.Windows.Forms.Label();
             this.labelRefresh = new System.Windows.Forms.Label();
             this.comboBoxRefresh = new System.Windows.Forms.ComboBox();
             this.groupBoxDebugger = new System.Windows.Forms.GroupBox();
-            this.trackBarSmooth = new System.Windows.Forms.TrackBar();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelMouse = new System.Windows.Forms.Label();
+            this.labelDirection = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.groupBoxState.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxRender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSmooth)).BeginInit();
+            this.groupBoxDebugger.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelMM42
@@ -99,6 +101,9 @@ namespace DIYScript_Interpreter
             this.canvas.Size = new System.Drawing.Size(640, 480);
             this.canvas.TabIndex = 5;
             this.canvas.TabStop = false;
+            this.canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
+            this.canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
+            this.canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
             // ticker
             // 
@@ -107,21 +112,31 @@ namespace DIYScript_Interpreter
             // 
             // groupBoxState
             // 
+            this.groupBoxState.Controls.Add(this.buttonReset);
             this.groupBoxState.Controls.Add(this.buttonPause);
             this.groupBoxState.Controls.Add(this.buttonTickStrat);
             this.groupBoxState.Controls.Add(this.trackBarSpeed);
             this.groupBoxState.Controls.Add(this.labelSpeed);
-            this.groupBoxState.Controls.Add(this.pictureBox1);
             this.groupBoxState.Location = new System.Drawing.Point(659, 13);
             this.groupBoxState.Name = "groupBoxState";
-            this.groupBoxState.Size = new System.Drawing.Size(269, 349);
+            this.groupBoxState.Size = new System.Drawing.Size(269, 414);
             this.groupBoxState.TabIndex = 6;
             this.groupBoxState.TabStop = false;
             this.groupBoxState.Text = "解释器状态";
             // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(177, 84);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.TabIndex = 7;
+            this.buttonReset.Text = "重置";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
             // buttonPause
             // 
-            this.buttonPause.Location = new System.Drawing.Point(176, 84);
+            this.buttonPause.Location = new System.Drawing.Point(96, 84);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(75, 23);
             this.buttonPause.TabIndex = 6;
@@ -142,11 +157,11 @@ namespace DIYScript_Interpreter
             // trackBarSpeed
             // 
             this.trackBarSpeed.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBarSpeed.Location = new System.Drawing.Point(6, 32);
+            this.trackBarSpeed.Location = new System.Drawing.Point(9, 32);
             this.trackBarSpeed.Maximum = 100;
             this.trackBarSpeed.Minimum = 1;
             this.trackBarSpeed.Name = "trackBarSpeed";
-            this.trackBarSpeed.Size = new System.Drawing.Size(257, 42);
+            this.trackBarSpeed.Size = new System.Drawing.Size(254, 42);
             this.trackBarSpeed.TabIndex = 3;
             this.trackBarSpeed.Value = 1;
             this.trackBarSpeed.Scroll += new System.EventHandler(this.trackBarSpeed_Scroll);
@@ -159,31 +174,21 @@ namespace DIYScript_Interpreter
             this.labelSpeed.Name = "labelSpeed";
             this.labelSpeed.Size = new System.Drawing.Size(71, 12);
             this.labelSpeed.TabIndex = 0;
-            this.labelSpeed.Text = "时间速度: 0";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(87, 69);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 51);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.labelSpeed.Text = "时间速度: 1";
             // 
             // labelTicked
             // 
             this.labelTicked.AutoSize = true;
-            this.labelTicked.Location = new System.Drawing.Point(7, 79);
+            this.labelTicked.Location = new System.Drawing.Point(6, 88);
             this.labelTicked.Name = "labelTicked";
-            this.labelTicked.Size = new System.Drawing.Size(71, 12);
+            this.labelTicked.Size = new System.Drawing.Size(83, 12);
             this.labelTicked.TabIndex = 2;
-            this.labelTicked.Text = "Ticker数: 0";
+            this.labelTicked.Text = "Tick数:     0";
             // 
             // labelRenderedFrame
             // 
             this.labelRenderedFrame.AutoSize = true;
-            this.labelRenderedFrame.Location = new System.Drawing.Point(7, 67);
+            this.labelRenderedFrame.Location = new System.Drawing.Point(6, 76);
             this.labelRenderedFrame.Name = "labelRenderedFrame";
             this.labelRenderedFrame.Size = new System.Drawing.Size(83, 12);
             this.labelRenderedFrame.TabIndex = 1;
@@ -192,38 +197,33 @@ namespace DIYScript_Interpreter
             // groupBoxRender
             // 
             this.groupBoxRender.Controls.Add(this.trackBarSmooth);
-            this.groupBoxRender.Controls.Add(this.comboBoxSmooth);
             this.groupBoxRender.Controls.Add(this.labelTicked);
             this.groupBoxRender.Controls.Add(this.labelSmooth);
             this.groupBoxRender.Controls.Add(this.labelRenderedFrame);
             this.groupBoxRender.Controls.Add(this.labelRefresh);
             this.groupBoxRender.Controls.Add(this.comboBoxRefresh);
-            this.groupBoxRender.Location = new System.Drawing.Point(659, 368);
+            this.groupBoxRender.Location = new System.Drawing.Point(659, 433);
             this.groupBoxRender.Name = "groupBoxRender";
-            this.groupBoxRender.Size = new System.Drawing.Size(269, 173);
+            this.groupBoxRender.Size = new System.Drawing.Size(269, 108);
             this.groupBoxRender.TabIndex = 7;
             this.groupBoxRender.TabStop = false;
             this.groupBoxRender.Text = "渲染与性能";
             // 
-            // comboBoxSmooth
+            // trackBarSmooth
             // 
-            this.comboBoxSmooth.FormattingEnabled = true;
-            this.comboBoxSmooth.Items.AddRange(new object[] {
-            "标准",
-            "高速度",
-            "高质量",
-            "无",
-            "抗锯齿"});
-            this.comboBoxSmooth.Location = new System.Drawing.Point(65, 44);
-            this.comboBoxSmooth.Name = "comboBoxSmooth";
-            this.comboBoxSmooth.Size = new System.Drawing.Size(198, 20);
-            this.comboBoxSmooth.TabIndex = 5;
-            this.comboBoxSmooth.SelectedIndexChanged += new System.EventHandler(this.comboBoxSmooth_SelectedIndexChanged);
+            this.trackBarSmooth.LargeChange = 1;
+            this.trackBarSmooth.Location = new System.Drawing.Point(96, 46);
+            this.trackBarSmooth.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.trackBarSmooth.Maximum = 4;
+            this.trackBarSmooth.Name = "trackBarSmooth";
+            this.trackBarSmooth.Size = new System.Drawing.Size(173, 42);
+            this.trackBarSmooth.TabIndex = 6;
+            this.trackBarSmooth.Scroll += new System.EventHandler(this.trackBarSmooth_Scroll);
             // 
             // labelSmooth
             // 
             this.labelSmooth.AutoSize = true;
-            this.labelSmooth.Location = new System.Drawing.Point(7, 47);
+            this.labelSmooth.Location = new System.Drawing.Point(12, 46);
             this.labelSmooth.Name = "labelSmooth";
             this.labelSmooth.Size = new System.Drawing.Size(53, 12);
             this.labelSmooth.TabIndex = 4;
@@ -232,7 +232,7 @@ namespace DIYScript_Interpreter
             // labelRefresh
             // 
             this.labelRefresh.AutoSize = true;
-            this.labelRefresh.Location = new System.Drawing.Point(6, 23);
+            this.labelRefresh.Location = new System.Drawing.Point(12, 23);
             this.labelRefresh.Name = "labelRefresh";
             this.labelRefresh.Size = new System.Drawing.Size(53, 12);
             this.labelRefresh.TabIndex = 3;
@@ -240,34 +240,54 @@ namespace DIYScript_Interpreter
             // 
             // comboBoxRefresh
             // 
+            this.comboBoxRefresh.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBoxRefresh.FormattingEnabled = true;
             this.comboBoxRefresh.Items.AddRange(new object[] {
             "Ticker Only",
             "Ticker+WinForm DBuffer"});
-            this.comboBoxRefresh.Location = new System.Drawing.Point(65, 20);
+            this.comboBoxRefresh.Location = new System.Drawing.Point(96, 20);
             this.comboBoxRefresh.Name = "comboBoxRefresh";
-            this.comboBoxRefresh.Size = new System.Drawing.Size(198, 20);
+            this.comboBoxRefresh.Size = new System.Drawing.Size(173, 20);
             this.comboBoxRefresh.TabIndex = 0;
-            this.comboBoxRefresh.SelectedIndexChanged += new System.EventHandler(this.comboBoxRefresh_SelectedIndexChanged);
             // 
             // groupBoxDebugger
             // 
+            this.groupBoxDebugger.Controls.Add(this.groupBox1);
             this.groupBoxDebugger.Location = new System.Drawing.Point(934, 13);
             this.groupBoxDebugger.Name = "groupBoxDebugger";
             this.groupBoxDebugger.Size = new System.Drawing.Size(290, 528);
             this.groupBoxDebugger.TabIndex = 7;
             this.groupBoxDebugger.TabStop = false;
-            this.groupBoxDebugger.Text = "调试器";
+            this.groupBoxDebugger.Text = "运行时调试器";
             // 
-            // trackBarSmooth
+            // groupBox1
             // 
-            this.trackBarSmooth.LargeChange = 1;
-            this.trackBarSmooth.Location = new System.Drawing.Point(100, 96);
-            this.trackBarSmooth.Maximum = 4;
-            this.trackBarSmooth.Name = "trackBarSmooth";
-            this.trackBarSmooth.Size = new System.Drawing.Size(104, 42);
-            this.trackBarSmooth.TabIndex = 6;
-            this.trackBarSmooth.Scroll += new System.EventHandler(this.trackBarSmooth_Scroll);
+            this.groupBox1.Controls.Add(this.labelMouse);
+            this.groupBox1.Controls.Add(this.labelDirection);
+            this.groupBox1.Location = new System.Drawing.Point(6, 17);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(278, 40);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "鼠标状态";
+            // 
+            // labelMouse
+            // 
+            this.labelMouse.AutoSize = true;
+            this.labelMouse.Location = new System.Drawing.Point(6, 17);
+            this.labelMouse.Name = "labelMouse";
+            this.labelMouse.Size = new System.Drawing.Size(53, 12);
+            this.labelMouse.TabIndex = 0;
+            this.labelMouse.Text = "鼠标状态";
+            // 
+            // labelDirection
+            // 
+            this.labelDirection.AutoSize = true;
+            this.labelDirection.Location = new System.Drawing.Point(243, 17);
+            this.labelDirection.Name = "labelDirection";
+            this.labelDirection.Size = new System.Drawing.Size(29, 12);
+            this.labelDirection.TabIndex = 1;
+            this.labelDirection.Text = "方向";
             // 
             // GamePlay
             // 
@@ -289,10 +309,12 @@ namespace DIYScript_Interpreter
             this.groupBoxState.ResumeLayout(false);
             this.groupBoxState.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxRender.ResumeLayout(false);
             this.groupBoxRender.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSmooth)).EndInit();
+            this.groupBoxDebugger.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,11 +335,13 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.ComboBox comboBoxRefresh;
         private System.Windows.Forms.Label labelRefresh;
         private System.Windows.Forms.Label labelSmooth;
-        private System.Windows.Forms.ComboBox comboBoxSmooth;
         private System.Windows.Forms.TrackBar trackBarSpeed;
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.Button buttonTickStrat;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TrackBar trackBarSmooth;
+        private System.Windows.Forms.Label labelMouse;
+        private System.Windows.Forms.Label labelDirection;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
