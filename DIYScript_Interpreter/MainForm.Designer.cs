@@ -47,7 +47,7 @@ namespace DIYScript_Interpreter
             this.NUT = new System.Windows.Forms.Button();
             this.imageListOBJSmall = new System.Windows.Forms.ImageList(this.components);
             this.groupBoxBG = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.buttonNormalBG = new System.Windows.Forms.Button();
             this.buttonRefreshBG = new System.Windows.Forms.Button();
             this.buttonEditBG = new System.Windows.Forms.Button();
             this.buttonDeleteBG = new System.Windows.Forms.Button();
@@ -61,6 +61,7 @@ namespace DIYScript_Interpreter
             this.buttonDelOBJ = new System.Windows.Forms.Button();
             this.buttonNewOBJ = new System.Windows.Forms.Button();
             this.listViewOBJ = new System.Windows.Forms.ListView();
+            this.imageListOBJLarge = new System.Windows.Forms.ImageList(this.components);
             this.groupBoxAIBGMMdata = new System.Windows.Forms.GroupBox();
             this.tabControlAIOBJMdata = new System.Windows.Forms.TabControl();
             this.AI = new System.Windows.Forms.TabPage();
@@ -95,7 +96,6 @@ namespace DIYScript_Interpreter
             this.textBoxGameName = new System.Windows.Forms.TextBox();
             this.labelGameName = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.imageListOBJLarge = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip.SuspendLayout();
             this.groupBoxBG.SuspendLayout();
             this.groupBoxOBJ.SuspendLayout();
@@ -246,7 +246,7 @@ namespace DIYScript_Interpreter
             // groupBoxBG
             // 
             this.groupBoxBG.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.groupBoxBG.Controls.Add(this.button8);
+            this.groupBoxBG.Controls.Add(this.buttonNormalBG);
             this.groupBoxBG.Controls.Add(this.buttonRefreshBG);
             this.groupBoxBG.Controls.Add(this.buttonEditBG);
             this.groupBoxBG.Controls.Add(this.buttonDeleteBG);
@@ -260,18 +260,19 @@ namespace DIYScript_Interpreter
             this.groupBoxBG.TabStop = false;
             this.groupBoxBG.Text = "背景";
             // 
-            // button8
+            // buttonNormalBG
             // 
-            this.button8.Enabled = false;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button8.FlatAppearance.BorderSize = 5;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Location = new System.Drawing.Point(6, 294);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(253, 21);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "设为默认背景";
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonNormalBG.Enabled = false;
+            this.buttonNormalBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonNormalBG.FlatAppearance.BorderSize = 5;
+            this.buttonNormalBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonNormalBG.Location = new System.Drawing.Point(6, 294);
+            this.buttonNormalBG.Name = "buttonNormalBG";
+            this.buttonNormalBG.Size = new System.Drawing.Size(253, 21);
+            this.buttonNormalBG.TabIndex = 7;
+            this.buttonNormalBG.Text = "设为默认背景";
+            this.buttonNormalBG.UseVisualStyleBackColor = true;
+            this.buttonNormalBG.Click += new System.EventHandler(this.buttonNormalBG_Click);
             // 
             // buttonRefreshBG
             // 
@@ -337,6 +338,7 @@ namespace DIYScript_Interpreter
             this.listViewBG.SmallImageList = this.imageListBGSmall;
             this.listViewBG.TabIndex = 2;
             this.listViewBG.UseCompatibleStateImageBehavior = false;
+            this.listViewBG.SelectedIndexChanged += new System.EventHandler(this.listViewBG_SelectedIndexChanged);
             // 
             // imageListBGLarge
             // 
@@ -433,6 +435,12 @@ namespace DIYScript_Interpreter
             this.listViewOBJ.TabIndex = 2;
             this.listViewOBJ.UseCompatibleStateImageBehavior = false;
             this.listViewOBJ.SelectedIndexChanged += new System.EventHandler(this.listViewOBJ_SelectedIndexChanged);
+            // 
+            // imageListOBJLarge
+            // 
+            this.imageListOBJLarge.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageListOBJLarge.ImageSize = new System.Drawing.Size(64, 64);
+            this.imageListOBJLarge.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // groupBoxAIBGMMdata
             // 
@@ -577,6 +585,7 @@ namespace DIYScript_Interpreter
             this.buttonCAdd.TabIndex = 9;
             this.buttonCAdd.Text = "+";
             this.buttonCAdd.UseVisualStyleBackColor = true;
+            this.buttonCAdd.Click += new System.EventHandler(this.buttonCAdd_Click);
             // 
             // buttonCDown
             // 
@@ -794,12 +803,6 @@ namespace DIYScript_Interpreter
             this.openFileDialog.FileName = "1145141919810.bmp";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
             // 
-            // imageListOBJLarge
-            // 
-            this.imageListOBJLarge.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageListOBJLarge.ImageSize = new System.Drawing.Size(64, 64);
-            this.imageListOBJLarge.TransparentColor = System.Drawing.Color.Transparent;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -899,7 +902,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ListBox listBoxAction;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button buttonNormalBG;
     }
 }
 

@@ -36,8 +36,13 @@ namespace DIYScript_Interpreter
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxBGName = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.groupBoxImport = new System.Windows.Forms.GroupBox();
+            this.trackBarSmooth = new System.Windows.Forms.TrackBar();
+            this.labelSmooth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.groupBoxImport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSmooth)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -73,7 +78,7 @@ namespace DIYScript_Interpreter
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 11;
@@ -81,9 +86,9 @@ namespace DIYScript_Interpreter
             // 
             // textBoxBGName
             // 
-            this.textBoxBGName.Location = new System.Drawing.Point(59, 9);
+            this.textBoxBGName.Location = new System.Drawing.Point(47, 6);
             this.textBoxBGName.Name = "textBoxBGName";
-            this.textBoxBGName.Size = new System.Drawing.Size(176, 21);
+            this.textBoxBGName.Size = new System.Drawing.Size(211, 21);
             this.textBoxBGName.TabIndex = 10;
             this.textBoxBGName.TextChanged += new System.EventHandler(this.textBoxBGName_TextChanged);
             // 
@@ -91,11 +96,43 @@ namespace DIYScript_Interpreter
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // groupBoxImport
+            // 
+            this.groupBoxImport.Controls.Add(this.trackBarSmooth);
+            this.groupBoxImport.Controls.Add(this.labelSmooth);
+            this.groupBoxImport.Location = new System.Drawing.Point(12, 33);
+            this.groupBoxImport.Name = "groupBoxImport";
+            this.groupBoxImport.Size = new System.Drawing.Size(246, 169);
+            this.groupBoxImport.TabIndex = 12;
+            this.groupBoxImport.TabStop = false;
+            this.groupBoxImport.Text = "导入选项";
+            // 
+            // trackBarSmooth
+            // 
+            this.trackBarSmooth.LargeChange = 1;
+            this.trackBarSmooth.Location = new System.Drawing.Point(67, 20);
+            this.trackBarSmooth.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.trackBarSmooth.Maximum = 4;
+            this.trackBarSmooth.Name = "trackBarSmooth";
+            this.trackBarSmooth.Size = new System.Drawing.Size(173, 42);
+            this.trackBarSmooth.TabIndex = 8;
+            this.trackBarSmooth.Scroll += new System.EventHandler(this.trackBarSmooth_Scroll);
+            // 
+            // labelSmooth
+            // 
+            this.labelSmooth.AutoSize = true;
+            this.labelSmooth.Location = new System.Drawing.Point(8, 20);
+            this.labelSmooth.Name = "labelSmooth";
+            this.labelSmooth.Size = new System.Drawing.Size(53, 12);
+            this.labelSmooth.TabIndex = 7;
+            this.labelSmooth.Text = "平滑模式";
+            // 
             // BGMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 508);
+            this.Controls.Add(this.groupBoxImport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxBGName);
             this.Controls.Add(this.Cancel);
@@ -106,6 +143,9 @@ namespace DIYScript_Interpreter
             this.Load += new System.EventHandler(this.BGMaker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.groupBoxImport.ResumeLayout(false);
+            this.groupBoxImport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSmooth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,5 +159,8 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxBGName;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.GroupBox groupBoxImport;
+        private System.Windows.Forms.TrackBar trackBarSmooth;
+        private System.Windows.Forms.Label labelSmooth;
     }
 }

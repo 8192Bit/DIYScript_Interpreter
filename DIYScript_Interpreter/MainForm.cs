@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using static DIYScript_Interpreter.GAME;
 
@@ -50,7 +51,6 @@ namespace DIYScript_Interpreter {
             openFileDialog.Filter = "位图|*.bmp";
             openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
-
             buttonRefreshBG.PerformClick();
         }
 
@@ -133,6 +133,9 @@ namespace DIYScript_Interpreter {
 
         private void buttonAdd_Click(object sender, EventArgs e) {
 
+            Script scr = new Script();
+            Current.OBJList[listViewOBJ.FocusedItem.Index].ScriptList.Add(scr);
+            CommandRefresh();
         }
 
         private void buttonDel_Click(object sender, EventArgs e) {
@@ -149,6 +152,38 @@ namespace DIYScript_Interpreter {
 
         private void buttonEditOBJ_Click(object sender, EventArgs e) {
 
+        }
+        private void CommandRefresh() {
+            listBoxScript.Items.Clear();
+            foreach(OBJ obj in Current.OBJList) {
+                foreach(Script scr in obj.ScriptList) {
+                    foreach(Command com in scr.Commands) {
+
+                    }
+
+                    listBoxScript.Items.Add(scr.ToString());
+
+                }
+            }
+        }
+        private void buttonCAdd_Click(object sender, EventArgs e) {
+        }
+
+        private void buttonNormalBG_Click(object sender, EventArgs e) {
+            foreach(BG bg in Current.BGList) {
+                bg.isNormal = false;
+            }
+
+            Current.BGList[listViewBG.FocusedItem.Index].isNormal = true;
+            buttonNormalBG.Enabled = false;
+        }
+
+        private void listViewBG_SelectedIndexChanged(object sender, EventArgs e) {
+            if(Current.BGList[listViewBG.FocusedItem.Index].isNormal == true) {
+                buttonNormalBG.Enabled = false;
+            } else {
+                buttonNormalBG.Enabled = true;
+            }
         }
     }
 

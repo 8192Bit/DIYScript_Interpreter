@@ -96,6 +96,7 @@ namespace DIYScript_Interpreter
             // 
             this.canvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.canvas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.canvas.Cursor = System.Windows.Forms.Cursors.Cross;
             this.canvas.Location = new System.Drawing.Point(12, 12);
             this.canvas.Name = "canvas";
             this.canvas.Size = new System.Drawing.Size(640, 480);

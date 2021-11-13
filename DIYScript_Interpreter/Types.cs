@@ -24,23 +24,23 @@ namespace DIYScript_Interpreter {
         VFX
     }
     public class Condition {
-        int OPCode;
-        object Arg0;
-        object Arg1;
-        object Arg2;
-        object Arg3;
+        TypeCondotions OPCode;
+        int Arg0;
+        int Arg1;
+        int Arg2;
+        int Arg3;
     }
     public class Command {
 
-        int OPCode;
+        TypeCommands OPCode;
         object Arg0;
         object Arg1;
         object Arg2;
         object Arg3;
     }
     public class Script {
-        List<Condition> Conditions;
-        List<Command> Commands;
+        public List<Condition> Conditions;
+        public List<Command> Commands;
     }
 
     public class OBJChoose {
@@ -93,13 +93,12 @@ namespace DIYScript_Interpreter {
         public Bitmap bitmap;
         public string Name;
         public int[] Resolution = new int[2];
-        public void Refresh() {
-
-        }
+        public bool isNormal;
     }
     public class BGAddingStatus {
         public static UInt64 CurrentBGID = 0;
         public static Bitmap bitmap;
+        public static Graphics graphics = Graphics.FromImage(bitmap);
     }
     public class OBJAddingStatus {
         public static UInt64 CurrentOBJID = 0;

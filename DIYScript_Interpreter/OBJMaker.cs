@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static DIYScript_Interpreter.GAME;
 
 #pragma warning disable IDE1006
 //Fxxk u microsoft ide1006 is the silliest suggestion in all of the ides
@@ -52,9 +53,12 @@ namespace DIYScript_Interpreter {
             Bitmap b = new Bitmap(640, 480);
             Point p1 = new Point(x1, y1);
             Graphics g = Graphics.FromImage(b);
+            BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
+
+            g.DrawImage(NormalBG.bitmap, new Point(0, 0));
             if (isArea) {
                 Point p2 = new Point(x2, y2);
-                g.DrawRectangle(new Pen(new LinearGradientBrush(p1, p2, Color.Cyan, Color.Magenta)), p1.X, p1.Y, p2.X - p1.X, p2.Y - p1.Y);
+                g.DrawRectangle(new Pen(new LinearGradientBrush(new Point((int)Math.Sin(DateTime.Today.Second), (int)Math.Cos(DateTime.Today.Second)), p2, Color.Cyan, Color.Magenta)), p1.X, p1.Y, p2.X - p1.X, p2.Y - p1.Y);
             }
             canvas.Image = b;
         }
@@ -74,6 +78,17 @@ namespace DIYScript_Interpreter {
 
         private void OBJMaker_Load(object sender, EventArgs e) {
             listViewART.View = Properties.Settings.Default.LViewValue;
+            Bitmap b = new Bitmap(640, 480);
+            Graphics g = Graphics.FromImage(b);
+            try {
+                BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
+
+                g.DrawImage(NormalBG.bitmap, new Point(0, 0));
+            } catch {
+
+            }
+
+            canvas.Image = b;
         }
 
         private void buttonNewART_Click(object sender, EventArgs e) {
