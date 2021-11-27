@@ -98,6 +98,9 @@ namespace DIYScript_Interpreter
             this.canvas.Size = new System.Drawing.Size(640, 480);
             this.canvas.TabIndex = 3;
             this.canvas.TabStop = false;
+            this.canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
+            this.canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
+            this.canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
             // radioButton1
             // 
@@ -109,6 +112,7 @@ namespace DIYScript_Interpreter
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "固定位置";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 

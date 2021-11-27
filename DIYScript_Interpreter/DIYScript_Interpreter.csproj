@@ -99,6 +99,12 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Animater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Animater.Designer.cs">
+      <DependentUpon>Animater.cs</DependentUpon>
+    </Compile>
     <Compile Include="BGMaker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Animater.resx">
+      <DependentUpon>Animater.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BGMaker.resx">
       <DependentUpon>BGMaker.cs</DependentUpon>

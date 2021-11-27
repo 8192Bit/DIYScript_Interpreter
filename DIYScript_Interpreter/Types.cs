@@ -1,13 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace DIYScript_Interpreter {
     // put all your classes here!!
     //mariokate
     //:P
 
-    enum TypeCondotions {
+    public class INIMaker {
+        public INIMaker(string path) {
+
+        }
+        [DllImport("kernel32")]
+        private static extern long WritePrivateProfileString(string section, string key, string val, string filepath);
+
+        private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retval, int size, string filePath);
+
+        //ini文件名称
+        private static string inifilename = "Config.ini";
+        //获取ini文件路径
+        private static string inifilepath = Directory.GetCurrentDirectory() + "\\" + inifilename;
+
+        public static string GetValue(string key) {
+            StringBuilder s = new StringBuilder(1024);
+            GetPrivateProfileString("CONFIG", key, "", s, 1024, inifilepath);
+            return s.ToString();
+        }
+
+
+        public static void SetValue(string key, string value) {
+            try {
+                WritePrivateProfileString("CONFIG", key, value, inifilepath);
+            } catch (Exception ex) {
+                throw ex;
+            }
+        }
+    }
+    public enum Directions {
+        w,
+        n,
+        e,
+        s,
+        nw,
+        ne,
+        se,
+        sw
+        //←↑→↓↖↗↘↙
+    }
+    public enum TypeCondotions {
         Tap,
         Time,
         Contact,
@@ -15,7 +58,7 @@ namespace DIYScript_Interpreter {
         Art,
         WinLoss
     }
-    enum TypeCommands {
+    public enum TypeCommands {
         Travel,
         Switch,
         Lose,
@@ -98,12 +141,14 @@ namespace DIYScript_Interpreter {
     public class BGAddingStatus {
         public static UInt64 CurrentBGID = 0;
         public static Bitmap bitmap;
-        public static Graphics graphics = Graphics.FromImage(bitmap);
-        public static bool isEdit;
+        public static Bitmap temp = new Bitmap(640, 480);
+        public static Graphics gt = Graphics.FromImage(temp);
     }
     public class OBJAddingStatus {
         public static UInt64 CurrentOBJID = 0;
         public static bool isEdit;
+        public static int[] MouseState = { 0, 0, 0, 0, 0 }; //{StartX,StartY,EndX,EndY,isDown}
+        public static Directions direction;
     }
     public class OBJ {
         public UInt64 ID;
@@ -135,18 +180,9 @@ namespace DIYScript_Interpreter {
 
         public List<OBJArt> ArtList = new List<OBJArt>();
         public int[] OBJSize = new int[2];
-        public OBJArt Arts = new OBJArt();
         public OBJArt CurrentArt;
 
         public List<Script> ScriptList = new List<Script>();
-
-        public void AddArt() {
-            OBJArt ART = new OBJArt();
-            ArtList.Add(ART);
-        }
-        public void DelArt(int index) {
-            ArtList.RemoveAt(index);
-        }
 
 
         public class Author {

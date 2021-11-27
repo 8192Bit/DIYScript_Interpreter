@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using static DIYScript_Interpreter.GAME;
+using static DIYScript_Interpreter.OBJAddingStatus;
 
 #pragma warning disable IDE1006
 //Fxxk u microsoft ide1006 is the silliest suggestion in all of the ides
@@ -18,7 +19,7 @@ namespace DIYScript_Interpreter {
 
         private void OK_Click(object sender, EventArgs e) {
             if (textBoxOBJName.Text == "") {
-                errorProvider.SetError(textBoxOBJName, "抄一百遍名字！");
+                errorProvider.SetError(textBoxOBJName, "抄一  百遍名字！");
 
             } else {
                 Int16 StartMode = 0;
@@ -54,17 +55,23 @@ namespace DIYScript_Interpreter {
             Point p1 = new Point(x1, y1);
             Graphics g = Graphics.FromImage(b);
             BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
-
             g.DrawImage(NormalBG.bitmap, new Point(0, 0));
             if (isArea) {
+                Pen p = new Pen(Color.Red, 2);
+                p.DashStyle = DashStyle.Dash;
                 Point p2 = new Point(x2, y2);
-                g.DrawRectangle(new Pen(new LinearGradientBrush(new Point((int)Math.Sin(DateTime.Today.Second), (int)Math.Cos(DateTime.Today.Second)), p2, Color.Cyan, Color.Magenta)), p1.X, p1.Y, p2.X - p1.X, p2.Y - p1.Y);
+                g.DrawLine(p, x1, y1, x2, y1);
+                g.DrawLine(p, x1, y1, x1, y2);
+                g.DrawLine(p, x2, y1, x2, y2);
+                g.DrawLine(p, x1, y2, x2, y2);
             }
             canvas.Image = b;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e) {
             checkBox1.Enabled = radioButton2.Checked;
+            trackBar2.Enabled = true;
+            trackBar4.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -73,7 +80,7 @@ namespace DIYScript_Interpreter {
 
         private void button1_Click(object sender, EventArgs e) {
             Form OBJChooseForm = new OBJChooser();
-            OBJChooseForm.ShowDialog();
+            OBJChooseForm.Show();
         }
 
         private void OBJMaker_Load(object sender, EventArgs e) {
@@ -121,6 +128,60 @@ namespace DIYScript_Interpreter {
 
         private void textBoxOBJName_TextChanged(object sender, EventArgs e) {
             errorProvider.SetError(textBoxOBJName, null);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e) {
+            trackBar2.Enabled = false;
+            trackBar4.Enabled = false;
+        }
+
+        private void canvas_MouseDown(object sender, MouseEventArgs e) {
+
+            MouseState[0] = e.X;
+            MouseState[1] = e.Y;
+            MouseState[4] = 1;
+        }
+
+        private void canvas_MouseMove(object sender, MouseEventArgs e) {
+
+            reDraw(MouseState[0], MouseState[1], MouseState[2], MouseState[3], radioButton2.Checked);
+            if (MouseState[4] == 1) {
+
+                MouseState[2] = e.X;
+                MouseState[3] = e.Y;
+            }
+
+            if (Math.Abs(MouseState[2] - MouseState[0]) > 8 | Math.Abs(MouseState[3] - MouseState[1]) > 8) {
+
+                if (MouseState[2] - MouseState[0] > 15) {
+                    direction = Directions.e;
+                    if (MouseState[3] - MouseState[1] > 15) {
+                        direction = Directions.se;
+                    } else if (MouseState[3] - MouseState[1] < -15) {
+                        direction = Directions.ne;
+                    }
+                } else if (MouseState[2] - MouseState[0] < -15) {
+                    direction = Directions.w;
+                    if (MouseState[3] - MouseState[1] > 15) {
+                        direction = Directions.sw;
+                    } else if (MouseState[3] - MouseState[1] < -15) {
+                        direction = Directions.nw;
+                    }
+                } else {
+                    if (MouseState[3] - MouseState[1] > 5) {
+                        direction = Directions.s;
+                    } else if (MouseState[3] - MouseState[1] < -5) {
+                        direction = Directions.n;
+                    }
+                }
+            }
+        }//yeek!
+
+        private void canvas_MouseUp(object sender, MouseEventArgs e) {
+            MouseState[2] = e.X;
+            MouseState[3] = e.Y;
+            MouseState[4] = 0;
+
         }
     }
 }

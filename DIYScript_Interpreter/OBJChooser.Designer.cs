@@ -127,7 +127,7 @@ namespace DIYScript_Interpreter
             this.listViewOBJ.LargeImageList = this.imageListOBJ;
             this.listViewOBJ.Location = new System.Drawing.Point(12, 12);
             this.listViewOBJ.Name = "listViewOBJ";
-            this.listViewOBJ.Size = new System.Drawing.Size(244, 511);
+            this.listViewOBJ.Size = new System.Drawing.Size(244, 518);
             this.listViewOBJ.TabIndex = 7;
             this.listViewOBJ.UseCompatibleStateImageBehavior = false;
             this.listViewOBJ.View = System.Windows.Forms.View.Tile;
@@ -143,11 +143,12 @@ namespace DIYScript_Interpreter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 547);
+            this.ClientSize = new System.Drawing.Size(428, 554);
             this.Controls.Add(this.listViewOBJ);
             this.Controls.Add(this.groupBoxOffset);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.OK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "OBJChooser";
             this.Text = "选择对象";
             this.Load += new System.EventHandler(this.OBJChooser_Load);

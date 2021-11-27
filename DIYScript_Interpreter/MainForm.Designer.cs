@@ -31,7 +31,7 @@ namespace DIYScript_Interpreter
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialogPj = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.File = new System.Windows.Forms.ToolStripDropDownButton();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +49,6 @@ namespace DIYScript_Interpreter
             this.groupBoxBG = new System.Windows.Forms.GroupBox();
             this.buttonNormalBG = new System.Windows.Forms.Button();
             this.buttonRefreshBG = new System.Windows.Forms.Button();
-            this.buttonEditBG = new System.Windows.Forms.Button();
             this.buttonDeleteBG = new System.Windows.Forms.Button();
             this.buttonNewBG = new System.Windows.Forms.Button();
             this.listViewBG = new System.Windows.Forms.ListView();
@@ -86,9 +85,9 @@ namespace DIYScript_Interpreter
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBoxScript = new System.Windows.Forms.ListBox();
             this.BGM = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonEditBGM = new System.Windows.Forms.Button();
+            this.buttonDelBGM = new System.Windows.Forms.Button();
+            this.buttonNewBGM = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Metadata = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -96,6 +95,8 @@ namespace DIYScript_Interpreter
             this.textBoxGameName = new System.Windows.Forms.TextBox();
             this.labelGameName = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogPj = new System.Windows.Forms.OpenFileDialog();
+            this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.groupBoxBG.SuspendLayout();
             this.groupBoxOBJ.SuspendLayout();
@@ -109,9 +110,11 @@ namespace DIYScript_Interpreter
             this.Metadata.SuspendLayout();
             this.SuspendLayout();
             // 
-            // saveFileDialog
+            // saveFileDialogPj
             // 
-            this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog_FileOk);
+            this.saveFileDialogPj.DefaultExt = "p42";
+            this.saveFileDialogPj.Filter = "MakerMatic 42/DIYScript Interpreter 项目文件|*.p42|所有文件|*.*";
+            this.saveFileDialogPj.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog_FileOk);
             // 
             // toolStrip
             // 
@@ -133,8 +136,9 @@ namespace DIYScript_Interpreter
             // 
             this.File.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.退出ToolStripMenuItem,
-            this.保存ToolStripMenuItem});
+            this.保存ToolStripMenuItem,
+            this.打开ToolStripMenuItem,
+            this.退出ToolStripMenuItem});
             this.File.Image = ((System.Drawing.Image)(resources.GetObject("File.Image")));
             this.File.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.File.Name = "File";
@@ -144,15 +148,16 @@ namespace DIYScript_Interpreter
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.保存ToolStripMenuItem.Text = "保存";
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存ToolStripMenuItem.Text = "保存...";
+            this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
             // Option
             // 
@@ -168,7 +173,7 @@ namespace DIYScript_Interpreter
             // 首选项ToolStripMenuItem
             // 
             this.首选项ToolStripMenuItem.Name = "首选项ToolStripMenuItem";
-            this.首选项ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.首选项ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.首选项ToolStripMenuItem.Text = "首选项";
             this.首选项ToolStripMenuItem.Click += new System.EventHandler(this.首选项ToolStripMenuItem_Click);
             // 
@@ -187,14 +192,14 @@ namespace DIYScript_Interpreter
             // 程序帮助ToolStripMenuItem
             // 
             this.程序帮助ToolStripMenuItem.Name = "程序帮助ToolStripMenuItem";
-            this.程序帮助ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.程序帮助ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.程序帮助ToolStripMenuItem.Text = "程序帮助";
             this.程序帮助ToolStripMenuItem.Click += new System.EventHandler(this.程序帮助ToolStripMenuItem_Click);
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
@@ -225,13 +230,13 @@ namespace DIYScript_Interpreter
             // 
             this.NUT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.NUT.BackColor = System.Drawing.SystemColors.Window;
-            this.NUT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NUT.BackgroundImage")));
-            this.NUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.NUT.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources._8i1;
+            this.NUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.NUT.Font = new System.Drawing.Font("Calibri", 32F);
-            this.NUT.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.NUT.Location = new System.Drawing.Point(1216, 369);
+            this.NUT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(69)))), ((int)(((byte)(20)))));
+            this.NUT.Location = new System.Drawing.Point(1216, 349);
             this.NUT.Name = "NUT";
-            this.NUT.Size = new System.Drawing.Size(260, 200);
+            this.NUT.Size = new System.Drawing.Size(260, 220);
             this.NUT.TabIndex = 6;
             this.NUT.Text = "NUT";
             this.NUT.UseVisualStyleBackColor = false;
@@ -248,14 +253,13 @@ namespace DIYScript_Interpreter
             this.groupBoxBG.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.groupBoxBG.Controls.Add(this.buttonNormalBG);
             this.groupBoxBG.Controls.Add(this.buttonRefreshBG);
-            this.groupBoxBG.Controls.Add(this.buttonEditBG);
             this.groupBoxBG.Controls.Add(this.buttonDeleteBG);
             this.groupBoxBG.Controls.Add(this.buttonNewBG);
             this.groupBoxBG.Controls.Add(this.listViewBG);
             this.groupBoxBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBoxBG.Location = new System.Drawing.Point(1210, 28);
             this.groupBoxBG.Name = "groupBoxBG";
-            this.groupBoxBG.Size = new System.Drawing.Size(265, 323);
+            this.groupBoxBG.Size = new System.Drawing.Size(265, 303);
             this.groupBoxBG.TabIndex = 8;
             this.groupBoxBG.TabStop = false;
             this.groupBoxBG.Text = "背景";
@@ -266,9 +270,9 @@ namespace DIYScript_Interpreter
             this.buttonNormalBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNormalBG.FlatAppearance.BorderSize = 5;
             this.buttonNormalBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNormalBG.Location = new System.Drawing.Point(6, 294);
+            this.buttonNormalBG.Location = new System.Drawing.Point(172, 265);
             this.buttonNormalBG.Name = "buttonNormalBG";
-            this.buttonNormalBG.Size = new System.Drawing.Size(253, 21);
+            this.buttonNormalBG.Size = new System.Drawing.Size(87, 22);
             this.buttonNormalBG.TabIndex = 7;
             this.buttonNormalBG.Text = "设为默认背景";
             this.buttonNormalBG.UseVisualStyleBackColor = true;
@@ -288,25 +292,12 @@ namespace DIYScript_Interpreter
             this.buttonRefreshBG.UseVisualStyleBackColor = true;
             this.buttonRefreshBG.Click += new System.EventHandler(this.buttonRefreshBG_Click);
             // 
-            // buttonEditBG
-            // 
-            this.buttonEditBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonEditBG.FlatAppearance.BorderSize = 5;
-            this.buttonEditBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEditBG.Location = new System.Drawing.Point(182, 266);
-            this.buttonEditBG.Name = "buttonEditBG";
-            this.buttonEditBG.Size = new System.Drawing.Size(77, 22);
-            this.buttonEditBG.TabIndex = 5;
-            this.buttonEditBG.Text = "编辑";
-            this.buttonEditBG.UseVisualStyleBackColor = true;
-            this.buttonEditBG.Click += new System.EventHandler(this.buttonEditBG_Click);
-            // 
             // buttonDeleteBG
             // 
             this.buttonDeleteBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDeleteBG.FlatAppearance.BorderSize = 5;
             this.buttonDeleteBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonDeleteBG.Location = new System.Drawing.Point(94, 266);
+            this.buttonDeleteBG.Location = new System.Drawing.Point(89, 265);
             this.buttonDeleteBG.Name = "buttonDeleteBG";
             this.buttonDeleteBG.Size = new System.Drawing.Size(77, 22);
             this.buttonDeleteBG.TabIndex = 4;
@@ -319,7 +310,7 @@ namespace DIYScript_Interpreter
             this.buttonNewBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewBG.FlatAppearance.BorderSize = 5;
             this.buttonNewBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNewBG.Location = new System.Drawing.Point(6, 266);
+            this.buttonNewBG.Location = new System.Drawing.Point(6, 265);
             this.buttonNewBG.Name = "buttonNewBG";
             this.buttonNewBG.Size = new System.Drawing.Size(77, 22);
             this.buttonNewBG.TabIndex = 3;
@@ -682,7 +673,7 @@ namespace DIYScript_Interpreter
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(6, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 90);
+            this.pictureBox1.Size = new System.Drawing.Size(90, 90);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -698,9 +689,9 @@ namespace DIYScript_Interpreter
             // 
             // BGM
             // 
-            this.BGM.Controls.Add(this.button1);
-            this.BGM.Controls.Add(this.button2);
-            this.BGM.Controls.Add(this.button3);
+            this.BGM.Controls.Add(this.buttonEditBGM);
+            this.BGM.Controls.Add(this.buttonDelBGM);
+            this.BGM.Controls.Add(this.buttonNewBGM);
             this.BGM.Controls.Add(this.listView1);
             this.BGM.ForeColor = System.Drawing.Color.Black;
             this.BGM.Location = new System.Drawing.Point(4, 25);
@@ -710,35 +701,35 @@ namespace DIYScript_Interpreter
             this.BGM.TabIndex = 1;
             this.BGM.Text = "音乐";
             // 
-            // button1
+            // buttonEditBGM
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(242, 277);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 38);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "编辑";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonEditBGM.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonEditBGM.Location = new System.Drawing.Point(242, 277);
+            this.buttonEditBGM.Name = "buttonEditBGM";
+            this.buttonEditBGM.Size = new System.Drawing.Size(112, 38);
+            this.buttonEditBGM.TabIndex = 9;
+            this.buttonEditBGM.Text = "编辑";
+            this.buttonEditBGM.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonDelBGM
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(124, 277);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 38);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "删除";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonDelBGM.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDelBGM.Location = new System.Drawing.Point(124, 277);
+            this.buttonDelBGM.Name = "buttonDelBGM";
+            this.buttonDelBGM.Size = new System.Drawing.Size(112, 38);
+            this.buttonDelBGM.TabIndex = 8;
+            this.buttonDelBGM.Text = "删除";
+            this.buttonDelBGM.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonNewBGM
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(6, 276);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 38);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "新建";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonNewBGM.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonNewBGM.Location = new System.Drawing.Point(6, 276);
+            this.buttonNewBGM.Name = "buttonNewBGM";
+            this.buttonNewBGM.Size = new System.Drawing.Size(112, 38);
+            this.buttonNewBGM.TabIndex = 7;
+            this.buttonNewBGM.Text = "新建";
+            this.buttonNewBGM.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
@@ -800,8 +791,19 @@ namespace DIYScript_Interpreter
             // 
             // openFileDialog
             // 
-            this.openFileDialog.FileName = "1145141919810.bmp";
+            this.openFileDialog.FileName = "1145j141919810.bmp";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
+            // 
+            // openFileDialogPj
+            // 
+            this.openFileDialogPj.DefaultExt = "p42";
+            this.openFileDialogPj.Filter = "MakerMatic 42/DIYScript Interpreter 项目文件|*.p42|所有文件|*.*";
+            // 
+            // 打开ToolStripMenuItem
+            // 
+            this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.打开ToolStripMenuItem.Text = "打开...";
             // 
             // MainForm
             // 
@@ -838,7 +840,7 @@ namespace DIYScript_Interpreter
         }
 
         #endregion
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogPj;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripDropDownButton Help;
         private System.Windows.Forms.ToolStripMenuItem 程序帮助ToolStripMenuItem;
@@ -851,7 +853,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.ImageList imageListOBJSmall;
         private System.Windows.Forms.ToolStripMenuItem 保存ToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBoxBG;
-        private System.Windows.Forms.Button buttonEditBG;
         private System.Windows.Forms.Button buttonDeleteBG;
         private System.Windows.Forms.Button buttonNewBG;
         private System.Windows.Forms.ListView listViewBG;
@@ -864,9 +865,9 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.TabControl tabControlAIOBJMdata;
         private System.Windows.Forms.TabPage AI;
         private System.Windows.Forms.TabPage BGM;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonEditBGM;
+        private System.Windows.Forms.Button buttonDelBGM;
+        private System.Windows.Forms.Button buttonNewBGM;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.TabPage Metadata;
         private System.Windows.Forms.TextBox textBox1;
@@ -903,6 +904,8 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ListBox listBoxAction;
         private System.Windows.Forms.Button buttonNormalBG;
+        private System.Windows.Forms.OpenFileDialog openFileDialogPj;
+        private System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
     }
 }
 

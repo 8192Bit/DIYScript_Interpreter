@@ -39,6 +39,8 @@ namespace DIYScript_Interpreter
             this.groupBoxImport = new System.Windows.Forms.GroupBox();
             this.trackBarSmooth = new System.Windows.Forms.TrackBar();
             this.labelSmooth = new System.Windows.Forms.Label();
+            this.comboBoxInterpolation = new System.Windows.Forms.ComboBox();
+            this.labelInterpolation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBoxImport.SuspendLayout();
@@ -98,6 +100,8 @@ namespace DIYScript_Interpreter
             // 
             // groupBoxImport
             // 
+            this.groupBoxImport.Controls.Add(this.labelInterpolation);
+            this.groupBoxImport.Controls.Add(this.comboBoxInterpolation);
             this.groupBoxImport.Controls.Add(this.trackBarSmooth);
             this.groupBoxImport.Controls.Add(this.labelSmooth);
             this.groupBoxImport.Location = new System.Drawing.Point(12, 33);
@@ -126,6 +130,33 @@ namespace DIYScript_Interpreter
             this.labelSmooth.Size = new System.Drawing.Size(53, 12);
             this.labelSmooth.TabIndex = 7;
             this.labelSmooth.Text = "平滑模式";
+            // 
+            // comboBoxInterpolation
+            // 
+            this.comboBoxInterpolation.FormattingEnabled = true;
+            this.comboBoxInterpolation.Items.AddRange(new object[] {
+            "默认",
+            "低质量",
+            "高质量",
+            "双线性插值",
+            "双三次插值",
+            "最邻近插值",
+            "高质量双线性插值",
+            "高质量双三次插值"});
+            this.comboBoxInterpolation.Location = new System.Drawing.Point(67, 66);
+            this.comboBoxInterpolation.Name = "comboBoxInterpolation";
+            this.comboBoxInterpolation.Size = new System.Drawing.Size(173, 20);
+            this.comboBoxInterpolation.TabIndex = 9;
+            this.comboBoxInterpolation.SelectedIndexChanged += new System.EventHandler(this.comboBoxInterpolation_SelectedIndexChanged);
+            // 
+            // labelInterpolation
+            // 
+            this.labelInterpolation.AutoSize = true;
+            this.labelInterpolation.Location = new System.Drawing.Point(8, 69);
+            this.labelInterpolation.Name = "labelInterpolation";
+            this.labelInterpolation.Size = new System.Drawing.Size(53, 12);
+            this.labelInterpolation.TabIndex = 10;
+            this.labelInterpolation.Text = "插值模式";
             // 
             // BGMaker
             // 
@@ -162,5 +193,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.GroupBox groupBoxImport;
         private System.Windows.Forms.TrackBar trackBarSmooth;
         private System.Windows.Forms.Label labelSmooth;
+        private System.Windows.Forms.ComboBox comboBoxInterpolation;
+        private System.Windows.Forms.Label labelInterpolation;
     }
 }

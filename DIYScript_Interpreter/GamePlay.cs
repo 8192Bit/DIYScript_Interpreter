@@ -13,6 +13,7 @@ namespace DIYScript_Interpreter {
             public static Int64 Rendered = 0;
             public static Graphics render = Graphics.FromImage(FrameBuffer);
             public static int[] MouseState = { 0, 0, 0, 0, 0 }; //{StartX,StartY,EndX,EndY,isDown}
+            public static Directions direction;
         }
         public GamePlay() {
             InitializeComponent();

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using static DIYScript_Interpreter.GAME;
+using System.Resources;
+using System.IO;
+using System.Runtime.InteropServices;
+
 
 #pragma warning disable IDE1006
 //Fxxk u microsoft ide1006 is the silliest suggestion in all of the ides
@@ -48,7 +51,6 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonNewBG_Click(object sender, EventArgs e) {
-            BGAddingStatus.isEdit = false;
             openFileDialog.Filter = "位图|*.bmp";
             openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
@@ -56,6 +58,19 @@ namespace DIYScript_Interpreter {
         }
 
         private void saveFileDialog_FileOk(object sender, CancelEventArgs e) {
+            [DllImport("kernel32")]
+            private static extern long WritePrivateProfileString(
+ string section, string key, string val
+, string filePath);
+            string FilePath = saveFileDialogPj.FileName.ToString().Substring(0, saveFileDialogPj.FileName.ToString().LastIndexOf("\\"))+@"\TempDir";
+            if (!Directory.Exists(FilePath)) {
+                Directory.CreateDirectory(FilePath);
+            } else {
+                MessageBox.Show("已经发现临时编译文件。"+"\r"+"是否覆盖？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            }
+
+
+            FileStream MetaFile = new FileStream(FilePath + @"\MetaFile.ini",FileMode.CreateNew);
         }
 
         private void openFileDialog_FileOk(object sender, CancelEventArgs e) {
@@ -120,7 +135,7 @@ namespace DIYScript_Interpreter {
         private void buttonDeleteBG_Click(object sender, EventArgs e) {
             try {
                 Current.BGList.RemoveAt(listViewBG.FocusedItem.Index);
-            } catch(Exception err) {
+            } catch (Exception err) {
                 MessageBox.Show(err.Message);
             }
         }
@@ -149,7 +164,6 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonEditBG_Click(object sender, EventArgs e) {
-            BGAddingStatus.isEdit = true;
             openFileDialog.Filter = "位图|*.bmp";
             openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
@@ -164,9 +178,9 @@ namespace DIYScript_Interpreter {
         }
         private void CommandRefresh() {
             listBoxScript.Items.Clear();
-            foreach(OBJ obj in Current.OBJList) {
-                foreach(Script scr in obj.ScriptList) {
-                    foreach(Command com in scr.Commands) {
+            foreach (OBJ obj in Current.OBJList) {
+                foreach (Script scr in obj.ScriptList) {
+                    foreach (Command com in scr.Commands) {
 
                     }
 
@@ -179,7 +193,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonNormalBG_Click(object sender, EventArgs e) {
-            foreach(BG bg in Current.BGList) {
+            foreach (BG bg in Current.BGList) {
                 bg.isNormal = false;
             }
 
@@ -188,11 +202,15 @@ namespace DIYScript_Interpreter {
         }
 
         private void listViewBG_SelectedIndexChanged(object sender, EventArgs e) {
-            if(Current.BGList[listViewBG.FocusedItem.Index].isNormal == true) {
+            if (Current.BGList[listViewBG.FocusedItem.Index].isNormal == true) {
                 buttonNormalBG.Enabled = false;
             } else {
                 buttonNormalBG.Enabled = true;
             }
+        }
+
+        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
+            saveFileDialogPj.ShowDialog();
         }
     }
 
