@@ -50,6 +50,7 @@ namespace DIYScript_Interpreter
             // 
             // OK
             // 
+            this.OK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.OK.Location = new System.Drawing.Point(262, 88);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(154, 26);
@@ -60,6 +61,7 @@ namespace DIYScript_Interpreter
             // 
             // Cancel
             // 
+            this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Cancel.Location = new System.Drawing.Point(262, 120);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(154, 26);

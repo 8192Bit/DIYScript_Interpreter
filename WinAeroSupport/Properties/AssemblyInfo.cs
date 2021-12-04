@@ -1,26 +1,25 @@
 ﻿using System.Reflection;
-using System.Resources;
 using System.Runtime.InteropServices;
 
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("DIYScript Interpreter")]
-[assembly: AssemblyDescription("A interpreter and editor for DIYScript 1.0")]
+[assembly: AssemblyTitle("WinAeroSupport")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("8192Bit Intermedia")]
-[assembly: AssemblyProduct("DIYScript Interpreter")]
-[assembly: AssemblyCopyright("CC BY-NC 8192Bit 2021")]
-[assembly: AssemblyTrademark("DIYScript")]
+[assembly: AssemblyCompany("微软中国")]
+[assembly: AssemblyProduct("WinAeroSupport")]
+[assembly: AssemblyCopyright("Copyright © 微软中国 2021")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型
 //对 COM 组件不可见。如果需要从 COM 访问此程序集中的类型
 //请将此类型的 ComVisible 特性设置为 true。
-[assembly: ComVisible(true)]
+[assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("41372fbb-7866-4be8-acfd-016ba77c946f")]
+[assembly: Guid("eb42be90-72bb-4d62-8660-a68dc0ef15f6")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
@@ -34,4 +33,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: NeutralResourcesLanguage("zh-Hans")]

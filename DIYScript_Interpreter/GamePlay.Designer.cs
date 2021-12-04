@@ -127,6 +127,7 @@ namespace DIYScript_Interpreter
             // 
             // buttonReset
             // 
+            this.buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonReset.Location = new System.Drawing.Point(177, 84);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
@@ -137,6 +138,7 @@ namespace DIYScript_Interpreter
             // 
             // buttonPause
             // 
+            this.buttonPause.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonPause.Location = new System.Drawing.Point(96, 84);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(75, 23);
@@ -147,6 +149,7 @@ namespace DIYScript_Interpreter
             // 
             // buttonTickStrat
             // 
+            this.buttonTickStrat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonTickStrat.Location = new System.Drawing.Point(15, 84);
             this.buttonTickStrat.Name = "buttonTickStrat";
             this.buttonTickStrat.Size = new System.Drawing.Size(75, 23);
@@ -159,7 +162,7 @@ namespace DIYScript_Interpreter
             // 
             this.trackBarSpeed.BackColor = System.Drawing.SystemColors.Control;
             this.trackBarSpeed.Location = new System.Drawing.Point(9, 32);
-            this.trackBarSpeed.Maximum = 100;
+            this.trackBarSpeed.Maximum = 50;
             this.trackBarSpeed.Minimum = 1;
             this.trackBarSpeed.Name = "trackBarSpeed";
             this.trackBarSpeed.Size = new System.Drawing.Size(254, 42);
@@ -180,7 +183,7 @@ namespace DIYScript_Interpreter
             // labelTicked
             // 
             this.labelTicked.AutoSize = true;
-            this.labelTicked.Location = new System.Drawing.Point(6, 88);
+            this.labelTicked.Location = new System.Drawing.Point(7, 88);
             this.labelTicked.Name = "labelTicked";
             this.labelTicked.Size = new System.Drawing.Size(83, 12);
             this.labelTicked.TabIndex = 2;
@@ -189,7 +192,7 @@ namespace DIYScript_Interpreter
             // labelRenderedFrame
             // 
             this.labelRenderedFrame.AutoSize = true;
-            this.labelRenderedFrame.Location = new System.Drawing.Point(6, 76);
+            this.labelRenderedFrame.Location = new System.Drawing.Point(7, 76);
             this.labelRenderedFrame.Name = "labelRenderedFrame";
             this.labelRenderedFrame.Size = new System.Drawing.Size(83, 12);
             this.labelRenderedFrame.TabIndex = 1;
@@ -197,10 +200,10 @@ namespace DIYScript_Interpreter
             // 
             // groupBoxRender
             // 
-            this.groupBoxRender.Controls.Add(this.trackBarSmooth);
             this.groupBoxRender.Controls.Add(this.labelTicked);
-            this.groupBoxRender.Controls.Add(this.labelSmooth);
             this.groupBoxRender.Controls.Add(this.labelRenderedFrame);
+            this.groupBoxRender.Controls.Add(this.trackBarSmooth);
+            this.groupBoxRender.Controls.Add(this.labelSmooth);
             this.groupBoxRender.Controls.Add(this.labelRefresh);
             this.groupBoxRender.Controls.Add(this.comboBoxRefresh);
             this.groupBoxRender.Location = new System.Drawing.Point(659, 433);
@@ -213,18 +216,18 @@ namespace DIYScript_Interpreter
             // trackBarSmooth
             // 
             this.trackBarSmooth.LargeChange = 1;
-            this.trackBarSmooth.Location = new System.Drawing.Point(96, 46);
+            this.trackBarSmooth.Location = new System.Drawing.Point(60, 46);
             this.trackBarSmooth.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
             this.trackBarSmooth.Maximum = 4;
             this.trackBarSmooth.Name = "trackBarSmooth";
-            this.trackBarSmooth.Size = new System.Drawing.Size(173, 42);
+            this.trackBarSmooth.Size = new System.Drawing.Size(203, 42);
             this.trackBarSmooth.TabIndex = 6;
             this.trackBarSmooth.Scroll += new System.EventHandler(this.trackBarSmooth_Scroll);
             // 
             // labelSmooth
             // 
             this.labelSmooth.AutoSize = true;
-            this.labelSmooth.Location = new System.Drawing.Point(12, 46);
+            this.labelSmooth.Location = new System.Drawing.Point(6, 46);
             this.labelSmooth.Name = "labelSmooth";
             this.labelSmooth.Size = new System.Drawing.Size(53, 12);
             this.labelSmooth.TabIndex = 4;
@@ -233,7 +236,7 @@ namespace DIYScript_Interpreter
             // labelRefresh
             // 
             this.labelRefresh.AutoSize = true;
-            this.labelRefresh.Location = new System.Drawing.Point(12, 23);
+            this.labelRefresh.Location = new System.Drawing.Point(6, 23);
             this.labelRefresh.Name = "labelRefresh";
             this.labelRefresh.Size = new System.Drawing.Size(53, 12);
             this.labelRefresh.TabIndex = 3;
@@ -246,9 +249,9 @@ namespace DIYScript_Interpreter
             this.comboBoxRefresh.Items.AddRange(new object[] {
             "Ticker Only",
             "Ticker+WinForm DBuffer"});
-            this.comboBoxRefresh.Location = new System.Drawing.Point(96, 20);
+            this.comboBoxRefresh.Location = new System.Drawing.Point(65, 20);
             this.comboBoxRefresh.Name = "comboBoxRefresh";
-            this.comboBoxRefresh.Size = new System.Drawing.Size(173, 20);
+            this.comboBoxRefresh.Size = new System.Drawing.Size(198, 20);
             this.comboBoxRefresh.TabIndex = 0;
             // 
             // groupBoxDebugger

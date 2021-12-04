@@ -37,7 +37,7 @@ namespace DIYScript_Interpreter {
         }
         private void reDraw() {
             BGAddingStatus.gt.DrawImage(BGAddingStatus.bitmap, new Rectangle(0, 0, 640, 480));
-            pictureBox1.Image = BGAddingStatus.temp;
+            canvas.Image = BGAddingStatus.temp;
         }
         private void BGMaker_Load(object sender, EventArgs e) {
             reDraw();
@@ -47,26 +47,7 @@ namespace DIYScript_Interpreter {
             errorProvider.SetError(textBoxBGName, null);
         }
 
-        private void trackBarSmooth_Scroll(object sender, EventArgs e) {
-            switch (this.trackBarSmooth.Value) {
-                case 0:
-                    BGAddingStatus.gt.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
-                    break;
-                case 1:
-                    BGAddingStatus.gt.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
-                    break;
-                case 2:
-                    BGAddingStatus.gt.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
-                    break;
-                case 3:
-                    BGAddingStatus.gt.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                    break;
-                case 4:
-                    BGAddingStatus.gt.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                    break;
-            }
-            reDraw();
-        }
+
 
         private void comboBoxInterpolation_SelectedIndexChanged(object sender, EventArgs e) {
             BGAddingStatus.gt.InterpolationMode = (InterpolationMode)comboBoxInterpolation.SelectedIndex;

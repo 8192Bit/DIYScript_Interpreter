@@ -1,11 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using static DIYScript_Interpreter.GAME;
-using System.Resources;
-using System.IO;
-using System.Runtime.InteropServices;
 
 
 #pragma warning disable IDE1006
@@ -51,26 +49,143 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonNewBG_Click(object sender, EventArgs e) {
-            openFileDialog.Filter = "位图|*.bmp";
+            openFileDialog.Filter = "位图|*.bmp |jpeg 图像|*.jpg;*.jpeg |png 图像|*.png";
             openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
             buttonRefreshBG.PerformClick();
         }
 
         private void saveFileDialog_FileOk(object sender, CancelEventArgs e) {
-            [DllImport("kernel32")]
-            private static extern long WritePrivateProfileString(
- string section, string key, string val
-, string filePath);
-            string FilePath = saveFileDialogPj.FileName.ToString().Substring(0, saveFileDialogPj.FileName.ToString().LastIndexOf("\\"))+@"\TempDir";
+
+            string FilePath = Directory.GetCurrentDirectory() + @"\TempDir";
+            string DynaPath = FilePath;
             if (!Directory.Exists(FilePath)) {
-                Directory.CreateDirectory(FilePath);
+                Directory.CreateDirectory(FilePath);// mkdir TempDir
+                                                    //cd TempDir
             } else {
-                MessageBox.Show("已经发现临时编译文件。"+"\r"+"是否覆盖？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                MessageBox.Show("已经发现临时编译文件。" + "\r" + "是否覆盖？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                try {
+                    Directory.Delete(FilePath,true);
+                } catch(Exception ex) {
+                    MessageBox.Show(ex.ToString());
+                }
             }
 
 
-            FileStream MetaFile = new FileStream(FilePath + @"\MetaFile.ini",FileMode.CreateNew);
+            #region =Save File Structure=
+
+            ///<summary>
+            ///===========Start file making.===========
+            ///
+            ///please watch the following figure:
+            ///📁TempDir
+            ///     📄MetaFile.ini
+            ///     📁OBJ
+            ///         📁0
+            ///             📄MetaFile.ini
+            ///             📁ART
+            ///                  📁0
+            ///                    📄0.bmp
+            ///                    📄1.bmp
+            ///                    ......
+            ///                  📁1
+            ///                  ......
+            ///         📁1
+            ///         ......
+            ///     📁BG
+            ///         📁0
+            ///             📄MetaFile.ini
+            ///             📄index.bmp
+            ///         📁1
+            ///         ......
+            ///     📁BGM
+            ///     ///............///
+            /// 
+            ///      
+            ///</summary>
+            #endregion
+            INIOperation configwriter = new INIOperation(FilePath + @"\MetaFile.ini");//cat
+            configwriter.WriteValue("GameID", "Name", textBoxGameName.Text);//some working
+            configwriter.WriteValue("GameID", "Comment", textBoxComment.Text);
+            string temp;
+            if (radioButtonSpeedQ.Checked) {
+                temp = "Q";
+            }else if (radioButtonSpeedM.Checked) {
+                temp = "M";
+            }else if (radioButtonSpeedS.Checked) {
+                temp = "S";
+            }
+            else{
+                temp = "not_set_yet";
+            }
+            configwriter.WriteValue("GameSetting", "Speed", temp);
+            if (checkBoxTimeBOSS.Checked) {
+
+                configwriter.WriteValue("GameSetting", "LastTime", "-1");//tomorrow
+            }else if(maskedTextBoxTime.Text != "") {
+
+                configwriter.WriteValue("GameSetting", "LastTime", maskedTextBoxTime.Text.ToString());//tomorrow
+            }
+            DynaPath += @"\OBJ";
+            Directory.CreateDirectory(FilePath);//mkdir OBJ
+                                                //cd OBJ
+
+
+            foreach (OBJ obj in GAME.Current.OBJList) {
+                DynaPath += @"\"+obj.ID.ToString();
+                Directory.CreateDirectory(DynaPath);
+
+                //OBJ ini maker.
+
+                INIOperation OBJdefiner = new INIOperation(DynaPath + @"\OBJDefine.ini");
+                OBJdefiner.WriteValue("OBJID", "Name", obj. Name);
+                //OBJdefiner.WriteValue("OBJID", "");
+                //and then something about scripts......
+
+
+                //Start art writing...
+
+                DynaPath += @"\ART";
+                Directory.CreateDirectory(DynaPath);
+                foreach (OBJArt art in obj.ArtList) {
+                    DynaPath += @"\ART" + art.ID.ToString();
+                    foreach (Image s in art.i.Images) {
+
+                        FileStream fs = new FileStream(DynaPath + s.ToString(), FileMode.OpenOrCreate);
+                        s.Save(fs, System.Drawing.Imaging.ImageFormat.Bmp);
+
+                        fs.Dispose();
+                    }
+                    DynaPath = FilePath + @"\ART";
+                }
+
+
+                
+                //I didnt learn Linux Shell Operation well...:(
+
+            }
+
+            DynaPath = FilePath+@"\BG";
+
+            Directory.CreateDirectory(DynaPath);
+            {
+                foreach (BG bg in GAME.Current.BGList) {
+                    DynaPath += @"\BG" +bg.ID.ToString();
+                    Directory.CreateDirectory(DynaPath);
+                    //BGs INI define.
+                    INIOperation BGDefinder = new INIOperation(DynaPath + @"\BGDefine.ini");
+                    BGDefinder.WriteValue("BGID", "Name", bg.Name);
+                    BGDefinder.WriteValue("BGID", "ID", bg.ID.ToString());
+                    BGDefinder.WriteValue("BGID", "isNorm", bg.isNormal.ToString());
+                    FileStream fs = new FileStream(DynaPath + @"\index.bmp", FileMode.OpenOrCreate);
+                    bg.bitmap.Save(fs, System.Drawing.Imaging.ImageFormat.Bmp);
+                    fs.Dispose();
+
+                    DynaPath = FilePath+ @"\BG";
+                }
+            }
+
+            
         }
 
         private void openFileDialog_FileOk(object sender, CancelEventArgs e) {
@@ -80,12 +195,13 @@ namespace DIYScript_Interpreter {
             bGMaker.ShowDialog();
         }
         private void OptionsRefresh() {
-            listViewBG.View = listViewOBJ.View = listView1.View = Properties.Settings.Default.LViewValue;
+            listViewBG.View = listViewOBJ.View = listViewBGM.View = Properties.Settings.Default.LViewValue;
 
         }
         private void MainForm_Load(object sender, EventArgs e) {
             OBJAddingStatus.CurrentOBJID = 0;
-            listViewBG.View = listViewOBJ.View = listView1.View = Properties.Settings.Default.LViewValue;
+            listViewBG.View = listViewOBJ.View = listViewBGM.View = Properties.Settings.Default.LViewValue;
+            //Aero.AreoIt(Handle);
 
         }
 
@@ -164,7 +280,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonEditBG_Click(object sender, EventArgs e) {
-            openFileDialog.Filter = "位图|*.bmp";
+            openFileDialog.Filter = "位图|*.bmp|jpeg 图像|*.jpg|*.jpeg|png 图像|*.png";
             openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
             buttonRefreshBG.PerformClick();
@@ -173,6 +289,7 @@ namespace DIYScript_Interpreter {
         private void buttonEditOBJ_Click(object sender, EventArgs e) {
             Form OBJ = new OBJMaker();
             OBJAddingStatus.isEdit = true;
+            OBJAddingStatus.CurrentOBJID = Current.OBJList[listViewOBJ.FocusedItem.Index].ID;
             OBJ.ShowDialog();
             buttonRefreshOBJ.PerformClick();
         }
@@ -211,6 +328,14 @@ namespace DIYScript_Interpreter {
 
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
             saveFileDialogPj.ShowDialog();
+        }
+
+        private void checkBoxTimeBOSS_CheckedChanged(object sender, EventArgs e) {
+            if (checkBoxTimeBOSS.Checked) {
+                maskedTextBoxTime.Enabled = false;
+            } else {
+                maskedTextBoxTime.Enabled = true;
+            }
         }
     }
 

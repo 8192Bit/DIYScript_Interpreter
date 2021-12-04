@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using static DIYScript_Interpreter.GAME;
+
 using static DIYScript_Interpreter.OBJAddingStatus;
 
 #pragma warning disable IDE1006
@@ -19,7 +20,7 @@ namespace DIYScript_Interpreter {
 
         private void OK_Click(object sender, EventArgs e) {
             if (textBoxOBJName.Text == "") {
-                errorProvider.SetError(textBoxOBJName, "抄一  百遍名字！");
+                errorProvider.SetError(textBoxOBJName, "抄一百遍名字！");
 
             } else {
                 Int16 StartMode = 0;
@@ -37,12 +38,19 @@ namespace DIYScript_Interpreter {
                 } else if (OBJChoose.isAttach) {
                     StartMode = 4;
                 }
+                if (isEdit) {
+                    GAME.Current.EditOBJ
+                        (OBJAddingStatus.CurrentOBJID, textBoxOBJName.Text, StartMode,
+                         new Int16[] { (short)MouseState[0], (short)MouseState[1] },
+                         new Int16[] { (short)MouseState[2], (short)MouseState[3] });
+                }
+
                 OBJAddingStatus.CurrentOBJID++;
                 GAME.Current.AddOBJ();
                 GAME.Current.EditOBJ
                 (OBJAddingStatus.CurrentOBJID, textBoxOBJName.Text, StartMode,
-                 new Int16[] { (short)trackBar1.Value, (short)trackBar2.Value },
-                 new Int16[] { (short)trackBar3.Value, (short)trackBar4.Value });
+                 new Int16[] { (short)MouseState[0], (short)MouseState[1] },
+                 new Int16[] { (short)MouseState[2], (short)MouseState[3] });
                 Dispose();
             }
 
@@ -54,8 +62,15 @@ namespace DIYScript_Interpreter {
             Bitmap b = new Bitmap(640, 480);
             Point p1 = new Point(x1, y1);
             Graphics g = Graphics.FromImage(b);
-            BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
-            g.DrawImage(NormalBG.bitmap, new Point(0, 0));
+
+            try {
+                BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
+                g.DrawImage(NormalBG.bitmap, new Point(0, 0));
+            } catch /*(Exception ex)*/ {
+
+                //MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
             if (isArea) {
                 Pen p = new Pen(Color.Red, 2);
                 p.DashStyle = DashStyle.Dash;
@@ -70,8 +85,6 @@ namespace DIYScript_Interpreter {
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e) {
             checkBox1.Enabled = radioButton2.Checked;
-            trackBar2.Enabled = true;
-            trackBar4.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -87,52 +100,35 @@ namespace DIYScript_Interpreter {
             listViewART.View = Properties.Settings.Default.LViewValue;
             Bitmap b = new Bitmap(640, 480);
             Graphics g = Graphics.FromImage(b);
+            if (OBJAddingStatus.isEdit) {
+
+            }
+
             try {
                 BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
-
                 g.DrawImage(NormalBG.bitmap, new Point(0, 0));
-            } catch {
-
+            } catch (Exception ex) {
+                //MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             canvas.Image = b;
         }
 
         private void buttonNewART_Click(object sender, EventArgs e) {
-
+            Animater animator = new Animater();
+            animator.Show();
         }
 
         private void listViewART_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e) {
-
-            reDraw(trackBar1.Value, 480 - trackBar3.Value, trackBar2.Value, 480 - trackBar4.Value, radioButton2.Checked);
-        }
-
-        private void trackBar2_Scroll(object sender, EventArgs e) {
-
-            reDraw(trackBar1.Value, 480 - trackBar3.Value, trackBar2.Value, 480 - trackBar4.Value, radioButton2.Checked);
-        }
-
-        private void trackBar3_Scroll(object sender, EventArgs e) {
-
-            reDraw(trackBar1.Value, 480 - trackBar3.Value, trackBar2.Value, 480 - trackBar4.Value, radioButton2.Checked);
-        }
-
-        private void trackBar4_Scroll(object sender, EventArgs e) {
-
-            reDraw(trackBar1.Value, 480 - trackBar3.Value, trackBar2.Value, 480 - trackBar4.Value, radioButton2.Checked);
-        }
 
         private void textBoxOBJName_TextChanged(object sender, EventArgs e) {
             errorProvider.SetError(textBoxOBJName, null);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e) {
-            trackBar2.Enabled = false;
-            trackBar4.Enabled = false;
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e) {
@@ -181,6 +177,10 @@ namespace DIYScript_Interpreter {
             MouseState[2] = e.X;
             MouseState[3] = e.Y;
             MouseState[4] = 0;
+
+        }
+
+        private void label4_Click(object sender, EventArgs e) {
 
         }
     }

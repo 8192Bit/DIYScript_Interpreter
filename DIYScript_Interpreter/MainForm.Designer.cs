@@ -34,8 +34,9 @@ namespace DIYScript_Interpreter
             this.saveFileDialogPj = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.File = new System.Windows.Forms.ToolStripDropDownButton();
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Option = new System.Windows.Forms.ToolStripDropDownButton();
             this.首选项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Help = new System.Windows.Forms.ToolStripDropDownButton();
@@ -82,21 +83,28 @@ namespace DIYScript_Interpreter
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.labelScriptsList = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxOBJPic = new System.Windows.Forms.PictureBox();
             this.listBoxScript = new System.Windows.Forms.ListBox();
             this.BGM = new System.Windows.Forms.TabPage();
             this.buttonEditBGM = new System.Windows.Forms.Button();
             this.buttonDelBGM = new System.Windows.Forms.Button();
             this.buttonNewBGM = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewBGM = new System.Windows.Forms.ListView();
             this.Metadata = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelTimeSet = new System.Windows.Forms.Label();
+            this.maskedTextBoxTime = new System.Windows.Forms.MaskedTextBox();
+            this.checkBoxTimeBOSS = new System.Windows.Forms.CheckBox();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.radioButtonSpeedS = new System.Windows.Forms.RadioButton();
+            this.radioButtonSpeedM = new System.Windows.Forms.RadioButton();
+            this.radioButtonSpeedQ = new System.Windows.Forms.RadioButton();
+            this.labelSpeed = new System.Windows.Forms.Label();
+            this.textBoxComment = new System.Windows.Forms.TextBox();
             this.labelComment = new System.Windows.Forms.Label();
             this.textBoxGameName = new System.Windows.Forms.TextBox();
             this.labelGameName = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogPj = new System.Windows.Forms.OpenFileDialog();
-            this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.groupBoxBG.SuspendLayout();
             this.groupBoxOBJ.SuspendLayout();
@@ -105,7 +113,7 @@ namespace DIYScript_Interpreter
             this.AI.SuspendLayout();
             this.groupBoxAction.SuspendLayout();
             this.groupBoxWhen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOBJPic)).BeginInit();
             this.BGM.SuspendLayout();
             this.Metadata.SuspendLayout();
             this.SuspendLayout();
@@ -145,19 +153,25 @@ namespace DIYScript_Interpreter
             this.File.Size = new System.Drawing.Size(45, 22);
             this.File.Text = "文件";
             // 
-            // 退出ToolStripMenuItem
-            // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
-            // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.保存ToolStripMenuItem.Text = "保存...";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
+            // 
+            // 打开ToolStripMenuItem
+            // 
+            this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.打开ToolStripMenuItem.Text = "打开...";
+            // 
+            // 退出ToolStripMenuItem
+            // 
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
             // Option
             // 
@@ -173,7 +187,7 @@ namespace DIYScript_Interpreter
             // 首选项ToolStripMenuItem
             // 
             this.首选项ToolStripMenuItem.Name = "首选项ToolStripMenuItem";
-            this.首选项ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.首选项ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.首选项ToolStripMenuItem.Text = "首选项";
             this.首选项ToolStripMenuItem.Click += new System.EventHandler(this.首选项ToolStripMenuItem_Click);
             // 
@@ -192,14 +206,14 @@ namespace DIYScript_Interpreter
             // 程序帮助ToolStripMenuItem
             // 
             this.程序帮助ToolStripMenuItem.Name = "程序帮助ToolStripMenuItem";
-            this.程序帮助ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.程序帮助ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.程序帮助ToolStripMenuItem.Text = "程序帮助";
             this.程序帮助ToolStripMenuItem.Click += new System.EventHandler(this.程序帮助ToolStripMenuItem_Click);
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
@@ -470,7 +484,7 @@ namespace DIYScript_Interpreter
             this.AI.Controls.Add(this.buttonDown);
             this.AI.Controls.Add(this.buttonUp);
             this.AI.Controls.Add(this.labelScriptsList);
-            this.AI.Controls.Add(this.pictureBox1);
+            this.AI.Controls.Add(this.pictureBoxOBJPic);
             this.AI.Controls.Add(this.listBoxScript);
             this.AI.ForeColor = System.Drawing.Color.Black;
             this.AI.Location = new System.Drawing.Point(4, 25);
@@ -668,15 +682,15 @@ namespace DIYScript_Interpreter
             this.labelScriptsList.TabIndex = 2;
             this.labelScriptsList.Text = "脚本列表";
             // 
-            // pictureBox1
+            // pictureBoxOBJPic
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(90, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxOBJPic.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOBJPic.Image")));
+            this.pictureBoxOBJPic.Location = new System.Drawing.Point(6, 6);
+            this.pictureBoxOBJPic.Name = "pictureBoxOBJPic";
+            this.pictureBoxOBJPic.Size = new System.Drawing.Size(90, 90);
+            this.pictureBoxOBJPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxOBJPic.TabIndex = 1;
+            this.pictureBoxOBJPic.TabStop = false;
             // 
             // listBoxScript
             // 
@@ -692,7 +706,7 @@ namespace DIYScript_Interpreter
             this.BGM.Controls.Add(this.buttonEditBGM);
             this.BGM.Controls.Add(this.buttonDelBGM);
             this.BGM.Controls.Add(this.buttonNewBGM);
-            this.BGM.Controls.Add(this.listView1);
+            this.BGM.Controls.Add(this.listViewBGM);
             this.BGM.ForeColor = System.Drawing.Color.Black;
             this.BGM.Location = new System.Drawing.Point(4, 25);
             this.BGM.Name = "BGM";
@@ -731,20 +745,28 @@ namespace DIYScript_Interpreter
             this.buttonNewBGM.Text = "新建";
             this.buttonNewBGM.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // listViewBGM
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listViewBGM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 6);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(773, 264);
-            this.listView1.TabIndex = 6;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewBGM.HideSelection = false;
+            this.listViewBGM.Location = new System.Drawing.Point(6, 6);
+            this.listViewBGM.Name = "listViewBGM";
+            this.listViewBGM.Size = new System.Drawing.Size(773, 264);
+            this.listViewBGM.TabIndex = 6;
+            this.listViewBGM.UseCompatibleStateImageBehavior = false;
             // 
             // Metadata
             // 
-            this.Metadata.Controls.Add(this.textBox1);
+            this.Metadata.Controls.Add(this.labelTimeSet);
+            this.Metadata.Controls.Add(this.maskedTextBoxTime);
+            this.Metadata.Controls.Add(this.checkBoxTimeBOSS);
+            this.Metadata.Controls.Add(this.labelTime);
+            this.Metadata.Controls.Add(this.radioButtonSpeedS);
+            this.Metadata.Controls.Add(this.radioButtonSpeedM);
+            this.Metadata.Controls.Add(this.radioButtonSpeedQ);
+            this.Metadata.Controls.Add(this.labelSpeed);
+            this.Metadata.Controls.Add(this.textBoxComment);
             this.Metadata.Controls.Add(this.labelComment);
             this.Metadata.Controls.Add(this.textBoxGameName);
             this.Metadata.Controls.Add(this.labelGameName);
@@ -756,13 +778,99 @@ namespace DIYScript_Interpreter
             this.Metadata.TabIndex = 2;
             this.Metadata.Text = "元数据";
             // 
-            // textBox1
+            // labelTimeSet
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 44);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(696, 93);
-            this.textBox1.TabIndex = 3;
+            this.labelTimeSet.AutoSize = true;
+            this.labelTimeSet.Location = new System.Drawing.Point(167, 182);
+            this.labelTimeSet.Name = "labelTimeSet";
+            this.labelTimeSet.Size = new System.Drawing.Size(53, 12);
+            this.labelTimeSet.TabIndex = 11;
+            this.labelTimeSet.Text = "时间(ms)";
+            // 
+            // maskedTextBoxTime
+            // 
+            this.maskedTextBoxTime.Location = new System.Drawing.Point(226, 178);
+            this.maskedTextBoxTime.Mask = "000000ms";
+            this.maskedTextBoxTime.Name = "maskedTextBoxTime";
+            this.maskedTextBoxTime.Size = new System.Drawing.Size(100, 21);
+            this.maskedTextBoxTime.TabIndex = 10;
+            // 
+            // checkBoxTimeBOSS
+            // 
+            this.checkBoxTimeBOSS.AutoSize = true;
+            this.checkBoxTimeBOSS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.checkBoxTimeBOSS.Location = new System.Drawing.Point(74, 180);
+            this.checkBoxTimeBOSS.Name = "checkBoxTimeBOSS";
+            this.checkBoxTimeBOSS.Size = new System.Drawing.Size(76, 16);
+            this.checkBoxTimeBOSS.TabIndex = 9;
+            this.checkBoxTimeBOSS.Text = "BOSS 关卡";
+            this.checkBoxTimeBOSS.UseVisualStyleBackColor = true;
+            this.checkBoxTimeBOSS.CheckedChanged += new System.EventHandler(this.checkBoxTimeBOSS_CheckedChanged);
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Location = new System.Drawing.Point(15, 181);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(53, 12);
+            this.labelTime.TabIndex = 8;
+            this.labelTime.Text = "持续时间";
+            // 
+            // radioButtonSpeedS
+            // 
+            this.radioButtonSpeedS.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonSpeedS.AutoSize = true;
+            this.radioButtonSpeedS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.radioButtonSpeedS.Location = new System.Drawing.Point(141, 143);
+            this.radioButtonSpeedS.Name = "radioButtonSpeedS";
+            this.radioButtonSpeedS.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonSpeedS.TabIndex = 7;
+            this.radioButtonSpeedS.TabStop = true;
+            this.radioButtonSpeedS.Text = "慢";
+            this.radioButtonSpeedS.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSpeedM
+            // 
+            this.radioButtonSpeedM.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonSpeedM.AutoSize = true;
+            this.radioButtonSpeedM.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.radioButtonSpeedM.Location = new System.Drawing.Point(108, 143);
+            this.radioButtonSpeedM.Name = "radioButtonSpeedM";
+            this.radioButtonSpeedM.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonSpeedM.TabIndex = 6;
+            this.radioButtonSpeedM.TabStop = true;
+            this.radioButtonSpeedM.Text = "中";
+            this.radioButtonSpeedM.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSpeedQ
+            // 
+            this.radioButtonSpeedQ.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonSpeedQ.AutoSize = true;
+            this.radioButtonSpeedQ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.radioButtonSpeedQ.Location = new System.Drawing.Point(75, 143);
+            this.radioButtonSpeedQ.Name = "radioButtonSpeedQ";
+            this.radioButtonSpeedQ.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonSpeedQ.TabIndex = 5;
+            this.radioButtonSpeedQ.TabStop = true;
+            this.radioButtonSpeedQ.Text = "快";
+            this.radioButtonSpeedQ.UseVisualStyleBackColor = true;
+            // 
+            // labelSpeed
+            // 
+            this.labelSpeed.AutoSize = true;
+            this.labelSpeed.Location = new System.Drawing.Point(15, 148);
+            this.labelSpeed.Name = "labelSpeed";
+            this.labelSpeed.Size = new System.Drawing.Size(53, 12);
+            this.labelSpeed.TabIndex = 4;
+            this.labelSpeed.Text = "游戏速度";
+            // 
+            // textBoxComment
+            // 
+            this.textBoxComment.Location = new System.Drawing.Point(75, 44);
+            this.textBoxComment.Multiline = true;
+            this.textBoxComment.Name = "textBoxComment";
+            this.textBoxComment.Size = new System.Drawing.Size(696, 93);
+            this.textBoxComment.TabIndex = 3;
             // 
             // labelComment
             // 
@@ -799,12 +907,6 @@ namespace DIYScript_Interpreter
             this.openFileDialogPj.DefaultExt = "p42";
             this.openFileDialogPj.Filter = "MakerMatic 42/DIYScript Interpreter 项目文件|*.p42|所有文件|*.*";
             // 
-            // 打开ToolStripMenuItem
-            // 
-            this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.打开ToolStripMenuItem.Text = "打开...";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -830,7 +932,7 @@ namespace DIYScript_Interpreter
             this.AI.PerformLayout();
             this.groupBoxAction.ResumeLayout(false);
             this.groupBoxWhen.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOBJPic)).EndInit();
             this.BGM.ResumeLayout(false);
             this.Metadata.ResumeLayout(false);
             this.Metadata.PerformLayout();
@@ -868,9 +970,9 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button buttonEditBGM;
         private System.Windows.Forms.Button buttonDelBGM;
         private System.Windows.Forms.Button buttonNewBGM;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewBGM;
         private System.Windows.Forms.TabPage Metadata;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxComment;
         private System.Windows.Forms.Label labelComment;
         private System.Windows.Forms.TextBox textBoxGameName;
         private System.Windows.Forms.Label labelGameName;
@@ -884,7 +986,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.ImageList imageListBGLarge;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Label labelScriptsList;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxOBJPic;
         private System.Windows.Forms.ListBox listBoxScript;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Label labelOBJName;
@@ -906,6 +1008,14 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button buttonNormalBG;
         private System.Windows.Forms.OpenFileDialog openFileDialogPj;
         private System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
+        private System.Windows.Forms.Label labelSpeed;
+        private System.Windows.Forms.Label labelTimeSet;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTime;
+        private System.Windows.Forms.CheckBox checkBoxTimeBOSS;
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.RadioButton radioButtonSpeedS;
+        private System.Windows.Forms.RadioButton radioButtonSpeedM;
+        private System.Windows.Forms.RadioButton radioButtonSpeedQ;
     }
 }
 

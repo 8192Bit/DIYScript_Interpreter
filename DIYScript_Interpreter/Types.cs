@@ -1,44 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows.Forms;
 
 namespace DIYScript_Interpreter {
     // put all your classes here!!
     //mariokate
     //:P
 
-    public class INIMaker {
-        public INIMaker(string path) {
-
+    public class INIOperation {
+        string path;
+        public INIOperation(string path) {
+            this.path = path;
         }
         [DllImport("kernel32")]
         private static extern long WritePrivateProfileString(string section, string key, string val, string filepath);
-
+        [DllImport("kernel32")]
         private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retval, int size, string filePath);
 
-        //ini文件名称
-        private static string inifilename = "Config.ini";
-        //获取ini文件路径
-        private static string inifilepath = Directory.GetCurrentDirectory() + "\\" + inifilename;
-
-        public static string GetValue(string key) {
-            StringBuilder s = new StringBuilder(1024);
-            GetPrivateProfileString("CONFIG", key, "", s, 1024, inifilepath);
-            return s.ToString();
+        ///<summary>
+        ///向ini文件中写数据
+        ///</summary>
+        ///<param name="Section">节点</param>
+        ///<param name="Key">键</param>
+        ///<param name="Value">值</param>
+        public void WriteValue(string Section, string Key, string Value) {
+            WritePrivateProfileString(Section, Key, Value, path);
+        }
+        ///<summary>
+        ///从ini文件中读数据
+        ///</summary>
+        ///<param name="Section">节点</param>
+        ///<param name="Key">键</param>
+        ///<returns>值</returns>
+        public string ReadValue(string Section, string Key) {
+            StringBuilder temp = new StringBuilder(255); GetPrivateProfileString(Section, Key, "", temp, 255, this.path);
+            return temp.ToString();
         }
 
 
-        public static void SetValue(string key, string value) {
-            try {
-                WritePrivateProfileString("CONFIG", key, value, inifilepath);
-            } catch (Exception ex) {
-                throw ex;
-            }
-        }
     }
+
+
+
     public enum Directions {
         w,
         n,
@@ -74,12 +80,11 @@ namespace DIYScript_Interpreter {
         int Arg3;
     }
     public class Command {
-
         TypeCommands OPCode;
-        object Arg0;
-        object Arg1;
-        object Arg2;
-        object Arg3;
+        int Arg0;
+        int Arg1;
+        int Arg2;
+        int Arg3;
     }
     public class Script {
         public List<Condition> Conditions;
@@ -91,8 +96,8 @@ namespace DIYScript_Interpreter {
         public static OBJ ChoosedOBJ;
     }
     public class OBJArt {
-        public Bitmap[] ArtAnimation = new Bitmap[64];
-        public int TotalFrames;
+        public UInt64 ID;
+        public ImageList i = new ImageList();
         public int CurrentFrame;
     }
 
@@ -137,7 +142,9 @@ namespace DIYScript_Interpreter {
         public string Name;
         public int[] Resolution = new int[2];
         public bool isNormal;
-    }
+
+       }
+    
     public class BGAddingStatus {
         public static UInt64 CurrentBGID = 0;
         public static Bitmap bitmap;
@@ -174,36 +181,13 @@ namespace DIYScript_Interpreter {
         public Int16[] StrtY = new Int16[2];
         // If StartMode == 1, StrtX[] = {x1, x2}, StrtY[] = {y1, y2}
         // If StartMode == 2/3, StrtX[] = {x, null}, StrtY[] = {y, null}
-        public UInt64 AttachTargetID;
-        public Int16[] AttachOffset = new Int16[2];
-        // AttachOffset = {offsetx, offsety}
-
+        // If StartMode == 4, StrtX[] = {offsetx, null}, StrtY[]={offsety, null}
+        public UInt64 AttachOBJID;
         public List<OBJArt> ArtList = new List<OBJArt>();
         public int[] OBJSize = new int[2];
         public OBJArt CurrentArt;
 
         public List<Script> ScriptList = new List<Script>();
-
-
-        public class Author {
-            public string state;
-        }
-
-
-
-
-
-        void somethingiwanttosay() {
-            Author I = new Author();
-            I.state = "tired";
-            if (I.state != "tired") {
-#pragma warning disable IDE1006
-                I.state = "say 'fxxu microsoft'";
-            }
-            I.state = "???" +
-                "oh it seemed i did it";
-            I.state = "died";
-        }
 
     }
 }

@@ -63,6 +63,26 @@ namespace DIYScript_Interpreter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _23ef {
+            get {
+                object obj = ResourceManager.GetObject("23ef", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _25b6 {
+            get {
+                object obj = ResourceManager.GetObject("25b6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap _8i {
             get {
                 object obj = ResourceManager.GetObject("8i", resourceCulture);
@@ -96,6 +116,26 @@ namespace DIYScript_Interpreter.Properties {
         internal static System.Drawing.Bitmap OIP_C_dgtB_f92LGrw6igoaGVw7QHaHa {
             get {
                 object obj = ResourceManager.GetObject("OIP-C.dgtB_f92LGrw6igoaGVw7QHaHa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap pause {
+            get {
+                object obj = ResourceManager.GetObject("pause", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap stop {
+            get {
+                object obj = ResourceManager.GetObject("stop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

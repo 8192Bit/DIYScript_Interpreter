@@ -30,32 +30,29 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.canvas = new System.Windows.Forms.PictureBox();
             this.Cancel = new System.Windows.Forms.Button();
             this.OK = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxBGName = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxImport = new System.Windows.Forms.GroupBox();
-            this.trackBarSmooth = new System.Windows.Forms.TrackBar();
-            this.labelSmooth = new System.Windows.Forms.Label();
-            this.comboBoxInterpolation = new System.Windows.Forms.ComboBox();
             this.labelInterpolation = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.comboBoxInterpolation = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBoxImport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarSmooth)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // canvas
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(264, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(640, 480);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.canvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.canvas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.canvas.Location = new System.Drawing.Point(264, 9);
+            this.canvas.Name = "canvas";
+            this.canvas.Size = new System.Drawing.Size(640, 480);
+            this.canvas.TabIndex = 4;
+            this.canvas.TabStop = false;
             // 
             // Cancel
             // 
@@ -102,34 +99,21 @@ namespace DIYScript_Interpreter
             // 
             this.groupBoxImport.Controls.Add(this.labelInterpolation);
             this.groupBoxImport.Controls.Add(this.comboBoxInterpolation);
-            this.groupBoxImport.Controls.Add(this.trackBarSmooth);
-            this.groupBoxImport.Controls.Add(this.labelSmooth);
             this.groupBoxImport.Location = new System.Drawing.Point(12, 33);
             this.groupBoxImport.Name = "groupBoxImport";
-            this.groupBoxImport.Size = new System.Drawing.Size(246, 169);
+            this.groupBoxImport.Size = new System.Drawing.Size(246, 42);
             this.groupBoxImport.TabIndex = 12;
             this.groupBoxImport.TabStop = false;
             this.groupBoxImport.Text = "导入选项";
             // 
-            // trackBarSmooth
+            // labelInterpolation
             // 
-            this.trackBarSmooth.LargeChange = 1;
-            this.trackBarSmooth.Location = new System.Drawing.Point(67, 20);
-            this.trackBarSmooth.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-            this.trackBarSmooth.Maximum = 4;
-            this.trackBarSmooth.Name = "trackBarSmooth";
-            this.trackBarSmooth.Size = new System.Drawing.Size(173, 42);
-            this.trackBarSmooth.TabIndex = 8;
-            this.trackBarSmooth.Scroll += new System.EventHandler(this.trackBarSmooth_Scroll);
-            // 
-            // labelSmooth
-            // 
-            this.labelSmooth.AutoSize = true;
-            this.labelSmooth.Location = new System.Drawing.Point(8, 20);
-            this.labelSmooth.Name = "labelSmooth";
-            this.labelSmooth.Size = new System.Drawing.Size(53, 12);
-            this.labelSmooth.TabIndex = 7;
-            this.labelSmooth.Text = "平滑模式";
+            this.labelInterpolation.AutoSize = true;
+            this.labelInterpolation.Location = new System.Drawing.Point(6, 17);
+            this.labelInterpolation.Name = "labelInterpolation";
+            this.labelInterpolation.Size = new System.Drawing.Size(53, 12);
+            this.labelInterpolation.TabIndex = 10;
+            this.labelInterpolation.Text = "插值模式";
             // 
             // comboBoxInterpolation
             // 
@@ -143,20 +127,11 @@ namespace DIYScript_Interpreter
             "最邻近插值",
             "高质量双线性插值",
             "高质量双三次插值"});
-            this.comboBoxInterpolation.Location = new System.Drawing.Point(67, 66);
+            this.comboBoxInterpolation.Location = new System.Drawing.Point(65, 14);
             this.comboBoxInterpolation.Name = "comboBoxInterpolation";
             this.comboBoxInterpolation.Size = new System.Drawing.Size(173, 20);
             this.comboBoxInterpolation.TabIndex = 9;
             this.comboBoxInterpolation.SelectedIndexChanged += new System.EventHandler(this.comboBoxInterpolation_SelectedIndexChanged);
-            // 
-            // labelInterpolation
-            // 
-            this.labelInterpolation.AutoSize = true;
-            this.labelInterpolation.Location = new System.Drawing.Point(8, 69);
-            this.labelInterpolation.Name = "labelInterpolation";
-            this.labelInterpolation.Size = new System.Drawing.Size(53, 12);
-            this.labelInterpolation.TabIndex = 10;
-            this.labelInterpolation.Text = "插值模式";
             // 
             // BGMaker
             // 
@@ -168,15 +143,14 @@ namespace DIYScript_Interpreter
             this.Controls.Add(this.textBoxBGName);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.OK);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.canvas);
             this.Name = "BGMaker";
             this.Text = "BGMaker";
             this.Load += new System.EventHandler(this.BGMaker_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.groupBoxImport.ResumeLayout(false);
             this.groupBoxImport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarSmooth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,15 +158,13 @@ namespace DIYScript_Interpreter
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox canvas;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button OK;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxBGName;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.GroupBox groupBoxImport;
-        private System.Windows.Forms.TrackBar trackBarSmooth;
-        private System.Windows.Forms.Label labelSmooth;
         private System.Windows.Forms.ComboBox comboBoxInterpolation;
         private System.Windows.Forms.Label labelInterpolation;
     }
