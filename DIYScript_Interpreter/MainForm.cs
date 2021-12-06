@@ -104,7 +104,10 @@ namespace DIYScript_Interpreter {
             ///      
             ///</summary>
             #endregion
+            
             INIOperation configwriter = new INIOperation(FilePath + @"\MetaFile.ini");//cat
+            
+            #region Game metadata ini file
             configwriter.WriteValue("GameID", "Name", textBoxGameName.Text);//some working
             configwriter.WriteValue("GameID", "Comment", textBoxComment.Text);
             string temp;
@@ -126,6 +129,10 @@ namespace DIYScript_Interpreter {
 
                 configwriter.WriteValue("GameSetting", "LastTime", maskedTextBoxTime.Text.ToString());//tomorrow
             }
+            #endregion
+            
+            #region \OBJ Every obj generator
+            
             DynaPath += @"\OBJ";
             Directory.CreateDirectory(FilePath);//mkdir OBJ
                                                 //cd OBJ
@@ -149,11 +156,9 @@ namespace DIYScript_Interpreter {
                 Directory.CreateDirectory(DynaPath);
                 foreach (OBJArt art in obj.ArtList) {
                     DynaPath += @"\ART" + art.ID.ToString();
-                    foreach (Image s in art.i.Images) {
-
-                        FileStream fs = new FileStream(DynaPath + s.ToString(), FileMode.OpenOrCreate);
+                    for(int i=0;i=art.i.Images.Count;i++){
+                        FileStream fs = new FileStream(DynaPath + i.ToString(), FileMode.OpenOrCreate);
                         s.Save(fs, System.Drawing.Imaging.ImageFormat.Bmp);
-
                         fs.Dispose();
                     }
                     DynaPath = FilePath + @"\ART";
@@ -164,7 +169,10 @@ namespace DIYScript_Interpreter {
                 //I didnt learn Linux Shell Operation well...:(
 
             }
-
+            #endregion 
+            
+            
+            #region \BG Every bg generator
             DynaPath = FilePath+@"\BG";
 
             Directory.CreateDirectory(DynaPath);
@@ -184,6 +192,8 @@ namespace DIYScript_Interpreter {
                     DynaPath = FilePath+ @"\BG";
                 }
             }
+            
+            #endregion
 
             
         }
