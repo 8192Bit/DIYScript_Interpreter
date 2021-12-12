@@ -12,10 +12,19 @@ namespace DIYScript_Interpreter {
             InitializeComponent();
         }
 
-        private void pictureBoxCurrent_Click(object sender, EventArgs e) {
-            if (isFullView) {
-                this.Width += pictureBoxCurrent.Image.Height - pictureBoxCurrent.Height;
+        private void pictureBoxCurrent_DoubleClick(object sender, EventArgs e) {
+            if (!isFullView) {
+                this.Height += pictureBoxCurrent.Image.Height - pictureBoxCurrent.Height;
+                pictureBoxCurrent.Location.Offset(pictureBoxCurrent.Width - pictureBoxCurrent.Image.Width, 0);
+
                 pictureBoxCurrent.Size = pictureBoxCurrent.Image.Size;
+                pictureBoxCurrent.SizeMode = PictureBoxSizeMode.Normal;
+                isFullView = true;
+            } else {
+                pictureBoxCurrent.Size = new Size(100, 100);
+                this.Width = 800;
+                this.Height = 280;
+                isFullView = false;
             }
         }
 
@@ -29,6 +38,7 @@ namespace DIYScript_Interpreter {
             if (isFirstAdd) {
                 imageList.ImageSize = i.Size;
             } else if (i.Size != imageList.ImageSize) {
+                MessageBox.Show("要添加的帧与帧列表中的大小不匹配。" + "\r" + "是否添加？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
 
             }
         }
@@ -42,5 +52,7 @@ namespace DIYScript_Interpreter {
             openFileDialog.ShowDialog();
             isFromFront = false;
         }
+
+
     }
 }

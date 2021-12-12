@@ -74,7 +74,6 @@ namespace DIYScript_Interpreter
             // 
             // OK
             // 
-            this.OK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.OK.Location = new System.Drawing.Point(12, 466);
             this.OK.Name = "OK";
             this.OK.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -100,11 +99,10 @@ namespace DIYScript_Interpreter
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.radioButton1.Location = new System.Drawing.Point(6, 20);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton1.Size = new System.Drawing.Size(70, 16);
+            this.radioButton1.Size = new System.Drawing.Size(71, 16);
             this.radioButton1.TabIndex = 4;
             this.radioButton1.Text = "固定位置";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -113,11 +111,10 @@ namespace DIYScript_Interpreter
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.radioButton2.Location = new System.Drawing.Point(6, 42);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton2.Size = new System.Drawing.Size(70, 16);
+            this.radioButton2.Size = new System.Drawing.Size(71, 16);
             this.radioButton2.TabIndex = 5;
             this.radioButton2.Text = "区域随机";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -139,7 +136,6 @@ namespace DIYScript_Interpreter
             // 
             // button1
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(250, 13);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -153,18 +149,16 @@ namespace DIYScript_Interpreter
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.checkBox1.Location = new System.Drawing.Point(83, 43);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox1.Size = new System.Drawing.Size(70, 16);
+            this.checkBox1.Size = new System.Drawing.Size(72, 16);
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "允许重叠";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Location = new System.Drawing.Point(12, 437);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -184,7 +178,6 @@ namespace DIYScript_Interpreter
             // 
             this.buttonEditART.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonEditART.FlatAppearance.BorderSize = 5;
-            this.buttonEditART.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonEditART.Location = new System.Drawing.Point(262, 121);
             this.buttonEditART.Name = "buttonEditART";
             this.buttonEditART.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -197,7 +190,6 @@ namespace DIYScript_Interpreter
             // 
             this.buttonDelART.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDelART.FlatAppearance.BorderSize = 5;
-            this.buttonDelART.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonDelART.Location = new System.Drawing.Point(262, 90);
             this.buttonDelART.Name = "buttonDelART";
             this.buttonDelART.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -210,7 +202,6 @@ namespace DIYScript_Interpreter
             // 
             this.buttonNewART.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewART.FlatAppearance.BorderSize = 5;
-            this.buttonNewART.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonNewART.Location = new System.Drawing.Point(262, 59);
             this.buttonNewART.Name = "buttonNewART";
             this.buttonNewART.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -252,7 +243,6 @@ namespace DIYScript_Interpreter
             this.buttonNormalART.Enabled = false;
             this.buttonNormalART.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNormalART.FlatAppearance.BorderSize = 5;
-            this.buttonNormalART.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonNormalART.Location = new System.Drawing.Point(262, 152);
             this.buttonNormalART.Name = "buttonNormalART";
             this.buttonNormalART.RightToLeft = System.Windows.Forms.RightToLeft.No;

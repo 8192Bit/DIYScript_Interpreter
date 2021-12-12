@@ -38,7 +38,7 @@ namespace DIYScript_Interpreter {
             this.buttonPlay = new System.Windows.Forms.Button();
             this.pictureBoxCurrent = new System.Windows.Forms.PictureBox();
             this.buttonDel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelFrame = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +53,6 @@ namespace DIYScript_Interpreter {
             // 
             // buttonAddBefore
             // 
-            this.buttonAddBefore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAddBefore.Location = new System.Drawing.Point(13, 132);
             this.buttonAddBefore.Name = "buttonAddBefore";
             this.buttonAddBefore.Size = new System.Drawing.Size(93, 23);
@@ -65,7 +64,6 @@ namespace DIYScript_Interpreter {
             // buttonAddAfter
             // 
             this.buttonAddAfter.Enabled = false;
-            this.buttonAddAfter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAddAfter.Location = new System.Drawing.Point(112, 132);
             this.buttonAddAfter.Name = "buttonAddAfter";
             this.buttonAddAfter.Size = new System.Drawing.Size(93, 23);
@@ -90,7 +88,6 @@ namespace DIYScript_Interpreter {
             this.buttonPause.BackColor = System.Drawing.Color.Transparent;
             this.buttonPause.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonPause.BackgroundImage")));
             this.buttonPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonPause.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonPause.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonPause.Location = new System.Drawing.Point(653, 161);
             this.buttonPause.Name = "buttonPause";
@@ -104,7 +101,6 @@ namespace DIYScript_Interpreter {
             this.buttonStop.BackColor = System.Drawing.Color.Transparent;
             this.buttonStop.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.stop;
             this.buttonStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStop.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonStop.Location = new System.Drawing.Point(653, 190);
             this.buttonStop.Name = "buttonStop";
@@ -118,7 +114,6 @@ namespace DIYScript_Interpreter {
             this.buttonPlay.BackColor = System.Drawing.Color.Transparent;
             this.buttonPlay.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources._25b6;
             this.buttonPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonPlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonPlay.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonPlay.Location = new System.Drawing.Point(653, 132);
             this.buttonPlay.Name = "buttonPlay";
@@ -129,16 +124,19 @@ namespace DIYScript_Interpreter {
             // pictureBoxCurrent
             // 
             this.pictureBoxCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxCurrent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxCurrent.Image = global::DIYScript_Interpreter.Properties.Resources._8i1;
             this.pictureBoxCurrent.Location = new System.Drawing.Point(682, 132);
+            this.pictureBoxCurrent.MinimumSize = new System.Drawing.Size(100, 100);
             this.pictureBoxCurrent.Name = "pictureBoxCurrent";
             this.pictureBoxCurrent.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxCurrent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCurrent.TabIndex = 1;
             this.pictureBoxCurrent.TabStop = false;
-            this.pictureBoxCurrent.Click += new System.EventHandler(this.pictureBoxCurrent_Click);
+            this.pictureBoxCurrent.DoubleClick += new System.EventHandler(this.pictureBoxCurrent_DoubleClick);
             // 
             // buttonDel
             // 
-            this.buttonDel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonDel.Location = new System.Drawing.Point(13, 162);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(93, 23);
@@ -146,21 +144,24 @@ namespace DIYScript_Interpreter {
             this.buttonDel.Text = "删除";
             this.buttonDel.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // labelFrame
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(653, 220);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 12);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "0/0";
+            this.labelFrame.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelFrame.AutoSize = true;
+            this.labelFrame.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelFrame.Location = new System.Drawing.Point(653, 220);
+            this.labelFrame.Name = "labelFrame";
+            this.labelFrame.Size = new System.Drawing.Size(25, 14);
+            this.labelFrame.TabIndex = 8;
+            this.labelFrame.Text = "0/0";
+            this.labelFrame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Animater
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 244);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelFrame);
             this.Controls.Add(this.buttonStop);
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.buttonPlay);
@@ -191,6 +192,6 @@ namespace DIYScript_Interpreter {
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.Button buttonStop;
         private System.Windows.Forms.Button buttonDel;
-        private Label label1;
+        private Label labelFrame;
     }
 }

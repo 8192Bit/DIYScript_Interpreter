@@ -46,12 +46,11 @@ namespace DIYScript_Interpreter
             this.groupBoxRender = new System.Windows.Forms.GroupBox();
             this.trackBarSmooth = new System.Windows.Forms.TrackBar();
             this.labelSmooth = new System.Windows.Forms.Label();
-            this.labelRefresh = new System.Windows.Forms.Label();
-            this.comboBoxRefresh = new System.Windows.Forms.ComboBox();
             this.groupBoxDebugger = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelMouse = new System.Windows.Forms.Label();
             this.labelDirection = new System.Windows.Forms.Label();
+            this.buttonVisualizer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.groupBoxState.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -127,7 +126,6 @@ namespace DIYScript_Interpreter
             // 
             // buttonReset
             // 
-            this.buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonReset.Location = new System.Drawing.Point(177, 84);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
@@ -138,7 +136,6 @@ namespace DIYScript_Interpreter
             // 
             // buttonPause
             // 
-            this.buttonPause.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonPause.Location = new System.Drawing.Point(96, 84);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(75, 23);
@@ -149,7 +146,6 @@ namespace DIYScript_Interpreter
             // 
             // buttonTickStrat
             // 
-            this.buttonTickStrat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonTickStrat.Location = new System.Drawing.Point(15, 84);
             this.buttonTickStrat.Name = "buttonTickStrat";
             this.buttonTickStrat.Size = new System.Drawing.Size(75, 23);
@@ -204,8 +200,6 @@ namespace DIYScript_Interpreter
             this.groupBoxRender.Controls.Add(this.labelRenderedFrame);
             this.groupBoxRender.Controls.Add(this.trackBarSmooth);
             this.groupBoxRender.Controls.Add(this.labelSmooth);
-            this.groupBoxRender.Controls.Add(this.labelRefresh);
-            this.groupBoxRender.Controls.Add(this.comboBoxRefresh);
             this.groupBoxRender.Location = new System.Drawing.Point(659, 433);
             this.groupBoxRender.Name = "groupBoxRender";
             this.groupBoxRender.Size = new System.Drawing.Size(269, 108);
@@ -233,29 +227,9 @@ namespace DIYScript_Interpreter
             this.labelSmooth.TabIndex = 4;
             this.labelSmooth.Text = "平滑模式";
             // 
-            // labelRefresh
-            // 
-            this.labelRefresh.AutoSize = true;
-            this.labelRefresh.Location = new System.Drawing.Point(6, 23);
-            this.labelRefresh.Name = "labelRefresh";
-            this.labelRefresh.Size = new System.Drawing.Size(53, 12);
-            this.labelRefresh.TabIndex = 3;
-            this.labelRefresh.Text = "刷新模式";
-            // 
-            // comboBoxRefresh
-            // 
-            this.comboBoxRefresh.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comboBoxRefresh.FormattingEnabled = true;
-            this.comboBoxRefresh.Items.AddRange(new object[] {
-            "Ticker Only",
-            "Ticker+WinForm DBuffer"});
-            this.comboBoxRefresh.Location = new System.Drawing.Point(65, 20);
-            this.comboBoxRefresh.Name = "comboBoxRefresh";
-            this.comboBoxRefresh.Size = new System.Drawing.Size(198, 20);
-            this.comboBoxRefresh.TabIndex = 0;
-            // 
             // groupBoxDebugger
             // 
+            this.groupBoxDebugger.Controls.Add(this.buttonVisualizer);
             this.groupBoxDebugger.Controls.Add(this.groupBox1);
             this.groupBoxDebugger.Location = new System.Drawing.Point(934, 13);
             this.groupBoxDebugger.Name = "groupBoxDebugger";
@@ -293,6 +267,16 @@ namespace DIYScript_Interpreter
             this.labelDirection.TabIndex = 1;
             this.labelDirection.Text = "方向";
             // 
+            // buttonVisualizer
+            // 
+            this.buttonVisualizer.Location = new System.Drawing.Point(98, 131);
+            this.buttonVisualizer.Name = "buttonVisualizer";
+            this.buttonVisualizer.Size = new System.Drawing.Size(75, 23);
+            this.buttonVisualizer.TabIndex = 3;
+            this.buttonVisualizer.Text = "Visualizer";
+            this.buttonVisualizer.UseVisualStyleBackColor = true;
+            this.buttonVisualizer.Click += new System.EventHandler(this.buttonVisualizer_Click);
+            // 
             // GamePlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -307,6 +291,7 @@ namespace DIYScript_Interpreter
             this.Controls.Add(this.labelMM42);
             this.Name = "GamePlay";
             this.Text = "GamePlay";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GamePlay_FormClosed);
             this.Load += new System.EventHandler(this.GamePlay_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GamePlay_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
@@ -336,8 +321,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.GroupBox groupBoxDebugger;
         private System.Windows.Forms.Label labelTicked;
         private System.Windows.Forms.Label labelRenderedFrame;
-        private System.Windows.Forms.ComboBox comboBoxRefresh;
-        private System.Windows.Forms.Label labelRefresh;
         private System.Windows.Forms.Label labelSmooth;
         private System.Windows.Forms.TrackBar trackBarSpeed;
         private System.Windows.Forms.Button buttonPause;
@@ -347,5 +330,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Label labelDirection;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonVisualizer;
     }
 }

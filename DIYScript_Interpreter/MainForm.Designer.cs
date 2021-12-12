@@ -66,12 +66,28 @@ namespace DIYScript_Interpreter
             this.tabControlAIOBJMdata = new System.Windows.Forms.TabControl();
             this.AI = new System.Windows.Forms.TabPage();
             this.groupBoxAction = new System.Windows.Forms.GroupBox();
+            this.buttonAOK = new System.Windows.Forms.Button();
+            this.tabControlA = new System.Windows.Forms.TabControl();
+            this.ATravel = new System.Windows.Forms.TabPage();
+            this.ASwitch = new System.Windows.Forms.TabPage();
+            this.AArt = new System.Windows.Forms.TabPage();
+            this.AWinLose = new System.Windows.Forms.TabPage();
+            this.AVfx = new System.Windows.Forms.TabPage();
+            this.ASfx = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.listBoxAction = new System.Windows.Forms.ListBox();
             this.groupBoxWhen = new System.Windows.Forms.GroupBox();
+            this.buttonCOK = new System.Windows.Forms.Button();
+            this.tabControlC = new System.Windows.Forms.TabControl();
+            this.CTap = new System.Windows.Forms.TabPage();
+            this.CContact = new System.Windows.Forms.TabPage();
+            this.CArt = new System.Windows.Forms.TabPage();
+            this.CTime = new System.Windows.Forms.TabPage();
+            this.CSwitch = new System.Windows.Forms.TabPage();
+            this.CWonLoss = new System.Windows.Forms.TabPage();
             this.buttonCDel = new System.Windows.Forms.Button();
             this.buttonCAdd = new System.Windows.Forms.Button();
             this.buttonCDown = new System.Windows.Forms.Button();
@@ -105,6 +121,11 @@ namespace DIYScript_Interpreter
             this.labelGameName = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogPj = new System.Windows.Forms.OpenFileDialog();
+            this.checkBoxArea = new System.Windows.Forms.CheckBox();
+            this.comboBoxClickSlide = new System.Windows.Forms.ComboBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.toolStrip.SuspendLayout();
             this.groupBoxBG.SuspendLayout();
             this.groupBoxOBJ.SuspendLayout();
@@ -112,7 +133,10 @@ namespace DIYScript_Interpreter
             this.tabControlAIOBJMdata.SuspendLayout();
             this.AI.SuspendLayout();
             this.groupBoxAction.SuspendLayout();
+            this.tabControlA.SuspendLayout();
             this.groupBoxWhen.SuspendLayout();
+            this.tabControlC.SuspendLayout();
+            this.CTap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOBJPic)).BeginInit();
             this.BGM.SuspendLayout();
             this.Metadata.SuspendLayout();
@@ -137,7 +161,6 @@ namespace DIYScript_Interpreter
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(1488, 25);
             this.toolStrip.TabIndex = 1;
-            this.toolStrip.Text = "toolStrip1";
             this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
             // 
             // File
@@ -283,10 +306,10 @@ namespace DIYScript_Interpreter
             this.buttonNormalBG.Enabled = false;
             this.buttonNormalBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNormalBG.FlatAppearance.BorderSize = 5;
-            this.buttonNormalBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonNormalBG.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonNormalBG.Location = new System.Drawing.Point(172, 265);
             this.buttonNormalBG.Name = "buttonNormalBG";
-            this.buttonNormalBG.Size = new System.Drawing.Size(87, 22);
+            this.buttonNormalBG.Size = new System.Drawing.Size(87, 31);
             this.buttonNormalBG.TabIndex = 7;
             this.buttonNormalBG.Text = "设为默认背景";
             this.buttonNormalBG.UseVisualStyleBackColor = true;
@@ -298,7 +321,6 @@ namespace DIYScript_Interpreter
             this.buttonRefreshBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonRefreshBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonRefreshBG.FlatAppearance.BorderSize = 5;
-            this.buttonRefreshBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonRefreshBG.Location = new System.Drawing.Point(6, 17);
             this.buttonRefreshBG.Name = "buttonRefreshBG";
             this.buttonRefreshBG.Size = new System.Drawing.Size(25, 25);
@@ -310,10 +332,10 @@ namespace DIYScript_Interpreter
             // 
             this.buttonDeleteBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDeleteBG.FlatAppearance.BorderSize = 5;
-            this.buttonDeleteBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDeleteBG.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonDeleteBG.Location = new System.Drawing.Point(89, 265);
             this.buttonDeleteBG.Name = "buttonDeleteBG";
-            this.buttonDeleteBG.Size = new System.Drawing.Size(77, 22);
+            this.buttonDeleteBG.Size = new System.Drawing.Size(77, 31);
             this.buttonDeleteBG.TabIndex = 4;
             this.buttonDeleteBG.Text = "删除";
             this.buttonDeleteBG.UseVisualStyleBackColor = true;
@@ -323,10 +345,10 @@ namespace DIYScript_Interpreter
             // 
             this.buttonNewBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewBG.FlatAppearance.BorderSize = 5;
-            this.buttonNewBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonNewBG.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonNewBG.Location = new System.Drawing.Point(6, 265);
             this.buttonNewBG.Name = "buttonNewBG";
-            this.buttonNewBG.Size = new System.Drawing.Size(77, 22);
+            this.buttonNewBG.Size = new System.Drawing.Size(77, 31);
             this.buttonNewBG.TabIndex = 3;
             this.buttonNewBG.Text = "新建";
             this.buttonNewBG.UseVisualStyleBackColor = true;
@@ -379,7 +401,6 @@ namespace DIYScript_Interpreter
             this.buttonRefreshOBJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonRefreshOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonRefreshOBJ.FlatAppearance.BorderSize = 5;
-            this.buttonRefreshOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonRefreshOBJ.Location = new System.Drawing.Point(6, 17);
             this.buttonRefreshOBJ.Name = "buttonRefreshOBJ";
             this.buttonRefreshOBJ.Size = new System.Drawing.Size(24, 25);
@@ -392,7 +413,7 @@ namespace DIYScript_Interpreter
             // 
             this.buttonEditOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonEditOBJ.FlatAppearance.BorderSize = 5;
-            this.buttonEditOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonEditOBJ.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonEditOBJ.Location = new System.Drawing.Point(257, 497);
             this.buttonEditOBJ.Name = "buttonEditOBJ";
             this.buttonEditOBJ.Size = new System.Drawing.Size(118, 38);
@@ -405,7 +426,7 @@ namespace DIYScript_Interpreter
             // 
             this.buttonDelOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDelOBJ.FlatAppearance.BorderSize = 5;
-            this.buttonDelOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDelOBJ.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonDelOBJ.Location = new System.Drawing.Point(133, 497);
             this.buttonDelOBJ.Name = "buttonDelOBJ";
             this.buttonDelOBJ.Size = new System.Drawing.Size(118, 38);
@@ -418,7 +439,7 @@ namespace DIYScript_Interpreter
             // 
             this.buttonNewOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewOBJ.FlatAppearance.BorderSize = 5;
-            this.buttonNewOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonNewOBJ.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonNewOBJ.Location = new System.Drawing.Point(9, 497);
             this.buttonNewOBJ.Name = "buttonNewOBJ";
             this.buttonNewOBJ.Size = new System.Drawing.Size(118, 38);
@@ -464,7 +485,6 @@ namespace DIYScript_Interpreter
             this.tabControlAIOBJMdata.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlAIOBJMdata.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControlAIOBJMdata.Controls.Add(this.AI);
             this.tabControlAIOBJMdata.Controls.Add(this.BGM);
             this.tabControlAIOBJMdata.Controls.Add(this.Metadata);
@@ -487,15 +507,17 @@ namespace DIYScript_Interpreter
             this.AI.Controls.Add(this.pictureBoxOBJPic);
             this.AI.Controls.Add(this.listBoxScript);
             this.AI.ForeColor = System.Drawing.Color.Black;
-            this.AI.Location = new System.Drawing.Point(4, 25);
+            this.AI.Location = new System.Drawing.Point(4, 22);
             this.AI.Name = "AI";
             this.AI.Padding = new System.Windows.Forms.Padding(3);
-            this.AI.Size = new System.Drawing.Size(785, 486);
+            this.AI.Size = new System.Drawing.Size(785, 489);
             this.AI.TabIndex = 0;
             this.AI.Text = "脚本";
             // 
             // groupBoxAction
             // 
+            this.groupBoxAction.Controls.Add(this.buttonAOK);
+            this.groupBoxAction.Controls.Add(this.tabControlA);
             this.groupBoxAction.Controls.Add(this.button4);
             this.groupBoxAction.Controls.Add(this.button5);
             this.groupBoxAction.Controls.Add(this.button6);
@@ -508,9 +530,90 @@ namespace DIYScript_Interpreter
             this.groupBoxAction.TabStop = false;
             this.groupBoxAction.Text = "做......";
             // 
+            // buttonAOK
+            // 
+            this.buttonAOK.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonAOK.Location = new System.Drawing.Point(530, 45);
+            this.buttonAOK.Name = "buttonAOK";
+            this.buttonAOK.Size = new System.Drawing.Size(23, 143);
+            this.buttonAOK.TabIndex = 13;
+            this.buttonAOK.Text = "OK";
+            this.buttonAOK.UseVisualStyleBackColor = true;
+            // 
+            // tabControlA
+            // 
+            this.tabControlA.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.tabControlA.Controls.Add(this.ATravel);
+            this.tabControlA.Controls.Add(this.ASwitch);
+            this.tabControlA.Controls.Add(this.AArt);
+            this.tabControlA.Controls.Add(this.AWinLose);
+            this.tabControlA.Controls.Add(this.AVfx);
+            this.tabControlA.Controls.Add(this.ASfx);
+            this.tabControlA.Location = new System.Drawing.Point(177, 20);
+            this.tabControlA.Name = "tabControlA";
+            this.tabControlA.SelectedIndex = 0;
+            this.tabControlA.Size = new System.Drawing.Size(347, 172);
+            this.tabControlA.TabIndex = 16;
+            // 
+            // ATravel
+            // 
+            this.ATravel.Location = new System.Drawing.Point(4, 25);
+            this.ATravel.Name = "ATravel";
+            this.ATravel.Padding = new System.Windows.Forms.Padding(3);
+            this.ATravel.Size = new System.Drawing.Size(339, 143);
+            this.ATravel.TabIndex = 0;
+            this.ATravel.Text = "运动";
+            this.ATravel.UseVisualStyleBackColor = true;
+            // 
+            // ASwitch
+            // 
+            this.ASwitch.Location = new System.Drawing.Point(4, 25);
+            this.ASwitch.Name = "ASwitch";
+            this.ASwitch.Size = new System.Drawing.Size(339, 143);
+            this.ASwitch.TabIndex = 1;
+            this.ASwitch.Text = "开关";
+            this.ASwitch.UseVisualStyleBackColor = true;
+            // 
+            // AArt
+            // 
+            this.AArt.Location = new System.Drawing.Point(4, 25);
+            this.AArt.Name = "AArt";
+            this.AArt.Size = new System.Drawing.Size(339, 143);
+            this.AArt.TabIndex = 2;
+            this.AArt.Text = "形象";
+            this.AArt.UseVisualStyleBackColor = true;
+            // 
+            // AWinLose
+            // 
+            this.AWinLose.Location = new System.Drawing.Point(4, 25);
+            this.AWinLose.Name = "AWinLose";
+            this.AWinLose.Size = new System.Drawing.Size(339, 143);
+            this.AWinLose.TabIndex = 3;
+            this.AWinLose.Text = "成功/失败";
+            this.AWinLose.UseVisualStyleBackColor = true;
+            // 
+            // AVfx
+            // 
+            this.AVfx.Location = new System.Drawing.Point(4, 25);
+            this.AVfx.Name = "AVfx";
+            this.AVfx.Size = new System.Drawing.Size(339, 143);
+            this.AVfx.TabIndex = 4;
+            this.AVfx.Text = "视觉效果";
+            this.AVfx.UseVisualStyleBackColor = true;
+            // 
+            // ASfx
+            // 
+            this.ASfx.Location = new System.Drawing.Point(4, 25);
+            this.ASfx.Name = "ASfx";
+            this.ASfx.Size = new System.Drawing.Size(339, 143);
+            this.ASfx.TabIndex = 5;
+            this.ASfx.Text = "听觉效果";
+            this.ASfx.UseVisualStyleBackColor = true;
+            // 
             // button4
             // 
-            this.button4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button4.Location = new System.Drawing.Point(147, 107);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(23, 23);
@@ -520,7 +623,8 @@ namespace DIYScript_Interpreter
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button5.Location = new System.Drawing.Point(147, 78);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(23, 23);
@@ -530,7 +634,8 @@ namespace DIYScript_Interpreter
             // 
             // button6
             // 
-            this.button6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button6.Location = new System.Drawing.Point(147, 49);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(23, 23);
@@ -540,7 +645,8 @@ namespace DIYScript_Interpreter
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button7.Location = new System.Drawing.Point(147, 20);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(23, 23);
@@ -559,6 +665,8 @@ namespace DIYScript_Interpreter
             // 
             // groupBoxWhen
             // 
+            this.groupBoxWhen.Controls.Add(this.buttonCOK);
+            this.groupBoxWhen.Controls.Add(this.tabControlC);
             this.groupBoxWhen.Controls.Add(this.buttonCDel);
             this.groupBoxWhen.Controls.Add(this.buttonCAdd);
             this.groupBoxWhen.Controls.Add(this.buttonCDown);
@@ -571,9 +679,94 @@ namespace DIYScript_Interpreter
             this.groupBoxWhen.TabStop = false;
             this.groupBoxWhen.Text = "当......";
             // 
+            // buttonCOK
+            // 
+            this.buttonCOK.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCOK.Location = new System.Drawing.Point(530, 45);
+            this.buttonCOK.Name = "buttonCOK";
+            this.buttonCOK.Size = new System.Drawing.Size(23, 95);
+            this.buttonCOK.TabIndex = 12;
+            this.buttonCOK.Text = "OK";
+            this.buttonCOK.UseVisualStyleBackColor = true;
+            // 
+            // tabControlC
+            // 
+            this.tabControlC.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.tabControlC.Controls.Add(this.CTap);
+            this.tabControlC.Controls.Add(this.CContact);
+            this.tabControlC.Controls.Add(this.CArt);
+            this.tabControlC.Controls.Add(this.CTime);
+            this.tabControlC.Controls.Add(this.CSwitch);
+            this.tabControlC.Controls.Add(this.CWonLoss);
+            this.tabControlC.Location = new System.Drawing.Point(177, 20);
+            this.tabControlC.Name = "tabControlC";
+            this.tabControlC.SelectedIndex = 0;
+            this.tabControlC.Size = new System.Drawing.Size(347, 124);
+            this.tabControlC.TabIndex = 11;
+            // 
+            // CTap
+            // 
+            this.CTap.Controls.Add(this.radioButton2);
+            this.CTap.Controls.Add(this.radioButton1);
+            this.CTap.Controls.Add(this.comboBoxClickSlide);
+            this.CTap.Controls.Add(this.checkBoxArea);
+            this.CTap.Location = new System.Drawing.Point(4, 25);
+            this.CTap.Name = "CTap";
+            this.CTap.Padding = new System.Windows.Forms.Padding(3);
+            this.CTap.Size = new System.Drawing.Size(339, 95);
+            this.CTap.TabIndex = 1;
+            this.CTap.Text = "触摸";
+            this.CTap.UseVisualStyleBackColor = true;
+            // 
+            // CContact
+            // 
+            this.CContact.Location = new System.Drawing.Point(4, 25);
+            this.CContact.Name = "CContact";
+            this.CContact.Size = new System.Drawing.Size(339, 95);
+            this.CContact.TabIndex = 5;
+            this.CContact.Text = "接触";
+            this.CContact.UseVisualStyleBackColor = true;
+            // 
+            // CArt
+            // 
+            this.CArt.Location = new System.Drawing.Point(4, 25);
+            this.CArt.Name = "CArt";
+            this.CArt.Size = new System.Drawing.Size(339, 95);
+            this.CArt.TabIndex = 3;
+            this.CArt.Text = "形象";
+            this.CArt.UseVisualStyleBackColor = true;
+            // 
+            // CTime
+            // 
+            this.CTime.Location = new System.Drawing.Point(4, 25);
+            this.CTime.Name = "CTime";
+            this.CTime.Size = new System.Drawing.Size(339, 95);
+            this.CTime.TabIndex = 2;
+            this.CTime.Text = "时间";
+            this.CTime.UseVisualStyleBackColor = true;
+            // 
+            // CSwitch
+            // 
+            this.CSwitch.Location = new System.Drawing.Point(4, 25);
+            this.CSwitch.Name = "CSwitch";
+            this.CSwitch.Size = new System.Drawing.Size(339, 95);
+            this.CSwitch.TabIndex = 4;
+            this.CSwitch.Text = "开关";
+            this.CSwitch.UseVisualStyleBackColor = true;
+            // 
+            // CWonLoss
+            // 
+            this.CWonLoss.Location = new System.Drawing.Point(4, 25);
+            this.CWonLoss.Name = "CWonLoss";
+            this.CWonLoss.Size = new System.Drawing.Size(339, 95);
+            this.CWonLoss.TabIndex = 6;
+            this.CWonLoss.Text = "成功/失败";
+            this.CWonLoss.UseVisualStyleBackColor = true;
+            // 
             // buttonCDel
             // 
-            this.buttonCDel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCDel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonCDel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonCDel.Location = new System.Drawing.Point(147, 107);
             this.buttonCDel.Name = "buttonCDel";
             this.buttonCDel.Size = new System.Drawing.Size(23, 23);
@@ -583,7 +776,8 @@ namespace DIYScript_Interpreter
             // 
             // buttonCAdd
             // 
-            this.buttonCAdd.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonCAdd.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonCAdd.Location = new System.Drawing.Point(147, 78);
             this.buttonCAdd.Name = "buttonCAdd";
             this.buttonCAdd.Size = new System.Drawing.Size(23, 23);
@@ -594,7 +788,8 @@ namespace DIYScript_Interpreter
             // 
             // buttonCDown
             // 
-            this.buttonCDown.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCDown.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonCDown.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonCDown.Location = new System.Drawing.Point(147, 49);
             this.buttonCDown.Name = "buttonCDown";
             this.buttonCDown.Size = new System.Drawing.Size(23, 23);
@@ -604,7 +799,8 @@ namespace DIYScript_Interpreter
             // 
             // buttonCUp
             // 
-            this.buttonCUp.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCUp.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonCUp.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonCUp.Location = new System.Drawing.Point(147, 20);
             this.buttonCUp.Name = "buttonCUp";
             this.buttonCUp.Size = new System.Drawing.Size(23, 23);
@@ -633,7 +829,8 @@ namespace DIYScript_Interpreter
             // 
             // buttonDel
             // 
-            this.buttonDel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonDel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonDel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonDel.Location = new System.Drawing.Point(187, 201);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(23, 23);
@@ -644,7 +841,8 @@ namespace DIYScript_Interpreter
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonAdd.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonAdd.Location = new System.Drawing.Point(187, 172);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(23, 23);
@@ -655,7 +853,8 @@ namespace DIYScript_Interpreter
             // 
             // buttonDown
             // 
-            this.buttonDown.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonDown.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonDown.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonDown.Location = new System.Drawing.Point(187, 143);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(23, 23);
@@ -665,7 +864,8 @@ namespace DIYScript_Interpreter
             // 
             // buttonUp
             // 
-            this.buttonUp.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonUp.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonUp.Location = new System.Drawing.Point(187, 114);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(23, 23);
@@ -703,21 +903,22 @@ namespace DIYScript_Interpreter
             // 
             // BGM
             // 
+            this.BGM.Controls.Add(this.linkLabel1);
             this.BGM.Controls.Add(this.buttonEditBGM);
             this.BGM.Controls.Add(this.buttonDelBGM);
             this.BGM.Controls.Add(this.buttonNewBGM);
             this.BGM.Controls.Add(this.listViewBGM);
             this.BGM.ForeColor = System.Drawing.Color.Black;
-            this.BGM.Location = new System.Drawing.Point(4, 25);
+            this.BGM.Location = new System.Drawing.Point(4, 22);
             this.BGM.Name = "BGM";
             this.BGM.Padding = new System.Windows.Forms.Padding(3);
-            this.BGM.Size = new System.Drawing.Size(785, 486);
+            this.BGM.Size = new System.Drawing.Size(785, 489);
             this.BGM.TabIndex = 1;
             this.BGM.Text = "音乐";
             // 
             // buttonEditBGM
             // 
-            this.buttonEditBGM.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonEditBGM.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonEditBGM.Location = new System.Drawing.Point(242, 277);
             this.buttonEditBGM.Name = "buttonEditBGM";
             this.buttonEditBGM.Size = new System.Drawing.Size(112, 38);
@@ -727,7 +928,7 @@ namespace DIYScript_Interpreter
             // 
             // buttonDelBGM
             // 
-            this.buttonDelBGM.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDelBGM.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonDelBGM.Location = new System.Drawing.Point(124, 277);
             this.buttonDelBGM.Name = "buttonDelBGM";
             this.buttonDelBGM.Size = new System.Drawing.Size(112, 38);
@@ -737,7 +938,7 @@ namespace DIYScript_Interpreter
             // 
             // buttonNewBGM
             // 
-            this.buttonNewBGM.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonNewBGM.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonNewBGM.Location = new System.Drawing.Point(6, 276);
             this.buttonNewBGM.Name = "buttonNewBGM";
             this.buttonNewBGM.Size = new System.Drawing.Size(112, 38);
@@ -752,7 +953,7 @@ namespace DIYScript_Interpreter
             this.listViewBGM.HideSelection = false;
             this.listViewBGM.Location = new System.Drawing.Point(6, 6);
             this.listViewBGM.Name = "listViewBGM";
-            this.listViewBGM.Size = new System.Drawing.Size(773, 264);
+            this.listViewBGM.Size = new System.Drawing.Size(773, 267);
             this.listViewBGM.TabIndex = 6;
             this.listViewBGM.UseCompatibleStateImageBehavior = false;
             // 
@@ -772,9 +973,9 @@ namespace DIYScript_Interpreter
             this.Metadata.Controls.Add(this.labelGameName);
             this.Metadata.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Metadata.ForeColor = System.Drawing.Color.Black;
-            this.Metadata.Location = new System.Drawing.Point(4, 25);
+            this.Metadata.Location = new System.Drawing.Point(4, 22);
             this.Metadata.Name = "Metadata";
-            this.Metadata.Size = new System.Drawing.Size(785, 486);
+            this.Metadata.Size = new System.Drawing.Size(785, 489);
             this.Metadata.TabIndex = 2;
             this.Metadata.Text = "元数据";
             // 
@@ -798,10 +999,9 @@ namespace DIYScript_Interpreter
             // checkBoxTimeBOSS
             // 
             this.checkBoxTimeBOSS.AutoSize = true;
-            this.checkBoxTimeBOSS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.checkBoxTimeBOSS.Location = new System.Drawing.Point(74, 180);
             this.checkBoxTimeBOSS.Name = "checkBoxTimeBOSS";
-            this.checkBoxTimeBOSS.Size = new System.Drawing.Size(76, 16);
+            this.checkBoxTimeBOSS.Size = new System.Drawing.Size(78, 16);
             this.checkBoxTimeBOSS.TabIndex = 9;
             this.checkBoxTimeBOSS.Text = "BOSS 关卡";
             this.checkBoxTimeBOSS.UseVisualStyleBackColor = true;
@@ -820,7 +1020,6 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonSpeedS.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonSpeedS.AutoSize = true;
-            this.radioButtonSpeedS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.radioButtonSpeedS.Location = new System.Drawing.Point(141, 143);
             this.radioButtonSpeedS.Name = "radioButtonSpeedS";
             this.radioButtonSpeedS.Size = new System.Drawing.Size(27, 22);
@@ -833,7 +1032,6 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonSpeedM.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonSpeedM.AutoSize = true;
-            this.radioButtonSpeedM.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.radioButtonSpeedM.Location = new System.Drawing.Point(108, 143);
             this.radioButtonSpeedM.Name = "radioButtonSpeedM";
             this.radioButtonSpeedM.Size = new System.Drawing.Size(27, 22);
@@ -846,7 +1044,6 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonSpeedQ.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonSpeedQ.AutoSize = true;
-            this.radioButtonSpeedQ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.radioButtonSpeedQ.Location = new System.Drawing.Point(75, 143);
             this.radioButtonSpeedQ.Name = "radioButtonSpeedQ";
             this.radioButtonSpeedQ.Size = new System.Drawing.Size(27, 22);
@@ -907,6 +1104,73 @@ namespace DIYScript_Interpreter
             this.openFileDialogPj.DefaultExt = "p42";
             this.openFileDialogPj.Filter = "MakerMatic 42/DIYScript Interpreter 项目文件|*.p42|所有文件|*.*";
             // 
+            // checkBoxArea
+            // 
+            this.checkBoxArea.AutoSize = true;
+            this.checkBoxArea.Checked = true;
+            this.checkBoxArea.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxArea.Location = new System.Drawing.Point(134, 9);
+            this.checkBoxArea.Name = "checkBoxArea";
+            this.checkBoxArea.Size = new System.Drawing.Size(54, 16);
+            this.checkBoxArea.TabIndex = 0;
+            this.checkBoxArea.Text = "此OBJ";
+            this.checkBoxArea.UseVisualStyleBackColor = true;
+            this.checkBoxArea.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // comboBoxClickSlide
+            // 
+            this.comboBoxClickSlide.AutoCompleteCustomSource.AddRange(new string[] {
+            "触摸",
+            "点击"});
+            this.comboBoxClickSlide.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxClickSlide.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxClickSlide.FormattingEnabled = true;
+            this.comboBoxClickSlide.Items.AddRange(new object[] {
+            "触摸",
+            "点击"});
+            this.comboBoxClickSlide.Location = new System.Drawing.Point(7, 7);
+            this.comboBoxClickSlide.Name = "comboBoxClickSlide";
+            this.comboBoxClickSlide.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxClickSlide.TabIndex = 1;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(252, 6);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(27, 22);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "↑";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.SystemColors.Control;
+            this.linkLabel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.linkLabel1.Font = new System.Drawing.Font("宋体", 144F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkLabel1.Location = new System.Drawing.Point(53, 44);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(658, 194);
+            this.linkLabel1.TabIndex = 10;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "施工中";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(252, 62);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(27, 22);
+            this.radioButton2.TabIndex = 3;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "↓";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -931,9 +1195,14 @@ namespace DIYScript_Interpreter
             this.AI.ResumeLayout(false);
             this.AI.PerformLayout();
             this.groupBoxAction.ResumeLayout(false);
+            this.tabControlA.ResumeLayout(false);
             this.groupBoxWhen.ResumeLayout(false);
+            this.tabControlC.ResumeLayout(false);
+            this.CTap.ResumeLayout(false);
+            this.CTap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOBJPic)).EndInit();
             this.BGM.ResumeLayout(false);
+            this.BGM.PerformLayout();
             this.Metadata.ResumeLayout(false);
             this.Metadata.PerformLayout();
             this.ResumeLayout(false);
@@ -1016,6 +1285,27 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.RadioButton radioButtonSpeedS;
         private System.Windows.Forms.RadioButton radioButtonSpeedM;
         private System.Windows.Forms.RadioButton radioButtonSpeedQ;
+        private System.Windows.Forms.Button buttonAOK;
+        private System.Windows.Forms.TabControl tabControlA;
+        private System.Windows.Forms.TabPage ATravel;
+        private System.Windows.Forms.TabPage ASwitch;
+        private System.Windows.Forms.TabPage AArt;
+        private System.Windows.Forms.TabPage AWinLose;
+        private System.Windows.Forms.TabPage AVfx;
+        private System.Windows.Forms.TabPage ASfx;
+        private System.Windows.Forms.Button buttonCOK;
+        private System.Windows.Forms.TabControl tabControlC;
+        private System.Windows.Forms.TabPage CTap;
+        private System.Windows.Forms.TabPage CContact;
+        private System.Windows.Forms.TabPage CArt;
+        private System.Windows.Forms.TabPage CTime;
+        private System.Windows.Forms.TabPage CSwitch;
+        private System.Windows.Forms.TabPage CWonLoss;
+        private System.Windows.Forms.ComboBox comboBoxClickSlide;
+        private System.Windows.Forms.CheckBox checkBoxArea;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
 

@@ -34,5 +34,17 @@ namespace DIYScript_Interpreter.Properties {
                 this["LViewValue"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isAero {
+            get {
+                return ((bool)(this["isAero"]));
+            }
+            set {
+                this["isAero"] = value;
+            }
+        }
     }
 }

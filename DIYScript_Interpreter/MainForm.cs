@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeroSupport;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
@@ -65,8 +66,8 @@ namespace DIYScript_Interpreter {
             } else {
                 MessageBox.Show("已经发现临时编译文件。" + "\r" + "是否覆盖？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 try {
-                    Directory.Delete(FilePath,true);
-                } catch(Exception ex) {
+                    Directory.Delete(FilePath, true);
+                } catch (Exception ex) {
                     MessageBox.Show(ex.ToString());
                 }
             }
@@ -104,41 +105,45 @@ namespace DIYScript_Interpreter {
             ///      
             ///</summary>
             #endregion
+
+            #region =Metafile=
             INIOperation configwriter = new INIOperation(FilePath + @"\MetaFile.ini");//cat
             configwriter.WriteValue("GameID", "Name", textBoxGameName.Text);//some working
             configwriter.WriteValue("GameID", "Comment", textBoxComment.Text);
             string temp;
             if (radioButtonSpeedQ.Checked) {
                 temp = "Q";
-            }else if (radioButtonSpeedM.Checked) {
+            } else if (radioButtonSpeedM.Checked) {
                 temp = "M";
-            }else if (radioButtonSpeedS.Checked) {
+            } else if (radioButtonSpeedS.Checked) {
                 temp = "S";
-            }
-            else{
+            } else {
                 temp = "not_set_yet";
             }
             configwriter.WriteValue("GameSetting", "Speed", temp);
             if (checkBoxTimeBOSS.Checked) {
 
                 configwriter.WriteValue("GameSetting", "LastTime", "-1");//tomorrow
-            }else if(maskedTextBoxTime.Text != "") {
+            } else if (maskedTextBoxTime.Text != "") {
 
                 configwriter.WriteValue("GameSetting", "LastTime", maskedTextBoxTime.Text.ToString());//tomorrow
             }
+            #endregion
+
+            #region =OBJ=
             DynaPath += @"\OBJ";
             Directory.CreateDirectory(FilePath);//mkdir OBJ
                                                 //cd OBJ
 
 
             foreach (OBJ obj in GAME.Current.OBJList) {
-                DynaPath += @"\"+obj.ID.ToString();
+                DynaPath += @"\" + obj.ID.ToString();
                 Directory.CreateDirectory(DynaPath);
 
                 //OBJ ini maker.
 
                 INIOperation OBJdefiner = new INIOperation(DynaPath + @"\OBJDefine.ini");
-                OBJdefiner.WriteValue("OBJID", "Name", obj. Name);
+                OBJdefiner.WriteValue("OBJID", "Name", obj.Name);
                 //OBJdefiner.WriteValue("OBJID", "");
                 //and then something about scripts......
 
@@ -160,17 +165,19 @@ namespace DIYScript_Interpreter {
                 }
 
 
-                
                 //I didnt learn Linux Shell Operation well...:(
 
             }
 
-            DynaPath = FilePath+@"\BG";
+            #endregion
+
+            #region =BG=
+            DynaPath = FilePath + @"\BG";
 
             Directory.CreateDirectory(DynaPath);
             {
                 foreach (BG bg in GAME.Current.BGList) {
-                    DynaPath += @"\BG" +bg.ID.ToString();
+                    DynaPath += @"\BG" + bg.ID.ToString();
                     Directory.CreateDirectory(DynaPath);
                     //BGs INI define.
                     INIOperation BGDefinder = new INIOperation(DynaPath + @"\BGDefine.ini");
@@ -181,11 +188,11 @@ namespace DIYScript_Interpreter {
                     bg.bitmap.Save(fs, System.Drawing.Imaging.ImageFormat.Bmp);
                     fs.Dispose();
 
-                    DynaPath = FilePath+ @"\BG";
+                    DynaPath = FilePath + @"\BG";
                 }
             }
+            #endregion
 
-            
         }
 
         private void openFileDialog_FileOk(object sender, CancelEventArgs e) {
@@ -201,7 +208,10 @@ namespace DIYScript_Interpreter {
         private void MainForm_Load(object sender, EventArgs e) {
             OBJAddingStatus.CurrentOBJID = 0;
             listViewBG.View = listViewOBJ.View = listViewBGM.View = Properties.Settings.Default.LViewValue;
-            //Aero.AreoIt(Handle);
+            if (Properties.Settings.Default.isAero) {
+
+                Aero.AreoIt(Handle);
+            }
 
         }
 
@@ -257,8 +267,11 @@ namespace DIYScript_Interpreter {
         }
 
         public void NUT_Click(object sender, EventArgs e) {
-            GAME.Current.player.Show();
+            GamePlay player = new GamePlay();
+            player.Show();
+            this.Hide();
         }
+    
 
         private void Run_Click(object sender, EventArgs e) {
             NUT.PerformClick();
@@ -266,8 +279,12 @@ namespace DIYScript_Interpreter {
 
         private void buttonAdd_Click(object sender, EventArgs e) {
 
-            Script scr = new Script();
-            Current.OBJList[listViewOBJ.FocusedItem.Index].ScriptList.Add(scr);
+            
+            try {
+                Current.OBJList[listViewOBJ.FocusedItem.Index].ScriptList.Add(new Script());
+            } catch {
+
+            }
             CommandRefresh();
         }
 
@@ -277,6 +294,9 @@ namespace DIYScript_Interpreter {
 
         private void listViewOBJ_SelectedIndexChanged(object sender, EventArgs e) {
             labelOBJName.Text = Current.OBJList[listViewOBJ.FocusedItem.Index].Name;
+            if (listViewOBJ.FocusedItem.Equals(null)) {
+                labelOBJName.Text = "未选中对象";
+            }
         }
 
         private void buttonEditBG_Click(object sender, EventArgs e) {
@@ -297,9 +317,12 @@ namespace DIYScript_Interpreter {
             listBoxScript.Items.Clear();
             foreach (OBJ obj in Current.OBJList) {
                 foreach (Script scr in obj.ScriptList) {
-                    foreach (Command com in scr.Commands) {
+                    try {
+                        foreach (Command com in scr.Commands) {
 
-                    }
+                        }
+                    } catch { }
+
 
                     listBoxScript.Items.Add(scr.ToString());
 
@@ -335,6 +358,27 @@ namespace DIYScript_Interpreter {
                 maskedTextBoxTime.Enabled = false;
             } else {
                 maskedTextBoxTime.Enabled = true;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) {
+            if (checkBoxArea.Checked) {
+                checkBoxArea.Text = "此OBJ";
+            } else {
+                checkBoxArea.Text = "关卡的任意位置";
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            linkLabel1.LinkVisited = true;
+            string target = "https://space.bilibili.com/417035504";
+            try {
+                System.Diagnostics.Process.Start(target);
+            } catch (System.ComponentModel.Win32Exception noBrowser) {
+                if (noBrowser.ErrorCode == -2147467259)
+                    MessageBox.Show(noBrowser.Message);
+            } catch (System.Exception other) {
+                MessageBox.Show(other.Message);
             }
         }
     }

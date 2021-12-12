@@ -103,7 +103,6 @@ namespace DIYScript_Interpreter {
 
     public class GAME {
 
-        public GamePlay player = new GamePlay();
         public static GAME Current = new GAME();
         public List<OBJ> OBJList = new List<OBJ>();
         public List<BG> BGList = new List<BG>();
@@ -143,8 +142,8 @@ namespace DIYScript_Interpreter {
         public int[] Resolution = new int[2];
         public bool isNormal;
 
-       }
-    
+    }
+
     public class BGAddingStatus {
         public static UInt64 CurrentBGID = 0;
         public static Bitmap bitmap;

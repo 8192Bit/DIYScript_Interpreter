@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using static DIYScript_Interpreter.GamePlay.InterpreterState;
 
 namespace DIYScript_Interpreter {
-    public partial class GamePlay : Form {
 
+    public partial class GamePlay : Form {
         public static class InterpreterState {
+
             public static Bitmap FrameBuffer = new Bitmap(640, 480);
             public static Int64 Ticked = 0;
             public static Int64 Rendered = 0;
@@ -21,6 +23,8 @@ namespace DIYScript_Interpreter {
         }
 
         private void GamePlay_Load(object sender, EventArgs e) {
+
+
             foreach (OBJ initOBJ in GAME.Current.OBJList) {
 
             }
@@ -34,9 +38,10 @@ namespace DIYScript_Interpreter {
             //InterpreterState.FrameBuffer
             labelTicked.Text = "Tick数:    " + InterpreterState.Ticked;
             Pen p = new Pen(Color.Blue, 2);//定义了一个蓝色,宽度为的画笔
-            Point p1 = new Point(100 * (int)Math.Sin(Ticked) + 1, 800 * (int)Math.Cos(Ticked) + 1);
-            Point p2 = new Point(100 * (int)Math.Sin(Ticked), 80 * (int)Math.Cos(Ticked));
-            render.DrawString("MakerMatic 42 Interpreter Demo", new Font("微软雅黑", 24), new LinearGradientBrush(p1, p2, Color.Azure, Color.PaleGreen), 10, 10);
+            Point p1 = new Point(10 * (int)Math.Sin(Ticked) + 1, 80 * (int)Math.Cos(Ticked) - 4);
+            Point p2 = new Point(100 * (int)Math.Sin(Ticked), 80 * (int)Math.Sin(Ticked));
+            render.DrawString("MakerMatic 42 Interpreter Demo", new Font("微软雅黑", 24), new LinearGradientBrush(p1, p2, Color.Brown, Color.PaleGreen), 10, 10);
+
             VRamCopy();
 
 
@@ -151,6 +156,11 @@ namespace DIYScript_Interpreter {
             labelDirection.ForeColor = Color.LimeGreen;
         }
 
+        private void GamePlay_FormClosed(object sender, FormClosedEventArgs e) {
+            DIYScript_Interpreter.Program.m.Show();
+        }
 
+        private void buttonVisualizer_Click(object sender, EventArgs e) {
+        }
     }
 }
