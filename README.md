@@ -1,7 +1,3 @@
-# DIYScript_Interpreter
-FUCK MICROSOFT
-a fxxking interpreter for fxxking DIYScript to develop the fxxking mm42
-dont try 2 open it with a Lenovo SinkPad W520 which installed windows 7 professional ver & visual studio 2019 or u'll be crazy
-//i tried it
-i only planned 2 support simp.chinese
-because im gotta crazy
+<h1>[ENG]DIYScript Interpreter -- A light editor for DIYScript</h1>
+
+<h1>[CHS]DIYScript Interpreter -- 一个DIYScript的轻量编辑器</h1>

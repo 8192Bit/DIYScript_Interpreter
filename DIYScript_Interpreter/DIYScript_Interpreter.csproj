@@ -202,6 +202,7 @@
     <Content Include="Image1.bk01.ico" />
     <Content Include="Manual.txt" />
     <Content Include="PerfCenterCpl.ico" />
+    <None Include="Resources\c154427a76fb8da6161c0fe97d71dc92_512_512.jpg!ys.jpg" />
     <None Include="Resources\stop.png" />
     <None Include="Resources\pause.png" />
     <None Include="Resources\25b6.png" />

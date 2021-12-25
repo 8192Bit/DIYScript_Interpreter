@@ -381,6 +381,52 @@ namespace DIYScript_Interpreter {
                 MessageBox.Show(other.Message);
             }
         }
+
+        private void AI_Click(object sender, EventArgs e) {
+
+        }
+
+        private void groupBoxWhen_Enter(object sender, EventArgs e) {
+
+        }
+
+        private void CTap_Click(object sender, EventArgs e) {
+
+        }
+
+        private void labelOBJName_Click(object sender, EventArgs e) {
+
+        }
+
+        private void comboBoxClickSlide_SelectedIndexChanged(object sender, EventArgs e) {
+            if（comboBoxClickSlide.SelectedIndex  == 1){
+
+            }
+        }
+
+        private void radioButton7_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void radioButtonTapSW_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void radioButtonTapW_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void radioButtonTapN_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void radioButtonTapNE_CheckedChanged(object sender, EventArgs e) {
+
+        }
     }
 
 }

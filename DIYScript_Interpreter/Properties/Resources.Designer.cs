@@ -103,6 +103,16 @@ namespace DIYScript_Interpreter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap c154427a76fb8da6161c0fe97d71dc92_512_512_jpg_ys {
+            get {
+                object obj = ResourceManager.GetObject("c154427a76fb8da6161c0fe97d71dc92_512_512.jpg!ys", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap index {
             get {
                 object obj = ResourceManager.GetObject("index", resourceCulture);
