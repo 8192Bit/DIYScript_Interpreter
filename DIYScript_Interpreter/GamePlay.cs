@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -25,7 +24,7 @@ namespace DIYScript_Interpreter {
         private void GamePlay_Load(object sender, EventArgs e) {
 
 
-            foreach (OBJ initOBJ in GAME.Current.OBJList) {
+            foreach(OBJ initOBJ in GAME.Current.OBJList) {
 
             }
         }
@@ -76,7 +75,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void trackBarSmooth_Scroll(object sender, EventArgs e) {
-            switch (this.trackBarSmooth.Value) {
+            switch(trackBarSmooth.Value) {
                 case 0:
                     InterpreterState.render.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
                     break;
@@ -113,34 +112,34 @@ namespace DIYScript_Interpreter {
         }
 
         private void canvas_MouseMove(object sender, MouseEventArgs e) {
-            if (MouseState[4] == 1) {
+            if(MouseState[4] == 1) {
 
                 MouseState[2] = e.X;
                 MouseState[3] = e.Y;
             }
 
-            if (Math.Abs(MouseState[2] - MouseState[0]) > 8 | Math.Abs(MouseState[3] - MouseState[1]) > 8) {
+            if(Math.Abs(MouseState[2] - MouseState[0]) > 8 | Math.Abs(MouseState[3] - MouseState[1]) > 8) {
 
                 labelMouse.Text = "鼠标拖动" + MouseState[0] + " " + MouseState[1] + " " + MouseState[2] + " " + MouseState[3];
                 labelDirection.ForeColor = Color.Magenta;
-                if (MouseState[2] - MouseState[0] > 15) {
+                if(MouseState[2] - MouseState[0] > 15) {
                     labelDirection.Text = "→";
-                    if (MouseState[3] - MouseState[1] > 15) {
+                    if(MouseState[3] - MouseState[1] > 15) {
                         labelDirection.Text = "↘";
-                    } else if (MouseState[3] - MouseState[1] < -15) {
+                    } else if(MouseState[3] - MouseState[1] < -15) {
                         labelDirection.Text = "↗";
                     }
-                } else if (MouseState[2] - MouseState[0] < -15) {
+                } else if(MouseState[2] - MouseState[0] < -15) {
                     labelDirection.Text = "←";
-                    if (MouseState[3] - MouseState[1] > 15) {
+                    if(MouseState[3] - MouseState[1] > 15) {
                         labelDirection.Text = "↙";
-                    } else if (MouseState[3] - MouseState[1] < -15) {
+                    } else if(MouseState[3] - MouseState[1] < -15) {
                         labelDirection.Text = "↖";
                     }
                 } else {
-                    if (MouseState[3] - MouseState[1] > 5) {
+                    if(MouseState[3] - MouseState[1] > 5) {
                         labelDirection.Text = "↓";
-                    } else if (MouseState[3] - MouseState[1] < -5) {
+                    } else if(MouseState[3] - MouseState[1] < -5) {
                         labelDirection.Text = "↑";
                     }
                 }

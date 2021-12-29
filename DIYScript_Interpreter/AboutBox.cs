@@ -3,14 +3,14 @@ using System.Reflection;
 using System.Windows.Forms;
 
 namespace DIYScript_Interpreter {
-    partial class AboutBox : Form {
+    internal partial class AboutBox : Form {
         public AboutBox() {
             InitializeComponent();
-            this.Text = String.Format("关于 {0}", AssemblyTitle);
-            this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = "版本 " + "0.0.0.4";
-            this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
+            Text = String.Format("关于 {0}", AssemblyTitle);
+            labelProductName.Text = AssemblyProduct;
+            labelVersion.Text = "版本 " + "0.0.0.4";
+            labelCopyright.Text = AssemblyCopyright;
+            labelCompanyName.Text = AssemblyCompany;
         }
 
         #region 程序集特性访问器
@@ -18,9 +18,9 @@ namespace DIYScript_Interpreter {
         public string AssemblyTitle {
             get {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-                if (attributes.Length > 0) {
+                if(attributes.Length > 0) {
                     AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
-                    if (titleAttribute.Title != "") {
+                    if(titleAttribute.Title != "") {
                         return titleAttribute.Title;
                     }
                 }
@@ -37,7 +37,7 @@ namespace DIYScript_Interpreter {
         public string AssemblyDescription {
             get {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-                if (attributes.Length == 0) {
+                if(attributes.Length == 0) {
                     return "";
                 }
                 return ((AssemblyDescriptionAttribute)attributes[0]).Description;
@@ -47,7 +47,7 @@ namespace DIYScript_Interpreter {
         public string AssemblyProduct {
             get {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
-                if (attributes.Length == 0) {
+                if(attributes.Length == 0) {
                     return "";
                 }
                 return ((AssemblyProductAttribute)attributes[0]).Product;
@@ -57,7 +57,7 @@ namespace DIYScript_Interpreter {
         public string AssemblyCopyright {
             get {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-                if (attributes.Length == 0) {
+                if(attributes.Length == 0) {
                     return "";
                 }
                 return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
@@ -67,7 +67,7 @@ namespace DIYScript_Interpreter {
         public string AssemblyCompany {
             get {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-                if (attributes.Length == 0) {
+                if(attributes.Length == 0) {
                     return "";
                 }
                 return ((AssemblyCompanyAttribute)attributes[0]).Company;

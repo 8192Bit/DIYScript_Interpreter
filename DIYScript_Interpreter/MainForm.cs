@@ -1,9 +1,10 @@
-﻿using AeroSupport;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using AeroSupport;
+using DIYScript_Interpreter.Properties;
 using static DIYScript_Interpreter.GAME;
 
 
@@ -22,7 +23,7 @@ namespace DIYScript_Interpreter {
         }
 
         public void OBJRefresh() {
-            foreach (OBJ obj in GAME.Current.OBJList) {
+            foreach(OBJ obj in GAME.Current.OBJList) {
                 listViewOBJ.Clear();
                 listViewOBJ.Items.Add(obj.Name, (int)obj.ID);
                 //imageList.Images.Add();
@@ -60,14 +61,14 @@ namespace DIYScript_Interpreter {
 
             string FilePath = Directory.GetCurrentDirectory() + @"\TempDir";
             string DynaPath = FilePath;
-            if (!Directory.Exists(FilePath)) {
+            if(!Directory.Exists(FilePath)) {
                 Directory.CreateDirectory(FilePath);// mkdir TempDir
                                                     //cd TempDir
             } else {
                 MessageBox.Show("已经发现临时编译文件。" + "\r" + "是否覆盖？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 try {
                     Directory.Delete(FilePath, true);
-                } catch (Exception ex) {
+                } catch(Exception ex) {
                     MessageBox.Show(ex.ToString());
                 }
             }
@@ -111,20 +112,20 @@ namespace DIYScript_Interpreter {
             configwriter.WriteValue("GameID", "Name", textBoxGameName.Text);//some working
             configwriter.WriteValue("GameID", "Comment", textBoxComment.Text);
             string temp;
-            if (radioButtonSpeedQ.Checked) {
+            if(radioButtonSpeedQ.Checked) {
                 temp = "Q";
-            } else if (radioButtonSpeedM.Checked) {
+            } else if(radioButtonSpeedM.Checked) {
                 temp = "M";
-            } else if (radioButtonSpeedS.Checked) {
+            } else if(radioButtonSpeedS.Checked) {
                 temp = "S";
             } else {
                 temp = "not_set_yet";
             }
             configwriter.WriteValue("GameSetting", "Speed", temp);
-            if (checkBoxTimeBOSS.Checked) {
+            if(checkBoxTimeBOSS.Checked) {
 
                 configwriter.WriteValue("GameSetting", "LastTime", "-1");//tomorrow
-            } else if (maskedTextBoxTime.Text != "") {
+            } else if(maskedTextBoxTime.Text != "") {
 
                 configwriter.WriteValue("GameSetting", "LastTime", maskedTextBoxTime.Text.ToString());//tomorrow
             }
@@ -136,7 +137,7 @@ namespace DIYScript_Interpreter {
                                                 //cd OBJ
 
 
-            foreach (OBJ obj in GAME.Current.OBJList) {
+            foreach(OBJ obj in GAME.Current.OBJList) {
                 DynaPath += @"\" + obj.ID.ToString();
                 Directory.CreateDirectory(DynaPath);
 
@@ -152,9 +153,9 @@ namespace DIYScript_Interpreter {
 
                 DynaPath += @"\ART";
                 Directory.CreateDirectory(DynaPath);
-                foreach (OBJArt art in obj.ArtList) {
+                foreach(OBJArt art in obj.ArtList) {
                     DynaPath += @"\ART" + art.ID.ToString();
-                    foreach (Image s in art.i.Images) {
+                    foreach(Image s in art.i.Images) {
 
                         FileStream fs = new FileStream(DynaPath + s.ToString(), FileMode.OpenOrCreate);
                         s.Save(fs, System.Drawing.Imaging.ImageFormat.Bmp);
@@ -176,7 +177,7 @@ namespace DIYScript_Interpreter {
 
             Directory.CreateDirectory(DynaPath);
             {
-                foreach (BG bg in GAME.Current.BGList) {
+                foreach(BG bg in GAME.Current.BGList) {
                     DynaPath += @"\BG" + bg.ID.ToString();
                     Directory.CreateDirectory(DynaPath);
                     //BGs INI define.
@@ -208,7 +209,7 @@ namespace DIYScript_Interpreter {
         private void MainForm_Load(object sender, EventArgs e) {
             OBJAddingStatus.CurrentOBJID = 0;
             listViewBG.View = listViewOBJ.View = listViewBGM.View = Properties.Settings.Default.LViewValue;
-            if (Properties.Settings.Default.isAero) {
+            if(Properties.Settings.Default.isAero) {
 
                 Aero.AreoIt(Handle);
             }
@@ -234,7 +235,7 @@ namespace DIYScript_Interpreter {
 
         private void buttonRefreshOBJ_Click(object sender, EventArgs e) {
             listViewOBJ.Clear();
-            foreach (OBJ obj in GAME.Current.OBJList) {
+            foreach(OBJ obj in GAME.Current.OBJList) {
 
                 listViewOBJ.Items.Add(obj.Name, (int)obj.ID);
                 //imageList.Images.Add();
@@ -246,7 +247,7 @@ namespace DIYScript_Interpreter {
             listViewBG.Clear();
             imageListBGSmall.Images.Clear();
             imageListBGLarge.Images.Clear();
-            foreach (BG bg in GAME.Current.BGList) {
+            foreach(BG bg in GAME.Current.BGList) {
                 imageListBGSmall.Images.Add(bg.bitmap);
                 imageListBGLarge.Images.Add(bg.bitmap);
                 listViewBG.Items.Add(bg.Name, Current.BGList.IndexOf(bg));
@@ -261,7 +262,7 @@ namespace DIYScript_Interpreter {
         private void buttonDeleteBG_Click(object sender, EventArgs e) {
             try {
                 Current.BGList.RemoveAt(listViewBG.FocusedItem.Index);
-            } catch (Exception err) {
+            } catch(Exception err) {
                 MessageBox.Show(err.Message);
             }
         }
@@ -269,9 +270,9 @@ namespace DIYScript_Interpreter {
         public void NUT_Click(object sender, EventArgs e) {
             GamePlay player = new GamePlay();
             player.Show();
-            this.Hide();
+            Hide();
         }
-    
+
 
         private void Run_Click(object sender, EventArgs e) {
             NUT.PerformClick();
@@ -279,7 +280,7 @@ namespace DIYScript_Interpreter {
 
         private void buttonAdd_Click(object sender, EventArgs e) {
 
-            
+
             try {
                 Current.OBJList[listViewOBJ.FocusedItem.Index].ScriptList.Add(new Script());
             } catch {
@@ -294,7 +295,7 @@ namespace DIYScript_Interpreter {
 
         private void listViewOBJ_SelectedIndexChanged(object sender, EventArgs e) {
             labelOBJName.Text = Current.OBJList[listViewOBJ.FocusedItem.Index].Name;
-            if (listViewOBJ.FocusedItem.Equals(null)) {
+            if(listViewOBJ.FocusedItem.Equals(null)) {
                 labelOBJName.Text = "未选中对象";
             }
         }
@@ -315,10 +316,10 @@ namespace DIYScript_Interpreter {
         }
         private void CommandRefresh() {
             listBoxScript.Items.Clear();
-            foreach (OBJ obj in Current.OBJList) {
-                foreach (Script scr in obj.ScriptList) {
+            foreach(OBJ obj in Current.OBJList) {
+                foreach(Script scr in obj.ScriptList) {
                     try {
-                        foreach (Command com in scr.Commands) {
+                        foreach(Command com in scr.Commands) {
 
                         }
                     } catch { }
@@ -333,7 +334,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonNormalBG_Click(object sender, EventArgs e) {
-            foreach (BG bg in Current.BGList) {
+            foreach(BG bg in Current.BGList) {
                 bg.isNormal = false;
             }
 
@@ -342,7 +343,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void listViewBG_SelectedIndexChanged(object sender, EventArgs e) {
-            if (Current.BGList[listViewBG.FocusedItem.Index].isNormal == true) {
+            if(Current.BGList[listViewBG.FocusedItem.Index].isNormal == true) {
                 buttonNormalBG.Enabled = false;
             } else {
                 buttonNormalBG.Enabled = true;
@@ -354,7 +355,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void checkBoxTimeBOSS_CheckedChanged(object sender, EventArgs e) {
-            if (checkBoxTimeBOSS.Checked) {
+            if(checkBoxTimeBOSS.Checked) {
                 maskedTextBoxTime.Enabled = false;
             } else {
                 maskedTextBoxTime.Enabled = true;
@@ -362,7 +363,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e) {
-            if (checkBoxArea.Checked) {
+            if(checkBoxArea.Checked) {
                 checkBoxArea.Text = "此OBJ";
             } else {
                 checkBoxArea.Text = "关卡的任意位置";
@@ -374,10 +375,11 @@ namespace DIYScript_Interpreter {
             string target = "https://space.bilibili.com/417035504";
             try {
                 System.Diagnostics.Process.Start(target);
-            } catch (System.ComponentModel.Win32Exception noBrowser) {
-                if (noBrowser.ErrorCode == -2147467259)
+            } catch(System.ComponentModel.Win32Exception noBrowser) {
+                if(noBrowser.ErrorCode == -2147467259) {
                     MessageBox.Show(noBrowser.Message);
-            } catch (System.Exception other) {
+                }
+            } catch(System.Exception other) {
                 MessageBox.Show(other.Message);
             }
         }
@@ -399,9 +401,29 @@ namespace DIYScript_Interpreter {
         }
 
         private void comboBoxClickSlide_SelectedIndexChanged(object sender, EventArgs e) {
-            if（comboBoxClickSlide.SelectedIndex  == 1){
+            if(comboBoxClickSlide.SelectedIndex == 0) {
+                pictureBoxCS.Image = Resources.Click;
+                radioButtonTapN.Enabled = false;
+                radioButtonTapS.Enabled = false;
+                radioButtonTapW.Enabled = false;
+                radioButtonTapE.Enabled = false;
+                radioButtonTapNW.Enabled = false;
+                radioButtonTapNE.Enabled = false;
+                radioButtonTapSW.Enabled = false;
+                radioButtonTapSE.Enabled = false;
+            } else {
+                pictureBoxCS.Image = Resources.Slide;
+                radioButtonTapN.Enabled = true;
+                radioButtonTapS.Enabled = true;
+                radioButtonTapW.Enabled = true;
+                radioButtonTapE.Enabled = true;
+                radioButtonTapNW.Enabled = true;
+                radioButtonTapNE.Enabled = true;
+                radioButtonTapSW.Enabled = true;
+                radioButtonTapSE.Enabled = true;
 
             }
+
         }
 
         private void radioButton7_CheckedChanged(object sender, EventArgs e) {
@@ -426,6 +448,45 @@ namespace DIYScript_Interpreter {
 
         private void radioButtonTapNE_CheckedChanged(object sender, EventArgs e) {
 
+        }
+
+        private void buttonCOK_Click(object sender, EventArgs e) {
+
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e) {
+            if(checkBoxSONOFF.Checked == true) {
+
+                checkBoxSONOFF.Image = Resources.ON;
+
+            } else {
+                checkBoxSONOFF.Image = Resources.OFF;
+            }
+        }
+
+        private void checkBoxTISRandom_CheckedChanged(object sender, EventArgs e) {
+            if(checkBoxTISRandom.Checked == true) {
+                checkBoxTISRandom.Text = "区域随机";
+                trackBarTTO.Enabled = true;
+            } else {
+
+                checkBoxTISRandom.Text = "准确时间";
+                trackBarTTO.Enabled = false;
+            }
+        }
+
+        private void trackBarTTO_Scroll(object sender, EventArgs e) {
+            if(trackBarTTO.Value < trackBarTTFROM.Value && trackBarTTO.Enabled) {
+                trackBarTTO.Value = trackBarTTFROM.Value;
+            }
+        }
+
+        private void checkBoxWL_CheckedChanged(object sender, EventArgs e) {
+            if(checkBoxWL.Checked == true) {
+                checkBoxWL.Text = "成功";
+            } else {
+                checkBoxWL.Text = "失败";
+            }
         }
     }
 

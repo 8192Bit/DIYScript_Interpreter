@@ -19,26 +19,26 @@ namespace DIYScript_Interpreter {
         }
 
         private void OK_Click(object sender, EventArgs e) {
-            if (textBoxOBJName.Text == "") {
+            if(textBoxOBJName.Text == "") {
                 errorProvider.SetError(textBoxOBJName, "抄一百遍名字！");
 
             } else {
                 Int16 StartMode = 0;
-                if (radioButton1.Checked) {
+                if(radioButton1.Checked) {
                     StartMode = 1;
                     //fixed
-                } else if (radioButton2.Checked) {
-                    if (!checkBox1.Checked) {
+                } else if(radioButton2.Checked) {
+                    if(!checkBox1.Checked) {
                         StartMode = 2;
                         //any
                     } else {
                         StartMode = 3;
                         //not2overlap
                     }
-                } else if (OBJChoose.isAttach) {
+                } else if(OBJChoose.isAttach) {
                     StartMode = 4;
                 }
-                if (isEdit) {
+                if(isEdit) {
                     GAME.Current.EditOBJ
                         (OBJAddingStatus.CurrentOBJID, textBoxOBJName.Text, StartMode,
                          new Int16[] { (short)MouseState[0], (short)MouseState[1] },
@@ -58,7 +58,7 @@ namespace DIYScript_Interpreter {
 
         }
 
-        void reDraw(int x1, int y1, int x2, int y2, bool isArea) {
+        private void reDraw(int x1, int y1, int x2, int y2, bool isArea) {
             Bitmap b = new Bitmap(640, 480);
             Point p1 = new Point(x1, y1);
             Graphics g = Graphics.FromImage(b);
@@ -66,12 +66,13 @@ namespace DIYScript_Interpreter {
             try {
                 BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
                 g.DrawImage(NormalBG.bitmap, new Point(0, 0));
-            } catch /*(Exception ex)*/ {
+            } catch /*(Exception ex)*/
+              {
 
                 //MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
-            if (isArea) {
+            if(isArea) {
                 Pen p = new Pen(Color.Red, 2);
                 p.DashStyle = DashStyle.Dash;
                 Point p2 = new Point(x2, y2);
@@ -100,14 +101,14 @@ namespace DIYScript_Interpreter {
             listViewART.View = Properties.Settings.Default.LViewValue;
             Bitmap b = new Bitmap(640, 480);
             Graphics g = Graphics.FromImage(b);
-            if (OBJAddingStatus.isEdit) {
+            if(OBJAddingStatus.isEdit) {
 
             }
 
             try {
                 BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
                 g.DrawImage(NormalBG.bitmap, new Point(0, 0));
-            } catch (Exception ex) {
+            } catch(Exception ex) {
                 //MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -141,32 +142,32 @@ namespace DIYScript_Interpreter {
         private void canvas_MouseMove(object sender, MouseEventArgs e) {
 
             reDraw(MouseState[0], MouseState[1], MouseState[2], MouseState[3], radioButton2.Checked);
-            if (MouseState[4] == 1) {
+            if(MouseState[4] == 1) {
 
                 MouseState[2] = e.X;
                 MouseState[3] = e.Y;
             }
 
-            if (Math.Abs(MouseState[2] - MouseState[0]) > 8 | Math.Abs(MouseState[3] - MouseState[1]) > 8) {
+            if(Math.Abs(MouseState[2] - MouseState[0]) > 8 | Math.Abs(MouseState[3] - MouseState[1]) > 8) {
 
-                if (MouseState[2] - MouseState[0] > 15) {
+                if(MouseState[2] - MouseState[0] > 15) {
                     direction = Directions.e;
-                    if (MouseState[3] - MouseState[1] > 15) {
+                    if(MouseState[3] - MouseState[1] > 15) {
                         direction = Directions.se;
-                    } else if (MouseState[3] - MouseState[1] < -15) {
+                    } else if(MouseState[3] - MouseState[1] < -15) {
                         direction = Directions.ne;
                     }
-                } else if (MouseState[2] - MouseState[0] < -15) {
+                } else if(MouseState[2] - MouseState[0] < -15) {
                     direction = Directions.w;
-                    if (MouseState[3] - MouseState[1] > 15) {
+                    if(MouseState[3] - MouseState[1] > 15) {
                         direction = Directions.sw;
-                    } else if (MouseState[3] - MouseState[1] < -15) {
+                    } else if(MouseState[3] - MouseState[1] < -15) {
                         direction = Directions.nw;
                     }
                 } else {
-                    if (MouseState[3] - MouseState[1] > 5) {
+                    if(MouseState[3] - MouseState[1] > 5) {
                         direction = Directions.s;
-                    } else if (MouseState[3] - MouseState[1] < -5) {
+                    } else if(MouseState[3] - MouseState[1] < -5) {
                         direction = Directions.n;
                     }
                 }

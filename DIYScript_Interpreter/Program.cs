@@ -2,13 +2,14 @@
 using System.Windows.Forms;
 
 namespace DIYScript_Interpreter {
-
-    static class Program {
+    internal static class Program {
         public static MainForm m = new MainForm();
 
         [STAThread]
         public static void Main() {
-            if (DIYScript_Interpreter.Properties.Settings.Default.isAero) {
+
+            Application.EnableVisualStyles();
+            if(DIYScript_Interpreter.Properties.Settings.Default.isAero) {
 
                 Application.EnableVisualStyles();
             }

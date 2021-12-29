@@ -54,7 +54,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>8B98663FBF80E782F1522FB9E725AF11984F5A91</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B56DEE86D9D37ECE450EF51A679845D1F9F54C01</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>DIYScript_Interpreter_TemporaryKey.pfx</ManifestKeyFile>
@@ -69,11 +69,14 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -202,6 +205,10 @@
     <Content Include="Image1.bk01.ico" />
     <Content Include="Manual.txt" />
     <Content Include="PerfCenterCpl.ico" />
+    <None Include="Resources\ON.png" />
+    <None Include="Resources\OFF.png" />
+    <None Include="Resources\Slide.png" />
+    <None Include="Resources\Click.png" />
     <None Include="Resources\c154427a76fb8da6161c0fe97d71dc92_512_512.jpg!ys.jpg" />
     <None Include="Resources\stop.png" />
     <None Include="Resources\pause.png" />

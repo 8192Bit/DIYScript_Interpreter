@@ -52,21 +52,24 @@ namespace DIYScript_Interpreter
             this.tabControlAIOBJMdata = new System.Windows.Forms.TabControl();
             this.AI = new System.Windows.Forms.TabPage();
             this.groupBoxAction = new System.Windows.Forms.GroupBox();
-            this.buttonAOK = new System.Windows.Forms.Button();
             this.tabControlA = new System.Windows.Forms.TabControl();
             this.ATravel = new System.Windows.Forms.TabPage();
-            this.ASwitch = new System.Windows.Forms.TabPage();
             this.AArt = new System.Windows.Forms.TabPage();
             this.AWinLose = new System.Windows.Forms.TabPage();
             this.AVfx = new System.Windows.Forms.TabPage();
             this.ASfx = new System.Windows.Forms.TabPage();
+            this.ASwitch = new System.Windows.Forms.TabPage();
+            this.radioButtonSD = new System.Windows.Forms.RadioButton();
+            this.radioButtonSC = new System.Windows.Forms.RadioButton();
+            this.radioButtonSB = new System.Windows.Forms.RadioButton();
+            this.radioButtonSA = new System.Windows.Forms.RadioButton();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.listBoxAction = new System.Windows.Forms.ListBox();
+            this.buttonAOK = new System.Windows.Forms.Button();
             this.groupBoxWhen = new System.Windows.Forms.GroupBox();
-            this.buttonCOK = new System.Windows.Forms.Button();
             this.tabControlC = new System.Windows.Forms.TabControl();
             this.CTap = new System.Windows.Forms.TabPage();
             this.radioButtonTapSE = new System.Windows.Forms.RadioButton();
@@ -89,6 +92,7 @@ namespace DIYScript_Interpreter
             this.buttonCDown = new System.Windows.Forms.Button();
             this.buttonCUp = new System.Windows.Forms.Button();
             this.listBoxCondition = new System.Windows.Forms.ListBox();
+            this.buttonCOK = new System.Windows.Forms.Button();
             this.labelOBJName = new System.Windows.Forms.Label();
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -117,6 +121,8 @@ namespace DIYScript_Interpreter
             this.labelGameName = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogPj = new System.Windows.Forms.OpenFileDialog();
+            this.checkBoxSONOFF = new System.Windows.Forms.CheckBox();
+            this.pictureBoxCS = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxOBJPic = new System.Windows.Forms.PictureBox();
             this.buttonRefreshBG = new System.Windows.Forms.Button();
@@ -133,6 +139,12 @@ namespace DIYScript_Interpreter
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Run = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.comboBoxWL = new System.Windows.Forms.ComboBox();
+            this.trackBarTTFROM = new System.Windows.Forms.TrackBar();
+            this.trackBarTTO = new System.Windows.Forms.TrackBar();
+            this.checkBoxTISRandom = new System.Windows.Forms.CheckBox();
+            this.comboBoxST = new System.Windows.Forms.ComboBox();
+            this.checkBoxWL = new System.Windows.Forms.CheckBox();
             this.toolStrip.SuspendLayout();
             this.groupBoxBG.SuspendLayout();
             this.groupBoxOBJ.SuspendLayout();
@@ -141,13 +153,21 @@ namespace DIYScript_Interpreter
             this.AI.SuspendLayout();
             this.groupBoxAction.SuspendLayout();
             this.tabControlA.SuspendLayout();
+            this.AWinLose.SuspendLayout();
+            this.ASwitch.SuspendLayout();
             this.groupBoxWhen.SuspendLayout();
             this.tabControlC.SuspendLayout();
             this.CTap.SuspendLayout();
+            this.CTime.SuspendLayout();
+            this.CSwitch.SuspendLayout();
+            this.CWonLoss.SuspendLayout();
             this.BGM.SuspendLayout();
             this.Metadata.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOBJPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTTFROM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTTO)).BeginInit();
             this.SuspendLayout();
             // 
             // saveFileDialogPj
@@ -387,13 +407,13 @@ namespace DIYScript_Interpreter
             // 
             // groupBoxAction
             // 
-            this.groupBoxAction.Controls.Add(this.buttonAOK);
             this.groupBoxAction.Controls.Add(this.tabControlA);
             this.groupBoxAction.Controls.Add(this.button4);
             this.groupBoxAction.Controls.Add(this.button5);
             this.groupBoxAction.Controls.Add(this.button6);
             this.groupBoxAction.Controls.Add(this.button7);
             this.groupBoxAction.Controls.Add(this.listBoxAction);
+            this.groupBoxAction.Controls.Add(this.buttonAOK);
             this.groupBoxAction.Location = new System.Drawing.Point(216, 276);
             this.groupBoxAction.Name = "groupBoxAction";
             this.groupBoxAction.Size = new System.Drawing.Size(563, 202);
@@ -401,25 +421,14 @@ namespace DIYScript_Interpreter
             this.groupBoxAction.TabStop = false;
             this.groupBoxAction.Text = "做......";
             // 
-            // buttonAOK
-            // 
-            this.buttonAOK.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonAOK.Location = new System.Drawing.Point(530, 45);
-            this.buttonAOK.Name = "buttonAOK";
-            this.buttonAOK.Size = new System.Drawing.Size(23, 143);
-            this.buttonAOK.TabIndex = 13;
-            this.buttonAOK.Text = "OK";
-            this.buttonAOK.UseVisualStyleBackColor = true;
-            // 
             // tabControlA
             // 
-            this.tabControlA.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControlA.Controls.Add(this.ATravel);
-            this.tabControlA.Controls.Add(this.ASwitch);
             this.tabControlA.Controls.Add(this.AArt);
             this.tabControlA.Controls.Add(this.AWinLose);
             this.tabControlA.Controls.Add(this.AVfx);
             this.tabControlA.Controls.Add(this.ASfx);
+            this.tabControlA.Controls.Add(this.ASwitch);
             this.tabControlA.Location = new System.Drawing.Point(177, 20);
             this.tabControlA.Name = "tabControlA";
             this.tabControlA.SelectedIndex = 0;
@@ -428,58 +437,114 @@ namespace DIYScript_Interpreter
             // 
             // ATravel
             // 
-            this.ATravel.Location = new System.Drawing.Point(4, 25);
+            this.ATravel.Location = new System.Drawing.Point(4, 22);
             this.ATravel.Name = "ATravel";
             this.ATravel.Padding = new System.Windows.Forms.Padding(3);
-            this.ATravel.Size = new System.Drawing.Size(339, 143);
+            this.ATravel.Size = new System.Drawing.Size(339, 146);
             this.ATravel.TabIndex = 0;
             this.ATravel.Text = "运动";
             this.ATravel.UseVisualStyleBackColor = true;
             // 
-            // ASwitch
-            // 
-            this.ASwitch.Location = new System.Drawing.Point(4, 25);
-            this.ASwitch.Name = "ASwitch";
-            this.ASwitch.Size = new System.Drawing.Size(339, 143);
-            this.ASwitch.TabIndex = 1;
-            this.ASwitch.Text = "开关";
-            this.ASwitch.UseVisualStyleBackColor = true;
-            // 
             // AArt
             // 
-            this.AArt.Location = new System.Drawing.Point(4, 25);
+            this.AArt.Location = new System.Drawing.Point(4, 22);
             this.AArt.Name = "AArt";
-            this.AArt.Size = new System.Drawing.Size(339, 143);
+            this.AArt.Size = new System.Drawing.Size(339, 146);
             this.AArt.TabIndex = 2;
             this.AArt.Text = "形象";
             this.AArt.UseVisualStyleBackColor = true;
             // 
             // AWinLose
             // 
-            this.AWinLose.Location = new System.Drawing.Point(4, 25);
+            this.AWinLose.Controls.Add(this.checkBoxWL);
+            this.AWinLose.Location = new System.Drawing.Point(4, 22);
             this.AWinLose.Name = "AWinLose";
-            this.AWinLose.Size = new System.Drawing.Size(339, 143);
+            this.AWinLose.Size = new System.Drawing.Size(339, 146);
             this.AWinLose.TabIndex = 3;
             this.AWinLose.Text = "成功/失败";
             this.AWinLose.UseVisualStyleBackColor = true;
             // 
             // AVfx
             // 
-            this.AVfx.Location = new System.Drawing.Point(4, 25);
+            this.AVfx.Location = new System.Drawing.Point(4, 22);
             this.AVfx.Name = "AVfx";
-            this.AVfx.Size = new System.Drawing.Size(339, 143);
+            this.AVfx.Size = new System.Drawing.Size(339, 146);
             this.AVfx.TabIndex = 4;
             this.AVfx.Text = "视觉效果";
             this.AVfx.UseVisualStyleBackColor = true;
             // 
             // ASfx
             // 
-            this.ASfx.Location = new System.Drawing.Point(4, 25);
+            this.ASfx.Location = new System.Drawing.Point(4, 22);
             this.ASfx.Name = "ASfx";
-            this.ASfx.Size = new System.Drawing.Size(339, 143);
+            this.ASfx.Size = new System.Drawing.Size(339, 146);
             this.ASfx.TabIndex = 5;
             this.ASfx.Text = "听觉效果";
             this.ASfx.UseVisualStyleBackColor = true;
+            // 
+            // ASwitch
+            // 
+            this.ASwitch.Controls.Add(this.checkBoxSONOFF);
+            this.ASwitch.Controls.Add(this.radioButtonSD);
+            this.ASwitch.Controls.Add(this.radioButtonSC);
+            this.ASwitch.Controls.Add(this.radioButtonSB);
+            this.ASwitch.Controls.Add(this.radioButtonSA);
+            this.ASwitch.Location = new System.Drawing.Point(4, 22);
+            this.ASwitch.Name = "ASwitch";
+            this.ASwitch.Size = new System.Drawing.Size(339, 146);
+            this.ASwitch.TabIndex = 1;
+            this.ASwitch.Text = "开关";
+            this.ASwitch.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSD
+            // 
+            this.radioButtonSD.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonSD.AutoSize = true;
+            this.radioButtonSD.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonSD.Location = new System.Drawing.Point(273, 19);
+            this.radioButtonSD.Name = "radioButtonSD";
+            this.radioButtonSD.Size = new System.Drawing.Size(31, 31);
+            this.radioButtonSD.TabIndex = 3;
+            this.radioButtonSD.Text = "D";
+            this.radioButtonSD.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSC
+            // 
+            this.radioButtonSC.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonSC.AutoSize = true;
+            this.radioButtonSC.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonSC.Location = new System.Drawing.Point(193, 19);
+            this.radioButtonSC.Name = "radioButtonSC";
+            this.radioButtonSC.Size = new System.Drawing.Size(31, 31);
+            this.radioButtonSC.TabIndex = 2;
+            this.radioButtonSC.Text = "C";
+            this.radioButtonSC.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSB
+            // 
+            this.radioButtonSB.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonSB.AutoSize = true;
+            this.radioButtonSB.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonSB.Location = new System.Drawing.Point(113, 19);
+            this.radioButtonSB.Name = "radioButtonSB";
+            this.radioButtonSB.Size = new System.Drawing.Size(31, 31);
+            this.radioButtonSB.TabIndex = 1;
+            this.radioButtonSB.Text = "B";
+            this.radioButtonSB.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSA
+            // 
+            this.radioButtonSA.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonSA.AutoSize = true;
+            this.radioButtonSA.Checked = true;
+            this.radioButtonSA.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonSA.Location = new System.Drawing.Point(33, 19);
+            this.radioButtonSA.Name = "radioButtonSA";
+            this.radioButtonSA.Size = new System.Drawing.Size(31, 31);
+            this.radioButtonSA.TabIndex = 0;
+            this.radioButtonSA.TabStop = true;
+            this.radioButtonSA.Text = "A";
+            this.radioButtonSA.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -534,15 +599,26 @@ namespace DIYScript_Interpreter
             this.listBoxAction.Size = new System.Drawing.Size(135, 172);
             this.listBoxAction.TabIndex = 11;
             // 
+            // buttonAOK
+            // 
+            this.buttonAOK.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonAOK.Location = new System.Drawing.Point(488, 48);
+            this.buttonAOK.Name = "buttonAOK";
+            this.buttonAOK.Size = new System.Drawing.Size(56, 143);
+            this.buttonAOK.TabIndex = 13;
+            this.buttonAOK.Text = "OK";
+            this.buttonAOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAOK.UseVisualStyleBackColor = true;
+            // 
             // groupBoxWhen
             // 
-            this.groupBoxWhen.Controls.Add(this.buttonCOK);
             this.groupBoxWhen.Controls.Add(this.tabControlC);
             this.groupBoxWhen.Controls.Add(this.buttonCDel);
             this.groupBoxWhen.Controls.Add(this.buttonCAdd);
             this.groupBoxWhen.Controls.Add(this.buttonCDown);
             this.groupBoxWhen.Controls.Add(this.buttonCUp);
             this.groupBoxWhen.Controls.Add(this.listBoxCondition);
+            this.groupBoxWhen.Controls.Add(this.buttonCOK);
             this.groupBoxWhen.Location = new System.Drawing.Point(216, 114);
             this.groupBoxWhen.Name = "groupBoxWhen";
             this.groupBoxWhen.Size = new System.Drawing.Size(563, 156);
@@ -551,19 +627,8 @@ namespace DIYScript_Interpreter
             this.groupBoxWhen.Text = "当......";
             this.groupBoxWhen.Enter += new System.EventHandler(this.groupBoxWhen_Enter);
             // 
-            // buttonCOK
-            // 
-            this.buttonCOK.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonCOK.Location = new System.Drawing.Point(530, 45);
-            this.buttonCOK.Name = "buttonCOK";
-            this.buttonCOK.Size = new System.Drawing.Size(23, 95);
-            this.buttonCOK.TabIndex = 12;
-            this.buttonCOK.Text = "OK";
-            this.buttonCOK.UseVisualStyleBackColor = true;
-            // 
             // tabControlC
             // 
-            this.tabControlC.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControlC.Controls.Add(this.CTap);
             this.tabControlC.Controls.Add(this.CContact);
             this.tabControlC.Controls.Add(this.CArt);
@@ -578,6 +643,7 @@ namespace DIYScript_Interpreter
             // 
             // CTap
             // 
+            this.CTap.Controls.Add(this.pictureBoxCS);
             this.CTap.Controls.Add(this.pictureBox1);
             this.CTap.Controls.Add(this.radioButtonTapSE);
             this.CTap.Controls.Add(this.radioButtonTapE);
@@ -589,10 +655,10 @@ namespace DIYScript_Interpreter
             this.CTap.Controls.Add(this.radioButtonTapN);
             this.CTap.Controls.Add(this.comboBoxClickSlide);
             this.CTap.Controls.Add(this.checkBoxArea);
-            this.CTap.Location = new System.Drawing.Point(4, 25);
+            this.CTap.Location = new System.Drawing.Point(4, 22);
             this.CTap.Name = "CTap";
             this.CTap.Padding = new System.Windows.Forms.Padding(3);
-            this.CTap.Size = new System.Drawing.Size(339, 95);
+            this.CTap.Size = new System.Drawing.Size(339, 98);
             this.CTap.TabIndex = 1;
             this.CTap.Text = "触摸";
             this.CTap.UseVisualStyleBackColor = true;
@@ -711,7 +777,7 @@ namespace DIYScript_Interpreter
             this.comboBoxClickSlide.Items.AddRange(new object[] {
             "触摸",
             "滑动"});
-            this.comboBoxClickSlide.Location = new System.Drawing.Point(7, 7);
+            this.comboBoxClickSlide.Location = new System.Drawing.Point(38, 7);
             this.comboBoxClickSlide.Name = "comboBoxClickSlide";
             this.comboBoxClickSlide.Size = new System.Drawing.Size(121, 20);
             this.comboBoxClickSlide.TabIndex = 1;
@@ -722,7 +788,7 @@ namespace DIYScript_Interpreter
             this.checkBoxArea.AutoSize = true;
             this.checkBoxArea.Checked = true;
             this.checkBoxArea.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxArea.Location = new System.Drawing.Point(134, 9);
+            this.checkBoxArea.Location = new System.Drawing.Point(7, 33);
             this.checkBoxArea.Name = "checkBoxArea";
             this.checkBoxArea.Size = new System.Drawing.Size(54, 16);
             this.checkBoxArea.TabIndex = 0;
@@ -732,45 +798,50 @@ namespace DIYScript_Interpreter
             // 
             // CContact
             // 
-            this.CContact.Location = new System.Drawing.Point(4, 25);
+            this.CContact.Location = new System.Drawing.Point(4, 22);
             this.CContact.Name = "CContact";
-            this.CContact.Size = new System.Drawing.Size(339, 95);
+            this.CContact.Size = new System.Drawing.Size(339, 98);
             this.CContact.TabIndex = 5;
             this.CContact.Text = "接触";
             this.CContact.UseVisualStyleBackColor = true;
             // 
             // CArt
             // 
-            this.CArt.Location = new System.Drawing.Point(4, 25);
+            this.CArt.Location = new System.Drawing.Point(4, 22);
             this.CArt.Name = "CArt";
-            this.CArt.Size = new System.Drawing.Size(339, 95);
+            this.CArt.Size = new System.Drawing.Size(339, 98);
             this.CArt.TabIndex = 3;
             this.CArt.Text = "形象";
             this.CArt.UseVisualStyleBackColor = true;
             // 
             // CTime
             // 
-            this.CTime.Location = new System.Drawing.Point(4, 25);
+            this.CTime.Controls.Add(this.checkBoxTISRandom);
+            this.CTime.Controls.Add(this.trackBarTTO);
+            this.CTime.Controls.Add(this.trackBarTTFROM);
+            this.CTime.Location = new System.Drawing.Point(4, 22);
             this.CTime.Name = "CTime";
-            this.CTime.Size = new System.Drawing.Size(339, 95);
+            this.CTime.Size = new System.Drawing.Size(339, 98);
             this.CTime.TabIndex = 2;
             this.CTime.Text = "时间";
             this.CTime.UseVisualStyleBackColor = true;
             // 
             // CSwitch
             // 
-            this.CSwitch.Location = new System.Drawing.Point(4, 25);
+            this.CSwitch.Controls.Add(this.comboBoxST);
+            this.CSwitch.Location = new System.Drawing.Point(4, 22);
             this.CSwitch.Name = "CSwitch";
-            this.CSwitch.Size = new System.Drawing.Size(339, 95);
+            this.CSwitch.Size = new System.Drawing.Size(339, 98);
             this.CSwitch.TabIndex = 4;
             this.CSwitch.Text = "开关";
             this.CSwitch.UseVisualStyleBackColor = true;
             // 
             // CWonLoss
             // 
-            this.CWonLoss.Location = new System.Drawing.Point(4, 25);
+            this.CWonLoss.Controls.Add(this.comboBoxWL);
+            this.CWonLoss.Location = new System.Drawing.Point(4, 22);
             this.CWonLoss.Name = "CWonLoss";
-            this.CWonLoss.Size = new System.Drawing.Size(339, 95);
+            this.CWonLoss.Size = new System.Drawing.Size(339, 98);
             this.CWonLoss.TabIndex = 6;
             this.CWonLoss.Text = "成功/失败";
             this.CWonLoss.UseVisualStyleBackColor = true;
@@ -828,6 +899,18 @@ namespace DIYScript_Interpreter
             this.listBoxCondition.Name = "listBoxCondition";
             this.listBoxCondition.Size = new System.Drawing.Size(135, 124);
             this.listBoxCondition.TabIndex = 1;
+            // 
+            // buttonCOK
+            // 
+            this.buttonCOK.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCOK.Location = new System.Drawing.Point(488, 45);
+            this.buttonCOK.Name = "buttonCOK";
+            this.buttonCOK.Size = new System.Drawing.Size(56, 95);
+            this.buttonCOK.TabIndex = 12;
+            this.buttonCOK.Text = "OK";
+            this.buttonCOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCOK.UseVisualStyleBackColor = true;
+            this.buttonCOK.Click += new System.EventHandler(this.buttonCOK_Click);
             // 
             // labelOBJName
             // 
@@ -1121,6 +1204,29 @@ namespace DIYScript_Interpreter
             this.openFileDialogPj.DefaultExt = "p42";
             this.openFileDialogPj.Filter = "MakerMatic 42/DIYScript Interpreter 项目文件|*.p42|所有文件|*.*";
             // 
+            // checkBoxSONOFF
+            // 
+            this.checkBoxSONOFF.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxSONOFF.AutoSize = true;
+            this.checkBoxSONOFF.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxSONOFF.Image = global::DIYScript_Interpreter.Properties.Resources.OFF;
+            this.checkBoxSONOFF.Location = new System.Drawing.Point(154, 81);
+            this.checkBoxSONOFF.Name = "checkBoxSONOFF";
+            this.checkBoxSONOFF.Size = new System.Drawing.Size(39, 38);
+            this.checkBoxSONOFF.TabIndex = 4;
+            this.checkBoxSONOFF.Text = "    ";
+            this.checkBoxSONOFF.UseVisualStyleBackColor = true;
+            this.checkBoxSONOFF.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+            // 
+            // pictureBoxCS
+            // 
+            this.pictureBoxCS.Image = global::DIYScript_Interpreter.Properties.Resources.Click;
+            this.pictureBoxCS.Location = new System.Drawing.Point(7, 7);
+            this.pictureBoxCS.Name = "pictureBoxCS";
+            this.pictureBoxCS.Size = new System.Drawing.Size(24, 24);
+            this.pictureBoxCS.TabIndex = 11;
+            this.pictureBoxCS.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DIYScript_Interpreter.Properties.Resources.c154427a76fb8da6161c0fe97d71dc92_512_512_jpg_ys;
@@ -1181,7 +1287,7 @@ namespace DIYScript_Interpreter
             this.NUT.Size = new System.Drawing.Size(260, 220);
             this.NUT.TabIndex = 6;
             this.NUT.Text = "NUT";
-            this.NUT.UseVisualStyleBackColor = false;
+            this.NUT.UseVisualStyleBackColor = true;
             this.NUT.Click += new System.EventHandler(this.NUT_Click);
             // 
             // File
@@ -1269,6 +1375,7 @@ namespace DIYScript_Interpreter
             this.Run.Name = "Run";
             this.Run.Size = new System.Drawing.Size(40, 22);
             this.Run.Text = "运行!";
+            this.Run.Click += new System.EventHandler(this.NUT_Click);
             // 
             // toolStripButton1
             // 
@@ -1278,6 +1385,75 @@ namespace DIYScript_Interpreter
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(87, 22);
             this.toolStripButton1.Text = "GamePlaynet";
+            // 
+            // comboBoxWL
+            // 
+            this.comboBoxWL.FormattingEnabled = true;
+            this.comboBoxWL.Items.AddRange(new object[] {
+            "成功",
+            "已成功",
+            "尚未成功",
+            "失败",
+            "已失败",
+            "尚未失败"});
+            this.comboBoxWL.Location = new System.Drawing.Point(96, 39);
+            this.comboBoxWL.Name = "comboBoxWL";
+            this.comboBoxWL.Size = new System.Drawing.Size(154, 20);
+            this.comboBoxWL.TabIndex = 0;
+            // 
+            // trackBarTTFROM
+            // 
+            this.trackBarTTFROM.Location = new System.Drawing.Point(29, 36);
+            this.trackBarTTFROM.Name = "trackBarTTFROM";
+            this.trackBarTTFROM.Size = new System.Drawing.Size(289, 45);
+            this.trackBarTTFROM.TabIndex = 0;
+            this.trackBarTTFROM.Scroll += new System.EventHandler(this.trackBarTTO_Scroll);
+            // 
+            // trackBarTTO
+            // 
+            this.trackBarTTO.Enabled = false;
+            this.trackBarTTO.Location = new System.Drawing.Point(29, 65);
+            this.trackBarTTO.Name = "trackBarTTO";
+            this.trackBarTTO.Size = new System.Drawing.Size(289, 45);
+            this.trackBarTTO.TabIndex = 1;
+            this.trackBarTTO.Scroll += new System.EventHandler(this.trackBarTTO_Scroll);
+            // 
+            // checkBoxTISRandom
+            // 
+            this.checkBoxTISRandom.AutoSize = true;
+            this.checkBoxTISRandom.Location = new System.Drawing.Point(29, 7);
+            this.checkBoxTISRandom.Name = "checkBoxTISRandom";
+            this.checkBoxTISRandom.Size = new System.Drawing.Size(72, 16);
+            this.checkBoxTISRandom.TabIndex = 2;
+            this.checkBoxTISRandom.Text = "准确时间";
+            this.checkBoxTISRandom.UseVisualStyleBackColor = true;
+            this.checkBoxTISRandom.CheckedChanged += new System.EventHandler(this.checkBoxTISRandom_CheckedChanged);
+            // 
+            // comboBoxST
+            // 
+            this.comboBoxST.FormattingEnabled = true;
+            this.comboBoxST.Items.AddRange(new object[] {
+            "打开了",
+            "打开时",
+            "关上了",
+            "关上时"});
+            this.comboBoxST.Location = new System.Drawing.Point(7, 72);
+            this.comboBoxST.Name = "comboBoxST";
+            this.comboBoxST.Size = new System.Drawing.Size(154, 20);
+            this.comboBoxST.TabIndex = 1;
+            // 
+            // checkBoxWL
+            // 
+            this.checkBoxWL.AutoSize = true;
+            this.checkBoxWL.Checked = true;
+            this.checkBoxWL.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxWL.Location = new System.Drawing.Point(149, 67);
+            this.checkBoxWL.Name = "checkBoxWL";
+            this.checkBoxWL.Size = new System.Drawing.Size(48, 16);
+            this.checkBoxWL.TabIndex = 0;
+            this.checkBoxWL.Text = "成功";
+            this.checkBoxWL.UseVisualStyleBackColor = true;
+            this.checkBoxWL.CheckedChanged += new System.EventHandler(this.checkBoxWL_CheckedChanged);
             // 
             // MainForm
             // 
@@ -1304,16 +1480,27 @@ namespace DIYScript_Interpreter
             this.AI.PerformLayout();
             this.groupBoxAction.ResumeLayout(false);
             this.tabControlA.ResumeLayout(false);
+            this.AWinLose.ResumeLayout(false);
+            this.AWinLose.PerformLayout();
+            this.ASwitch.ResumeLayout(false);
+            this.ASwitch.PerformLayout();
             this.groupBoxWhen.ResumeLayout(false);
             this.tabControlC.ResumeLayout(false);
             this.CTap.ResumeLayout(false);
             this.CTap.PerformLayout();
+            this.CTime.ResumeLayout(false);
+            this.CTime.PerformLayout();
+            this.CSwitch.ResumeLayout(false);
+            this.CWonLoss.ResumeLayout(false);
             this.BGM.ResumeLayout(false);
             this.BGM.PerformLayout();
             this.Metadata.ResumeLayout(false);
             this.Metadata.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOBJPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTTFROM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTTO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1422,6 +1609,18 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.RadioButton radioButtonTapW;
         private System.Windows.Forms.RadioButton radioButtonTapNW;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxCS;
+        private System.Windows.Forms.RadioButton radioButtonSD;
+        private System.Windows.Forms.RadioButton radioButtonSC;
+        private System.Windows.Forms.RadioButton radioButtonSB;
+        private System.Windows.Forms.RadioButton radioButtonSA;
+        private System.Windows.Forms.CheckBox checkBoxSONOFF;
+        private System.Windows.Forms.CheckBox checkBoxTISRandom;
+        private System.Windows.Forms.TrackBar trackBarTTO;
+        private System.Windows.Forms.TrackBar trackBarTTFROM;
+        private System.Windows.Forms.ComboBox comboBoxWL;
+        private System.Windows.Forms.ComboBox comboBoxST;
+        private System.Windows.Forms.CheckBox checkBoxWL;
     }
 }
 

@@ -15,7 +15,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void OK_Click(object sender, EventArgs e) {
-            if (textBoxBGName.Text == "") {
+            if(textBoxBGName.Text == "") {
                 errorProvider.SetError(textBoxBGName, "把名字抄100遍!");
             } else {
 
@@ -26,7 +26,7 @@ namespace DIYScript_Interpreter {
                     BGAddingStatus.CurrentBGID++;
                     bg.ID = BGAddingStatus.CurrentBGID;
                     GAME.Current.BGList.Add(bg);
-                    if (Current.BGList.Count == 1) {
+                    if(Current.BGList.Count == 1) {
                         bg.isNormal = true;
                     }
                 } catch {

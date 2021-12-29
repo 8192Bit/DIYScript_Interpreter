@@ -11,7 +11,7 @@ namespace DIYScript_Interpreter {
     //:P
 
     public class INIOperation {
-        string path;
+        private string path;
         public INIOperation(string path) {
             this.path = path;
         }
@@ -36,7 +36,8 @@ namespace DIYScript_Interpreter {
         ///<param name="Key">键</param>
         ///<returns>值</returns>
         public string ReadValue(string Section, string Key) {
-            StringBuilder temp = new StringBuilder(255); GetPrivateProfileString(Section, Key, "", temp, 255, this.path);
+            StringBuilder temp = new StringBuilder(255);
+            GetPrivateProfileString(Section, Key, "", temp, 255, path);
             return temp.ToString();
         }
 
@@ -73,18 +74,18 @@ namespace DIYScript_Interpreter {
         VFX
     }
     public class Condition {
-        TypeCondotions OPCode;
-        int Arg0;
-        int Arg1;
-        int Arg2;
-        int Arg3;
+        private TypeCondotions OPCode;
+        private int Arg0;
+        private int Arg1;
+        private int Arg2;
+        private int Arg3;
     }
     public class Command {
-        TypeCommands OPCode;
-        int Arg0;
-        int Arg1;
-        int Arg2;
-        int Arg3;
+        private TypeCommands OPCode;
+        private int Arg0;
+        private int Arg1;
+        private int Arg2;
+        private int Arg3;
     }
     public class Script {
         public List<Condition> Conditions;
