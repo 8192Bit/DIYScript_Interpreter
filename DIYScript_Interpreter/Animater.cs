@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace DIYScript_Interpreter {
     public partial class Animater : Form {
         public bool isFullView;
-        public bool isFirstAdd;
+        public bool isFirstAdd = false;
         public bool isFromFront;
         public Animater() {
             InitializeComponent();
@@ -17,7 +17,7 @@ namespace DIYScript_Interpreter {
             int temp = 0;
             foreach(Image i in imageList.Images) {
                 temp++;
-                listViewFrames.Items.Add("temp", temp);
+                listViewFrames.Items.Add(temp.ToString(), temp);
             }
 
         }

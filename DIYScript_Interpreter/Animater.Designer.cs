@@ -37,14 +37,14 @@ namespace DIYScript_Interpreter {
             this.pictureBoxCurrent = new System.Windows.Forms.PictureBox();
             this.labelFrame = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelARTName = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxARTName = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonAFront = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonABehind = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDel = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrent)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -86,7 +86,7 @@ namespace DIYScript_Interpreter {
             // 
             this.buttonStop.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonStop.BackColor = System.Drawing.Color.Transparent;
-            this.buttonStop.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.stop;
+            this.buttonStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonStop.BackgroundImage")));
             this.buttonStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonStop.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonStop.Location = new System.Drawing.Point(0, 200);
@@ -99,7 +99,7 @@ namespace DIYScript_Interpreter {
             // 
             this.buttonPlay.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonPlay.BackColor = System.Drawing.Color.Transparent;
-            this.buttonPlay.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources._25b6;
+            this.buttonPlay.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.play;
             this.buttonPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonPlay.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonPlay.Location = new System.Drawing.Point(0, 152);
@@ -112,7 +112,7 @@ namespace DIYScript_Interpreter {
             // 
             this.pictureBoxCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxCurrent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxCurrent.Image = global::DIYScript_Interpreter.Properties.Resources.index;
+            this.pictureBoxCurrent.Image = global::DIYScript_Interpreter.Properties.Resources.inm;
             this.pictureBoxCurrent.Location = new System.Drawing.Point(24, 152);
             this.pictureBoxCurrent.MinimumSize = new System.Drawing.Size(100, 100);
             this.pictureBoxCurrent.Name = "pictureBoxCurrent";
@@ -152,6 +152,19 @@ namespace DIYScript_Interpreter {
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(49, 22);
+            this.toolStripDropDownButton1.Text = "帧";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripLabelARTName
             // 
             this.toolStripLabelARTName.Name = "toolStripLabelARTName";
@@ -163,10 +176,10 @@ namespace DIYScript_Interpreter {
             this.toolStripTextBoxARTName.Name = "toolStripTextBoxARTName";
             this.toolStripTextBoxARTName.Size = new System.Drawing.Size(100, 25);
             // 
-            // toolStripSeparator1
+            // toolStripSeparator2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButtonAFront
             // 
@@ -193,19 +206,6 @@ namespace DIYScript_Interpreter {
             this.toolStripButtonDel.Name = "toolStripButtonDel";
             this.toolStripButtonDel.Size = new System.Drawing.Size(52, 22);
             this.toolStripButtonDel.Text = "删除";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(49, 22);
-            this.toolStripDropDownButton1.Text = "帧";
             // 
             // toolStripSeparator3
             // 

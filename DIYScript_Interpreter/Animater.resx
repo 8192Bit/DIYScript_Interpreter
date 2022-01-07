@@ -150,6 +150,30 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="buttonStop.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQSSURBVHhe7ZtJb9NAFMd7AsRSOLEI+CiggtiKqB2KghAf
+        AgRCYvkWIEBwQVAJIa4FDoBQKV3IIbQeV6Fjp6WcuKAu3Lqp8F7zKhfn2Z6kdsaW85N+ooo9M/8XGns8
+        mXa0aZMsZ4TYZQh5zhTOPfAFWDKEM20Kdw5+XqrpztVec0oF4TyHn++a1uRZbEvdZIve8vdDhuXchIKG
+        wWXwb5Muw5sxZNrOjfOVykHqPr0YljwBod+Bq5uKiMtVeCPeFsYnu2i49GDa7inTckaY0Ek53CPkSRpe
+        H/irDmH6fOFaJnw83pgTU0cpTmuBwa/Ar+QfLliLXTBsWaRYydM1M7PDtOUTJohuH3VXq9spZjIUK5Xd
+        Bcv5wAyeDm13oFie3ktx4+WimNoPg4zXDZo+xzArxY6H7lK1syDkN2awtGoXxmf2UfytUfvMuwPMIKkW
+        ZpSfYrkmwIzuKTdAJrSch1RGcxQseZntOEva7lUqpzEuWM7hlNznt+oCTtioLHUM23nNdJZR5UsqS431
+        uT3bEa8uuCxBNvQQBQ3wMZbtiFMXXJZg5SiVFw490jIdBKsLLkuYhu0epzKDgRPxeZ7tIEhdcFnCxKdH
+        KpPHmPhxAE5c8TeMUhdclghXsEYqtx5TuLeYRpHqgssSpSHkdSq3HjihoYvfhrrgsig4SOX+D67AwkFc
+        peUahaoLLouCS+xqMy5DMycrqQsui4rGhHuayvaAA7huzzaIUhdcFiVteZvK9oAD+KUF3yBCXXBZlLTk
+        MyrbAw6U6k5UVBdcFjWZWSEc+Fl/opq64LKoCBOiaSrbAw7M+k9UVRdcFkV/U9ke8GJTt0BUF1wWRRep
+        bA94MfdvQO4/Arm/CH71n6iqLrgsSlrOCJXtAQdyPxHK+VQ4Rw9DuOhLZXv0lH/thIO5eBzGWqns/4Gr
+        4xDTIFJdcFmiNIT8TOXWQzu72IZh6oLLEq17jcqtJ/eLoghuRWMahqoLLku4sp/KDAa/QuIbB6sLLkuE
+        x6jMcBq9GOqCyxJk6MXPD25C5DoJUhdclgDXlL4W2ww0euXrJMv2UVnq0C7QBV9HWXS+6Y3WuAOT6TBT
+        FoR7icppDkO4j7mOs6G8T2U0D241wy1n/ACp9mOxUtlGZWwNQ8o9GdsoKWLfMktbZcd8A6VQtxz7VtkN
+        cLO0acv3/MD6Xd8dWqp2UtxkwGsC7sDkAmjVdh7E9plXgW6RaZgnzBuW20uxWgtOMCAA/snM2qZALRM3
+        PfWK6hGKow96gvziD5iggw3P7VsBhsL/FQjY8KKKgtCn7Id/1R5pdYK3IdyNBWEHwUUqoBkX8TEWl7ES
+        u7UlDa7A4p4cuHPcwS8kcHMCfjUFxeF3kbgKjc7WXpOj6+fAudgmcPW2TZuY6Oj4B83qESp+pQUVAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>266, 17</value>
   </metadata>

@@ -51,7 +51,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonNewBG_Click(object sender, EventArgs e) {
-            openFileDialog.Filter = "位图|*.bmp |jpeg 图像|*.jpg;*.jpeg |png 图像|*.png";
+            openFileDialog.Filter = "位图|*.bmp|jpeg 图像|*.jpg;*.jpeg|png 图像|*.png";
             openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
             buttonRefreshBG.PerformClick();
@@ -486,6 +486,44 @@ namespace DIYScript_Interpreter {
                 checkBoxWL.Text = "成功";
             } else {
                 checkBoxWL.Text = "失败";
+            }
+        }
+
+
+
+        private void tabControlT_TabIndexChanged(object sender, EventArgs e) {
+            if(tabControlT.SelectedTab.Text == "停止") {
+                comboBoxTTType.Enabled = false;
+            } else {
+                comboBoxTTType.Enabled = true;
+            }
+        }
+
+        private void buttonCSChoose_Click(object sender, EventArgs e) {
+            OBJChooser ch = new OBJChooser();
+            ch.Show();
+        }
+
+        private void comboBoxTTType_SelectedIndexChanged(object sender, EventArgs e) {
+            switch(comboBoxTTType.SelectedIndex) {
+                case 0:
+                    pictureBoxTS.Image = Resources.none;
+                    break;
+                case 1:
+                    pictureBoxTS.Image = Resources.linear;
+                    break;
+                case 2:
+                    pictureBoxTS.Image = Resources.square;
+                    break;
+                case 3:
+                    pictureBoxTS.Image = Resources.log;
+                    break;
+                case 4:
+                    pictureBoxTS.Image = Resources.smooth;
+                    break;
+                case 5:
+                    pictureBoxTS.Image = Resources.stay;
+                    break;
             }
         }
     }

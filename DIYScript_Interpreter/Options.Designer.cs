@@ -32,9 +32,9 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "田所"}, 0, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128))));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "現 代 ア ー ト（ART）"}, "現代アートアイコン.png", System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
             this.tabControlSettings = new System.Windows.Forms.TabControl();
@@ -117,7 +117,7 @@ namespace DIYScript_Interpreter
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(412, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 12);
@@ -128,10 +128,10 @@ namespace DIYScript_Interpreter
             // 
             this.listViewExample.ForeColor = System.Drawing.SystemColors.ControlText;
             this.listViewExample.HideSelection = false;
-            listViewItem3.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
             this.listViewExample.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
+            listViewItem1,
+            listViewItem2});
             this.listViewExample.LargeImageList = this.imageList1;
             this.listViewExample.Location = new System.Drawing.Point(414, 32);
             this.listViewExample.Name = "listViewExample";

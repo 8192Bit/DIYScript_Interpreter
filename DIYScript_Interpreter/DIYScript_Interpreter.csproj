@@ -205,17 +205,22 @@
     <Content Include="Image1.bk01.ico" />
     <Content Include="Manual.txt" />
     <Content Include="PerfCenterCpl.ico" />
-    <None Include="Resources\ON.png" />
-    <None Include="Resources\OFF.png" />
-    <None Include="Resources\Slide.png" />
-    <None Include="Resources\Click.png" />
-    <None Include="Resources\c154427a76fb8da6161c0fe97d71dc92_512_512.jpg!ys.jpg" />
-    <None Include="Resources\stop.png" />
-    <None Include="Resources\pause.png" />
-    <None Include="Resources\25b6.png" />
-    <None Include="Resources\23ef.png" />
-    <None Include="Resources\OIP-C.dgtB_f92LGrw6igoaGVw7QHaHa.jpg" />
-    <None Include="Resources\index.jpg" />
+    <Content Include="Resources\function\linear.png" />
+    <Content Include="Resources\function\log.png" />
+    <Content Include="Resources\function\none.png" />
+    <Content Include="Resources\function\smooth.png" />
+    <Content Include="Resources\function\square.png" />
+    <Content Include="Resources\function\stay.png" />
+    <None Include="Resources\switch\ON.png" />
+    <None Include="Resources\switch\OFF.png" />
+    <None Include="Resources\tap\Slide.png" />
+    <None Include="Resources\tap\Click.png" />
+    <None Include="Resources\icon\Sides.jpg" />
+    <None Include="Resources\control\stop.png" />
+    <None Include="Resources\control\pause.png" />
+    <None Include="Resources\control\play.png" />
+    <None Include="Resources\icon\Refresh.jpg" />
+    <None Include="Resources\inm.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -235,5 +240,6 @@
       <Name>WinAeroSupport</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

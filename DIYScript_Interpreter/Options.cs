@@ -28,6 +28,7 @@ namespace DIYScript_Interpreter {
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
             listViewExample.View = (View)comboBox1.SelectedIndex;
+            button2.Enabled = true;
         }
 
 
@@ -41,6 +42,7 @@ namespace DIYScript_Interpreter {
 
             Properties.Settings.Default.LViewValue = listViewExample.View;
             Properties.Settings.Default.Save();
+            button2.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e) {
