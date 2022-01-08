@@ -494,8 +494,11 @@ namespace DIYScript_Interpreter {
         private void tabControlT_TabIndexChanged(object sender, EventArgs e) {
             if(tabControlT.SelectedTab.Text == "停止") {
                 comboBoxTTType.Enabled = false;
+                comboBoxTSpeed.Enabled = false;
             } else {
                 comboBoxTTType.Enabled = true;
+
+                comboBoxTSpeed.Enabled = true;
             }
         }
 
@@ -525,6 +528,11 @@ namespace DIYScript_Interpreter {
                     pictureBoxTS.Image = Resources.stay;
                     break;
             }
+        }
+
+        private void buttonTOOBJChoose_Click(object sender, EventArgs e) {
+            OBJChooser chooser = new OBJChooser();
+            chooser.Show();
         }
     }
 

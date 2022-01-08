@@ -151,7 +151,7 @@ namespace DIYScript_Interpreter {
             MouseState[3] = e.Y;
             MouseState[4] = 0;
 
-            labelMouse.Text = "鼠标状态" + MouseState[0] + " " + MouseState[1] + " " + MouseState[2] + " " + MouseState[3];
+            labelMouse.Text = "鼠标抬起" + MouseState[0] + " " + MouseState[1] + " " + MouseState[2] + " " + MouseState[3];
             labelDirection.ForeColor = Color.LimeGreen;
         }
 

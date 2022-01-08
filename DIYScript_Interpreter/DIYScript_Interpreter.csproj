@@ -60,7 +60,7 @@
     <ManifestKeyFile>DIYScript_Interpreter_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Image1.bk01.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icon\Form\8192Bit.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>DIYScript_Interpreter.Program</StartupObject>
@@ -100,80 +100,98 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
+    <Compile Include="Forms\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox.Designer.cs">
+    <Compile Include="Forms\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Animater.cs">
+    <Compile Include="Forms\Animater.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Animater.Designer.cs">
+    <Compile Include="Forms\Animater.Designer.cs">
       <DependentUpon>Animater.cs</DependentUpon>
     </Compile>
-    <Compile Include="BGMaker.cs">
+    <Compile Include="Forms\BGMaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BGMaker.Designer.cs">
+    <Compile Include="Forms\BGMaker.Designer.cs">
       <DependentUpon>BGMaker.cs</DependentUpon>
     </Compile>
-    <Compile Include="Types.cs" />
-    <Compile Include="GamePlay.cs">
+    <Compile Include="Forms\Helper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GamePlay.Designer.cs">
+    <Compile Include="Forms\Helper.Designer.cs">
+      <DependentUpon>Helper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Locationer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Locationer.Designer.cs">
+      <DependentUpon>Locationer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\Types.cs" />
+    <Compile Include="Forms\GamePlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GamePlay.Designer.cs">
       <DependentUpon>GamePlay.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OBJMaker.cs">
+    <Compile Include="Forms\OBJMaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OBJMaker.Designer.cs">
+    <Compile Include="Forms\OBJMaker.Designer.cs">
       <DependentUpon>OBJMaker.cs</DependentUpon>
     </Compile>
-    <Compile Include="OBJChooser.cs">
+    <Compile Include="Forms\OBJChooser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OBJChooser.Designer.cs">
+    <Compile Include="Forms\OBJChooser.Designer.cs">
       <DependentUpon>OBJChooser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Options.cs">
+    <Compile Include="Forms\Options.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Options.Designer.cs">
+    <Compile Include="Forms\Options.Designer.cs">
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Base\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
+    <Compile Include="Base\Settings.cs" />
+    <EmbeddedResource Include="Forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Animater.resx">
+    <EmbeddedResource Include="Forms\Animater.resx">
       <DependentUpon>Animater.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BGMaker.resx">
+    <EmbeddedResource Include="Forms\BGMaker.resx">
       <DependentUpon>BGMaker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GamePlay.resx">
+    <EmbeddedResource Include="Forms\GamePlay.resx">
       <DependentUpon>GamePlay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\Helper.resx">
+      <DependentUpon>Helper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Locationer.resx">
+      <DependentUpon>Locationer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OBJMaker.resx">
+    <EmbeddedResource Include="Forms\OBJMaker.resx">
       <DependentUpon>OBJMaker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OBJChooser.resx">
+    <EmbeddedResource Include="Forms\OBJChooser.resx">
       <DependentUpon>OBJChooser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Options.resx">
+    <EmbeddedResource Include="Forms\Options.resx">
       <DependentUpon>Options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -186,7 +204,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Resources\DIYScript_Interpreter_TemporaryKey.pfx" />
+    <None Include="Resources\Cert\DIYScript_Interpreter_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -199,28 +217,34 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Base\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Image1.bk01.ico" />
-    <Content Include="Manual.txt" />
-    <Content Include="PerfCenterCpl.ico" />
-    <Content Include="Resources\function\linear.png" />
-    <Content Include="Resources\function\log.png" />
-    <Content Include="Resources\function\none.png" />
-    <Content Include="Resources\function\smooth.png" />
-    <Content Include="Resources\function\square.png" />
-    <Content Include="Resources\function\stay.png" />
-    <None Include="Resources\switch\ON.png" />
-    <None Include="Resources\switch\OFF.png" />
-    <None Include="Resources\tap\Slide.png" />
-    <None Include="Resources\tap\Click.png" />
-    <None Include="Resources\icon\Sides.jpg" />
-    <None Include="Resources\control\stop.png" />
-    <None Include="Resources\control\pause.png" />
-    <None Include="Resources\control\play.png" />
-    <None Include="Resources\icon\Refresh.jpg" />
-    <None Include="Resources\inm.jpg" />
+    <Content Include="HelperThemes.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelperThemes_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>HelperThemes.mdf</DependentUpon>
+    </Content>
+    <Content Include="Resources\Icon\Form\8192Bit.ico" />
+    <Content Include="Misc\Manual.txt" />
+    <Content Include="Resources\Icon\Function\linear.png" />
+    <Content Include="Resources\Icon\Function\log.png" />
+    <Content Include="Resources\Icon\Function\none.png" />
+    <Content Include="Resources\Icon\Function\smooth.png" />
+    <Content Include="Resources\Icon\Function\square.png" />
+    <Content Include="Resources\Icon\Function\stay.png" />
+    <None Include="Resources\Icon\Switch\ON.png" />
+    <None Include="Resources\Icon\Switch\OFF.png" />
+    <None Include="Resources\Icon\Tap\Slide.png" />
+    <None Include="Resources\Icon\Tap\Click.png" />
+    <None Include="Resources\Icon\Form\Sides.jpg" />
+    <None Include="Resources\Icon\Control\stop.png" />
+    <None Include="Resources\Icon\Control\pause.png" />
+    <None Include="Resources\Icon\Control\play.png" />
+    <None Include="Resources\Icon\Form\Refresh.jpg" />
+    <None Include="Resources\Image\inm.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

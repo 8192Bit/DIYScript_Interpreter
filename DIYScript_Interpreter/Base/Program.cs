@@ -8,7 +8,7 @@ namespace DIYScript_Interpreter {
         [STAThread]
         public static void Main() {
 
-            Application.EnableVisualStyles();
+            //Application.EnableVisualStyles();
             if(DIYScript_Interpreter.Properties.Settings.Default.isAero) {
 
                 Application.EnableVisualStyles();

@@ -34,22 +34,22 @@ namespace DIYScript_Interpreter
             this.label1 = new System.Windows.Forms.Label();
             this.OK = new System.Windows.Forms.Button();
             this.canvas = new System.Windows.Forms.PictureBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.radioButtonPoint = new System.Windows.Forms.RadioButton();
+            this.radioButtonArea = new System.Windows.Forms.RadioButton();
+            this.groupBoxStart = new System.Windows.Forms.GroupBox();
+            this.buttonAddtoOBJ = new System.Windows.Forms.Button();
+            this.checkBoxAllowOverlap = new System.Windows.Forms.CheckBox();
+            this.Cancel = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.buttonEditART = new System.Windows.Forms.Button();
             this.buttonDelART = new System.Windows.Forms.Button();
             this.buttonNewART = new System.Windows.Forms.Button();
             this.listViewART = new System.Windows.Forms.ListView();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.buttonNormalART = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxStart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,77 +96,77 @@ namespace DIYScript_Interpreter
             this.canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
             this.canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
-            // radioButton1
+            // radioButtonPoint
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton1.Size = new System.Drawing.Size(71, 16);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.Text = "固定位置";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButtonPoint.AutoSize = true;
+            this.radioButtonPoint.Location = new System.Drawing.Point(6, 20);
+            this.radioButtonPoint.Name = "radioButtonPoint";
+            this.radioButtonPoint.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.radioButtonPoint.Size = new System.Drawing.Size(71, 16);
+            this.radioButtonPoint.TabIndex = 4;
+            this.radioButtonPoint.Text = "固定位置";
+            this.radioButtonPoint.UseVisualStyleBackColor = true;
+            this.radioButtonPoint.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // radioButtonArea
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton2.Size = new System.Drawing.Size(71, 16);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.Text = "区域随机";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButtonArea.AutoSize = true;
+            this.radioButtonArea.Location = new System.Drawing.Point(6, 42);
+            this.radioButtonArea.Name = "radioButtonArea";
+            this.radioButtonArea.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.radioButtonArea.Size = new System.Drawing.Size(71, 16);
+            this.radioButtonArea.TabIndex = 5;
+            this.radioButtonArea.Text = "区域随机";
+            this.radioButtonArea.UseVisualStyleBackColor = true;
+            this.radioButtonArea.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // groupBox1
+            // groupBoxStart
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox1.Location = new System.Drawing.Point(12, 191);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(363, 69);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "初始位置";
+            this.groupBoxStart.Controls.Add(this.buttonAddtoOBJ);
+            this.groupBoxStart.Controls.Add(this.checkBoxAllowOverlap);
+            this.groupBoxStart.Controls.Add(this.radioButtonArea);
+            this.groupBoxStart.Controls.Add(this.radioButtonPoint);
+            this.groupBoxStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBoxStart.Location = new System.Drawing.Point(12, 191);
+            this.groupBoxStart.Name = "groupBoxStart";
+            this.groupBoxStart.Size = new System.Drawing.Size(363, 69);
+            this.groupBoxStart.TabIndex = 6;
+            this.groupBoxStart.TabStop = false;
+            this.groupBoxStart.Text = "初始位置";
             // 
-            // button1
+            // buttonAddtoOBJ
             // 
-            this.button1.Location = new System.Drawing.Point(250, 13);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(107, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "附加到OBJ...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAddtoOBJ.Location = new System.Drawing.Point(250, 13);
+            this.buttonAddtoOBJ.Name = "buttonAddtoOBJ";
+            this.buttonAddtoOBJ.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonAddtoOBJ.Size = new System.Drawing.Size(107, 23);
+            this.buttonAddtoOBJ.TabIndex = 7;
+            this.buttonAddtoOBJ.Text = "附加到OBJ...";
+            this.buttonAddtoOBJ.UseVisualStyleBackColor = true;
+            this.buttonAddtoOBJ.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox1
+            // checkBoxAllowOverlap
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.Location = new System.Drawing.Point(83, 43);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox1.Size = new System.Drawing.Size(72, 16);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "允许重叠";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxAllowOverlap.AutoSize = true;
+            this.checkBoxAllowOverlap.Enabled = false;
+            this.checkBoxAllowOverlap.Location = new System.Drawing.Point(83, 43);
+            this.checkBoxAllowOverlap.Name = "checkBoxAllowOverlap";
+            this.checkBoxAllowOverlap.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.checkBoxAllowOverlap.Size = new System.Drawing.Size(72, 16);
+            this.checkBoxAllowOverlap.TabIndex = 6;
+            this.checkBoxAllowOverlap.Text = "允许重叠";
+            this.checkBoxAllowOverlap.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Cancel
             // 
-            this.button2.Location = new System.Drawing.Point(12, 437);
-            this.button2.Name = "button2";
-            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button2.Size = new System.Drawing.Size(125, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "取消";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Cancel.Location = new System.Drawing.Point(12, 437);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Cancel.Size = new System.Drawing.Size(125, 23);
+            this.Cancel.TabIndex = 7;
+            this.Cancel.Text = "取消";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.button2_Click);
             // 
             // imageList1
             // 
@@ -222,17 +222,17 @@ namespace DIYScript_Interpreter
             this.listViewART.UseCompatibleStateImageBehavior = false;
             this.listViewART.SelectedIndexChanged += new System.EventHandler(this.listViewART_SelectedIndexChanged);
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 41);
-            this.label4.Margin = new System.Windows.Forms.Padding(3);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "形象";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 41);
+            this.label2.Margin = new System.Windows.Forms.Padding(3);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "形象";
+            this.label2.Click += new System.EventHandler(this.label4_Click);
             // 
             // errorProvider
             // 
@@ -257,13 +257,13 @@ namespace DIYScript_Interpreter
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 501);
             this.Controls.Add(this.buttonNormalART);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonEditART);
             this.Controls.Add(this.buttonDelART);
             this.Controls.Add(this.buttonNewART);
             this.Controls.Add(this.listViewART);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.Cancel);
+            this.Controls.Add(this.groupBoxStart);
             this.Controls.Add(this.canvas);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.label1);
@@ -273,8 +273,8 @@ namespace DIYScript_Interpreter
             this.Text = "新建OBJ......";
             this.Load += new System.EventHandler(this.OBJMaker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxStart.ResumeLayout(false);
+            this.groupBoxStart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -287,18 +287,18 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button OK;
         private System.Windows.Forms.PictureBox canvas;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton radioButtonPoint;
+        private System.Windows.Forms.RadioButton radioButtonArea;
+        private System.Windows.Forms.GroupBox groupBoxStart;
+        private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.CheckBox checkBoxAllowOverlap;
+        private System.Windows.Forms.Button buttonAddtoOBJ;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button buttonEditART;
         private System.Windows.Forms.Button buttonDelART;
         private System.Windows.Forms.Button buttonNewART;
         private System.Windows.Forms.ListView listViewART;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button buttonNormalART;
     }

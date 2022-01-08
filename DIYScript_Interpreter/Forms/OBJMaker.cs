@@ -15,7 +15,7 @@ namespace DIYScript_Interpreter {
     public partial class OBJMaker : Form {
         public OBJMaker() {
             InitializeComponent();
-            checkBox1.Enabled = false;// Just for noob :(
+            checkBoxAllowOverlap.Enabled = false;// Just for noob :(
         }
 
         private void OK_Click(object sender, EventArgs e) {
@@ -24,11 +24,11 @@ namespace DIYScript_Interpreter {
 
             } else {
                 Int16 StartMode = 0;
-                if(radioButton1.Checked) {
+                if(radioButtonPoint.Checked) {
                     StartMode = 1;
                     //fixed
-                } else if(radioButton2.Checked) {
-                    if(!checkBox1.Checked) {
+                } else if(radioButtonArea.Checked) {
+                    if(!checkBoxAllowOverlap.Checked) {
                         StartMode = 2;
                         //any
                     } else {
@@ -85,7 +85,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e) {
-            checkBox1.Enabled = radioButton2.Checked;
+            checkBoxAllowOverlap.Enabled = radioButtonArea.Checked;
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -141,7 +141,7 @@ namespace DIYScript_Interpreter {
 
         private void canvas_MouseMove(object sender, MouseEventArgs e) {
 
-            reDraw(MouseState[0], MouseState[1], MouseState[2], MouseState[3], radioButton2.Checked);
+            reDraw(MouseState[0], MouseState[1], MouseState[2], MouseState[3], radioButtonArea.Checked);
             if(MouseState[4] == 1) {
 
                 MouseState[2] = e.X;

@@ -61,22 +61,12 @@ namespace DIYScript_Interpreter.Properties {
         }
         
         /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap _8i {
+        internal static System.Drawing.Icon _8192Bit {
             get {
-                object obj = ResourceManager.GetObject("8i", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap _8i1 {
-            get {
-                object obj = ResourceManager.GetObject("8i1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("_8192Bit", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

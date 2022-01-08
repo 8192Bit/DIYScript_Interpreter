@@ -58,7 +58,7 @@ namespace DIYScript_Interpreter
             this.tabControlT = new System.Windows.Forms.TabControl();
             this.tabPageTPosition = new System.Windows.Forms.TabPage();
             this.tabPageTOBJPosition = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonTOOBJChoose = new System.Windows.Forms.Button();
             this.tabPageTDirection = new System.Windows.Forms.TabPage();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -416,6 +416,7 @@ namespace DIYScript_Interpreter
             // 
             // AI
             // 
+            this.AI.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AI.Controls.Add(this.groupBoxAction);
             this.AI.Controls.Add(this.groupBoxWhen);
             this.AI.Controls.Add(this.labelOBJName);
@@ -467,6 +468,7 @@ namespace DIYScript_Interpreter
             // 
             // ATravel
             // 
+            this.ATravel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ATravel.Controls.Add(this.comboBoxTSpeed);
             this.ATravel.Controls.Add(this.pictureBoxTS);
             this.ATravel.Controls.Add(this.tabControlT);
@@ -501,7 +503,6 @@ namespace DIYScript_Interpreter
             // 
             // tabControlT
             // 
-            this.tabControlT.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControlT.Controls.Add(this.tabPageTPosition);
             this.tabControlT.Controls.Add(this.tabPageTOBJPosition);
             this.tabControlT.Controls.Add(this.tabPageTDirection);
@@ -518,35 +519,39 @@ namespace DIYScript_Interpreter
             // 
             // tabPageTPosition
             // 
-            this.tabPageTPosition.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTPosition.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageTPosition.Location = new System.Drawing.Point(4, 22);
             this.tabPageTPosition.Name = "tabPageTPosition";
             this.tabPageTPosition.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTPosition.Size = new System.Drawing.Size(318, 79);
+            this.tabPageTPosition.Size = new System.Drawing.Size(318, 82);
             this.tabPageTPosition.TabIndex = 0;
             this.tabPageTPosition.Text = "位置";
             this.tabPageTPosition.UseVisualStyleBackColor = true;
             // 
             // tabPageTOBJPosition
             // 
-            this.tabPageTOBJPosition.Controls.Add(this.button1);
-            this.tabPageTOBJPosition.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTOBJPosition.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageTOBJPosition.Controls.Add(this.buttonTOOBJChoose);
+            this.tabPageTOBJPosition.Location = new System.Drawing.Point(4, 22);
             this.tabPageTOBJPosition.Name = "tabPageTOBJPosition";
-            this.tabPageTOBJPosition.Size = new System.Drawing.Size(318, 79);
+            this.tabPageTOBJPosition.Size = new System.Drawing.Size(318, 82);
             this.tabPageTOBJPosition.TabIndex = 4;
             this.tabPageTOBJPosition.Text = "OBJ";
             this.tabPageTOBJPosition.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonTOOBJChoose
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "选择OBJ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonTOOBJChoose.Location = new System.Drawing.Point(3, 3);
+            this.buttonTOOBJChoose.Name = "buttonTOOBJChoose";
+            this.buttonTOOBJChoose.Size = new System.Drawing.Size(75, 23);
+            this.buttonTOOBJChoose.TabIndex = 9;
+            this.buttonTOOBJChoose.Text = "选择OBJ";
+            this.buttonTOOBJChoose.UseVisualStyleBackColor = true;
+            this.buttonTOOBJChoose.Click += new System.EventHandler(this.buttonTOOBJChoose_Click);
             // 
             // tabPageTDirection
             // 
+            this.tabPageTDirection.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPageTDirection.Controls.Add(this.pictureBox2);
             this.tabPageTDirection.Controls.Add(this.radioButton1);
             this.tabPageTDirection.Controls.Add(this.radioButton2);
@@ -556,10 +561,10 @@ namespace DIYScript_Interpreter
             this.tabPageTDirection.Controls.Add(this.radioButton6);
             this.tabPageTDirection.Controls.Add(this.radioButton7);
             this.tabPageTDirection.Controls.Add(this.radioButton8);
-            this.tabPageTDirection.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTDirection.Location = new System.Drawing.Point(4, 22);
             this.tabPageTDirection.Name = "tabPageTDirection";
             this.tabPageTDirection.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTDirection.Size = new System.Drawing.Size(318, 79);
+            this.tabPageTDirection.Size = new System.Drawing.Size(318, 82);
             this.tabPageTDirection.TabIndex = 1;
             this.tabPageTDirection.Text = "方向";
             this.tabPageTDirection.UseVisualStyleBackColor = true;
@@ -656,19 +661,21 @@ namespace DIYScript_Interpreter
             // 
             // tabPageTRoaming
             // 
+            this.tabPageTRoaming.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPageTRoaming.Controls.Add(this.comboBoxTRTType);
-            this.tabPageTRoaming.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTRoaming.Location = new System.Drawing.Point(4, 22);
             this.tabPageTRoaming.Name = "tabPageTRoaming";
-            this.tabPageTRoaming.Size = new System.Drawing.Size(318, 79);
+            this.tabPageTRoaming.Size = new System.Drawing.Size(318, 82);
             this.tabPageTRoaming.TabIndex = 3;
             this.tabPageTRoaming.Text = "漫游";
             this.tabPageTRoaming.UseVisualStyleBackColor = true;
             // 
             // tabPageTStop
             // 
-            this.tabPageTStop.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTStop.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageTStop.Location = new System.Drawing.Point(4, 22);
             this.tabPageTStop.Name = "tabPageTStop";
-            this.tabPageTStop.Size = new System.Drawing.Size(318, 79);
+            this.tabPageTStop.Size = new System.Drawing.Size(318, 82);
             this.tabPageTStop.TabIndex = 2;
             this.tabPageTStop.Text = "停止";
             this.tabPageTStop.UseVisualStyleBackColor = true;
@@ -697,6 +704,7 @@ namespace DIYScript_Interpreter
             // 
             // AArt
             // 
+            this.AArt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AArt.Location = new System.Drawing.Point(4, 22);
             this.AArt.Name = "AArt";
             this.AArt.Size = new System.Drawing.Size(339, 146);
@@ -706,6 +714,7 @@ namespace DIYScript_Interpreter
             // 
             // AWinLose
             // 
+            this.AWinLose.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AWinLose.Controls.Add(this.checkBoxWL);
             this.AWinLose.Location = new System.Drawing.Point(4, 22);
             this.AWinLose.Name = "AWinLose";
@@ -729,6 +738,7 @@ namespace DIYScript_Interpreter
             // 
             // AVfx
             // 
+            this.AVfx.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AVfx.Location = new System.Drawing.Point(4, 22);
             this.AVfx.Name = "AVfx";
             this.AVfx.Size = new System.Drawing.Size(339, 146);
@@ -738,6 +748,7 @@ namespace DIYScript_Interpreter
             // 
             // ASfx
             // 
+            this.ASfx.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ASfx.Location = new System.Drawing.Point(4, 22);
             this.ASfx.Name = "ASfx";
             this.ASfx.Size = new System.Drawing.Size(339, 146);
@@ -747,6 +758,7 @@ namespace DIYScript_Interpreter
             // 
             // ASwitch
             // 
+            this.ASwitch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ASwitch.Controls.Add(this.checkBoxSONOFF);
             this.ASwitch.Controls.Add(this.radioButtonSD);
             this.ASwitch.Controls.Add(this.radioButtonSC);
@@ -857,6 +869,8 @@ namespace DIYScript_Interpreter
             // 
             this.listBoxAction.FormattingEnabled = true;
             this.listBoxAction.ItemHeight = 12;
+            this.listBoxAction.Items.AddRange(new object[] {
+            " "});
             this.listBoxAction.Location = new System.Drawing.Point(6, 20);
             this.listBoxAction.Name = "listBoxAction";
             this.listBoxAction.Size = new System.Drawing.Size(135, 172);
@@ -906,6 +920,7 @@ namespace DIYScript_Interpreter
             // 
             // CTap
             // 
+            this.CTap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CTap.Controls.Add(this.pictureBoxCS);
             this.CTap.Controls.Add(this.pictureBox1);
             this.CTap.Controls.Add(this.radioButtonTapSE);
@@ -1062,6 +1077,7 @@ namespace DIYScript_Interpreter
             // 
             // CContact
             // 
+            this.CContact.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CContact.Location = new System.Drawing.Point(4, 22);
             this.CContact.Name = "CContact";
             this.CContact.Size = new System.Drawing.Size(339, 98);
@@ -1071,6 +1087,7 @@ namespace DIYScript_Interpreter
             // 
             // CArt
             // 
+            this.CArt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CArt.Location = new System.Drawing.Point(4, 22);
             this.CArt.Name = "CArt";
             this.CArt.Size = new System.Drawing.Size(339, 98);
@@ -1080,6 +1097,7 @@ namespace DIYScript_Interpreter
             // 
             // CTime
             // 
+            this.CTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CTime.Controls.Add(this.checkBoxTISRandom);
             this.CTime.Controls.Add(this.trackBarTTO);
             this.CTime.Controls.Add(this.trackBarTTFROM);
@@ -1120,6 +1138,7 @@ namespace DIYScript_Interpreter
             // 
             // CSwitch
             // 
+            this.CSwitch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CSwitch.Controls.Add(this.buttonCSChoose);
             this.CSwitch.Controls.Add(this.radioButtonCSD);
             this.CSwitch.Controls.Add(this.radioButtonCSC);
@@ -1208,6 +1227,7 @@ namespace DIYScript_Interpreter
             // 
             // CWonLoss
             // 
+            this.CWonLoss.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CWonLoss.Controls.Add(this.comboBoxWL);
             this.CWonLoss.Location = new System.Drawing.Point(4, 22);
             this.CWonLoss.Name = "CWonLoss";
@@ -1280,6 +1300,8 @@ namespace DIYScript_Interpreter
             // 
             this.listBoxCondition.FormattingEnabled = true;
             this.listBoxCondition.ItemHeight = 12;
+            this.listBoxCondition.Items.AddRange(new object[] {
+            " "});
             this.listBoxCondition.Location = new System.Drawing.Point(6, 20);
             this.listBoxCondition.Name = "listBoxCondition";
             this.listBoxCondition.Size = new System.Drawing.Size(135, 124);
@@ -1367,6 +1389,8 @@ namespace DIYScript_Interpreter
             // 
             this.listBoxScript.FormattingEnabled = true;
             this.listBoxScript.ItemHeight = 12;
+            this.listBoxScript.Items.AddRange(new object[] {
+            " "});
             this.listBoxScript.Location = new System.Drawing.Point(6, 114);
             this.listBoxScript.Name = "listBoxScript";
             this.listBoxScript.Size = new System.Drawing.Size(175, 364);
@@ -1374,6 +1398,7 @@ namespace DIYScript_Interpreter
             // 
             // BGM
             // 
+            this.BGM.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.BGM.Controls.Add(this.linkLabel1);
             this.BGM.Controls.Add(this.buttonEditBGM);
             this.BGM.Controls.Add(this.buttonDelBGM);
@@ -1438,12 +1463,13 @@ namespace DIYScript_Interpreter
             this.listViewBGM.HideSelection = false;
             this.listViewBGM.Location = new System.Drawing.Point(6, 6);
             this.listViewBGM.Name = "listViewBGM";
-            this.listViewBGM.Size = new System.Drawing.Size(773, 267);
+            this.listViewBGM.Size = new System.Drawing.Size(773, 263);
             this.listViewBGM.TabIndex = 6;
             this.listViewBGM.UseCompatibleStateImageBehavior = false;
             // 
             // Metadata
             // 
+            this.Metadata.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Metadata.Controls.Add(this.labelTimeSet);
             this.Metadata.Controls.Add(this.maskedTextBoxTime);
             this.Metadata.Controls.Add(this.checkBoxTimeBOSS);
@@ -1456,7 +1482,7 @@ namespace DIYScript_Interpreter
             this.Metadata.Controls.Add(this.labelComment);
             this.Metadata.Controls.Add(this.textBoxGameName);
             this.Metadata.Controls.Add(this.labelGameName);
-            this.Metadata.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Metadata.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Metadata.ForeColor = System.Drawing.Color.Black;
             this.Metadata.Location = new System.Drawing.Point(4, 22);
             this.Metadata.Name = "Metadata";
@@ -1791,7 +1817,7 @@ namespace DIYScript_Interpreter
             "随机",
             "反弹",
             "弹跳"});
-            this.comboBoxTRTType.Location = new System.Drawing.Point(3, 8);
+            this.comboBoxTRTType.Location = new System.Drawing.Point(103, 29);
             this.comboBoxTRTType.Name = "comboBoxTRTType";
             this.comboBoxTRTType.Size = new System.Drawing.Size(121, 20);
             this.comboBoxTRTType.TabIndex = 14;
@@ -1810,6 +1836,7 @@ namespace DIYScript_Interpreter
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
+            this.Text = "DIYScript Interpreter [Document:unnamed]";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
@@ -1984,7 +2011,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.RadioButton radioButtonCSB;
         private System.Windows.Forms.RadioButton radioButtonCSA;
         private System.Windows.Forms.ComboBox comboBoxTSpeed;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonTOOBJChoose;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
