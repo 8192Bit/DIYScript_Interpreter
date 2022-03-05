@@ -2,11 +2,11 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using static DIYScript_Interpreter.GAME;
+using static DIYScript_Interpreter.Document;
 
 namespace DIYScript_Interpreter {
-    public partial class BGMaker : Form {
-        public BGMaker() {
+    public partial class Importer : Form {
+        public Importer() {
             InitializeComponent();
         }
 
@@ -16,7 +16,7 @@ namespace DIYScript_Interpreter {
 
         private void OK_Click(object sender, EventArgs e) {
             if(textBoxBGName.Text == "") {
-                errorProvider.SetError(textBoxBGName, "把名字抄100遍!");
+                errorProvider.SetError(textBoxBGName, "未输入名字。");
             } else {
 
                 try {
@@ -25,7 +25,7 @@ namespace DIYScript_Interpreter {
                     bg.bitmap = BGAddingStatus.temp;
                     BGAddingStatus.CurrentBGID++;
                     bg.ID = BGAddingStatus.CurrentBGID;
-                    GAME.Current.BGList.Add(bg);
+                    Current.BGList.Add(bg);
                     if(Current.BGList.Count == 1) {
                         bg.isNormal = true;
                     }
@@ -39,7 +39,7 @@ namespace DIYScript_Interpreter {
             BGAddingStatus.gt.DrawImage(BGAddingStatus.bitmap, new Rectangle(0, 0, 640, 480));
             canvas.Image = BGAddingStatus.temp;
         }
-        private void BGMaker_Load(object sender, EventArgs e) {
+        private void Importer_Load(object sender, EventArgs e) {
             reDraw();
         }
 

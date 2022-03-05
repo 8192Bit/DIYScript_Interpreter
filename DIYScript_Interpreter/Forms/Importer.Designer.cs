@@ -1,7 +1,7 @@
 ﻿
 namespace DIYScript_Interpreter
 {
-    partial class BGMaker
+    partial class Importer
     {
         /// <summary>
         /// Required designer variable.
@@ -39,6 +39,7 @@ namespace DIYScript_Interpreter
             this.groupBoxImport = new System.Windows.Forms.GroupBox();
             this.labelInterpolation = new System.Windows.Forms.Label();
             this.comboBoxInterpolation = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBoxImport.SuspendLayout();
@@ -97,11 +98,12 @@ namespace DIYScript_Interpreter
             // 
             // groupBoxImport
             // 
+            this.groupBoxImport.Controls.Add(this.label2);
             this.groupBoxImport.Controls.Add(this.labelInterpolation);
             this.groupBoxImport.Controls.Add(this.comboBoxInterpolation);
             this.groupBoxImport.Location = new System.Drawing.Point(12, 33);
             this.groupBoxImport.Name = "groupBoxImport";
-            this.groupBoxImport.Size = new System.Drawing.Size(246, 42);
+            this.groupBoxImport.Size = new System.Drawing.Size(246, 77);
             this.groupBoxImport.TabIndex = 12;
             this.groupBoxImport.TabStop = false;
             this.groupBoxImport.Text = "导入选项";
@@ -133,7 +135,16 @@ namespace DIYScript_Interpreter
             this.comboBoxInterpolation.TabIndex = 9;
             this.comboBoxInterpolation.SelectedIndexChanged += new System.EventHandler(this.comboBoxInterpolation_SelectedIndexChanged);
             // 
-            // BGMaker
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "label2";
+            // 
+            // Importer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,9 +155,9 @@ namespace DIYScript_Interpreter
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.canvas);
-            this.Name = "BGMaker";
-            this.Text = "BGMaker";
-            this.Load += new System.EventHandler(this.BGMaker_Load);
+            this.Name = "Importer";
+            this.Text = "导入设置";
+            this.Load += new System.EventHandler(this.Importer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.groupBoxImport.ResumeLayout(false);
@@ -167,5 +178,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.GroupBox groupBoxImport;
         private System.Windows.Forms.ComboBox comboBoxInterpolation;
         private System.Windows.Forms.Label labelInterpolation;
+        private System.Windows.Forms.Label label2;
     }
 }

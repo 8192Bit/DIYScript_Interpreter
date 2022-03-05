@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace DIYScript_Interpreter {
     public partial class Animater : Form {
         public bool isFullView;
-        public bool isFirstAdd = false;
+        public bool isFirstAdd = true;
         public bool isFromFront;
         public Animater() {
             InitializeComponent();

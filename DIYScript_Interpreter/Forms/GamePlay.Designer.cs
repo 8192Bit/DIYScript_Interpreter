@@ -30,6 +30,27 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
+            "X",
+            "0"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Y",
+            "0"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
+            "开关",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
+            "旋转",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
+            "缩放",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
+            "当前形象",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem(new string[] {
+            "当前帧",
+            "0"}, -1);
             this.ticker = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.labelSmall = new System.Windows.Forms.Label();
@@ -51,6 +72,10 @@ namespace DIYScript_Interpreter
             this.buttonTickStrat = new System.Windows.Forms.Button();
             this.trackBarSpeed = new System.Windows.Forms.TrackBar();
             this.labelSpeed = new System.Windows.Forms.Label();
+            this.listView = new System.Windows.Forms.ListView();
+            this.listBoxOBJ = new System.Windows.Forms.ListBox();
+            this.columnHeaderprop = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeadervalue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -107,11 +132,14 @@ namespace DIYScript_Interpreter
             this.canvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.canvas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.canvas.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.canvas.Location = new System.Drawing.Point(11, 10);
+            this.canvas.Location = new System.Drawing.Point(9, 9);
             this.canvas.Name = "canvas";
             this.canvas.Size = new System.Drawing.Size(640, 480);
             this.canvas.TabIndex = 9;
             this.canvas.TabStop = false;
+            this.canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
+            this.canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
+            this.canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
             // labelGDI
             // 
@@ -135,6 +163,8 @@ namespace DIYScript_Interpreter
             // 
             // groupBoxDebugger
             // 
+            this.groupBoxDebugger.Controls.Add(this.listBoxOBJ);
+            this.groupBoxDebugger.Controls.Add(this.listView);
             this.groupBoxDebugger.Controls.Add(this.groupBox1);
             this.groupBoxDebugger.Location = new System.Drawing.Point(282, 10);
             this.groupBoxDebugger.Name = "groupBoxDebugger";
@@ -206,17 +236,18 @@ namespace DIYScript_Interpreter
             // trackBarSmooth
             // 
             this.trackBarSmooth.LargeChange = 1;
-            this.trackBarSmooth.Location = new System.Drawing.Point(60, 46);
+            this.trackBarSmooth.Location = new System.Drawing.Point(60, 20);
             this.trackBarSmooth.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
             this.trackBarSmooth.Maximum = 4;
             this.trackBarSmooth.Name = "trackBarSmooth";
             this.trackBarSmooth.Size = new System.Drawing.Size(203, 45);
             this.trackBarSmooth.TabIndex = 6;
+            this.trackBarSmooth.Scroll += new System.EventHandler(this.trackBarSmooth_Scroll);
             // 
             // labelSmooth
             // 
             this.labelSmooth.AutoSize = true;
-            this.labelSmooth.Location = new System.Drawing.Point(6, 46);
+            this.labelSmooth.Location = new System.Drawing.Point(6, 20);
             this.labelSmooth.Name = "labelSmooth";
             this.labelSmooth.Size = new System.Drawing.Size(53, 12);
             this.labelSmooth.TabIndex = 4;
@@ -244,6 +275,7 @@ namespace DIYScript_Interpreter
             this.buttonReset.TabIndex = 7;
             this.buttonReset.Text = "重置";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // buttonPause
             // 
@@ -253,6 +285,7 @@ namespace DIYScript_Interpreter
             this.buttonPause.TabIndex = 6;
             this.buttonPause.Text = "暂停";
             this.buttonPause.UseVisualStyleBackColor = true;
+            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
             // buttonTickStrat
             // 
@@ -260,8 +293,9 @@ namespace DIYScript_Interpreter
             this.buttonTickStrat.Name = "buttonTickStrat";
             this.buttonTickStrat.Size = new System.Drawing.Size(75, 23);
             this.buttonTickStrat.TabIndex = 4;
-            this.buttonTickStrat.Text = "起振";
+            this.buttonTickStrat.Text = "启动";
             this.buttonTickStrat.UseVisualStyleBackColor = true;
+            this.buttonTickStrat.Click += new System.EventHandler(this.buttonTickStrat_Click);
             // 
             // trackBarSpeed
             // 
@@ -273,6 +307,7 @@ namespace DIYScript_Interpreter
             this.trackBarSpeed.Size = new System.Drawing.Size(254, 45);
             this.trackBarSpeed.TabIndex = 3;
             this.trackBarSpeed.Value = 1;
+            this.trackBarSpeed.Scroll += new System.EventHandler(this.trackBarSpeed_Scroll);
             // 
             // labelSpeed
             // 
@@ -283,6 +318,48 @@ namespace DIYScript_Interpreter
             this.labelSpeed.Size = new System.Drawing.Size(71, 12);
             this.labelSpeed.TabIndex = 0;
             this.labelSpeed.Text = "时间速度: 1";
+            // 
+            // listView
+            // 
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderprop,
+            this.columnHeadervalue});
+            this.listView.GridLines = true;
+            this.listView.HideSelection = false;
+            this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20,
+            listViewItem21});
+            this.listView.Location = new System.Drawing.Point(6, 158);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(276, 171);
+            this.listView.TabIndex = 3;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
+            // 
+            // listBoxOBJ
+            // 
+            this.listBoxOBJ.FormattingEnabled = true;
+            this.listBoxOBJ.ItemHeight = 12;
+            this.listBoxOBJ.Location = new System.Drawing.Point(7, 64);
+            this.listBoxOBJ.Name = "listBoxOBJ";
+            this.listBoxOBJ.Size = new System.Drawing.Size(275, 88);
+            this.listBoxOBJ.TabIndex = 4;
+            this.listBoxOBJ.SelectedIndexChanged += new System.EventHandler(this.listBoxOBJ_SelectedIndexChanged);
+            // 
+            // columnHeaderprop
+            // 
+            this.columnHeaderprop.Text = "属性";
+            this.columnHeaderprop.Width = 61;
+            // 
+            // columnHeadervalue
+            // 
+            this.columnHeadervalue.Text = "值";
+            this.columnHeadervalue.Width = 201;
             // 
             // GamePlay
             // 
@@ -336,5 +413,9 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button buttonTickStrat;
         private System.Windows.Forms.TrackBar trackBarSpeed;
         private System.Windows.Forms.Label labelSpeed;
+        private System.Windows.Forms.ListBox listBoxOBJ;
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ColumnHeader columnHeaderprop;
+        private System.Windows.Forms.ColumnHeader columnHeadervalue;
     }
 }
