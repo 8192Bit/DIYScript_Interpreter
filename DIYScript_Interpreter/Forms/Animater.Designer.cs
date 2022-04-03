@@ -46,6 +46,11 @@ namespace DIYScript_Interpreter {
             this.buttonPause = new System.Windows.Forms.Button();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.pictureBoxCurrent = new System.Windows.Forms.PictureBox();
+            this.从GIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.粘贴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.剪切ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrent)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +105,12 @@ namespace DIYScript_Interpreter {
             // 
             // toolStripDropDownButton1
             // 
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.从GIFToolStripMenuItem,
+            this.复制ToolStripMenuItem,
+            this.粘贴ToolStripMenuItem,
+            this.剪切ToolStripMenuItem,
+            this.删除ToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -212,6 +223,37 @@ namespace DIYScript_Interpreter {
             this.pictureBoxCurrent.Click += new System.EventHandler(this.pictureBoxCurrent_Click);
             this.pictureBoxCurrent.DoubleClick += new System.EventHandler(this.pictureBoxCurrent_DoubleClick);
             // 
+            // 从GIFToolStripMenuItem
+            // 
+            this.从GIFToolStripMenuItem.Name = "从GIFToolStripMenuItem";
+            this.从GIFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.从GIFToolStripMenuItem.Text = "从GIF......";
+            this.从GIFToolStripMenuItem.Click += new System.EventHandler(this.从GIFToolStripMenuItem_Click);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            // 
+            // 粘贴ToolStripMenuItem
+            // 
+            this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
+            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.粘贴ToolStripMenuItem.Text = "粘贴";
+            // 
+            // 剪切ToolStripMenuItem
+            // 
+            this.剪切ToolStripMenuItem.Name = "剪切ToolStripMenuItem";
+            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.剪切ToolStripMenuItem.Text = "剪切";
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            // 
             // Animater
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -256,5 +298,10 @@ namespace DIYScript_Interpreter {
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem 从GIFToolStripMenuItem;
+        private ToolStripMenuItem 复制ToolStripMenuItem;
+        private ToolStripMenuItem 粘贴ToolStripMenuItem;
+        private ToolStripMenuItem 剪切ToolStripMenuItem;
+        private ToolStripMenuItem 删除ToolStripMenuItem;
     }
 }

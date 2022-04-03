@@ -46,7 +46,11 @@ namespace DIYScript_Interpreter {
         private void openFileDialog_FileOK(object sendor, CancelEventArgs e) {
             Image i = (Image)new Bitmap(openFileDialog.FileName);
             if(isFirstAdd) {
+                new Importer 
                 imageList.ImageSize = i.Size;
+
+
+                isFirstAdd = false;
             } else if(i.Size != imageList.ImageSize) {
                 MessageBox.Show("要添加的帧与帧列表中的大小不匹配。" + "\r" + "是否添加？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
 
@@ -69,6 +73,10 @@ namespace DIYScript_Interpreter {
         }
 
         private void pictureBoxCurrent_Click(object sender, EventArgs e) {
+
+        }
+
+        private void 从GIFToolStripMenuItem_Click(object sender, EventArgs e) {
 
         }
     }

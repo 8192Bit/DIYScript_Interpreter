@@ -1611,7 +1611,7 @@ namespace DIYScript_Interpreter
             this.linkLabel1.BackColor = System.Drawing.SystemColors.Control;
             this.linkLabel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.linkLabel1.Font = new System.Drawing.Font("宋体", 144F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.linkLabel1.Location = new System.Drawing.Point(74, 135);
+            this.linkLabel1.Location = new System.Drawing.Point(56, 157);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(658, 194);
             this.linkLabel1.TabIndex = 10;
