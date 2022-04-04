@@ -112,6 +112,7 @@ namespace DIYScript_Interpreter {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Locationer";
             this.Text = "选择位置......";
+            this.Load += new System.EventHandler(this.Locationer_Load);
             this.groupBoxStart.ResumeLayout(false);
             this.groupBoxStart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();

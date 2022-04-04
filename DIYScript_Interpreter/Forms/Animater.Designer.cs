@@ -32,21 +32,26 @@ namespace DIYScript_Interpreter {
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.labelFrame = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelARTName = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxARTName = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripButtonAFront = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonABehind = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.buttonStop = new System.Windows.Forms.Button();
             this.buttonPause = new System.Windows.Forms.Button();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.pictureBoxCurrent = new System.Windows.Forms.PictureBox();
-            this.toolStrip1.SuspendLayout();
+            this.从GIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.粘贴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.剪切ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,9 +85,9 @@ namespace DIYScript_Interpreter {
             this.labelFrame.Text = "0/0";
             this.labelFrame.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // toolStrip1
+            // toolStrip
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
             this.toolStripSeparator1,
             this.toolStripLabelARTName,
@@ -92,11 +97,25 @@ namespace DIYScript_Interpreter {
             this.toolStripButtonABehind,
             this.toolStripButtonDel,
             this.toolStripSeparator3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(784, 25);
-            this.toolStrip1.TabIndex = 9;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(784, 25);
+            this.toolStrip.TabIndex = 9;
+            this.toolStrip.Text = "toolStrip1";
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.从GIFToolStripMenuItem,
+            this.复制ToolStripMenuItem,
+            this.粘贴ToolStripMenuItem,
+            this.剪切ToolStripMenuItem,
+            this.删除ToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(49, 22);
+            this.toolStripDropDownButton1.Text = "帧";
             // 
             // toolStripSeparator1
             // 
@@ -106,7 +125,7 @@ namespace DIYScript_Interpreter {
             // toolStripLabelARTName
             // 
             this.toolStripLabelARTName.Name = "toolStripLabelARTName";
-            this.toolStripLabelARTName.Size = new System.Drawing.Size(55, 22);
+            this.toolStripLabelARTName.Size = new System.Drawing.Size(56, 22);
             this.toolStripLabelARTName.Text = "形象名称";
             // 
             // toolStripTextBoxARTName
@@ -119,25 +138,12 @@ namespace DIYScript_Interpreter {
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(48, 22);
-            this.toolStripDropDownButton1.Text = "帧";
-            // 
             // toolStripButtonAFront
             // 
             this.toolStripButtonAFront.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAFront.Image")));
             this.toolStripButtonAFront.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAFront.Name = "toolStripButtonAFront";
-            this.toolStripButtonAFront.Size = new System.Drawing.Size(96, 22);
+            this.toolStripButtonAFront.Size = new System.Drawing.Size(97, 22);
             this.toolStripButtonAFront.Text = "在前方插入...";
             this.toolStripButtonAFront.Click += new System.EventHandler(this.ButtonAddBefore_Click);
             // 
@@ -146,7 +152,7 @@ namespace DIYScript_Interpreter {
             this.toolStripButtonABehind.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonABehind.Image")));
             this.toolStripButtonABehind.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonABehind.Name = "toolStripButtonABehind";
-            this.toolStripButtonABehind.Size = new System.Drawing.Size(96, 22);
+            this.toolStripButtonABehind.Size = new System.Drawing.Size(97, 22);
             this.toolStripButtonABehind.Text = "在后方插入...";
             this.toolStripButtonABehind.Click += new System.EventHandler(this.buttonAddAfter_Click);
             // 
@@ -155,8 +161,13 @@ namespace DIYScript_Interpreter {
             this.toolStripButtonDel.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDel.Image")));
             this.toolStripButtonDel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDel.Name = "toolStripButtonDel";
-            this.toolStripButtonDel.Size = new System.Drawing.Size(51, 22);
+            this.toolStripButtonDel.Size = new System.Drawing.Size(52, 22);
             this.toolStripButtonDel.Text = "删除";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // buttonStop
             // 
@@ -212,13 +223,44 @@ namespace DIYScript_Interpreter {
             this.pictureBoxCurrent.Click += new System.EventHandler(this.pictureBoxCurrent_Click);
             this.pictureBoxCurrent.DoubleClick += new System.EventHandler(this.pictureBoxCurrent_DoubleClick);
             // 
+            // 从GIFToolStripMenuItem
+            // 
+            this.从GIFToolStripMenuItem.Name = "从GIFToolStripMenuItem";
+            this.从GIFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.从GIFToolStripMenuItem.Text = "从GIF......";
+            this.从GIFToolStripMenuItem.Click += new System.EventHandler(this.从GIFToolStripMenuItem_Click);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            // 
+            // 粘贴ToolStripMenuItem
+            // 
+            this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
+            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.粘贴ToolStripMenuItem.Text = "粘贴";
+            // 
+            // 剪切ToolStripMenuItem
+            // 
+            this.剪切ToolStripMenuItem.Name = "剪切ToolStripMenuItem";
+            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.剪切ToolStripMenuItem.Text = "剪切";
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            // 
             // Animater
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 256);
             this.Controls.Add(this.labelFrame);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.buttonStop);
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.buttonPlay);
@@ -228,8 +270,8 @@ namespace DIYScript_Interpreter {
             this.Name = "Animater";
             this.Text = "动画";
             this.Load += new System.EventHandler(this.Animater_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -246,7 +288,7 @@ namespace DIYScript_Interpreter {
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.Button buttonStop;
         private Label labelFrame;
-        private ToolStrip toolStrip1;
+        private ToolStrip toolStrip;
         private ToolStripTextBox toolStripTextBoxARTName;
         private ToolStripLabel toolStripLabelARTName;
         private ToolStripSeparator toolStripSeparator1;
@@ -256,5 +298,10 @@ namespace DIYScript_Interpreter {
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem 从GIFToolStripMenuItem;
+        private ToolStripMenuItem 复制ToolStripMenuItem;
+        private ToolStripMenuItem 粘贴ToolStripMenuItem;
+        private ToolStripMenuItem 剪切ToolStripMenuItem;
+        private ToolStripMenuItem 删除ToolStripMenuItem;
     }
 }

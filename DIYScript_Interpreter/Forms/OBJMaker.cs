@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using static DIYScript_Interpreter.GAME;
+using static DIYScript_Interpreter.Document;
 
 using static DIYScript_Interpreter.OBJAddingStatus;
 
@@ -18,12 +18,21 @@ namespace DIYScript_Interpreter {
             checkBoxAllowOverlap.Enabled = false;// Just for noob :(
         }
 
+        private void EditOBJ(int StartMode) {
+            OBJTemp.Name = textBoxOBJName.Text;
+            OBJTemp.StartMode = StartMode;
+            OBJTemp.StrtX = new short[] { (short)MouseState[0], (short)MouseState[1] };
+            OBJTemp.StrtY = new short[] { (short)MouseState[2], (short)MouseState[3] };
+            OBJTemp.ID = CurrentOBJID;
+        }
+
         private void OK_Click(object sender, EventArgs e) {
             if(textBoxOBJName.Text == "") {
                 errorProvider.SetError(textBoxOBJName, "抄一百遍名字！");
 
             } else {
-                Int16 StartMode = 0;
+                short StartMode = 0;
+                #region dizzy cation
                 if(radioButtonPoint.Checked) {
                     StartMode = 1;
                     //fixed
@@ -38,24 +47,16 @@ namespace DIYScript_Interpreter {
                 } else if(OBJChoose.isAttach) {
                     StartMode = 4;
                 }
-                if(isEdit) {
-                    GAME.Current.EditOBJ
-                        (OBJAddingStatus.CurrentOBJID, textBoxOBJName.Text, StartMode,
-                         new Int16[] { (short)MouseState[0], (short)MouseState[1] },
-                         new Int16[] { (short)MouseState[2], (short)MouseState[3] });
+                #endregion
+                if(!isEdit) {
+                    OBJTemp = new OBJ();
                 }
+                EditOBJ(StartMode);
 
-                OBJAddingStatus.CurrentOBJID++;
-                GAME.Current.AddOBJ();
-                GAME.Current.EditOBJ
-                (OBJAddingStatus.CurrentOBJID, textBoxOBJName.Text, StartMode,
-                 new Int16[] { (short)MouseState[0], (short)MouseState[1] },
-                 new Int16[] { (short)MouseState[2], (short)MouseState[3] });
-                Dispose();
             }
 
 
-
+            Current.OBJList.Add(OBJTemp);
         }
 
         private void reDraw(int x1, int y1, int x2, int y2, bool isArea) {
@@ -101,7 +102,7 @@ namespace DIYScript_Interpreter {
             listViewART.View = Properties.Settings.Default.LViewValue;
             Bitmap b = new Bitmap(640, 480);
             Graphics g = Graphics.FromImage(b);
-            if(OBJAddingStatus.isEdit) {
+            if(isEdit) {
 
             }
 
@@ -181,8 +182,26 @@ namespace DIYScript_Interpreter {
 
         }
 
-        private void label4_Click(object sender, EventArgs e) {
+        private void buttonNormalART_Click(object sender, EventArgs e) {
+            foreach(OBJArt art in OBJTemp.ArtList) {
+                art.isNormal = false;
+            }
 
+            Current.BGList[listViewART.FocusedItem.Index].isNormal = true;
+            buttonNormalART.Enabled = false;
+        }
+
+        private void buttonRefreshART_Click(object sender, EventArgs e) {
+            listViewART.Clear();
+            imageList.Images.Clear();
+            imageList.Images.Clear();
+            foreach(OBJArt art in OBJTemp.ArtList) {
+                foreach(Image i in art.i.Images) {
+                    imageList.Images.Add(i);
+                }
+                listViewART.Items.Add(art.Name, OBJTemp.ArtList.IndexOf(art));
+
+            }
         }
     }
 }

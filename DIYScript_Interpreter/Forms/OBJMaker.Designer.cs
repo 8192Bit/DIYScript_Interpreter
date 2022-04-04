@@ -30,6 +30,7 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OBJMaker));
             this.textBoxOBJName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.OK = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@ namespace DIYScript_Interpreter
             this.buttonAddtoOBJ = new System.Windows.Forms.Button();
             this.checkBoxAllowOverlap = new System.Windows.Forms.CheckBox();
             this.Cancel = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.buttonEditART = new System.Windows.Forms.Button();
             this.buttonDelART = new System.Windows.Forms.Button();
             this.buttonNewART = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace DIYScript_Interpreter
             this.label2 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.buttonNormalART = new System.Windows.Forms.Button();
+            this.buttonRefreshART = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.groupBoxStart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -55,7 +57,7 @@ namespace DIYScript_Interpreter
             // 
             // textBoxOBJName
             // 
-            this.textBoxOBJName.Location = new System.Drawing.Point(47, 12);
+            this.textBoxOBJName.Location = new System.Drawing.Point(51, 12);
             this.textBoxOBJName.Name = "textBoxOBJName";
             this.textBoxOBJName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBoxOBJName.Size = new System.Drawing.Size(209, 21);
@@ -65,7 +67,7 @@ namespace DIYScript_Interpreter
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(16, 15);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(29, 12);
@@ -127,7 +129,7 @@ namespace DIYScript_Interpreter
             this.groupBoxStart.Controls.Add(this.radioButtonArea);
             this.groupBoxStart.Controls.Add(this.radioButtonPoint);
             this.groupBoxStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBoxStart.Location = new System.Drawing.Point(12, 191);
+            this.groupBoxStart.Location = new System.Drawing.Point(12, 218);
             this.groupBoxStart.Name = "groupBoxStart";
             this.groupBoxStart.Size = new System.Drawing.Size(363, 69);
             this.groupBoxStart.TabIndex = 6;
@@ -168,17 +170,17 @@ namespace DIYScript_Interpreter
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.button2_Click);
             // 
-            // imageList1
+            // imageList
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // buttonEditART
             // 
             this.buttonEditART.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonEditART.FlatAppearance.BorderSize = 5;
-            this.buttonEditART.Location = new System.Drawing.Point(262, 121);
+            this.buttonEditART.Location = new System.Drawing.Point(262, 148);
             this.buttonEditART.Name = "buttonEditART";
             this.buttonEditART.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonEditART.Size = new System.Drawing.Size(113, 25);
@@ -190,7 +192,7 @@ namespace DIYScript_Interpreter
             // 
             this.buttonDelART.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDelART.FlatAppearance.BorderSize = 5;
-            this.buttonDelART.Location = new System.Drawing.Point(262, 90);
+            this.buttonDelART.Location = new System.Drawing.Point(262, 117);
             this.buttonDelART.Name = "buttonDelART";
             this.buttonDelART.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonDelART.Size = new System.Drawing.Size(113, 25);
@@ -202,7 +204,7 @@ namespace DIYScript_Interpreter
             // 
             this.buttonNewART.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewART.FlatAppearance.BorderSize = 5;
-            this.buttonNewART.Location = new System.Drawing.Point(262, 59);
+            this.buttonNewART.Location = new System.Drawing.Point(262, 86);
             this.buttonNewART.Name = "buttonNewART";
             this.buttonNewART.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonNewART.Size = new System.Drawing.Size(113, 25);
@@ -214,7 +216,7 @@ namespace DIYScript_Interpreter
             // listViewART
             // 
             this.listViewART.HideSelection = false;
-            this.listViewART.Location = new System.Drawing.Point(12, 59);
+            this.listViewART.Location = new System.Drawing.Point(12, 86);
             this.listViewART.Name = "listViewART";
             this.listViewART.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listViewART.Size = new System.Drawing.Size(244, 126);
@@ -225,14 +227,13 @@ namespace DIYScript_Interpreter
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 41);
+            this.label2.Location = new System.Drawing.Point(16, 41);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 18;
             this.label2.Text = "形象";
-            this.label2.Click += new System.EventHandler(this.label4_Click);
             // 
             // errorProvider
             // 
@@ -243,19 +244,34 @@ namespace DIYScript_Interpreter
             this.buttonNormalART.Enabled = false;
             this.buttonNormalART.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNormalART.FlatAppearance.BorderSize = 5;
-            this.buttonNormalART.Location = new System.Drawing.Point(262, 152);
+            this.buttonNormalART.Location = new System.Drawing.Point(262, 179);
             this.buttonNormalART.Name = "buttonNormalART";
             this.buttonNormalART.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonNormalART.Size = new System.Drawing.Size(113, 25);
             this.buttonNormalART.TabIndex = 19;
             this.buttonNormalART.Text = "设为默认形象...";
             this.buttonNormalART.UseVisualStyleBackColor = true;
+            this.buttonNormalART.Click += new System.EventHandler(this.buttonNormalART_Click);
+            // 
+            // buttonRefreshART
+            // 
+            this.buttonRefreshART.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRefreshART.BackgroundImage")));
+            this.buttonRefreshART.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonRefreshART.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonRefreshART.FlatAppearance.BorderSize = 5;
+            this.buttonRefreshART.Location = new System.Drawing.Point(12, 59);
+            this.buttonRefreshART.Name = "buttonRefreshART";
+            this.buttonRefreshART.Size = new System.Drawing.Size(25, 25);
+            this.buttonRefreshART.TabIndex = 20;
+            this.buttonRefreshART.UseVisualStyleBackColor = true;
+            this.buttonRefreshART.Click += new System.EventHandler(this.buttonRefreshART_Click);
             // 
             // OBJMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 501);
+            this.Controls.Add(this.buttonRefreshART);
             this.Controls.Add(this.buttonNormalART);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonEditART);
@@ -293,7 +309,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.CheckBox checkBoxAllowOverlap;
         private System.Windows.Forms.Button buttonAddtoOBJ;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.Button buttonEditART;
         private System.Windows.Forms.Button buttonDelART;
         private System.Windows.Forms.Button buttonNewART;
@@ -301,5 +317,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button buttonNormalART;
+        private System.Windows.Forms.Button buttonRefreshART;
     }
 }

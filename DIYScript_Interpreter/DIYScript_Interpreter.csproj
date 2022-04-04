@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>DIYScript_Interpreter</RootNamespace>
     <AssemblyName>DIYScript_Interpreter</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -54,7 +54,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>B56DEE86D9D37ECE450EF51A679845D1F9F54C01</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>D902C7F3F720D5A2204876487F4E64FF6B7A589C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>DIYScript_Interpreter_TemporaryKey.pfx</ManifestKeyFile>
@@ -112,11 +112,11 @@
     <Compile Include="Forms\Animater.Designer.cs">
       <DependentUpon>Animater.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BGMaker.cs">
+    <Compile Include="Forms\Importer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BGMaker.Designer.cs">
-      <DependentUpon>BGMaker.cs</DependentUpon>
+    <Compile Include="Forms\Importer.Designer.cs">
+      <DependentUpon>Importer.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Helper.cs">
       <SubType>Form</SubType>
@@ -170,8 +170,8 @@
     <EmbeddedResource Include="Forms\Animater.resx">
       <DependentUpon>Animater.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BGMaker.resx">
-      <DependentUpon>BGMaker.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Importer.resx">
+      <DependentUpon>Importer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GamePlay.resx">
       <DependentUpon>GamePlay.cs</DependentUpon>
@@ -204,6 +204,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Resources\Cert\DIYScript_Interpreter_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -220,13 +221,6 @@
     <None Include="Base\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HelperThemes.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HelperThemes_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>HelperThemes.mdf</DependentUpon>
-    </Content>
     <Content Include="Resources\Icon\Form\8192Bit.ico" />
     <Content Include="Misc\Manual.txt" />
     <Content Include="Resources\Icon\Function\linear.png" />

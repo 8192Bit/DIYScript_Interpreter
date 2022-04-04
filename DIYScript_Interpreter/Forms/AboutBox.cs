@@ -6,7 +6,7 @@ namespace DIYScript_Interpreter {
     internal partial class AboutBox : Form {
         public AboutBox() {
             InitializeComponent();
-            Text = String.Format("关于 {0}", AssemblyTitle);
+            Text = string.Format("关于 {0}", AssemblyTitle);
             labelProductName.Text = AssemblyProduct;
             labelVersion.Text = "版本 " + "0.0.0.4";
             labelCopyright.Text = AssemblyCopyright;

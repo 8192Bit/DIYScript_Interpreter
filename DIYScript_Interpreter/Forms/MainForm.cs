@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using AeroSupport;
+//using AeroSupport;
 using DIYScript_Interpreter.Properties;
-using static DIYScript_Interpreter.GAME;
+using static DIYScript_Interpreter.Document;
 
 
 #pragma warning disable IDE1006
@@ -23,7 +23,7 @@ namespace DIYScript_Interpreter {
         }
 
         public void OBJRefresh() {
-            foreach(OBJ obj in GAME.Current.OBJList) {
+            foreach(OBJ obj in Current.OBJList) {
                 listViewOBJ.Clear();
                 listViewOBJ.Items.Add(obj.Name, (int)obj.ID);
                 //imageList.Images.Add();
@@ -137,7 +137,7 @@ namespace DIYScript_Interpreter {
                                                 //cd OBJ
 
 
-            foreach(OBJ obj in GAME.Current.OBJList) {
+            foreach(OBJ obj in Current.OBJList) {
                 DynaPath += @"\" + obj.ID.ToString();
                 Directory.CreateDirectory(DynaPath);
 
@@ -177,7 +177,7 @@ namespace DIYScript_Interpreter {
 
             Directory.CreateDirectory(DynaPath);
             {
-                foreach(BG bg in GAME.Current.BGList) {
+                foreach(BG bg in Current.BGList) {
                     DynaPath += @"\BG" + bg.ID.ToString();
                     Directory.CreateDirectory(DynaPath);
                     //BGs INI define.
@@ -198,20 +198,20 @@ namespace DIYScript_Interpreter {
 
         private void openFileDialog_FileOk(object sender, CancelEventArgs e) {
 
-            BGMaker bGMaker = new BGMaker();
+            Importer Importer = new Importer();
             BGAddingStatus.bitmap = Image.FromFile(openFileDialog.FileName) as Bitmap;
-            bGMaker.ShowDialog();
+            Importer.ShowDialog();
         }
         private void OptionsRefresh() {
-            listViewBG.View = listViewOBJ.View = listViewBGM.View = Properties.Settings.Default.LViewValue;
+            listViewBG.View = listViewOBJ.View = listViewBGM.View = Settings.Default.LViewValue;
 
         }
         private void MainForm_Load(object sender, EventArgs e) {
             OBJAddingStatus.CurrentOBJID = 0;
-            listViewBG.View = listViewOBJ.View = listViewBGM.View = Properties.Settings.Default.LViewValue;
-            if(Properties.Settings.Default.isAero) {
+            listViewBG.View = listViewOBJ.View = listViewBGM.View = Settings.Default.LViewValue;
+            if(Settings.Default.isAero) {
 
-                Aero.AreoIt(Handle);
+                //Aero.AreoIt(Handle);
             }
 
         }
@@ -228,14 +228,14 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonDelOBJ_Click(object sender, EventArgs e) {
-            GAME.Current.OBJList.RemoveAt(listViewOBJ.FocusedItem.Index);
+            Current.OBJList.RemoveAt(listViewOBJ.FocusedItem.Index);
         }
 
 
 
         private void buttonRefreshOBJ_Click(object sender, EventArgs e) {
             listViewOBJ.Clear();
-            foreach(OBJ obj in GAME.Current.OBJList) {
+            foreach(OBJ obj in Current.OBJList) {
 
                 listViewOBJ.Items.Add(obj.Name, (int)obj.ID);
                 //imageList.Images.Add();
@@ -247,7 +247,7 @@ namespace DIYScript_Interpreter {
             listViewBG.Clear();
             imageListBGSmall.Images.Clear();
             imageListBGLarge.Images.Clear();
-            foreach(BG bg in GAME.Current.BGList) {
+            foreach(BG bg in Current.BGList) {
                 imageListBGSmall.Images.Add(bg.bitmap);
                 imageListBGLarge.Images.Add(bg.bitmap);
                 listViewBG.Items.Add(bg.Name, Current.BGList.IndexOf(bg));

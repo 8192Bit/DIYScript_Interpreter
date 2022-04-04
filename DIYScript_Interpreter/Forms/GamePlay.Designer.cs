@@ -30,6 +30,27 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "X",
+            "0"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Y",
+            "0"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            "开关",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            "旋转",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            "缩放",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            "当前形象",
+            ""}, -1);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            "当前帧",
+            "0"}, -1);
             this.ticker = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.labelSmall = new System.Windows.Forms.Label();
@@ -37,6 +58,10 @@ namespace DIYScript_Interpreter
             this.labelGDI = new System.Windows.Forms.Label();
             this.labelMM42 = new System.Windows.Forms.Label();
             this.groupBoxDebugger = new System.Windows.Forms.GroupBox();
+            this.listBoxOBJ = new System.Windows.Forms.ListBox();
+            this.listView = new System.Windows.Forms.ListView();
+            this.columnHeaderprop = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeadervalue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelMouse = new System.Windows.Forms.Label();
             this.labelDirection = new System.Windows.Forms.Label();
@@ -87,18 +112,18 @@ namespace DIYScript_Interpreter
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxDebugger);
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxRender);
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxState);
-            this.splitContainer1.Size = new System.Drawing.Size(1236, 548);
+            this.splitContainer1.Size = new System.Drawing.Size(946, 548);
             this.splitContainer1.SplitterDistance = 655;
             this.splitContainer1.TabIndex = 8;
             // 
             // labelSmall
             // 
             this.labelSmall.AutoSize = true;
-            this.labelSmall.Font = new System.Drawing.Font("宋体", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelSmall.Font = new System.Drawing.Font("Nokia Sans", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSmall.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.labelSmall.Location = new System.Drawing.Point(481, 493);
+            this.labelSmall.Location = new System.Drawing.Point(489, 521);
             this.labelSmall.Name = "labelSmall";
-            this.labelSmall.Size = new System.Drawing.Size(75, 12);
+            this.labelSmall.Size = new System.Drawing.Size(73, 15);
             this.labelSmall.TabIndex = 7;
             this.labelSmall.Text = "Powered by";
             // 
@@ -107,41 +132,88 @@ namespace DIYScript_Interpreter
             this.canvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.canvas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.canvas.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.canvas.Location = new System.Drawing.Point(11, 10);
+            this.canvas.Location = new System.Drawing.Point(9, 9);
             this.canvas.Name = "canvas";
             this.canvas.Size = new System.Drawing.Size(640, 480);
             this.canvas.TabIndex = 9;
             this.canvas.TabStop = false;
+            this.canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
+            this.canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
+            this.canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
             // labelGDI
             // 
             this.labelGDI.AutoSize = true;
-            this.labelGDI.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelGDI.Location = new System.Drawing.Point(542, 493);
+            this.labelGDI.Font = new System.Drawing.Font("Nokia Sans", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGDI.Location = new System.Drawing.Point(554, 497);
             this.labelGDI.Name = "labelGDI";
-            this.labelGDI.Size = new System.Drawing.Size(109, 46);
+            this.labelGDI.Size = new System.Drawing.Size(95, 44);
             this.labelGDI.TabIndex = 8;
             this.labelGDI.Text = "GDI+";
             // 
             // labelMM42
             // 
             this.labelMM42.AutoSize = true;
-            this.labelMM42.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMM42.Location = new System.Drawing.Point(4, 493);
+            this.labelMM42.Font = new System.Drawing.Font("Nokia Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMM42.Location = new System.Drawing.Point(3, 504);
             this.labelMM42.Name = "labelMM42";
-            this.labelMM42.Size = new System.Drawing.Size(342, 38);
+            this.labelMM42.Size = new System.Drawing.Size(327, 35);
             this.labelMM42.TabIndex = 6;
             this.labelMM42.Text = "MakerMatic42 Runtime";
             // 
             // groupBoxDebugger
             // 
+            this.groupBoxDebugger.Controls.Add(this.listBoxOBJ);
+            this.groupBoxDebugger.Controls.Add(this.listView);
             this.groupBoxDebugger.Controls.Add(this.groupBox1);
-            this.groupBoxDebugger.Location = new System.Drawing.Point(282, 10);
+            this.groupBoxDebugger.Location = new System.Drawing.Point(7, 208);
             this.groupBoxDebugger.Name = "groupBoxDebugger";
-            this.groupBoxDebugger.Size = new System.Drawing.Size(290, 528);
+            this.groupBoxDebugger.Size = new System.Drawing.Size(269, 331);
             this.groupBoxDebugger.TabIndex = 10;
             this.groupBoxDebugger.TabStop = false;
             this.groupBoxDebugger.Text = "运行时调试器";
+            // 
+            // listBoxOBJ
+            // 
+            this.listBoxOBJ.FormattingEnabled = true;
+            this.listBoxOBJ.ItemHeight = 12;
+            this.listBoxOBJ.Location = new System.Drawing.Point(7, 64);
+            this.listBoxOBJ.Name = "listBoxOBJ";
+            this.listBoxOBJ.Size = new System.Drawing.Size(256, 88);
+            this.listBoxOBJ.TabIndex = 4;
+            this.listBoxOBJ.SelectedIndexChanged += new System.EventHandler(this.listBoxOBJ_SelectedIndexChanged);
+            // 
+            // listView
+            // 
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderprop,
+            this.columnHeadervalue});
+            this.listView.GridLines = true;
+            this.listView.HideSelection = false;
+            this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7});
+            this.listView.Location = new System.Drawing.Point(6, 161);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(257, 140);
+            this.listView.TabIndex = 3;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderprop
+            // 
+            this.columnHeaderprop.Text = "属性";
+            this.columnHeaderprop.Width = 65;
+            // 
+            // columnHeadervalue
+            // 
+            this.columnHeadervalue.Text = "值";
+            this.columnHeadervalue.Width = 187;
             // 
             // groupBox1
             // 
@@ -149,7 +221,7 @@ namespace DIYScript_Interpreter
             this.groupBox1.Controls.Add(this.labelDirection);
             this.groupBox1.Location = new System.Drawing.Point(6, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 40);
+            this.groupBox1.Size = new System.Drawing.Size(257, 40);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "鼠标状态";
@@ -166,7 +238,7 @@ namespace DIYScript_Interpreter
             // labelDirection
             // 
             this.labelDirection.AutoSize = true;
-            this.labelDirection.Location = new System.Drawing.Point(243, 17);
+            this.labelDirection.Location = new System.Drawing.Point(217, 17);
             this.labelDirection.Name = "labelDirection";
             this.labelDirection.Size = new System.Drawing.Size(29, 12);
             this.labelDirection.TabIndex = 1;
@@ -178,9 +250,9 @@ namespace DIYScript_Interpreter
             this.groupBoxRender.Controls.Add(this.labelRenderedFrame);
             this.groupBoxRender.Controls.Add(this.trackBarSmooth);
             this.groupBoxRender.Controls.Add(this.labelSmooth);
-            this.groupBoxRender.Location = new System.Drawing.Point(7, 430);
+            this.groupBoxRender.Location = new System.Drawing.Point(7, 116);
             this.groupBoxRender.Name = "groupBoxRender";
-            this.groupBoxRender.Size = new System.Drawing.Size(269, 108);
+            this.groupBoxRender.Size = new System.Drawing.Size(269, 86);
             this.groupBoxRender.TabIndex = 9;
             this.groupBoxRender.TabStop = false;
             this.groupBoxRender.Text = "渲染与性能";
@@ -188,7 +260,7 @@ namespace DIYScript_Interpreter
             // labelTicked
             // 
             this.labelTicked.AutoSize = true;
-            this.labelTicked.Location = new System.Drawing.Point(7, 88);
+            this.labelTicked.Location = new System.Drawing.Point(7, 66);
             this.labelTicked.Name = "labelTicked";
             this.labelTicked.Size = new System.Drawing.Size(83, 12);
             this.labelTicked.TabIndex = 2;
@@ -197,7 +269,7 @@ namespace DIYScript_Interpreter
             // labelRenderedFrame
             // 
             this.labelRenderedFrame.AutoSize = true;
-            this.labelRenderedFrame.Location = new System.Drawing.Point(7, 76);
+            this.labelRenderedFrame.Location = new System.Drawing.Point(7, 53);
             this.labelRenderedFrame.Name = "labelRenderedFrame";
             this.labelRenderedFrame.Size = new System.Drawing.Size(83, 12);
             this.labelRenderedFrame.TabIndex = 1;
@@ -206,17 +278,18 @@ namespace DIYScript_Interpreter
             // trackBarSmooth
             // 
             this.trackBarSmooth.LargeChange = 1;
-            this.trackBarSmooth.Location = new System.Drawing.Point(60, 46);
+            this.trackBarSmooth.Location = new System.Drawing.Point(60, 20);
             this.trackBarSmooth.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
             this.trackBarSmooth.Maximum = 4;
             this.trackBarSmooth.Name = "trackBarSmooth";
             this.trackBarSmooth.Size = new System.Drawing.Size(203, 45);
             this.trackBarSmooth.TabIndex = 6;
+            this.trackBarSmooth.Scroll += new System.EventHandler(this.trackBarSmooth_Scroll);
             // 
             // labelSmooth
             // 
             this.labelSmooth.AutoSize = true;
-            this.labelSmooth.Location = new System.Drawing.Point(6, 46);
+            this.labelSmooth.Location = new System.Drawing.Point(6, 20);
             this.labelSmooth.Name = "labelSmooth";
             this.labelSmooth.Size = new System.Drawing.Size(53, 12);
             this.labelSmooth.TabIndex = 4;
@@ -231,37 +304,40 @@ namespace DIYScript_Interpreter
             this.groupBoxState.Controls.Add(this.labelSpeed);
             this.groupBoxState.Location = new System.Drawing.Point(7, 10);
             this.groupBoxState.Name = "groupBoxState";
-            this.groupBoxState.Size = new System.Drawing.Size(269, 414);
+            this.groupBoxState.Size = new System.Drawing.Size(269, 100);
             this.groupBoxState.TabIndex = 8;
             this.groupBoxState.TabStop = false;
             this.groupBoxState.Text = "解释器状态";
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(177, 84);
+            this.buttonReset.Location = new System.Drawing.Point(178, 65);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
             this.buttonReset.TabIndex = 7;
             this.buttonReset.Text = "重置";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // buttonPause
             // 
-            this.buttonPause.Location = new System.Drawing.Point(96, 84);
+            this.buttonPause.Location = new System.Drawing.Point(96, 65);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(75, 23);
             this.buttonPause.TabIndex = 6;
             this.buttonPause.Text = "暂停";
             this.buttonPause.UseVisualStyleBackColor = true;
+            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
             // buttonTickStrat
             // 
-            this.buttonTickStrat.Location = new System.Drawing.Point(15, 84);
+            this.buttonTickStrat.Location = new System.Drawing.Point(15, 65);
             this.buttonTickStrat.Name = "buttonTickStrat";
             this.buttonTickStrat.Size = new System.Drawing.Size(75, 23);
             this.buttonTickStrat.TabIndex = 4;
-            this.buttonTickStrat.Text = "起振";
+            this.buttonTickStrat.Text = "启动";
             this.buttonTickStrat.UseVisualStyleBackColor = true;
+            this.buttonTickStrat.Click += new System.EventHandler(this.buttonTickStrat_Click);
             // 
             // trackBarSpeed
             // 
@@ -273,6 +349,7 @@ namespace DIYScript_Interpreter
             this.trackBarSpeed.Size = new System.Drawing.Size(254, 45);
             this.trackBarSpeed.TabIndex = 3;
             this.trackBarSpeed.Value = 1;
+            this.trackBarSpeed.Scroll += new System.EventHandler(this.trackBarSpeed_Scroll);
             // 
             // labelSpeed
             // 
@@ -288,7 +365,7 @@ namespace DIYScript_Interpreter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1236, 548);
+            this.ClientSize = new System.Drawing.Size(946, 548);
             this.Controls.Add(this.splitContainer1);
             this.Name = "GamePlay";
             this.Text = "GamePlay";
@@ -336,5 +413,9 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button buttonTickStrat;
         private System.Windows.Forms.TrackBar trackBarSpeed;
         private System.Windows.Forms.Label labelSpeed;
+        private System.Windows.Forms.ListBox listBoxOBJ;
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ColumnHeader columnHeaderprop;
+        private System.Windows.Forms.ColumnHeader columnHeadervalue;
     }
 }
