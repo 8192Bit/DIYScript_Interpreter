@@ -86,6 +86,9 @@ namespace DIYScript_Interpreter {
         private int Arg1;
         private int Arg2;
         private int Arg3;
+        string getDescribe() {
+            return "114514";
+        }
     }
     public class Condition {
         private TypeCondotions OPCode;
@@ -188,6 +191,12 @@ namespace DIYScript_Interpreter {
     public class OBJChoose {
         public static bool isAttach;
         public static OBJ ChoosedOBJ;
+    }
+
+    public class Importing {
+        public static Bitmap canvasContent = new Bitmap(640, 480);
+        public static Graphics gdraw = Graphics.FromImage(canvasContent);
+
     }
 
 }

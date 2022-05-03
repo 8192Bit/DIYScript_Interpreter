@@ -30,7 +30,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -51,7 +51,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>D902C7F3F720D5A2204876487F4E64FF6B7A589C</ManifestCertificateThumbprint>
@@ -229,6 +229,7 @@
     <Content Include="Resources\Icon\Function\smooth.png" />
     <Content Include="Resources\Icon\Function\square.png" />
     <Content Include="Resources\Icon\Function\stay.png" />
+    <Content Include="Resources\Icon\UI\CyanBar.png" />
     <None Include="Resources\Icon\Switch\ON.png" />
     <None Include="Resources\Icon\Switch\OFF.png" />
     <None Include="Resources\Icon\Tap\Slide.png" />
@@ -251,12 +252,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WinAeroSupport\WinAeroSupport.csproj">
-      <Project>{eb42be90-72bb-4d62-8660-a68dc0ef15f6}</Project>
-      <Name>WinAeroSupport</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

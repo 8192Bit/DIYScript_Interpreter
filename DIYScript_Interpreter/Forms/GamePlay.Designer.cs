@@ -30,25 +30,25 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "X",
             "0"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "Y",
             "0"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "开关",
             ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
             "旋转",
             ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "缩放",
             ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
             "当前形象",
             ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
             "当前帧",
             "0"}, -1);
             this.ticker = new System.Windows.Forms.Timer(this.components);
@@ -121,7 +121,7 @@ namespace DIYScript_Interpreter
             this.labelSmall.AutoSize = true;
             this.labelSmall.Font = new System.Drawing.Font("Nokia Sans", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSmall.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.labelSmall.Location = new System.Drawing.Point(489, 521);
+            this.labelSmall.Location = new System.Drawing.Point(495, 521);
             this.labelSmall.Name = "labelSmall";
             this.labelSmall.Size = new System.Drawing.Size(73, 15);
             this.labelSmall.TabIndex = 7;
@@ -144,20 +144,20 @@ namespace DIYScript_Interpreter
             // labelGDI
             // 
             this.labelGDI.AutoSize = true;
-            this.labelGDI.Font = new System.Drawing.Font("Nokia Sans", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGDI.Location = new System.Drawing.Point(554, 497);
+            this.labelGDI.Font = new System.Drawing.Font("Nokia Sans S60", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelGDI.Location = new System.Drawing.Point(561, 500);
             this.labelGDI.Name = "labelGDI";
-            this.labelGDI.Size = new System.Drawing.Size(95, 44);
+            this.labelGDI.Size = new System.Drawing.Size(88, 39);
             this.labelGDI.TabIndex = 8;
             this.labelGDI.Text = "GDI+";
             // 
             // labelMM42
             // 
             this.labelMM42.AutoSize = true;
-            this.labelMM42.Font = new System.Drawing.Font("Nokia Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMM42.Font = new System.Drawing.Font("Nokia Sans S60", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMM42.Location = new System.Drawing.Point(3, 504);
             this.labelMM42.Name = "labelMM42";
-            this.labelMM42.Size = new System.Drawing.Size(327, 35);
+            this.labelMM42.Size = new System.Drawing.Size(301, 32);
             this.labelMM42.TabIndex = 6;
             this.labelMM42.Text = "MakerMatic42 Runtime";
             // 
@@ -191,13 +191,13 @@ namespace DIYScript_Interpreter
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
             this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7});
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14});
             this.listView.Location = new System.Drawing.Point(6, 161);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(257, 140);

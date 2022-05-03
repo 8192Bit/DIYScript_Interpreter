@@ -14,7 +14,7 @@ namespace DIYScript_Interpreter {
 
         private void refresh() {
             listViewFrames.Items.Clear();
-            int temp = 0;
+            int temp = -1;
             foreach(Image i in imageList.Images) {
                 temp++;
                 listViewFrames.Items.Add(temp.ToString(), temp);
@@ -44,19 +44,21 @@ namespace DIYScript_Interpreter {
         }
 
         private void openFileDialog_FileOK(object sendor, CancelEventArgs e) {
-            Image i = (Image)new Bitmap(openFileDialog.FileName);
+            Image i = new Bitmap(openFileDialog.FileName);
             if(isFirstAdd) {
-                new Importer 
                 imageList.ImageSize = i.Size;
-
-
                 isFirstAdd = false;
             } else if(i.Size != imageList.ImageSize) {
                 MessageBox.Show("要添加的帧与帧列表中的大小不匹配。" + "\r" + "是否添加？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
 
             }
-
-            imageList.Images.Add(i);
+            if(isFromFront) {
+                Image temp = imageList.Images[imageList.Images.Count - 1];
+                imageList.Images[imageList.Images.Count - 1] = i;
+                imageList.Images.Add(temp);
+            } else {
+                imageList.Images.Add(i);
+            }
             refresh();
 
 

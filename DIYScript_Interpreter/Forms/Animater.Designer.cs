@@ -34,6 +34,11 @@ namespace DIYScript_Interpreter {
             this.labelFrame = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.从GIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.粘贴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.剪切ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelARTName = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxARTName = new System.Windows.Forms.ToolStripTextBox();
@@ -46,11 +51,6 @@ namespace DIYScript_Interpreter {
             this.buttonPause = new System.Windows.Forms.Button();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.pictureBoxCurrent = new System.Windows.Forms.PictureBox();
-            this.从GIFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.粘贴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.剪切ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrent)).BeginInit();
             this.SuspendLayout();
@@ -58,9 +58,12 @@ namespace DIYScript_Interpreter {
             // listViewFrames
             // 
             this.listViewFrames.HideSelection = false;
+            this.listViewFrames.LargeImageList = this.imageList;
             this.listViewFrames.Location = new System.Drawing.Point(8, 40);
             this.listViewFrames.Name = "listViewFrames";
             this.listViewFrames.Size = new System.Drawing.Size(769, 96);
+            this.listViewFrames.SmallImageList = this.imageList;
+            this.listViewFrames.StateImageList = this.imageList;
             this.listViewFrames.TabIndex = 0;
             this.listViewFrames.UseCompatibleStateImageBehavior = false;
             // 
@@ -72,6 +75,7 @@ namespace DIYScript_Interpreter {
             // 
             // openFileDialog
             // 
+            this.openFileDialog.Filter = "位图|*.bmp|jpeg 图像|*.jpg;*.jpeg|png 图像|*.png|所有文件|*.*";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOK);
             // 
             // labelFrame
@@ -116,6 +120,37 @@ namespace DIYScript_Interpreter {
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(49, 22);
             this.toolStripDropDownButton1.Text = "帧";
+            // 
+            // 从GIFToolStripMenuItem
+            // 
+            this.从GIFToolStripMenuItem.Name = "从GIFToolStripMenuItem";
+            this.从GIFToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.从GIFToolStripMenuItem.Text = "从GIF......";
+            this.从GIFToolStripMenuItem.Click += new System.EventHandler(this.从GIFToolStripMenuItem_Click);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            // 
+            // 粘贴ToolStripMenuItem
+            // 
+            this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
+            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.粘贴ToolStripMenuItem.Text = "粘贴";
+            // 
+            // 剪切ToolStripMenuItem
+            // 
+            this.剪切ToolStripMenuItem.Name = "剪切ToolStripMenuItem";
+            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.剪切ToolStripMenuItem.Text = "剪切";
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
             // 
             // toolStripSeparator1
             // 
@@ -223,37 +258,6 @@ namespace DIYScript_Interpreter {
             this.pictureBoxCurrent.Click += new System.EventHandler(this.pictureBoxCurrent_Click);
             this.pictureBoxCurrent.DoubleClick += new System.EventHandler(this.pictureBoxCurrent_DoubleClick);
             // 
-            // 从GIFToolStripMenuItem
-            // 
-            this.从GIFToolStripMenuItem.Name = "从GIFToolStripMenuItem";
-            this.从GIFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.从GIFToolStripMenuItem.Text = "从GIF......";
-            this.从GIFToolStripMenuItem.Click += new System.EventHandler(this.从GIFToolStripMenuItem_Click);
-            // 
-            // 复制ToolStripMenuItem
-            // 
-            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.复制ToolStripMenuItem.Text = "复制";
-            // 
-            // 粘贴ToolStripMenuItem
-            // 
-            this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
-            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.粘贴ToolStripMenuItem.Text = "粘贴";
-            // 
-            // 剪切ToolStripMenuItem
-            // 
-            this.剪切ToolStripMenuItem.Name = "剪切ToolStripMenuItem";
-            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.剪切ToolStripMenuItem.Text = "剪切";
-            // 
-            // 删除ToolStripMenuItem
-            // 
-            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.删除ToolStripMenuItem.Text = "删除";
-            // 
             // Animater
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -283,7 +287,6 @@ namespace DIYScript_Interpreter {
         private System.Windows.Forms.PictureBox pictureBoxCurrent;
         private System.Windows.Forms.ListView listViewFrames;
         private System.Windows.Forms.ImageList imageList;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.Button buttonStop;
@@ -303,5 +306,6 @@ namespace DIYScript_Interpreter {
         private ToolStripMenuItem 粘贴ToolStripMenuItem;
         private ToolStripMenuItem 剪切ToolStripMenuItem;
         private ToolStripMenuItem 删除ToolStripMenuItem;
+        private OpenFileDialog openFileDialog;
     }
 }

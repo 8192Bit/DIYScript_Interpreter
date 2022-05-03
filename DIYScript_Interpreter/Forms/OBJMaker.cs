@@ -13,6 +13,9 @@ using static DIYScript_Interpreter.OBJAddingStatus;
 
 namespace DIYScript_Interpreter {
     public partial class OBJMaker : Form {
+
+        private bool isHaveBG = true;
+
         public OBJMaker() {
             InitializeComponent();
             checkBoxAllowOverlap.Enabled = false;// Just for noob :(
@@ -24,6 +27,26 @@ namespace DIYScript_Interpreter {
             OBJTemp.StrtX = new short[] { (short)MouseState[0], (short)MouseState[1] };
             OBJTemp.StrtY = new short[] { (short)MouseState[2], (short)MouseState[3] };
             OBJTemp.ID = CurrentOBJID;
+        }
+
+        private void OBJMaker_Load(object sender, EventArgs e) {
+
+            listViewART.View = Properties.Settings.Default.LViewValue;
+            Bitmap b = new Bitmap(640, 480);
+            Graphics g = Graphics.FromImage(b);
+            if(isEdit) {
+
+            }
+
+            try {
+                BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
+                g.DrawImage(NormalBG.bitmap, new Point(0, 0));
+            } catch(Exception ex) {
+                isHaveBG = false;
+                MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            canvas.Image = b;
         }
 
         private void OK_Click(object sender, EventArgs e) {
@@ -64,24 +87,27 @@ namespace DIYScript_Interpreter {
             Point p1 = new Point(x1, y1);
             Graphics g = Graphics.FromImage(b);
 
-            try {
+            if(isHaveBG) {
+
                 BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
                 g.DrawImage(NormalBG.bitmap, new Point(0, 0));
-            } catch /*(Exception ex)*/
-              {
-
-                //MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
+
+            Pen p = new Pen(Color.Red, 2);
+            Point pt = new Point(x2, y2);
             if(isArea) {
-                Pen p = new Pen(Color.Red, 2);
                 p.DashStyle = DashStyle.Dash;
-                Point p2 = new Point(x2, y2);
                 g.DrawLine(p, x1, y1, x2, y1);
                 g.DrawLine(p, x1, y1, x1, y2);
                 g.DrawLine(p, x2, y1, x2, y2);
                 g.DrawLine(p, x1, y2, x2, y2);
             }
+            if(!isArea) {
+                p.DashStyle = DashStyle.Solid;
+                p.LineJoin = LineJoin.Round;
+                g.DrawRectangle(p, x2 - 15, y2 - 15, 30, 30);
+            }
+            // i dont really trust these radiobuttons
             canvas.Image = b;
         }
 
@@ -98,23 +124,6 @@ namespace DIYScript_Interpreter {
             OBJChooseForm.Show();
         }
 
-        private void OBJMaker_Load(object sender, EventArgs e) {
-            listViewART.View = Properties.Settings.Default.LViewValue;
-            Bitmap b = new Bitmap(640, 480);
-            Graphics g = Graphics.FromImage(b);
-            if(isEdit) {
-
-            }
-
-            try {
-                BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
-                g.DrawImage(NormalBG.bitmap, new Point(0, 0));
-            } catch(Exception ex) {
-                //MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            canvas.Image = b;
-        }
 
         private void buttonNewART_Click(object sender, EventArgs e) {
             Animater animator = new Animater();

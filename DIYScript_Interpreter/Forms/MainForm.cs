@@ -14,8 +14,6 @@ using static DIYScript_Interpreter.Document;
 //Damnit
 
 namespace DIYScript_Interpreter {
-
-
     public partial class MainForm : Form {
 
         public MainForm() {
@@ -51,8 +49,6 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonNewBG_Click(object sender, EventArgs e) {
-            openFileDialog.Filter = "位图|*.bmp|jpeg 图像|*.jpg;*.jpeg|png 图像|*.png";
-            openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
             buttonRefreshBG.PerformClick();
         }
@@ -123,11 +119,13 @@ namespace DIYScript_Interpreter {
             }
             configwriter.WriteValue("GameSetting", "Speed", temp);
             if(checkBoxTimeBOSS.Checked) {
+                configwriter.WriteValue("GameSetting", "LastTime", "-1");
+            } else if(maskedTextBoxTime.Text != "      ms") {
 
-                configwriter.WriteValue("GameSetting", "LastTime", "-1");//tomorrow
-            } else if(maskedTextBoxTime.Text != "") {
+                configwriter.WriteValue("GameSetting", "LastTime", maskedTextBoxTime.Text.ToString());
+            } else {
 
-                configwriter.WriteValue("GameSetting", "LastTime", maskedTextBoxTime.Text.ToString());//tomorrow
+                configwriter.WriteValue("GameSetting", "LastTime", "not_set_yet");
             }
             #endregion
 
@@ -198,7 +196,7 @@ namespace DIYScript_Interpreter {
 
         private void openFileDialog_FileOk(object sender, CancelEventArgs e) {
 
-            Importer Importer = new Importer();
+            Importer Importer = new Importer(true);
             BGAddingStatus.bitmap = Image.FromFile(openFileDialog.FileName) as Bitmap;
             Importer.ShowDialog();
         }
@@ -280,7 +278,6 @@ namespace DIYScript_Interpreter {
 
         private void buttonAdd_Click(object sender, EventArgs e) {
 
-
             try {
                 Current.OBJList[listViewOBJ.FocusedItem.Index].ScriptList.Add(new Script());
             } catch {
@@ -301,8 +298,6 @@ namespace DIYScript_Interpreter {
         }
 
         private void buttonEditBG_Click(object sender, EventArgs e) {
-            openFileDialog.Filter = "位图|*.bmp|jpeg 图像|*.jpg|*.jpeg|png 图像|*.png";
-            openFileDialog.FileName = "11145141919810.bmp";
             openFileDialog.ShowDialog();
             buttonRefreshBG.PerformClick();
         }
@@ -316,20 +311,20 @@ namespace DIYScript_Interpreter {
         }
         private void CommandRefresh() {
             listBoxScript.Items.Clear();
-            foreach(OBJ obj in Current.OBJList) {
-                foreach(Script scr in obj.ScriptList) {
-                    try {
-                        foreach(Command com in scr.Commands) {
-
-                        }
-                    } catch { }
-
-
-                    listBoxScript.Items.Add(scr.ToString());
+            OBJ obj = Current.OBJList[listViewOBJ.FocusedItem.Index];
+            Script scr = obj.ScriptList[114514];
+            try {
+                foreach(Command com in scr.Commands) {
 
                 }
-            }
+                foreach(Condition con in scr.Conditions) {
+
+                }
+            } catch { }
+            listBoxScript.Items.Add(scr.ToString());
+
         }
+
         private void buttonCAdd_Click(object sender, EventArgs e) {
         }
 
@@ -372,12 +367,12 @@ namespace DIYScript_Interpreter {
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             linkLabel1.LinkVisited = true;
-            string target = "https://space.bilibili.com/417035504";
+            string target = "https://www.bilibili.com/video/BV1sh411b7ww";
             try {
                 System.Diagnostics.Process.Start(target);
             } catch(System.ComponentModel.Win32Exception noBrowser) {
                 if(noBrowser.ErrorCode == -2147467259) {
-                    MessageBox.Show(noBrowser.Message);
+                    MessageBox.Show("您连浏览器都没有的吗");
                 }
             } catch(System.Exception other) {
                 MessageBox.Show(other.Message);

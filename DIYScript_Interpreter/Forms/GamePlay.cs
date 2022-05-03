@@ -25,16 +25,33 @@ namespace DIYScript_Interpreter {
         private void GamePlay_Load(object sender, EventArgs e) {
             foreach(OBJ initOBJ in Current.OBJList) {
                 listBoxOBJ.Items.Add(initOBJ.Name);
-
+                Random r = new Random();
                 switch(initOBJ.StartMode) {
-                    // 1 == Location, Point
-                    // 2 == Location, Area, Anywhere
-                    // 3 == Location, Area, Try not to overlap
-                    // 4 == Attath to OBJ
+                    case 1:
+                        initOBJ.PosX = initOBJ.StrtX[0];
+                        initOBJ.PosY = initOBJ.StrtY[0];
+                        break;
+                    case 2:
 
-                    // If StartMode == 1, StrtX[] = {x1, x2}, StrtY[] = {y1, y2}
-                    // If StartMode == 2 or 3, StrtX[] = {x, null}, StrtY[] = {y, null}
-                    // If StartMode == 4, StrtX[] = {offsetx, null}, StrtY[]={offsety, null}
+                        initOBJ.PosX = (short)r.Next(initOBJ.StrtX[0], initOBJ.StrtX[1]);
+                        initOBJ.PosY = (short)r.Next(initOBJ.StrtY[0], initOBJ.StrtY[1]);
+                        break;
+                    case 3:
+                        initOBJ.PosX = (short)r.Next(initOBJ.StrtX[0], initOBJ.StrtX[1]);
+                        initOBJ.PosY = (short)r.Next(initOBJ.StrtY[0], initOBJ.StrtY[1]);
+                        break;
+                    case 4:
+                        initOBJ.PosX = (short)(initOBJ.StrtX[0] + Current.OBJList[(int)initOBJ.AttachOBJID].PosX);
+                        initOBJ.PosY = (short)(initOBJ.StrtY[0] + Current.OBJList[(int)initOBJ.AttachOBJID].PosY);
+                        break;
+                        // 1 == Location, Point
+                        // 2 == Location, Area, Anywhere
+                        // 3 == Location, Area, Try not to overlap
+                        // 4 == Attath to OBJ
+
+                        // If StartMode == 1, StrtX[] = {x1, x2}, StrtY[] = {y1, y2}
+                        // If StartMode == 2 or 3, StrtX[] = {x, null}, StrtY[] = {y, null}
+                        // If StartMode == 4, StrtX[] = {offsetx, null}, StrtY[]={offsety, null}
                 }
             }
         }
@@ -50,32 +67,35 @@ namespace DIYScript_Interpreter {
             Point p1 = new Point(10 * (int)Math.Sin(Ticked) + 1, 80 * (int)Math.Cos(Ticked) - 4);
             Point p2 = new Point(100 * (int)Math.Sin(Ticked), 80 * (int)Math.Sin(Ticked));
 
-            try {
-                OBJ tempOBJ = Current.OBJList[listBoxOBJ.SelectedIndex];
-                listView.Items[0].SubItems[1].Text = Convert.ToString(tempOBJ.PosX);
-                listView.Items[1].SubItems[1].Text = Convert.ToString(tempOBJ.PosY);
-                listView.Items[2].SubItems[1].Text = Convert.ToString(tempOBJ.Switch);
-                listView.Items[3].SubItems[1].Text = Convert.ToString(tempOBJ.Rotation);
-                listView.Items[4].SubItems[1].Text = Convert.ToString(tempOBJ.Scale);
-            } finally { }
+            if(listBoxOBJ.SelectedIndex > 0 && listBoxOBJ.SelectedIndex < listBoxOBJ.Items.Count) {
+                try {
+                    OBJ tempOBJ = Current.OBJList[listBoxOBJ.SelectedIndex];
+                    listView.Items[0].SubItems[1].Text = Convert.ToString(tempOBJ.PosX);
+                    listView.Items[1].SubItems[1].Text = Convert.ToString(tempOBJ.PosY);
+                    listView.Items[2].SubItems[1].Text = Convert.ToString(tempOBJ.Switch);
+                    listView.Items[3].SubItems[1].Text = Convert.ToString(tempOBJ.Rotation);
+                    listView.Items[4].SubItems[1].Text = Convert.ToString(tempOBJ.Scale);
+                } finally { }
+            }
+
 
             if(Ticked < 200) {
 
                 render.DrawString("MakerMatic 42 Interpreter Demo", new Font("微软雅黑", Ticked), new LinearGradientBrush(p1, p2, Color.Brown, Color.PaleGreen), 10, 10);
             }
-            if(Ticked > 200&&Ticked <500) {
+            if(Ticked > 200 && Ticked < 500) {
                 render.TranslateTransform(5, 5);
             }
             if(Ticked > 200 && Ticked < 500) {
                 render.DrawRectangle(p, 50, 50, Ticked, Ticked);
-                render.RotateTransform(Ticked,MatrixOrder.Prepend);
+                render.RotateTransform(Ticked, MatrixOrder.Prepend);
                 render.DrawEllipse(p, -50, -50, Ticked, Ticked);
             }
-            
+
             if(Ticked > 500 && Ticked < 800) {
-                for(int j=0; j < 300; j++) {
-                    render.DrawLine(p, j/10, (int)(Math.Sin(j)*100+50),j/10+2, (int)(Math.Sin(j)*100)+50);
-                    
+                for(int j = 0; j < 300; j++) {
+                    render.DrawLine(p, j / 10, (int)(Math.Sin(j) * 100 + 50), j / 10 + 2, (int)(Math.Sin(j) * 100) + 50);
+
 
                 }
             }

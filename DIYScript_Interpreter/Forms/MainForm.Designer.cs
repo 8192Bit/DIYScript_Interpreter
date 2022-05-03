@@ -209,6 +209,8 @@ namespace DIYScript_Interpreter
             // 
             // toolStrip
             // 
+            this.toolStrip.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.CyanBar;
+            this.toolStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.File,
             this.Option,
@@ -217,7 +219,7 @@ namespace DIYScript_Interpreter
             this.Run});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1488, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1483, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
             // 
@@ -228,6 +230,7 @@ namespace DIYScript_Interpreter
             this.保存ToolStripMenuItem,
             this.打开ToolStripMenuItem,
             this.退出ToolStripMenuItem});
+            this.File.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.File.Image = ((System.Drawing.Image)(resources.GetObject("File.Image")));
             this.File.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.File.Name = "File";
@@ -237,20 +240,20 @@ namespace DIYScript_Interpreter
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.保存ToolStripMenuItem.Text = "保存...";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打开ToolStripMenuItem.Text = "打开...";
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -259,6 +262,7 @@ namespace DIYScript_Interpreter
             this.Option.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.Option.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.首选项ToolStripMenuItem});
+            this.Option.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Option.Image = ((System.Drawing.Image)(resources.GetObject("Option.Image")));
             this.Option.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Option.Name = "Option";
@@ -278,6 +282,7 @@ namespace DIYScript_Interpreter
             this.Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.程序帮助ToolStripMenuItem,
             this.关于ToolStripMenuItem});
+            this.Help.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Help.Image = ((System.Drawing.Image)(resources.GetObject("Help.Image")));
             this.Help.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Help.Name = "Help";
@@ -306,6 +311,7 @@ namespace DIYScript_Interpreter
             // Run
             // 
             this.Run.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Run.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Run.Image = ((System.Drawing.Image)(resources.GetObject("Run.Image")));
             this.Run.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Run.Name = "Run";
@@ -337,10 +343,10 @@ namespace DIYScript_Interpreter
             // 
             // buttonNormalBG
             // 
+            this.buttonNormalBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonNormalBG.Enabled = false;
             this.buttonNormalBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNormalBG.FlatAppearance.BorderSize = 5;
-            this.buttonNormalBG.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonNormalBG.Location = new System.Drawing.Point(172, 265);
             this.buttonNormalBG.Name = "buttonNormalBG";
             this.buttonNormalBG.Size = new System.Drawing.Size(87, 31);
@@ -351,7 +357,7 @@ namespace DIYScript_Interpreter
             // 
             // buttonRefreshBG
             // 
-            this.buttonRefreshBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRefreshBG.BackgroundImage")));
+            this.buttonRefreshBG.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.Refresh;
             this.buttonRefreshBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonRefreshBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonRefreshBG.FlatAppearance.BorderSize = 5;
@@ -364,9 +370,9 @@ namespace DIYScript_Interpreter
             // 
             // buttonDeleteBG
             // 
+            this.buttonDeleteBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonDeleteBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDeleteBG.FlatAppearance.BorderSize = 5;
-            this.buttonDeleteBG.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonDeleteBG.Location = new System.Drawing.Point(89, 265);
             this.buttonDeleteBG.Name = "buttonDeleteBG";
             this.buttonDeleteBG.Size = new System.Drawing.Size(77, 31);
@@ -377,9 +383,9 @@ namespace DIYScript_Interpreter
             // 
             // buttonNewBG
             // 
+            this.buttonNewBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonNewBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewBG.FlatAppearance.BorderSize = 5;
-            this.buttonNewBG.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonNewBG.Location = new System.Drawing.Point(6, 265);
             this.buttonNewBG.Name = "buttonNewBG";
             this.buttonNewBG.Size = new System.Drawing.Size(77, 31);
@@ -445,9 +451,11 @@ namespace DIYScript_Interpreter
             // 
             // buttonEditOBJ
             // 
+            this.buttonEditOBJ.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonEditOBJ.BackgroundImage")));
+            this.buttonEditOBJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonEditOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonEditOBJ.FlatAppearance.BorderSize = 5;
-            this.buttonEditOBJ.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonEditOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditOBJ.Location = new System.Drawing.Point(257, 497);
             this.buttonEditOBJ.Name = "buttonEditOBJ";
             this.buttonEditOBJ.Size = new System.Drawing.Size(118, 38);
@@ -458,9 +466,11 @@ namespace DIYScript_Interpreter
             // 
             // buttonDelOBJ
             // 
+            this.buttonDelOBJ.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDelOBJ.BackgroundImage")));
+            this.buttonDelOBJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonDelOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonDelOBJ.FlatAppearance.BorderSize = 5;
-            this.buttonDelOBJ.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonDelOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelOBJ.Location = new System.Drawing.Point(133, 497);
             this.buttonDelOBJ.Name = "buttonDelOBJ";
             this.buttonDelOBJ.Size = new System.Drawing.Size(118, 38);
@@ -471,9 +481,11 @@ namespace DIYScript_Interpreter
             // 
             // buttonNewOBJ
             // 
+            this.buttonNewOBJ.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonNewOBJ.BackgroundImage")));
+            this.buttonNewOBJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonNewOBJ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewOBJ.FlatAppearance.BorderSize = 5;
-            this.buttonNewOBJ.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonNewOBJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewOBJ.Location = new System.Drawing.Point(9, 497);
             this.buttonNewOBJ.Name = "buttonNewOBJ";
             this.buttonNewOBJ.Size = new System.Drawing.Size(118, 38);
@@ -1043,6 +1055,8 @@ namespace DIYScript_Interpreter
             // 
             // buttonAOK
             // 
+            this.buttonAOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonAOK.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonAOK.Location = new System.Drawing.Point(488, 45);
             this.buttonAOK.Name = "buttonAOK";
@@ -1129,6 +1143,7 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonTapSE.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonTapSE.AutoSize = true;
+            this.radioButtonTapSE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButtonTapSE.Location = new System.Drawing.Point(283, 63);
             this.radioButtonTapSE.Name = "radioButtonTapSE";
             this.radioButtonTapSE.Size = new System.Drawing.Size(27, 22);
@@ -1141,6 +1156,7 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonTapE.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonTapE.AutoSize = true;
+            this.radioButtonTapE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButtonTapE.Location = new System.Drawing.Point(283, 36);
             this.radioButtonTapE.Name = "radioButtonTapE";
             this.radioButtonTapE.Size = new System.Drawing.Size(27, 22);
@@ -1154,6 +1170,7 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonTapNE.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonTapNE.AutoSize = true;
+            this.radioButtonTapNE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButtonTapNE.Location = new System.Drawing.Point(283, 9);
             this.radioButtonTapNE.Name = "radioButtonTapNE";
             this.radioButtonTapNE.Size = new System.Drawing.Size(27, 22);
@@ -1167,6 +1184,7 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonTapSW.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonTapSW.AutoSize = true;
+            this.radioButtonTapSW.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButtonTapSW.Location = new System.Drawing.Point(219, 63);
             this.radioButtonTapSW.Name = "radioButtonTapSW";
             this.radioButtonTapSW.Size = new System.Drawing.Size(27, 22);
@@ -1180,6 +1198,7 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonTapW.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonTapW.AutoSize = true;
+            this.radioButtonTapW.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButtonTapW.Location = new System.Drawing.Point(219, 36);
             this.radioButtonTapW.Name = "radioButtonTapW";
             this.radioButtonTapW.Size = new System.Drawing.Size(27, 22);
@@ -1193,6 +1212,7 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonTapNW.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonTapNW.AutoSize = true;
+            this.radioButtonTapNW.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButtonTapNW.Location = new System.Drawing.Point(219, 9);
             this.radioButtonTapNW.Name = "radioButtonTapNW";
             this.radioButtonTapNW.Size = new System.Drawing.Size(27, 22);
@@ -1206,6 +1226,7 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonTapS.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonTapS.AutoSize = true;
+            this.radioButtonTapS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButtonTapS.Location = new System.Drawing.Point(251, 63);
             this.radioButtonTapS.Name = "radioButtonTapS";
             this.radioButtonTapS.Size = new System.Drawing.Size(27, 22);
@@ -1218,6 +1239,7 @@ namespace DIYScript_Interpreter
             // 
             this.radioButtonTapN.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonTapN.AutoSize = true;
+            this.radioButtonTapN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButtonTapN.Location = new System.Drawing.Point(251, 9);
             this.radioButtonTapN.Name = "radioButtonTapN";
             this.radioButtonTapN.Size = new System.Drawing.Size(27, 22);
@@ -1225,7 +1247,6 @@ namespace DIYScript_Interpreter
             this.radioButtonTapN.TabStop = true;
             this.radioButtonTapN.Text = "↑";
             this.radioButtonTapN.UseVisualStyleBackColor = true;
-            this.radioButtonTapN.CheckedChanged += new System.EventHandler(this.radioButtonTapN_CheckedChanged);
             // 
             // comboBoxClickSlide
             // 
@@ -1492,6 +1513,8 @@ namespace DIYScript_Interpreter
             // 
             // buttonCOK
             // 
+            this.buttonCOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonCOK.Font = new System.Drawing.Font("宋体", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonCOK.Location = new System.Drawing.Point(488, 45);
             this.buttonCOK.Name = "buttonCOK";
@@ -1800,7 +1823,7 @@ namespace DIYScript_Interpreter
             // 
             // openFileDialog
             // 
-            this.openFileDialog.FileName = "1145j141919810.bmp";
+            this.openFileDialog.Filter = "位图|*.bmp|j位图|*.bmp|jpeg 图像|*.jpg;*.jpeg|png 图像|*.png|所有文件|*.*";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
             // 
             // openFileDialogPj
@@ -1812,10 +1835,10 @@ namespace DIYScript_Interpreter
             // 
             this.NUT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.NUT.BackColor = System.Drawing.SystemColors.Window;
-            this.NUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.NUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NUT.Font = new System.Drawing.Font("Calibri", 32F);
             this.NUT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(69)))), ((int)(((byte)(20)))));
-            this.NUT.Location = new System.Drawing.Point(1216, 349);
+            this.NUT.Location = new System.Drawing.Point(1211, 349);
             this.NUT.Name = "NUT";
             this.NUT.Size = new System.Drawing.Size(260, 220);
             this.NUT.TabIndex = 6;
@@ -1827,7 +1850,7 @@ namespace DIYScript_Interpreter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1488, 581);
+            this.ClientSize = new System.Drawing.Size(1483, 581);
             this.Controls.Add(this.groupBoxAIBGMMdata);
             this.Controls.Add(this.groupBoxBG);
             this.Controls.Add(this.groupBoxOBJ);

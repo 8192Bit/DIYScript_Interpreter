@@ -6,8 +6,12 @@ using static DIYScript_Interpreter.Document;
 
 namespace DIYScript_Interpreter {
     public partial class Importer : Form {
-        public Importer() {
+
+        private bool isBG;
+
+        public Importer(bool mode) {
             InitializeComponent();
+            isBG = mode;
         }
 
         private void Cancel_Click(object sender, EventArgs e) {

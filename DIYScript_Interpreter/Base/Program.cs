@@ -7,14 +7,10 @@ namespace DIYScript_Interpreter {
 
         [STAThread]
         public static void Main() {
-
-            //Application.EnableVisualStyles();
-            if(Properties.Settings.Default.isAero) {
-
-                Application.EnableVisualStyles();
-            }
-            Application.Run(m);
             //Application.SetCompatibleTextRenderingDefault(true);
+
+            Application.EnableVisualStyles();
+            Application.Run(m);
         }
     }
 }
