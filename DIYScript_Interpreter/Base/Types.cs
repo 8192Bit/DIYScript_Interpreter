@@ -5,9 +5,6 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace DIYScript_Interpreter {
-    // put all your classes here!!
-    //mariokate
-    //:P
 
     public class Object {
         public string Name;
@@ -25,6 +22,7 @@ namespace DIYScript_Interpreter {
         sw
         //←↑→↓↖↗↘↙
     }
+
     public enum TypeCondotions {
         Tap,
         Time,
@@ -33,6 +31,7 @@ namespace DIYScript_Interpreter {
         Art,
         WinLoss
     }
+
     public enum TypeCommands {
         Travel,
         Switch,
@@ -80,29 +79,52 @@ namespace DIYScript_Interpreter {
         public List<Condition> Conditions;
         public List<Command> Commands;
     }
+
     public class Command {
+#pragma warning disable CS0169 // 从不使用字段“Command.OPCode”
         private TypeCommands OPCode;
+#pragma warning restore CS0169 // 从不使用字段“Command.OPCode”
+#pragma warning disable CS0169 // 从不使用字段“Command.Arg0”
         private int Arg0;
+#pragma warning restore CS0169 // 从不使用字段“Command.Arg0”
+#pragma warning disable CS0169 // 从不使用字段“Command.Arg1”
         private int Arg1;
+#pragma warning restore CS0169 // 从不使用字段“Command.Arg1”
+#pragma warning disable CS0169 // 从不使用字段“Command.Arg2”
         private int Arg2;
+#pragma warning restore CS0169 // 从不使用字段“Command.Arg2”
+#pragma warning disable CS0169 // 从不使用字段“Command.Arg3”
         private int Arg3;
+#pragma warning restore CS0169 // 从不使用字段“Command.Arg3”
         string getDescribe() {
             return "114514";
         }
     }
+
     public class Condition {
+#pragma warning disable CS0169 // 从不使用字段“Condition.OPCode”
         private TypeCondotions OPCode;
+#pragma warning restore CS0169 // 从不使用字段“Condition.OPCode”
+#pragma warning disable CS0169 // 从不使用字段“Condition.Arg0”
         private int Arg0;
+#pragma warning restore CS0169 // 从不使用字段“Condition.Arg0”
+#pragma warning disable CS0169 // 从不使用字段“Condition.Arg1”
         private int Arg1;
+#pragma warning restore CS0169 // 从不使用字段“Condition.Arg1”
+#pragma warning disable CS0169 // 从不使用字段“Condition.Arg2”
         private int Arg2;
+#pragma warning restore CS0169 // 从不使用字段“Condition.Arg2”
+#pragma warning disable CS0169 // 从不使用字段“Condition.Arg3”
         private int Arg3;
+#pragma warning restore CS0169 // 从不使用字段“Condition.Arg3”
     }
 
     public class Document {
-
         public static Document Current = new Document();
+
         public List<OBJ> OBJList = new List<OBJ>();
         public List<BG> BGList = new List<BG>();
+
         internal void AddOBJ() {
             OBJ OBJ = new OBJ();
             OBJList.Add(OBJ);
@@ -119,13 +141,11 @@ namespace DIYScript_Interpreter {
         }
         internal void AddBG(Bitmap bitmap, string name) {
             BGAddingStatus.CurrentBGID++;
-            BG BG = new BG();
-            BGList.Add(BG);
-            BG.bitmap = bitmap;
-            BG.Name = name;
-            BG.ID = BGAddingStatus.CurrentBGID;
-            BG.Resolution[0] = BGAddingStatus.bitmap.Width;
-            BG.Resolution[1] = BGAddingStatus.bitmap.Height;
+            BG bg = new BG();
+            BGList.Add(bg);
+            bg.bitmap = bitmap;
+            bg.Name = name;
+            bg.ID = BGAddingStatus.CurrentBGID;
         }
         internal void DelBG(int index) {
             BGList.RemoveAt(index);
@@ -158,20 +178,19 @@ namespace DIYScript_Interpreter {
         public List<OBJArt> ArtList = new List<OBJArt>();
         public int[] OBJSize = new int[2];
         public OBJArt CurrentArt;
-
         public List<Script> ScriptList = new List<Script>();
 
     }
+
     public class OBJArt : Object {
         public ImageList i = new ImageList();
         public int CurrentFrame;
         public bool isNormal;
     }
+
     public class BG : Object {
         public Bitmap bitmap;
-        public int[] Resolution = new int[2];
         public bool isNormal;
-
     }
 
 
@@ -181,6 +200,7 @@ namespace DIYScript_Interpreter {
         public static Bitmap temp = new Bitmap(640, 480);
         public static Graphics gt = Graphics.FromImage(temp);
     }
+
     public class OBJAddingStatus {
         public static ulong CurrentOBJID = 0;
         public static bool isEdit;
@@ -188,6 +208,11 @@ namespace DIYScript_Interpreter {
         public static Directions direction;
         public static OBJ OBJTemp;
     }
+
+    public class OBJArtAddingStatus {
+        public static ulong CurrentOBJArtID = 0;
+    }
+
     public class OBJChoose {
         public static bool isAttach;
         public static OBJ ChoosedOBJ;

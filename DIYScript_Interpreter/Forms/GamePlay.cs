@@ -9,7 +9,8 @@ namespace DIYScript_Interpreter {
 
     public partial class GamePlay : Form {
         public static class InterpreterState {
-
+            public static bool isHaveBG = true;
+            public static Image currentBG;
             public static Bitmap FrameBuffer = new Bitmap(640, 480);
             public static long Ticked = 0;
             public static long Rendered = 0;
@@ -32,9 +33,16 @@ namespace DIYScript_Interpreter {
                         initOBJ.PosY = initOBJ.StrtY[0];
                         break;
                     case 2:
+                        if(Current.OBJList[Current.OBJList.IndexOf(initOBJ)-1] != null) {
+                            bool isNotOverlaped = false;
+                            while(isNotOverlaped) {
+                                initOBJ.PosX = (short)r.Next(initOBJ.StrtX[0], initOBJ.StrtX[1]);
+                                initOBJ.PosY = (short)r.Next(initOBJ.StrtY[0], initOBJ.StrtY[1]);
+                                //if()
+                            }
 
-                        initOBJ.PosX = (short)r.Next(initOBJ.StrtX[0], initOBJ.StrtX[1]);
-                        initOBJ.PosY = (short)r.Next(initOBJ.StrtY[0], initOBJ.StrtY[1]);
+                        }
+                        
                         break;
                     case 3:
                         initOBJ.PosX = (short)r.Next(initOBJ.StrtX[0], initOBJ.StrtX[1]);
@@ -45,8 +53,8 @@ namespace DIYScript_Interpreter {
                         initOBJ.PosY = (short)(initOBJ.StrtY[0] + Current.OBJList[(int)initOBJ.AttachOBJID].PosY);
                         break;
                         // 1 == Location, Point
-                        // 2 == Location, Area, Anywhere
                         // 3 == Location, Area, Try not to overlap
+                        // 2 == Location, Area, Anywhere
                         // 4 == Attath to OBJ
 
                         // If StartMode == 1, StrtX[] = {x1, x2}, StrtY[] = {y1, y2}
@@ -54,6 +62,15 @@ namespace DIYScript_Interpreter {
                         // If StartMode == 4, StrtX[] = {offsetx, null}, StrtY[]={offsety, null}
                 }
             }
+            try {
+                BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
+                currentBG = NormalBG.bitmap;
+                render.DrawImage(NormalBG.bitmap, new Point(0, 0));
+            } catch(Exception ex) {
+                isHaveBG = false;
+                MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void ticker_Tick(object sender, EventArgs e) {
@@ -63,10 +80,6 @@ namespace DIYScript_Interpreter {
             //Main Interpreter cycle
             //InterpreterState.FrameBuffer
             labelTicked.Text = "Tick数:    " + Ticked;
-            Pen p = new Pen(Color.Blue, 2);//定义了一个蓝色,宽度为的画笔
-            Point p1 = new Point(10 * (int)Math.Sin(Ticked) + 1, 80 * (int)Math.Cos(Ticked) - 4);
-            Point p2 = new Point(100 * (int)Math.Sin(Ticked), 80 * (int)Math.Sin(Ticked));
-
             if(listBoxOBJ.SelectedIndex > 0 && listBoxOBJ.SelectedIndex < listBoxOBJ.Items.Count) {
                 try {
                     OBJ tempOBJ = Current.OBJList[listBoxOBJ.SelectedIndex];
@@ -77,29 +90,11 @@ namespace DIYScript_Interpreter {
                     listView.Items[4].SubItems[1].Text = Convert.ToString(tempOBJ.Scale);
                 } finally { }
             }
-
-
-            if(Ticked < 200) {
-
-                render.DrawString("MakerMatic 42 Interpreter Demo", new Font("微软雅黑", Ticked), new LinearGradientBrush(p1, p2, Color.Brown, Color.PaleGreen), 10, 10);
-            }
-            if(Ticked > 200 && Ticked < 500) {
-                render.TranslateTransform(5, 5);
-            }
-            if(Ticked > 200 && Ticked < 500) {
-                render.DrawRectangle(p, 50, 50, Ticked, Ticked);
-                render.RotateTransform(Ticked, MatrixOrder.Prepend);
-                render.DrawEllipse(p, -50, -50, Ticked, Ticked);
+            if(isHaveBG) {
+                render.DrawImage(currentBG, new Point(0, 0));
             }
 
-            if(Ticked > 500 && Ticked < 800) {
-                for(int j = 0; j < 300; j++) {
-                    render.DrawLine(p, j / 10, (int)(Math.Sin(j) * 100 + 50), j / 10 + 2, (int)(Math.Sin(j) * 100) + 50);
 
-
-                }
-            }
-            render.DrawLine(p, p1, p2);
             VRamCopy();
 
 
@@ -157,8 +152,6 @@ namespace DIYScript_Interpreter {
             ticker.Stop();
             Ticked = 0;
             render.Clear(Color.White);
-
-            InitializeComponent();
         }
 
         private void canvas_MouseDown(object sender, MouseEventArgs e) {

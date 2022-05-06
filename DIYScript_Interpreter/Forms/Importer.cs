@@ -9,9 +9,8 @@ namespace DIYScript_Interpreter {
 
         private bool isBG;
 
-        public Importer(bool mode) {
+        public Importer() {
             InitializeComponent();
-            isBG = mode;
         }
 
         private void Cancel_Click(object sender, EventArgs e) {

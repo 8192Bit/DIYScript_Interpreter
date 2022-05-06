@@ -30,6 +30,7 @@ namespace DIYScript_Interpreter
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Importer));
             this.canvas = new System.Windows.Forms.PictureBox();
             this.Cancel = new System.Windows.Forms.Button();
             this.OK = new System.Windows.Forms.Button();
@@ -144,6 +145,7 @@ namespace DIYScript_Interpreter
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.canvas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Importer";
             this.Text = "导入设置";
             this.Load += new System.EventHandler(this.Importer_Load);

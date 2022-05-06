@@ -285,6 +285,7 @@ namespace DIYScript_Interpreter
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxOBJName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OBJMaker";
             this.Text = "新建OBJ......";
             this.Load += new System.EventHandler(this.OBJMaker_Load);

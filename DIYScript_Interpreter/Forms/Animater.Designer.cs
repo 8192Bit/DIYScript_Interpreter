@@ -47,12 +47,16 @@ namespace DIYScript_Interpreter {
             this.toolStripButtonABehind = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.buttonStop = new System.Windows.Forms.Button();
             this.buttonPause = new System.Windows.Forms.Button();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.pictureBoxCurrent = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.trackBarTimeSpeed = new System.Windows.Forms.TrackBar();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTimeSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // listViewFrames
@@ -66,6 +70,7 @@ namespace DIYScript_Interpreter {
             this.listViewFrames.StateImageList = this.imageList;
             this.listViewFrames.TabIndex = 0;
             this.listViewFrames.UseCompatibleStateImageBehavior = false;
+            this.listViewFrames.SelectedIndexChanged += new System.EventHandler(this.listViewFrames_SelectedIndexChanged);
             // 
             // imageList
             // 
@@ -100,7 +105,8 @@ namespace DIYScript_Interpreter {
             this.toolStripButtonAFront,
             this.toolStripButtonABehind,
             this.toolStripButtonDel,
-            this.toolStripSeparator3});
+            this.toolStripSeparator3,
+            this.toolStripButton1});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(784, 25);
@@ -204,6 +210,15 @@ namespace DIYScript_Interpreter {
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(52, 22);
+            this.toolStripButton1.Text = "保存";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // buttonStop
             // 
             this.buttonStop.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -216,6 +231,7 @@ namespace DIYScript_Interpreter {
             this.buttonStop.Size = new System.Drawing.Size(23, 23);
             this.buttonStop.TabIndex = 6;
             this.buttonStop.UseVisualStyleBackColor = false;
+            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
             // 
             // buttonPause
             // 
@@ -229,6 +245,7 @@ namespace DIYScript_Interpreter {
             this.buttonPause.Size = new System.Drawing.Size(23, 23);
             this.buttonPause.TabIndex = 5;
             this.buttonPause.UseVisualStyleBackColor = false;
+            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
             // buttonPlay
             // 
@@ -242,6 +259,7 @@ namespace DIYScript_Interpreter {
             this.buttonPlay.Size = new System.Drawing.Size(23, 24);
             this.buttonPlay.TabIndex = 4;
             this.buttonPlay.UseVisualStyleBackColor = false;
+            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
             // pictureBoxCurrent
             // 
@@ -255,14 +273,26 @@ namespace DIYScript_Interpreter {
             this.pictureBoxCurrent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCurrent.TabIndex = 1;
             this.pictureBoxCurrent.TabStop = false;
-            this.pictureBoxCurrent.Click += new System.EventHandler(this.pictureBoxCurrent_Click);
             this.pictureBoxCurrent.DoubleClick += new System.EventHandler(this.pictureBoxCurrent_DoubleClick);
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // trackBarTimeSpeed
+            // 
+            this.trackBarTimeSpeed.Location = new System.Drawing.Point(625, 142);
+            this.trackBarTimeSpeed.Name = "trackBarTimeSpeed";
+            this.trackBarTimeSpeed.Size = new System.Drawing.Size(147, 45);
+            this.trackBarTimeSpeed.TabIndex = 10;
+            this.trackBarTimeSpeed.Scroll += new System.EventHandler(this.trackBarTimeSpeed_Scroll);
             // 
             // Animater
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 256);
+            this.Controls.Add(this.trackBarTimeSpeed);
             this.Controls.Add(this.labelFrame);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.buttonStop);
@@ -277,6 +307,7 @@ namespace DIYScript_Interpreter {
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTimeSpeed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,5 +338,8 @@ namespace DIYScript_Interpreter {
         private ToolStripMenuItem 剪切ToolStripMenuItem;
         private ToolStripMenuItem 删除ToolStripMenuItem;
         private OpenFileDialog openFileDialog;
+        private ToolStripButton toolStripButton1;
+        private Timer timer;
+        private TrackBar trackBarTimeSpeed;
     }
 }
