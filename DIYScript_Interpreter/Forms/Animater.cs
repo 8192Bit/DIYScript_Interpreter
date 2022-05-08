@@ -8,6 +8,7 @@ namespace DIYScript_Interpreter {
         public bool isFullView;
         public bool isFirstAdd = true;
         public bool isFromFront;
+
         public Animater() {
             InitializeComponent();
         }
@@ -19,7 +20,6 @@ namespace DIYScript_Interpreter {
                 temp++;
                 listViewFrames.Items.Add(temp.ToString(), temp);
             }
-
         }
 
         private void pictureBoxCurrent_DoubleClick(object sender, EventArgs e) {
@@ -60,8 +60,6 @@ namespace DIYScript_Interpreter {
                 imageList.Images.Add(i);
             }
             refresh();
-
-
         }
 
         private void Animater_Load(object sender, EventArgs e) {
@@ -81,7 +79,9 @@ namespace DIYScript_Interpreter {
         private void toolStripButton1_Click(object sender, EventArgs e) {
             OBJArt art = new OBJArt();
             art.Name = toolStripTextBoxARTName.Text;
-            //art.ID = OBJArtAddingStatus;
+            art.ID = OBJArtAddingStatus.CurrentOBJArtID;
+            art.i = imageList;
+            OBJArtAddingStatus.CurrentOBJArtID++;
         }
 
         private void listViewFrames_SelectedIndexChanged(object sender, EventArgs e) {
@@ -114,6 +114,11 @@ namespace DIYScript_Interpreter {
         private void buttonStop_Click(object sender, EventArgs e) {
             timer.Stop();
             listViewFrames.FocusedItem = listViewFrames.Items[0];
+        }
+
+        private void toolStripButtonDel_Click(object sender, EventArgs e) {
+            imageList.Images.RemoveAt(listViewFrames.FocusedItem.Index);
+            refresh();
         }
     }
 }

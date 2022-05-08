@@ -121,6 +121,9 @@
   <data name="log" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icon\function\log.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="inm1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Image\inm.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="linear" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icon\function\linear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,8 +136,8 @@
   <data name="stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icon\control\stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_8192Bit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icon\form\8192bit.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="play1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon\Control\play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="smooth" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icon\function\smooth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,14 +151,20 @@
   <data name="play" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icon\control\play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icon\form\refresh.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icon\function\stay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CyanBar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon\UI\CyanBar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CyanBar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon\UI\CyanBar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="square" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icon\function\square.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="stay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icon\function\stay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_8192Bit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icon\form\8192bit.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icon\switch\off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,7 +178,10 @@
   <data name="ON" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icon\switch\on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CyanBar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon\UI\CyanBar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icon\form\refresh.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Thu Feb 06 20-08-10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thu Feb 06 20-08-10.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

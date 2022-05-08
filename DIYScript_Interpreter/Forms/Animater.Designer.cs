@@ -130,32 +130,32 @@ namespace DIYScript_Interpreter {
             // 从GIFToolStripMenuItem
             // 
             this.从GIFToolStripMenuItem.Name = "从GIFToolStripMenuItem";
-            this.从GIFToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.从GIFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.从GIFToolStripMenuItem.Text = "从GIF......";
             this.从GIFToolStripMenuItem.Click += new System.EventHandler(this.从GIFToolStripMenuItem_Click);
             // 
             // 复制ToolStripMenuItem
             // 
             this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.复制ToolStripMenuItem.Text = "复制";
             // 
             // 粘贴ToolStripMenuItem
             // 
             this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
-            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.粘贴ToolStripMenuItem.Text = "粘贴";
             // 
             // 剪切ToolStripMenuItem
             // 
             this.剪切ToolStripMenuItem.Name = "剪切ToolStripMenuItem";
-            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.剪切ToolStripMenuItem.Text = "剪切";
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             // 
             // toolStripSeparator1
@@ -204,6 +204,7 @@ namespace DIYScript_Interpreter {
             this.toolStripButtonDel.Name = "toolStripButtonDel";
             this.toolStripButtonDel.Size = new System.Drawing.Size(52, 22);
             this.toolStripButtonDel.Text = "删除";
+            this.toolStripButtonDel.Click += new System.EventHandler(this.toolStripButtonDel_Click);
             // 
             // toolStripSeparator3
             // 

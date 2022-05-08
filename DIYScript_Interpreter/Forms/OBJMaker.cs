@@ -16,23 +16,65 @@ namespace DIYScript_Interpreter {
             radioButtonPoint.Checked = true;
         }
 
-        private void EditOBJ(int StartMode) {
+        public void setStartMode(bool rBP, bool rbA, bool cBA) {
+            radioButtonPoint.Checked = rBP;
+            radioButtonArea.Checked = rbA;
+            checkBoxAllowOverlap.Checked = cBA;
+        }
+
+        public StartMode getStartMode() {
+            StartMode mode = StartMode.AreaAnywhere;
+            if(radioButtonPoint.Checked) {
+                mode = StartMode.Point;
+            } else if(radioButtonArea.Checked) {
+                if(!checkBoxAllowOverlap.Checked) {
+                    mode = StartMode.AreaAnywhere;
+                } else {
+                    mode = StartMode.AreaNotOverlap;
+                }
+            } else if(OBJChoose.isAttach) {
+                mode = StartMode.Attach;
+            }
+            return mode;
+        }
+
+        public void setOBJtoEdit(OBJ obj) {
+            textBoxOBJName.Text = obj.Name;
+            MouseState[0] = obj.StrtX[0];
+            MouseState[1] = obj.StrtX[1];
+            MouseState[2] = obj.StrtY[0];
+            MouseState[3] = obj.StrtY[1];
+            if(obj.startMode == StartMode.Point) {
+                radioButtonPoint.Checked = true;
+                radioButtonArea.Checked = false;
+            }
+            if(obj.startMode == StartMode.AreaAnywhere) {
+                radioButtonPoint.Checked = false;
+                radioButtonArea.Checked = true;
+                checkBoxAllowOverlap.Checked = true;
+            }
+            if(obj.startMode == StartMode.AreaNotOverlap) {
+                radioButtonPoint.Checked = false;
+                radioButtonArea.Checked = true;
+                checkBoxAllowOverlap.Checked = false;
+            }
+            if(obj.startMode == StartMode.Attach) {
+                radioButtonPoint.Checked = false;
+                radioButtonArea.Checked = false;
+            }
+        }
+        private void EditOBJ(StartMode startMode) {
             OBJTemp.Name = textBoxOBJName.Text;
-            OBJTemp.StartMode = StartMode;
+            OBJTemp.startMode = startMode;
             OBJTemp.StrtX = new short[] { (short)MouseState[0], (short)MouseState[1] };
             OBJTemp.StrtY = new short[] { (short)MouseState[2], (short)MouseState[3] };
             OBJTemp.ID = CurrentOBJID;
         }
 
         private void OBJMaker_Load(object sender, EventArgs e) {
-
             listViewART.View = Properties.Settings.Default.LViewValue;
             Bitmap b = new Bitmap(640, 480);
             Graphics g = Graphics.FromImage(b);
-            if(isEdit) {
-
-            }
-
             try {
                 BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
                 g.DrawImage(NormalBG.bitmap, new Point(0, 0));
@@ -40,72 +82,33 @@ namespace DIYScript_Interpreter {
                 isHaveBG = false;
                 MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             canvas.Image = b;
         }
 
         private void OK_Click(object sender, EventArgs e) {
             if(textBoxOBJName.Text == "") {
-                errorProvider.SetError(textBoxOBJName, "抄一百遍名字！");
+                errorProvider.SetError(textBoxOBJName, "未输入名字。");
 
             } else {
-                short StartMode = 0;
-                #region dizzy cation
-                if(radioButtonPoint.Checked) {
-                    StartMode = 1;
-                    //fixed
-                } else if(radioButtonArea.Checked) {
-                    if(!checkBoxAllowOverlap.Checked) {
-                        StartMode = 2;
-                        //any
-                    } else {
-                        StartMode = 3;
-                        //not2overlap
-                    }
-                } else if(OBJChoose.isAttach) {
-                    StartMode = 4;
-                }
-                #endregion
+                StartMode StartMode = getStartMode();
                 if(!isEdit) {
+                    // new a obj
                     OBJTemp = new OBJ();
+                    EditOBJ(StartMode);
+                    Current.OBJList.Add(OBJTemp);
+                } else {
+                    // edit a obj
                 }
-                EditOBJ(StartMode);
+
 
             }
 
-
-            Current.OBJList.Add(OBJTemp);
+            Close();
         }
 
-        private void reDraw(int x1, int y1, int x2, int y2, bool isArea) {
-            Bitmap b = new Bitmap(640, 480);
-            Point p1 = new Point(x1, y1);
-            Graphics g = Graphics.FromImage(b);
 
-            if(isHaveBG) {
 
-                BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
-                g.DrawImage(NormalBG.bitmap, new Point(0, 0));
-            }
-
-            Pen p = new Pen(Color.Red, 2);
-            Point pt = new Point(x2, y2);
-            if(isArea) {
-                p.DashStyle = DashStyle.Dash;
-                g.DrawLine(p, x1, y1, x2, y1);
-                g.DrawLine(p, x1, y1, x1, y2);
-                g.DrawLine(p, x2, y1, x2, y2);
-                g.DrawLine(p, x1, y2, x2, y2);
-            } else if(!isArea) {
-                p.DashStyle = DashStyle.Solid;
-                p.LineJoin = LineJoin.Round;
-                g.DrawRectangle(p, x2 - 15, y2 - 15, 30, 30);
-            }
-            // i dont really trust these radiobuttons
-            canvas.Image = b;
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e) {
+        private void radioButtonArea_CheckedChanged(object sender, EventArgs e) {
             checkBoxAllowOverlap.Enabled = radioButtonArea.Checked;
         }
 
@@ -132,10 +135,7 @@ namespace DIYScript_Interpreter {
         private void textBoxOBJName_TextChanged(object sender, EventArgs e) {
             errorProvider.SetError(textBoxOBJName, null);
         }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e) {
-        }
-
+        #region ==Mouse Process&Canvas Redraw==
         private void canvas_MouseDown(object sender, MouseEventArgs e) {
 
             MouseState[0] = e.X;
@@ -185,6 +185,34 @@ namespace DIYScript_Interpreter {
 
         }
 
+        private void reDraw(int x1, int y1, int x2, int y2, bool isArea) {
+            Bitmap b = new Bitmap(640, 480);
+            Point p1 = new Point(x1, y1);
+            Graphics g = Graphics.FromImage(b);
+
+            if(isHaveBG) {
+
+                BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
+                g.DrawImage(NormalBG.bitmap, new Point(0, 0));
+            }
+
+            Pen p = new Pen(Color.Red, 2);
+            Point pt = new Point(x2, y2);
+            if(isArea) {
+                p.DashStyle = DashStyle.Dash;
+                g.DrawLine(p, x1, y1, x2, y1);
+                g.DrawLine(p, x1, y1, x1, y2);
+                g.DrawLine(p, x2, y1, x2, y2);
+                g.DrawLine(p, x1, y2, x2, y2);
+            } else if(!isArea) {
+                p.DashStyle = DashStyle.Solid;
+                p.LineJoin = LineJoin.Round;
+                g.DrawRectangle(p, x2 - 15, y2 - 15, 30, 30);
+            }
+            // i dont really trust these radiobuttons
+            canvas.Image = b;
+        }
+        #endregion
         private void buttonNormalART_Click(object sender, EventArgs e) {
             foreach(OBJArt art in OBJTemp.ArtList) {
                 art.isNormal = false;

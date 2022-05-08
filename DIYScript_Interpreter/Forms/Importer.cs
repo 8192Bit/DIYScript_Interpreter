@@ -7,7 +7,7 @@ using static DIYScript_Interpreter.Document;
 namespace DIYScript_Interpreter {
     public partial class Importer : Form {
 
-        private bool isBG;
+
 
         public Importer() {
             InitializeComponent();
@@ -26,12 +26,12 @@ namespace DIYScript_Interpreter {
                     BG bg = new BG();
                     bg.Name = textBoxBGName.Text;
                     bg.bitmap = BGAddingStatus.temp;
-                    BGAddingStatus.CurrentBGID++;
                     bg.ID = BGAddingStatus.CurrentBGID;
                     Current.BGList.Add(bg);
                     if(Current.BGList.Count == 1) {
                         bg.isNormal = true;
                     }
+                    BGAddingStatus.CurrentBGID++;
                 } catch {
                 }
                 Close();

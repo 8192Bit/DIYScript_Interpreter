@@ -2,16 +2,19 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using SharpDX.Direct3D;
+using SharpDX.Direct3D11;
 using static DIYScript_Interpreter.Document;
 using static DIYScript_Interpreter.GamePlay.InterpreterState;
 
 namespace DIYScript_Interpreter {
 
     public partial class GamePlay : Form {
+        Device device = null;
         public static class InterpreterState {
             public static bool isHaveBG = true;
-            public static Image currentBG;
-            public static Bitmap FrameBuffer = new Bitmap(640, 480);
+            public static System.Drawing.Image currentBG;
+            public static System.Drawing.Bitmap FrameBuffer = new System.Drawing.Bitmap(640, 480);
             public static long Ticked = 0;
             public static long Rendered = 0;
             public static Graphics render = Graphics.FromImage(FrameBuffer);
@@ -20,35 +23,37 @@ namespace DIYScript_Interpreter {
         }
         public GamePlay() {
             InitializeComponent();
+            InitializeGraphics();
             render.Clear(Color.AliceBlue);
         }
+        private void InitializeGraphics() {
+            device = new Device(DriverType.Hardware, DeviceCreationFlags.Debuggable);
 
+        }
         private void GamePlay_Load(object sender, EventArgs e) {
             foreach(OBJ initOBJ in Current.OBJList) {
                 listBoxOBJ.Items.Add(initOBJ.Name);
                 Random r = new Random();
-                switch(initOBJ.StartMode) {
-                    case 1:
+                switch(initOBJ.startMode) {
+                    case StartMode.Point:
                         initOBJ.PosX = initOBJ.StrtX[0];
                         initOBJ.PosY = initOBJ.StrtY[0];
                         break;
-                    case 2:
-                        if(Current.OBJList[Current.OBJList.IndexOf(initOBJ)-1] != null) {
+                    case StartMode.AreaNotOverlap:
+                        if(Current.OBJList[Current.OBJList.IndexOf(initOBJ) - 1] != null) {
                             bool isNotOverlaped = false;
                             while(isNotOverlaped) {
                                 initOBJ.PosX = (short)r.Next(initOBJ.StrtX[0], initOBJ.StrtX[1]);
                                 initOBJ.PosY = (short)r.Next(initOBJ.StrtY[0], initOBJ.StrtY[1]);
-                                //if()
                             }
-
                         }
-                        
+
                         break;
-                    case 3:
+                    case StartMode.AreaAnywhere:
                         initOBJ.PosX = (short)r.Next(initOBJ.StrtX[0], initOBJ.StrtX[1]);
                         initOBJ.PosY = (short)r.Next(initOBJ.StrtY[0], initOBJ.StrtY[1]);
                         break;
-                    case 4:
+                    case StartMode.Attach:
                         initOBJ.PosX = (short)(initOBJ.StrtX[0] + Current.OBJList[(int)initOBJ.AttachOBJID].PosX);
                         initOBJ.PosY = (short)(initOBJ.StrtY[0] + Current.OBJList[(int)initOBJ.AttachOBJID].PosY);
                         break;

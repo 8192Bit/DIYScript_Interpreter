@@ -10,19 +10,23 @@ namespace DIYScript_Interpreter {
         public string Name;
         public ulong ID;
     }
-
-    public enum Directions {
-        w,
-        n,
-        e,
-        s,
-        nw,
-        ne,
-        se,
-        sw
-        //←↑→↓↖↗↘↙
+    public enum StartMode {
+        Point,
+        AreaAnywhere,
+        AreaNotOverlap,
+        Attach
     }
+    public enum Directions {
+        w,//←
+        n,//↑
+        e,//→
+        s,//↓
+        nw,//↖
+        ne,//↗
+        se,//↘
+        sw //↙
 
+    }
     public enum TypeCondotions {
         Tap,
         Time,
@@ -31,7 +35,6 @@ namespace DIYScript_Interpreter {
         Art,
         WinLoss
     }
-
     public enum TypeCommands {
         Travel,
         Switch,
@@ -40,7 +43,6 @@ namespace DIYScript_Interpreter {
         SFX,
         VFX
     }
-
     public class INIOperation {
         private string path;
         public INIOperation(string path) {
@@ -74,12 +76,10 @@ namespace DIYScript_Interpreter {
 
 
     }
-
     public class Script {
         public List<Condition> Conditions;
         public List<Command> Commands;
     }
-
     public class Command {
 #pragma warning disable CS0169 // 从不使用字段“Command.OPCode”
         private TypeCommands OPCode;
@@ -100,7 +100,6 @@ namespace DIYScript_Interpreter {
             return "114514";
         }
     }
-
     public class Condition {
 #pragma warning disable CS0169 // 从不使用字段“Condition.OPCode”
         private TypeCondotions OPCode;
@@ -118,7 +117,6 @@ namespace DIYScript_Interpreter {
         private int Arg3;
 #pragma warning restore CS0169 // 从不使用字段“Condition.Arg3”
     }
-
     public class Document {
         public static Document Current = new Document();
 
@@ -130,12 +128,6 @@ namespace DIYScript_Interpreter {
             OBJList.Add(OBJ);
         }
 
-        internal void EditOBJ(ulong index, string Name, short StartMode, short[] SX, short[] SY) {
-            OBJList[(int)index - 1].Name = Name;
-            OBJList[(int)index - 1].StartMode = StartMode;
-            OBJList[(int)index - 1].StrtX = SX;
-            OBJList[(int)index - 1].StrtY = SY;
-        }
         internal void DelArt(int index) {
             OBJList.RemoveAt(index);
         }
@@ -151,7 +143,6 @@ namespace DIYScript_Interpreter {
             BGList.RemoveAt(index);
         }
     }
-
     public class OBJ : Object {
 
         public short PosX;
@@ -162,13 +153,7 @@ namespace DIYScript_Interpreter {
         public int[] Scale = new int[2];
         // Scale = {XScale, YScale}
         // rotate z axis == decrease scale X axis.
-        // Yeah.:)
-
-        public int StartMode;
-        // 1 == Location, Point
-        // 2 == Location, Area, Anywhere
-        // 3 == Location, Area, Try not to overlap
-        // 4 == Attath to OBJ
+        public StartMode startMode;
         public short[] StrtX = new short[2];
         public short[] StrtY = new short[2];
         // If StartMode == 1, StrtX[] = {x1, x2}, StrtY[] = {y1, y2}
@@ -176,24 +161,18 @@ namespace DIYScript_Interpreter {
         // If StartMode == 4, StrtX[] = {offsetx, null}, StrtY[]={offsety, null}
         public ulong AttachOBJID;
         public List<OBJArt> ArtList = new List<OBJArt>();
-        public int[] OBJSize = new int[2];
         public OBJArt CurrentArt;
         public List<Script> ScriptList = new List<Script>();
-
     }
-
     public class OBJArt : Object {
         public ImageList i = new ImageList();
         public int CurrentFrame;
         public bool isNormal;
     }
-
     public class BG : Object {
         public Bitmap bitmap;
         public bool isNormal;
     }
-
-
     public class BGAddingStatus {
         public static ulong CurrentBGID = 0;
         public static Bitmap bitmap;
@@ -221,7 +200,6 @@ namespace DIYScript_Interpreter {
     public class Importing {
         public static Bitmap canvasContent = new Bitmap(640, 480);
         public static Graphics gdraw = Graphics.FromImage(canvasContent);
-
     }
 
 }

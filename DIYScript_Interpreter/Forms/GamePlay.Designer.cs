@@ -122,7 +122,7 @@ namespace DIYScript_Interpreter
             this.labelSmall.AutoSize = true;
             this.labelSmall.Font = new System.Drawing.Font("Nokia Sans", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSmall.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.labelSmall.Location = new System.Drawing.Point(495, 521);
+            this.labelSmall.Location = new System.Drawing.Point(392, 525);
             this.labelSmall.Name = "labelSmall";
             this.labelSmall.Size = new System.Drawing.Size(73, 15);
             this.labelSmall.TabIndex = 7;
@@ -146,11 +146,11 @@ namespace DIYScript_Interpreter
             // 
             this.labelGDI.AutoSize = true;
             this.labelGDI.Font = new System.Drawing.Font("Nokia Sans S60", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGDI.Location = new System.Drawing.Point(561, 500);
+            this.labelGDI.Location = new System.Drawing.Point(458, 504);
             this.labelGDI.Name = "labelGDI";
-            this.labelGDI.Size = new System.Drawing.Size(88, 39);
+            this.labelGDI.Size = new System.Drawing.Size(194, 39);
             this.labelGDI.TabIndex = 8;
-            this.labelGDI.Text = "GDI+";
+            this.labelGDI.Text = "GDI+DirectX";
             // 
             // labelMM42
             // 

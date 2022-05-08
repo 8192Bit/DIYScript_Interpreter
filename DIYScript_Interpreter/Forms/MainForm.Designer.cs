@@ -74,14 +74,14 @@ namespace DIYScript_Interpreter
             this.buttonTOOBJChoose = new System.Windows.Forms.Button();
             this.tabPageTDirection = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButtonATDSE = new System.Windows.Forms.RadioButton();
+            this.radioButtonATDE = new System.Windows.Forms.RadioButton();
+            this.radioButtonATDNE = new System.Windows.Forms.RadioButton();
+            this.radioButtonATDSW = new System.Windows.Forms.RadioButton();
+            this.radioButtonATDW = new System.Windows.Forms.RadioButton();
+            this.radioButtonATDNW = new System.Windows.Forms.RadioButton();
+            this.radioButtonATDS = new System.Windows.Forms.RadioButton();
+            this.radioButtonATDN = new System.Windows.Forms.RadioButton();
             this.tabPageTRoaming = new System.Windows.Forms.TabPage();
             this.comboBoxTRTType = new System.Windows.Forms.ComboBox();
             this.tabPageTStop = new System.Windows.Forms.TabPage();
@@ -107,7 +107,7 @@ namespace DIYScript_Interpreter
             this.tabControlC = new System.Windows.Forms.TabControl();
             this.CTap = new System.Windows.Forms.TabPage();
             this.pictureBoxCS = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCTIndicator = new System.Windows.Forms.PictureBox();
             this.radioButtonTapSE = new System.Windows.Forms.RadioButton();
             this.radioButtonTapE = new System.Windows.Forms.RadioButton();
             this.radioButtonTapNE = new System.Windows.Forms.RadioButton();
@@ -190,7 +190,7 @@ namespace DIYScript_Interpreter
             this.tabControlC.SuspendLayout();
             this.CTap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCTIndicator)).BeginInit();
             this.CTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTTO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTTFROM)).BeginInit();
@@ -211,7 +211,6 @@ namespace DIYScript_Interpreter
             // 
             this.toolStrip.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.CyanBar;
             this.toolStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.File,
             this.Option,
@@ -221,9 +220,8 @@ namespace DIYScript_Interpreter
             this.toolStripButton1});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1483, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1360, 25);
             this.toolStrip.TabIndex = 1;
-            this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
             // 
             // File
             // 
@@ -244,20 +242,20 @@ namespace DIYScript_Interpreter
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.保存ToolStripMenuItem.Text = "保存...";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.打开ToolStripMenuItem.Text = "打开...";
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -278,7 +276,7 @@ namespace DIYScript_Interpreter
             // 首选项ToolStripMenuItem
             // 
             this.首选项ToolStripMenuItem.Name = "首选项ToolStripMenuItem";
-            this.首选项ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.首选项ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.首选项ToolStripMenuItem.Text = "首选项";
             this.首选项ToolStripMenuItem.Click += new System.EventHandler(this.首选项ToolStripMenuItem_Click);
             // 
@@ -299,7 +297,7 @@ namespace DIYScript_Interpreter
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
@@ -691,14 +689,14 @@ namespace DIYScript_Interpreter
             // tabPageTDirection
             // 
             this.tabPageTDirection.Controls.Add(this.pictureBox2);
-            this.tabPageTDirection.Controls.Add(this.radioButton1);
-            this.tabPageTDirection.Controls.Add(this.radioButton2);
-            this.tabPageTDirection.Controls.Add(this.radioButton3);
-            this.tabPageTDirection.Controls.Add(this.radioButton4);
-            this.tabPageTDirection.Controls.Add(this.radioButton5);
-            this.tabPageTDirection.Controls.Add(this.radioButton6);
-            this.tabPageTDirection.Controls.Add(this.radioButton7);
-            this.tabPageTDirection.Controls.Add(this.radioButton8);
+            this.tabPageTDirection.Controls.Add(this.radioButtonATDSE);
+            this.tabPageTDirection.Controls.Add(this.radioButtonATDE);
+            this.tabPageTDirection.Controls.Add(this.radioButtonATDNE);
+            this.tabPageTDirection.Controls.Add(this.radioButtonATDSW);
+            this.tabPageTDirection.Controls.Add(this.radioButtonATDW);
+            this.tabPageTDirection.Controls.Add(this.radioButtonATDNW);
+            this.tabPageTDirection.Controls.Add(this.radioButtonATDS);
+            this.tabPageTDirection.Controls.Add(this.radioButtonATDN);
             this.tabPageTDirection.Location = new System.Drawing.Point(4, 22);
             this.tabPageTDirection.Name = "tabPageTDirection";
             this.tabPageTDirection.Padding = new System.Windows.Forms.Padding(3);
@@ -717,95 +715,95 @@ namespace DIYScript_Interpreter
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;
             // 
-            // radioButton1
+            // radioButtonATDSE
             // 
-            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(70, 54);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(27, 22);
-            this.radioButton1.TabIndex = 18;
-            this.radioButton1.Text = "↘";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButtonATDSE.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonATDSE.AutoSize = true;
+            this.radioButtonATDSE.Location = new System.Drawing.Point(70, 54);
+            this.radioButtonATDSE.Name = "radioButtonATDSE";
+            this.radioButtonATDSE.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonATDSE.TabIndex = 18;
+            this.radioButtonATDSE.Text = "↘";
+            this.radioButtonATDSE.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButtonATDE
             // 
-            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(70, 27);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(27, 22);
-            this.radioButton2.TabIndex = 17;
-            this.radioButton2.Text = "→";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButtonATDE.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonATDE.AutoSize = true;
+            this.radioButtonATDE.Location = new System.Drawing.Point(70, 27);
+            this.radioButtonATDE.Name = "radioButtonATDE";
+            this.radioButtonATDE.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonATDE.TabIndex = 17;
+            this.radioButtonATDE.Text = "→";
+            this.radioButtonATDE.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioButtonATDNE
             // 
-            this.radioButton3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(70, 0);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(27, 22);
-            this.radioButton3.TabIndex = 16;
-            this.radioButton3.Text = "↗";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButtonATDNE.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonATDNE.AutoSize = true;
+            this.radioButtonATDNE.Location = new System.Drawing.Point(70, 0);
+            this.radioButtonATDNE.Name = "radioButtonATDNE";
+            this.radioButtonATDNE.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonATDNE.TabIndex = 16;
+            this.radioButtonATDNE.Text = "↗";
+            this.radioButtonATDNE.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // radioButtonATDSW
             // 
-            this.radioButton4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(6, 54);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(27, 22);
-            this.radioButton4.TabIndex = 15;
-            this.radioButton4.Text = "↙";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButtonATDSW.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonATDSW.AutoSize = true;
+            this.radioButtonATDSW.Location = new System.Drawing.Point(6, 54);
+            this.radioButtonATDSW.Name = "radioButtonATDSW";
+            this.radioButtonATDSW.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonATDSW.TabIndex = 15;
+            this.radioButtonATDSW.Text = "↙";
+            this.radioButtonATDSW.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // radioButtonATDW
             // 
-            this.radioButton5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(6, 27);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(27, 22);
-            this.radioButton5.TabIndex = 14;
-            this.radioButton5.Text = "←";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButtonATDW.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonATDW.AutoSize = true;
+            this.radioButtonATDW.Location = new System.Drawing.Point(6, 27);
+            this.radioButtonATDW.Name = "radioButtonATDW";
+            this.radioButtonATDW.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonATDW.TabIndex = 14;
+            this.radioButtonATDW.Text = "←";
+            this.radioButtonATDW.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // radioButtonATDNW
             // 
-            this.radioButton6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(6, 0);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(27, 22);
-            this.radioButton6.TabIndex = 13;
-            this.radioButton6.Text = "↖";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButtonATDNW.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonATDNW.AutoSize = true;
+            this.radioButtonATDNW.Location = new System.Drawing.Point(6, 0);
+            this.radioButtonATDNW.Name = "radioButtonATDNW";
+            this.radioButtonATDNW.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonATDNW.TabIndex = 13;
+            this.radioButtonATDNW.Text = "↖";
+            this.radioButtonATDNW.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // radioButtonATDS
             // 
-            this.radioButton7.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(38, 54);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(27, 22);
-            this.radioButton7.TabIndex = 12;
-            this.radioButton7.Text = "↓";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButtonATDS.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonATDS.AutoSize = true;
+            this.radioButtonATDS.Location = new System.Drawing.Point(38, 54);
+            this.radioButtonATDS.Name = "radioButtonATDS";
+            this.radioButtonATDS.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonATDS.TabIndex = 12;
+            this.radioButtonATDS.Text = "↓";
+            this.radioButtonATDS.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // radioButtonATDN
             // 
-            this.radioButton8.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Checked = true;
-            this.radioButton8.Location = new System.Drawing.Point(38, 0);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(27, 22);
-            this.radioButton8.TabIndex = 11;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "↑";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButtonATDN.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonATDN.AutoSize = true;
+            this.radioButtonATDN.Checked = true;
+            this.radioButtonATDN.Location = new System.Drawing.Point(38, 0);
+            this.radioButtonATDN.Name = "radioButtonATDN";
+            this.radioButtonATDN.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonATDN.TabIndex = 11;
+            this.radioButtonATDN.TabStop = true;
+            this.radioButtonATDN.Text = "↑";
+            this.radioButtonATDN.UseVisualStyleBackColor = true;
             // 
             // tabPageTRoaming
             // 
@@ -1077,7 +1075,6 @@ namespace DIYScript_Interpreter
             this.groupBoxWhen.TabIndex = 8;
             this.groupBoxWhen.TabStop = false;
             this.groupBoxWhen.Text = "当......";
-            this.groupBoxWhen.Enter += new System.EventHandler(this.groupBoxWhen_Enter);
             // 
             // tabControlC
             // 
@@ -1096,7 +1093,7 @@ namespace DIYScript_Interpreter
             // CTap
             // 
             this.CTap.Controls.Add(this.pictureBoxCS);
-            this.CTap.Controls.Add(this.pictureBox1);
+            this.CTap.Controls.Add(this.pictureBoxCTIndicator);
             this.CTap.Controls.Add(this.radioButtonTapSE);
             this.CTap.Controls.Add(this.radioButtonTapE);
             this.CTap.Controls.Add(this.radioButtonTapNE);
@@ -1124,15 +1121,15 @@ namespace DIYScript_Interpreter
             this.pictureBoxCS.TabIndex = 11;
             this.pictureBoxCS.TabStop = false;
             // 
-            // pictureBox1
+            // pictureBoxCTIndicator
             // 
-            this.pictureBox1.Image = global::DIYScript_Interpreter.Properties.Resources.Sides;
-            this.pictureBox1.Location = new System.Drawing.Point(251, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 21);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxCTIndicator.Image = global::DIYScript_Interpreter.Properties.Resources.Sides;
+            this.pictureBoxCTIndicator.Location = new System.Drawing.Point(251, 36);
+            this.pictureBoxCTIndicator.Name = "pictureBoxCTIndicator";
+            this.pictureBoxCTIndicator.Size = new System.Drawing.Size(26, 21);
+            this.pictureBoxCTIndicator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxCTIndicator.TabIndex = 10;
+            this.pictureBoxCTIndicator.TabStop = false;
             // 
             // radioButtonTapSE
             // 
@@ -1159,7 +1156,6 @@ namespace DIYScript_Interpreter
             this.radioButtonTapE.TabStop = true;
             this.radioButtonTapE.Text = "→";
             this.radioButtonTapE.UseVisualStyleBackColor = true;
-            this.radioButtonTapE.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
             // radioButtonTapNE
             // 
@@ -1173,7 +1169,6 @@ namespace DIYScript_Interpreter
             this.radioButtonTapNE.TabStop = true;
             this.radioButtonTapNE.Text = "↗";
             this.radioButtonTapNE.UseVisualStyleBackColor = true;
-            this.radioButtonTapNE.CheckedChanged += new System.EventHandler(this.radioButtonTapNE_CheckedChanged);
             // 
             // radioButtonTapSW
             // 
@@ -1187,7 +1182,6 @@ namespace DIYScript_Interpreter
             this.radioButtonTapSW.TabStop = true;
             this.radioButtonTapSW.Text = "↙";
             this.radioButtonTapSW.UseVisualStyleBackColor = true;
-            this.radioButtonTapSW.CheckedChanged += new System.EventHandler(this.radioButtonTapSW_CheckedChanged);
             // 
             // radioButtonTapW
             // 
@@ -1201,7 +1195,6 @@ namespace DIYScript_Interpreter
             this.radioButtonTapW.TabStop = true;
             this.radioButtonTapW.Text = "←";
             this.radioButtonTapW.UseVisualStyleBackColor = true;
-            this.radioButtonTapW.CheckedChanged += new System.EventHandler(this.radioButtonTapW_CheckedChanged);
             // 
             // radioButtonTapNW
             // 
@@ -1215,7 +1208,6 @@ namespace DIYScript_Interpreter
             this.radioButtonTapNW.TabStop = true;
             this.radioButtonTapNW.Text = "↖";
             this.radioButtonTapNW.UseVisualStyleBackColor = true;
-            this.radioButtonTapNW.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButtonTapS
             // 
@@ -1525,7 +1517,6 @@ namespace DIYScript_Interpreter
             this.labelOBJName.Size = new System.Drawing.Size(234, 43);
             this.labelOBJName.TabIndex = 7;
             this.labelOBJName.Text = "未选中对象";
-            this.labelOBJName.Click += new System.EventHandler(this.labelOBJName_Click);
             // 
             // buttonDel
             // 
@@ -1584,7 +1575,8 @@ namespace DIYScript_Interpreter
             // 
             // pictureBoxOBJPic
             // 
-            this.pictureBoxOBJPic.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOBJPic.Image")));
+            this.pictureBoxOBJPic.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.Thu_Feb_06_20_08_10;
+            this.pictureBoxOBJPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBoxOBJPic.Location = new System.Drawing.Point(6, 6);
             this.pictureBoxOBJPic.Name = "pictureBoxOBJPic";
             this.pictureBoxOBJPic.Size = new System.Drawing.Size(90, 90);
@@ -1824,10 +1816,11 @@ namespace DIYScript_Interpreter
             // 
             this.NUT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.NUT.BackColor = System.Drawing.SystemColors.Window;
+            this.NUT.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.CyanBar;
             this.NUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NUT.Font = new System.Drawing.Font("Calibri", 32F);
-            this.NUT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(69)))), ((int)(((byte)(20)))));
-            this.NUT.Location = new System.Drawing.Point(1211, 502);
+            this.NUT.ForeColor = System.Drawing.Color.Black;
+            this.NUT.Location = new System.Drawing.Point(1088, 502);
             this.NUT.Name = "NUT";
             this.NUT.Size = new System.Drawing.Size(260, 67);
             this.NUT.TabIndex = 6;
@@ -1839,13 +1832,13 @@ namespace DIYScript_Interpreter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1483, 581);
+            this.ClientSize = new System.Drawing.Size(1360, 581);
             this.Controls.Add(this.groupBoxAIBGMMdata);
             this.Controls.Add(this.groupBoxBG);
             this.Controls.Add(this.groupBoxOBJ);
             this.Controls.Add(this.NUT);
             this.Controls.Add(this.toolStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "DIYScript Interpreter [Document:unnamed]";
@@ -1877,7 +1870,7 @@ namespace DIYScript_Interpreter
             this.CTap.ResumeLayout(false);
             this.CTap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCTIndicator)).EndInit();
             this.CTime.ResumeLayout(false);
             this.CTime.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTTO)).EndInit();
@@ -1995,7 +1988,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.RadioButton radioButtonTapSW;
         private System.Windows.Forms.RadioButton radioButtonTapW;
         private System.Windows.Forms.RadioButton radioButtonTapNW;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxCTIndicator;
         private System.Windows.Forms.PictureBox pictureBoxCS;
         private System.Windows.Forms.RadioButton radioButtonSD;
         private System.Windows.Forms.RadioButton radioButtonSC;
@@ -2024,14 +2017,14 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.ComboBox comboBoxTSpeed;
         private System.Windows.Forms.Button buttonTOOBJChoose;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButtonATDSE;
+        private System.Windows.Forms.RadioButton radioButtonATDE;
+        private System.Windows.Forms.RadioButton radioButtonATDNE;
+        private System.Windows.Forms.RadioButton radioButtonATDSW;
+        private System.Windows.Forms.RadioButton radioButtonATDW;
+        private System.Windows.Forms.RadioButton radioButtonATDNW;
+        private System.Windows.Forms.RadioButton radioButtonATDS;
+        private System.Windows.Forms.RadioButton radioButtonATDN;
         private System.Windows.Forms.ComboBox comboBoxTRTType;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
     }

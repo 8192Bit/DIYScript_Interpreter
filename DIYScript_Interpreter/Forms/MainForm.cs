@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-//using AeroSupport;
 using DIYScript_Interpreter.Properties;
 using static DIYScript_Interpreter.Document;
 
@@ -16,42 +15,13 @@ namespace DIYScript_Interpreter {
             InitializeComponent();
 
         }
-
-        public void OBJRefresh() {
-            foreach(OBJ obj in Current.OBJList) {
-                listViewOBJ.Clear();
-                listViewOBJ.Items.Add(obj.Name, (int)obj.ID);
-                //imageList.Images.Add();
-            }
-        }
-
-        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e) {
-            Dispose();
-        }
-
-        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e) {
-            Form About = new AboutBox();
-            About.ShowDialog();
-        }
-
-
-        private void 首选项ToolStripMenuItem_Click(object sender, EventArgs e) {
-            Form options = new Options();
-            options.ShowDialog();
+        private void MainForm_Load(object sender, EventArgs e) {
+            OBJAddingStatus.CurrentOBJID = 0;
             OptionsRefresh();
         }
-        #region newBG
-        private void buttonNewBG_Click(object sender, EventArgs e) {
-            openFileDialog.ShowDialog();
-            buttonRefreshBG.PerformClick();
+        private void OptionsRefresh() {
+            listViewBG.View = listViewOBJ.View = listViewBGM.View = Settings.Default.LViewValue;
         }
-
-        private void openFileDialog_FileOk(object sender, CancelEventArgs e) {
-            Importer Importer = new Importer();
-            BGAddingStatus.bitmap = Image.FromFile(openFileDialog.FileName) as Bitmap;
-            Importer.ShowDialog();
-        }
-        #endregion
 
         private void saveFileDialog_FileOk(object sender, CancelEventArgs e) {
 
@@ -164,13 +134,13 @@ namespace DIYScript_Interpreter {
                 }
 
 
-                //I didnt learn Linux Shell Operation well...:(
+                //I didnt learn *nix Shell Operation well...:(
 
             }
 
             #endregion
 
-            #region =BG=
+            #region =BG=(finished!!)
             DynaPath = FilePath + @"\BG";
 
             Directory.CreateDirectory(DynaPath);
@@ -193,15 +163,69 @@ namespace DIYScript_Interpreter {
             #endregion
         }
 
-        private void OptionsRefresh() {
-            listViewBG.View = listViewOBJ.View = listViewBGM.View = Settings.Default.LViewValue;
+        #region Section GamePlay
+
+        public void NUT_Click(object sender, EventArgs e) {
+            GamePlay player = new GamePlay();
+            player.Show();
+            Hide();
+        }
+
+        private void Run_Click(object sender, EventArgs e) {
+            NUT.PerformClick();
+        }
+
+        #endregion
+        #region Section BG
+
+        private void listViewBG_SelectedIndexChanged(object sender, EventArgs e) {
+            if(Current.BGList[listViewBG.FocusedItem.Index].isNormal == true) {
+                buttonNormalBG.Enabled = false;
+            } else {
+                buttonNormalBG.Enabled = true;
+            }
+        }
+
+        private void buttonRefreshBG_Click(object sender, EventArgs e) {
+            listViewBG.Clear();
+            imageListBGSmall.Images.Clear();
+            imageListBGLarge.Images.Clear();
+            foreach(BG bg in Current.BGList) {
+                imageListBGSmall.Images.Add(bg.bitmap);
+                imageListBGLarge.Images.Add(bg.bitmap);
+                listViewBG.Items.Add(bg.Name, Current.BGList.IndexOf(bg));
+            }
+        }
+
+        private void buttonDeleteBG_Click(object sender, EventArgs e) {
+            try {
+                Current.BGList.RemoveAt(listViewBG.FocusedItem.Index);
+            } catch(Exception err) {
+                MessageBox.Show(err.Message);
+            }
+        }
+        #region newBG
+        private void buttonNewBG_Click(object sender, EventArgs e) {
+            openFileDialog.ShowDialog();
+            buttonRefreshBG.PerformClick();
+        }
+
+        private void openFileDialog_FileOk(object sender, CancelEventArgs e) {
+            Importer Importer = new Importer();
+            BGAddingStatus.bitmap = Image.FromFile(openFileDialog.FileName) as Bitmap;
+            Importer.ShowDialog();
 
         }
-        private void MainForm_Load(object sender, EventArgs e) {
-            OBJAddingStatus.CurrentOBJID = 0;
-            listViewBG.View = listViewOBJ.View = listViewBGM.View = Settings.Default.LViewValue;
+        #endregion
 
-
+        #endregion
+        #region Section OBJ
+        public void OBJRefresh() {
+            foreach(OBJ obj in Current.OBJList) {
+                listViewOBJ.Clear();
+                listViewOBJ.Items.Add(obj.Name, (int)obj.ID);
+                //imageList.Images.Add();
+            }
         }
 
         private void buttonNewOBJ_Click_1(object sender, EventArgs e) {
@@ -211,6 +235,14 @@ namespace DIYScript_Interpreter {
             buttonRefreshOBJ.PerformClick();
         }
 
+        private void buttonEditOBJ_Click(object sender, EventArgs e) {
+            OBJMaker obj = new OBJMaker();
+            OBJAddingStatus.isEdit = true;
+            obj.setOBJtoEdit(Current.OBJList[listViewOBJ.FocusedItem.Index]);
+            OBJAddingStatus.CurrentOBJID = Current.OBJList[listViewOBJ.FocusedItem.Index].ID;
+            obj.ShowDialog();
+            buttonRefreshOBJ.PerformClick();
+        }
         private void buttonDelOBJ_Click(object sender, EventArgs e) {
             Current.OBJList.RemoveAt(listViewOBJ.FocusedItem.Index);
         }
@@ -226,73 +258,20 @@ namespace DIYScript_Interpreter {
             }
         }
 
-
-        private void buttonRefreshBG_Click(object sender, EventArgs e) {
-            listViewBG.Clear();
-            imageListBGSmall.Images.Clear();
-            imageListBGLarge.Images.Clear();
-            foreach(BG bg in Current.BGList) {
-                imageListBGSmall.Images.Add(bg.bitmap);
-                imageListBGLarge.Images.Add(bg.bitmap);
-                listViewBG.Items.Add(bg.Name, Current.BGList.IndexOf(bg));
-            }
-        }
-
-        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
-
-        }
-
-        private void buttonDeleteBG_Click(object sender, EventArgs e) {
-            try {
-                Current.BGList.RemoveAt(listViewBG.FocusedItem.Index);
-            } catch(Exception err) {
-                MessageBox.Show(err.Message);
-            }
-        }
-
-        public void NUT_Click(object sender, EventArgs e) {
-            GamePlay player = new GamePlay();
-            player.Show();
-            Hide();
-        }
-
-
-        private void Run_Click(object sender, EventArgs e) {
-            NUT.PerformClick();
-        }
-
-        private void buttonAdd_Click(object sender, EventArgs e) {
-
-            try {
-                Current.OBJList[listViewOBJ.FocusedItem.Index].ScriptList.Add(new Script());
-            } catch {
-
-            }
-            CommandRefresh();
-        }
-
-        private void buttonDel_Click(object sender, EventArgs e) {
-
-        }
-
         private void listViewOBJ_SelectedIndexChanged(object sender, EventArgs e) {
             labelOBJName.Text = Current.OBJList[listViewOBJ.FocusedItem.Index].Name;
             if(listViewOBJ.FocusedItem.Equals(null)) {
                 labelOBJName.Text = "未选中对象";
             }
         }
-
-        private void buttonEditBG_Click(object sender, EventArgs e) {
-            openFileDialog.ShowDialog();
-            buttonRefreshBG.PerformClick();
-        }
-
-        private void buttonEditOBJ_Click(object sender, EventArgs e) {
-            Form OBJ = new OBJMaker();
-            OBJAddingStatus.isEdit = true;
-            OBJAddingStatus.CurrentOBJID = Current.OBJList[listViewOBJ.FocusedItem.Index].ID;
-            OBJ.ShowDialog();
-            buttonRefreshOBJ.PerformClick();
+        #endregion
+        #region Section AI
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) {
+            if(checkBoxArea.Checked) {
+                checkBoxArea.Text = "此OBJ";
+            } else {
+                checkBoxArea.Text = "关卡的任意位置";
+            }
         }
         private void CommandRefresh() {
             listBoxScript.Items.Clear();
@@ -321,64 +300,28 @@ namespace DIYScript_Interpreter {
             Current.BGList[listViewBG.FocusedItem.Index].isNormal = true;
             buttonNormalBG.Enabled = false;
         }
+        private void buttonAdd_Click(object sender, EventArgs e) {
 
-        private void listViewBG_SelectedIndexChanged(object sender, EventArgs e) {
-            if(Current.BGList[listViewBG.FocusedItem.Index].isNormal == true) {
-                buttonNormalBG.Enabled = false;
-            } else {
-                buttonNormalBG.Enabled = true;
-            }
-        }
-
-        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
-            saveFileDialogPj.ShowDialog();
-        }
-
-        private void checkBoxTimeBOSS_CheckedChanged(object sender, EventArgs e) {
-            if(checkBoxTimeBOSS.Checked) {
-                maskedTextBoxTime.Enabled = false;
-            } else {
-                maskedTextBoxTime.Enabled = true;
-            }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e) {
-            if(checkBoxArea.Checked) {
-                checkBoxArea.Text = "此OBJ";
-            } else {
-                checkBoxArea.Text = "关卡的任意位置";
-            }
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            linkLabel1.LinkVisited = true;
-            string target = "https://www.bilibili.com/video/BV1sh411b7ww";
             try {
-                System.Diagnostics.Process.Start(target);
-            } catch(System.ComponentModel.Win32Exception noBrowser) {
-                if(noBrowser.ErrorCode == -2147467259) {
-                    MessageBox.Show("您连浏览器都没有的吗..");
-                }
-            } catch(System.Exception other) {
-                MessageBox.Show(other.Message);
+                Current.OBJList[listViewOBJ.FocusedItem.Index].ScriptList.Add(new Script());
+            } catch {
+
             }
+            CommandRefresh();
+        }
+        private void buttonDel_Click(object sender, EventArgs e) {
+
         }
 
         private void AI_Click(object sender, EventArgs e) {
 
         }
 
-        private void groupBoxWhen_Enter(object sender, EventArgs e) {
-
-        }
 
         private void CTap_Click(object sender, EventArgs e) {
 
         }
 
-        private void labelOBJName_Click(object sender, EventArgs e) {
-
-        }
 
         private void comboBoxClickSlide_SelectedIndexChanged(object sender, EventArgs e) {
             if(comboBoxClickSlide.SelectedIndex == 0) {
@@ -403,30 +346,6 @@ namespace DIYScript_Interpreter {
                 radioButtonTapSE.Enabled = true;
 
             }
-
-        }
-
-        private void radioButton7_CheckedChanged(object sender, EventArgs e) {
-
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e) {
-
-        }
-
-        private void radioButtonTapSW_CheckedChanged(object sender, EventArgs e) {
-
-        }
-
-        private void radioButtonTapW_CheckedChanged(object sender, EventArgs e) {
-
-        }
-
-        private void radioButtonTapN_CheckedChanged(object sender, EventArgs e) {
-
-        }
-
-        private void radioButtonTapNE_CheckedChanged(object sender, EventArgs e) {
 
         }
 
@@ -515,14 +434,43 @@ namespace DIYScript_Interpreter {
             chooser.Show();
         }
 
-        private void 程序帮助ToolStripMenuItem_Click(object sender, EventArgs e) {
+        #endregion
+        #region Section Metadata
 
+
+        private void checkBoxTimeBOSS_CheckedChanged(object sender, EventArgs e) {
+            if(checkBoxTimeBOSS.Checked) {
+                maskedTextBoxTime.Enabled = false;
+            } else {
+                maskedTextBoxTime.Enabled = true;
+            }
+        }
+
+        #endregion
+        #region Music
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            linkLabel1.LinkVisited = true;
+            string target = "https://www.bilibili.com/video/BV1sh411b7ww";
+            try {
+                System.Diagnostics.Process.Start(target);
+            } catch(System.ComponentModel.Win32Exception noBrowser) {
+                if(noBrowser.ErrorCode == -2147467259) {
+                    MessageBox.Show("您连浏览器都没有的吗..");
+                }
+            } catch(System.Exception other) {
+                MessageBox.Show(other.Message);
+            }
+        }
+        #endregion
+        #region toolStrip
+
+        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
+            saveFileDialogPj.ShowDialog();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e) {
 
         }
-
         private void File_Click(object sender, EventArgs e) {
             File.ForeColor = Color.Black;
         }
@@ -546,6 +494,32 @@ namespace DIYScript_Interpreter {
         private void Help_MouseLeave(object sender, EventArgs e) {
             Help.ForeColor = Color.White;
         }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e) {
+            Dispose();
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e) {
+            Form About = new AboutBox();
+            About.ShowDialog();
+        }
+
+
+        private void 首选项ToolStripMenuItem_Click(object sender, EventArgs e) {
+            Form options = new Options();
+            options.ShowDialog();
+            OptionsRefresh();
+        }
+
+        #endregion
+
+
+
+
+
+
+        #region Microsoft
+        #endregion
     }
 
 }

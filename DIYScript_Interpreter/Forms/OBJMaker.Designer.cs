@@ -108,7 +108,6 @@ namespace DIYScript_Interpreter
             this.radioButtonPoint.TabIndex = 4;
             this.radioButtonPoint.Text = "固定位置";
             this.radioButtonPoint.UseVisualStyleBackColor = true;
-            this.radioButtonPoint.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButtonArea
             // 
@@ -120,7 +119,7 @@ namespace DIYScript_Interpreter
             this.radioButtonArea.TabIndex = 5;
             this.radioButtonArea.Text = "区域随机";
             this.radioButtonArea.UseVisualStyleBackColor = true;
-            this.radioButtonArea.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButtonArea.CheckedChanged += new System.EventHandler(this.radioButtonArea_CheckedChanged);
             // 
             // groupBoxStart
             // 
