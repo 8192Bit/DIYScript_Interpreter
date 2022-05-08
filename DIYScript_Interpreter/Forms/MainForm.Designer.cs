@@ -46,11 +46,8 @@ namespace DIYScript_Interpreter
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.imageListOBJSmall = new System.Windows.Forms.ImageList(this.components);
             this.groupBoxBG = new System.Windows.Forms.GroupBox();
-            this.buttonNormalBG = new System.Windows.Forms.Button();
-            this.buttonRefreshBG = new System.Windows.Forms.Button();
             this.buttonDeleteBG = new System.Windows.Forms.Button();
             this.buttonNewBG = new System.Windows.Forms.Button();
-            this.listViewBG = new System.Windows.Forms.ListView();
             this.imageListBGLarge = new System.Windows.Forms.ImageList(this.components);
             this.imageListBGSmall = new System.Windows.Forms.ImageList(this.components);
             this.groupBoxOBJ = new System.Windows.Forms.GroupBox();
@@ -67,7 +64,6 @@ namespace DIYScript_Interpreter
             this.tabControlA = new System.Windows.Forms.TabControl();
             this.ATravel = new System.Windows.Forms.TabPage();
             this.comboBoxTSpeed = new System.Windows.Forms.ComboBox();
-            this.pictureBoxTS = new System.Windows.Forms.PictureBox();
             this.tabControlT = new System.Windows.Forms.TabControl();
             this.tabPageTPosition = new System.Windows.Forms.TabPage();
             this.tabPageTOBJPosition = new System.Windows.Forms.TabPage();
@@ -85,7 +81,6 @@ namespace DIYScript_Interpreter
             this.tabPageTRoaming = new System.Windows.Forms.TabPage();
             this.comboBoxTRTType = new System.Windows.Forms.ComboBox();
             this.tabPageTStop = new System.Windows.Forms.TabPage();
-            this.comboBoxTTType = new System.Windows.Forms.ComboBox();
             this.AArt = new System.Windows.Forms.TabPage();
             this.AWinLose = new System.Windows.Forms.TabPage();
             this.checkBoxWL = new System.Windows.Forms.CheckBox();
@@ -93,10 +88,6 @@ namespace DIYScript_Interpreter
             this.ASfx = new System.Windows.Forms.TabPage();
             this.ASwitch = new System.Windows.Forms.TabPage();
             this.checkBoxSONOFF = new System.Windows.Forms.CheckBox();
-            this.radioButtonSD = new System.Windows.Forms.RadioButton();
-            this.radioButtonSC = new System.Windows.Forms.RadioButton();
-            this.radioButtonSB = new System.Windows.Forms.RadioButton();
-            this.radioButtonSA = new System.Windows.Forms.RadioButton();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -106,8 +97,7 @@ namespace DIYScript_Interpreter
             this.groupBoxWhen = new System.Windows.Forms.GroupBox();
             this.tabControlC = new System.Windows.Forms.TabControl();
             this.CTap = new System.Windows.Forms.TabPage();
-            this.pictureBoxCS = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCTIndicator = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioButtonTapSE = new System.Windows.Forms.RadioButton();
             this.radioButtonTapE = new System.Windows.Forms.RadioButton();
             this.radioButtonTapNE = new System.Windows.Forms.RadioButton();
@@ -116,7 +106,6 @@ namespace DIYScript_Interpreter
             this.radioButtonTapNW = new System.Windows.Forms.RadioButton();
             this.radioButtonTapS = new System.Windows.Forms.RadioButton();
             this.radioButtonTapN = new System.Windows.Forms.RadioButton();
-            this.comboBoxClickSlide = new System.Windows.Forms.ComboBox();
             this.checkBoxArea = new System.Windows.Forms.CheckBox();
             this.CContact = new System.Windows.Forms.TabPage();
             this.CArt = new System.Windows.Forms.TabPage();
@@ -126,10 +115,6 @@ namespace DIYScript_Interpreter
             this.trackBarTTFROM = new System.Windows.Forms.TrackBar();
             this.CSwitch = new System.Windows.Forms.TabPage();
             this.buttonCSChoose = new System.Windows.Forms.Button();
-            this.radioButtonCSD = new System.Windows.Forms.RadioButton();
-            this.radioButtonCSC = new System.Windows.Forms.RadioButton();
-            this.radioButtonCSB = new System.Windows.Forms.RadioButton();
-            this.radioButtonCSA = new System.Windows.Forms.RadioButton();
             this.comboBoxST = new System.Windows.Forms.ComboBox();
             this.CWonLoss = new System.Windows.Forms.TabPage();
             this.comboBoxWL = new System.Windows.Forms.ComboBox();
@@ -154,14 +139,9 @@ namespace DIYScript_Interpreter
             this.buttonNewBGM = new System.Windows.Forms.Button();
             this.listViewBGM = new System.Windows.Forms.ListView();
             this.Metadata = new System.Windows.Forms.TabPage();
-            this.labelTimeSet = new System.Windows.Forms.Label();
-            this.maskedTextBoxTime = new System.Windows.Forms.MaskedTextBox();
-            this.checkBoxTimeBOSS = new System.Windows.Forms.CheckBox();
             this.labelTime = new System.Windows.Forms.Label();
             this.radioButtonSpeedS = new System.Windows.Forms.RadioButton();
-            this.radioButtonSpeedM = new System.Windows.Forms.RadioButton();
             this.radioButtonSpeedQ = new System.Windows.Forms.RadioButton();
-            this.labelSpeed = new System.Windows.Forms.Label();
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.labelComment = new System.Windows.Forms.Label();
             this.textBoxGameName = new System.Windows.Forms.TextBox();
@@ -169,6 +149,9 @@ namespace DIYScript_Interpreter
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogPj = new System.Windows.Forms.OpenFileDialog();
             this.NUT = new System.Windows.Forms.Button();
+            this.pictureBoxTS = new System.Windows.Forms.PictureBox();
+            this.comboBoxTTType = new System.Windows.Forms.ComboBox();
+            this.radioButtonSpeedM = new System.Windows.Forms.RadioButton();
             this.toolStrip.SuspendLayout();
             this.groupBoxBG.SuspendLayout();
             this.groupBoxOBJ.SuspendLayout();
@@ -178,7 +161,6 @@ namespace DIYScript_Interpreter
             this.groupBoxAction.SuspendLayout();
             this.tabControlA.SuspendLayout();
             this.ATravel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTS)).BeginInit();
             this.tabControlT.SuspendLayout();
             this.tabPageTOBJPosition.SuspendLayout();
             this.tabPageTDirection.SuspendLayout();
@@ -189,8 +171,7 @@ namespace DIYScript_Interpreter
             this.groupBoxWhen.SuspendLayout();
             this.tabControlC.SuspendLayout();
             this.CTap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCTIndicator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTTO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTTFROM)).BeginInit();
@@ -199,6 +180,7 @@ namespace DIYScript_Interpreter
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOBJPic)).BeginInit();
             this.BGM.SuspendLayout();
             this.Metadata.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTS)).BeginInit();
             this.SuspendLayout();
             // 
             // saveFileDialogPj
@@ -220,7 +202,7 @@ namespace DIYScript_Interpreter
             this.toolStripButton1});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1360, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1432, 25);
             this.toolStrip.TabIndex = 1;
             // 
             // File
@@ -335,11 +317,8 @@ namespace DIYScript_Interpreter
             // groupBoxBG
             // 
             this.groupBoxBG.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.groupBoxBG.Controls.Add(this.buttonNormalBG);
-            this.groupBoxBG.Controls.Add(this.buttonRefreshBG);
             this.groupBoxBG.Controls.Add(this.buttonDeleteBG);
             this.groupBoxBG.Controls.Add(this.buttonNewBG);
-            this.groupBoxBG.Controls.Add(this.listViewBG);
             this.groupBoxBG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBoxBG.Location = new System.Drawing.Point(1210, 28);
             this.groupBoxBG.Name = "groupBoxBG";
@@ -347,34 +326,6 @@ namespace DIYScript_Interpreter
             this.groupBoxBG.TabIndex = 8;
             this.groupBoxBG.TabStop = false;
             this.groupBoxBG.Text = "背景";
-            // 
-            // buttonNormalBG
-            // 
-            this.buttonNormalBG.BackColor = System.Drawing.Color.Transparent;
-            this.buttonNormalBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonNormalBG.Enabled = false;
-            this.buttonNormalBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonNormalBG.FlatAppearance.BorderSize = 5;
-            this.buttonNormalBG.Location = new System.Drawing.Point(173, 431);
-            this.buttonNormalBG.Name = "buttonNormalBG";
-            this.buttonNormalBG.Size = new System.Drawing.Size(87, 31);
-            this.buttonNormalBG.TabIndex = 7;
-            this.buttonNormalBG.Text = "设为默认背景";
-            this.buttonNormalBG.UseVisualStyleBackColor = false;
-            this.buttonNormalBG.Click += new System.EventHandler(this.buttonNormalBG_Click);
-            // 
-            // buttonRefreshBG
-            // 
-            this.buttonRefreshBG.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.Refresh;
-            this.buttonRefreshBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonRefreshBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.buttonRefreshBG.FlatAppearance.BorderSize = 5;
-            this.buttonRefreshBG.Location = new System.Drawing.Point(6, 17);
-            this.buttonRefreshBG.Name = "buttonRefreshBG";
-            this.buttonRefreshBG.Size = new System.Drawing.Size(25, 25);
-            this.buttonRefreshBG.TabIndex = 6;
-            this.buttonRefreshBG.UseVisualStyleBackColor = true;
-            this.buttonRefreshBG.Click += new System.EventHandler(this.buttonRefreshBG_Click);
             // 
             // buttonDeleteBG
             // 
@@ -403,19 +354,6 @@ namespace DIYScript_Interpreter
             this.buttonNewBG.Text = "新建";
             this.buttonNewBG.UseVisualStyleBackColor = false;
             this.buttonNewBG.Click += new System.EventHandler(this.buttonNewBG_Click);
-            // 
-            // listViewBG
-            // 
-            this.listViewBG.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.listViewBG.HideSelection = false;
-            this.listViewBG.LargeImageList = this.imageListBGLarge;
-            this.listViewBG.Location = new System.Drawing.Point(6, 45);
-            this.listViewBG.Name = "listViewBG";
-            this.listViewBG.Size = new System.Drawing.Size(253, 380);
-            this.listViewBG.SmallImageList = this.imageListBGSmall;
-            this.listViewBG.TabIndex = 2;
-            this.listViewBG.UseCompatibleStateImageBehavior = false;
-            this.listViewBG.SelectedIndexChanged += new System.EventHandler(this.listViewBG_SelectedIndexChanged);
             // 
             // imageListBGLarge
             // 
@@ -632,14 +570,6 @@ namespace DIYScript_Interpreter
             this.comboBoxTSpeed.TabIndex = 13;
             this.comboBoxTSpeed.Text = "运动速度";
             // 
-            // pictureBoxTS
-            // 
-            this.pictureBoxTS.Location = new System.Drawing.Point(8, 5);
-            this.pictureBoxTS.Name = "pictureBoxTS";
-            this.pictureBoxTS.Size = new System.Drawing.Size(24, 24);
-            this.pictureBoxTS.TabIndex = 12;
-            this.pictureBoxTS.TabStop = false;
-            // 
             // tabControlT
             // 
             this.tabControlT.Controls.Add(this.tabPageTPosition);
@@ -843,28 +773,6 @@ namespace DIYScript_Interpreter
             this.tabPageTStop.Text = "停止";
             this.tabPageTStop.UseVisualStyleBackColor = true;
             // 
-            // comboBoxTTType
-            // 
-            this.comboBoxTTType.AutoCompleteCustomSource.AddRange(new string[] {
-            "触摸",
-            "滑动"});
-            this.comboBoxTTType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBoxTTType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxTTType.FormattingEnabled = true;
-            this.comboBoxTTType.Items.AddRange(new object[] {
-            "无",
-            "线性",
-            "快速",
-            "缓慢",
-            "平滑",
-            "停留"});
-            this.comboBoxTTType.Location = new System.Drawing.Point(38, 5);
-            this.comboBoxTTType.Name = "comboBoxTTType";
-            this.comboBoxTTType.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxTTType.TabIndex = 2;
-            this.comboBoxTTType.Text = "运动类型";
-            this.comboBoxTTType.SelectedIndexChanged += new System.EventHandler(this.comboBoxTTType_SelectedIndexChanged);
-            // 
             // AArt
             // 
             this.AArt.Location = new System.Drawing.Point(4, 22);
@@ -918,10 +826,6 @@ namespace DIYScript_Interpreter
             // ASwitch
             // 
             this.ASwitch.Controls.Add(this.checkBoxSONOFF);
-            this.ASwitch.Controls.Add(this.radioButtonSD);
-            this.ASwitch.Controls.Add(this.radioButtonSC);
-            this.ASwitch.Controls.Add(this.radioButtonSB);
-            this.ASwitch.Controls.Add(this.radioButtonSA);
             this.ASwitch.Location = new System.Drawing.Point(4, 22);
             this.ASwitch.Name = "ASwitch";
             this.ASwitch.Size = new System.Drawing.Size(339, 146);
@@ -935,63 +839,13 @@ namespace DIYScript_Interpreter
             this.checkBoxSONOFF.AutoSize = true;
             this.checkBoxSONOFF.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBoxSONOFF.Image = ((System.Drawing.Image)(resources.GetObject("checkBoxSONOFF.Image")));
-            this.checkBoxSONOFF.Location = new System.Drawing.Point(154, 81);
+            this.checkBoxSONOFF.Location = new System.Drawing.Point(152, 57);
             this.checkBoxSONOFF.Name = "checkBoxSONOFF";
             this.checkBoxSONOFF.Size = new System.Drawing.Size(39, 38);
             this.checkBoxSONOFF.TabIndex = 4;
             this.checkBoxSONOFF.Text = "    ";
             this.checkBoxSONOFF.UseVisualStyleBackColor = true;
             this.checkBoxSONOFF.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
-            // 
-            // radioButtonSD
-            // 
-            this.radioButtonSD.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonSD.AutoSize = true;
-            this.radioButtonSD.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonSD.Location = new System.Drawing.Point(273, 19);
-            this.radioButtonSD.Name = "radioButtonSD";
-            this.radioButtonSD.Size = new System.Drawing.Size(31, 31);
-            this.radioButtonSD.TabIndex = 3;
-            this.radioButtonSD.Text = "D";
-            this.radioButtonSD.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonSC
-            // 
-            this.radioButtonSC.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonSC.AutoSize = true;
-            this.radioButtonSC.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonSC.Location = new System.Drawing.Point(193, 19);
-            this.radioButtonSC.Name = "radioButtonSC";
-            this.radioButtonSC.Size = new System.Drawing.Size(31, 31);
-            this.radioButtonSC.TabIndex = 2;
-            this.radioButtonSC.Text = "C";
-            this.radioButtonSC.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonSB
-            // 
-            this.radioButtonSB.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonSB.AutoSize = true;
-            this.radioButtonSB.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonSB.Location = new System.Drawing.Point(113, 19);
-            this.radioButtonSB.Name = "radioButtonSB";
-            this.radioButtonSB.Size = new System.Drawing.Size(31, 31);
-            this.radioButtonSB.TabIndex = 1;
-            this.radioButtonSB.Text = "B";
-            this.radioButtonSB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonSA
-            // 
-            this.radioButtonSA.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonSA.AutoSize = true;
-            this.radioButtonSA.Checked = true;
-            this.radioButtonSA.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonSA.Location = new System.Drawing.Point(33, 19);
-            this.radioButtonSA.Name = "radioButtonSA";
-            this.radioButtonSA.Size = new System.Drawing.Size(31, 31);
-            this.radioButtonSA.TabIndex = 0;
-            this.radioButtonSA.TabStop = true;
-            this.radioButtonSA.Text = "A";
-            this.radioButtonSA.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -1092,8 +946,8 @@ namespace DIYScript_Interpreter
             // 
             // CTap
             // 
-            this.CTap.Controls.Add(this.pictureBoxCS);
-            this.CTap.Controls.Add(this.pictureBoxCTIndicator);
+            this.CTap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.CTap.Controls.Add(this.pictureBox1);
             this.CTap.Controls.Add(this.radioButtonTapSE);
             this.CTap.Controls.Add(this.radioButtonTapE);
             this.CTap.Controls.Add(this.radioButtonTapNE);
@@ -1102,7 +956,6 @@ namespace DIYScript_Interpreter
             this.CTap.Controls.Add(this.radioButtonTapNW);
             this.CTap.Controls.Add(this.radioButtonTapS);
             this.CTap.Controls.Add(this.radioButtonTapN);
-            this.CTap.Controls.Add(this.comboBoxClickSlide);
             this.CTap.Controls.Add(this.checkBoxArea);
             this.CTap.Location = new System.Drawing.Point(4, 22);
             this.CTap.Name = "CTap";
@@ -1113,15 +966,7 @@ namespace DIYScript_Interpreter
             this.CTap.UseVisualStyleBackColor = true;
             this.CTap.Click += new System.EventHandler(this.CTap_Click);
             // 
-            // pictureBoxCS
-            // 
-            this.pictureBoxCS.Location = new System.Drawing.Point(7, 7);
-            this.pictureBoxCS.Name = "pictureBoxCS";
-            this.pictureBoxCS.Size = new System.Drawing.Size(24, 24);
-            this.pictureBoxCS.TabIndex = 11;
-            this.pictureBoxCS.TabStop = false;
-            // 
-            // pictureBoxCTIndicator
+            // pictureBox1
             // 
             this.pictureBoxCTIndicator.Image = global::DIYScript_Interpreter.Properties.Resources.Sides;
             this.pictureBoxCTIndicator.Location = new System.Drawing.Point(251, 36);
@@ -1235,24 +1080,6 @@ namespace DIYScript_Interpreter
             this.radioButtonTapN.Text = "↑";
             this.radioButtonTapN.UseVisualStyleBackColor = true;
             // 
-            // comboBoxClickSlide
-            // 
-            this.comboBoxClickSlide.AutoCompleteCustomSource.AddRange(new string[] {
-            "触摸",
-            "滑动"});
-            this.comboBoxClickSlide.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBoxClickSlide.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxClickSlide.FormattingEnabled = true;
-            this.comboBoxClickSlide.Items.AddRange(new object[] {
-            "触摸",
-            "滑动"});
-            this.comboBoxClickSlide.Location = new System.Drawing.Point(37, 7);
-            this.comboBoxClickSlide.Name = "comboBoxClickSlide";
-            this.comboBoxClickSlide.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxClickSlide.TabIndex = 1;
-            this.comboBoxClickSlide.Text = "触摸方式";
-            this.comboBoxClickSlide.SelectedIndexChanged += new System.EventHandler(this.comboBoxClickSlide_SelectedIndexChanged);
-            // 
             // checkBoxArea
             // 
             this.checkBoxArea.AutoSize = true;
@@ -1329,10 +1156,6 @@ namespace DIYScript_Interpreter
             // CSwitch
             // 
             this.CSwitch.Controls.Add(this.buttonCSChoose);
-            this.CSwitch.Controls.Add(this.radioButtonCSD);
-            this.CSwitch.Controls.Add(this.radioButtonCSC);
-            this.CSwitch.Controls.Add(this.radioButtonCSB);
-            this.CSwitch.Controls.Add(this.radioButtonCSA);
             this.CSwitch.Controls.Add(this.comboBoxST);
             this.CSwitch.Location = new System.Drawing.Point(4, 22);
             this.CSwitch.Name = "CSwitch";
@@ -1345,61 +1168,11 @@ namespace DIYScript_Interpreter
             // 
             this.buttonCSChoose.Location = new System.Drawing.Point(69, 27);
             this.buttonCSChoose.Name = "buttonCSChoose";
-            this.buttonCSChoose.Size = new System.Drawing.Size(75, 23);
+            this.buttonCSChoose.Size = new System.Drawing.Size(174, 23);
             this.buttonCSChoose.TabIndex = 8;
             this.buttonCSChoose.Text = "选择OBJ";
             this.buttonCSChoose.UseVisualStyleBackColor = true;
             this.buttonCSChoose.Click += new System.EventHandler(this.buttonCSChoose_Click);
-            // 
-            // radioButtonCSD
-            // 
-            this.radioButtonCSD.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonCSD.AutoSize = true;
-            this.radioButtonCSD.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonCSD.Location = new System.Drawing.Point(222, 28);
-            this.radioButtonCSD.Name = "radioButtonCSD";
-            this.radioButtonCSD.Size = new System.Drawing.Size(21, 22);
-            this.radioButtonCSD.TabIndex = 7;
-            this.radioButtonCSD.Text = "D";
-            this.radioButtonCSD.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonCSC
-            // 
-            this.radioButtonCSC.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonCSC.AutoSize = true;
-            this.radioButtonCSC.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonCSC.Location = new System.Drawing.Point(198, 28);
-            this.radioButtonCSC.Name = "radioButtonCSC";
-            this.radioButtonCSC.Size = new System.Drawing.Size(21, 22);
-            this.radioButtonCSC.TabIndex = 6;
-            this.radioButtonCSC.Text = "C";
-            this.radioButtonCSC.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonCSB
-            // 
-            this.radioButtonCSB.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonCSB.AutoSize = true;
-            this.radioButtonCSB.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonCSB.Location = new System.Drawing.Point(174, 28);
-            this.radioButtonCSB.Name = "radioButtonCSB";
-            this.radioButtonCSB.Size = new System.Drawing.Size(21, 22);
-            this.radioButtonCSB.TabIndex = 5;
-            this.radioButtonCSB.Text = "B";
-            this.radioButtonCSB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonCSA
-            // 
-            this.radioButtonCSA.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonCSA.AutoSize = true;
-            this.radioButtonCSA.Checked = true;
-            this.radioButtonCSA.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonCSA.Location = new System.Drawing.Point(150, 28);
-            this.radioButtonCSA.Name = "radioButtonCSA";
-            this.radioButtonCSA.Size = new System.Drawing.Size(21, 22);
-            this.radioButtonCSA.TabIndex = 4;
-            this.radioButtonCSA.TabStop = true;
-            this.radioButtonCSA.Text = "A";
-            this.radioButtonCSA.UseVisualStyleBackColor = true;
             // 
             // comboBoxST
             // 
@@ -1667,14 +1440,11 @@ namespace DIYScript_Interpreter
             // 
             // Metadata
             // 
-            this.Metadata.Controls.Add(this.labelTimeSet);
-            this.Metadata.Controls.Add(this.maskedTextBoxTime);
-            this.Metadata.Controls.Add(this.checkBoxTimeBOSS);
+            this.Metadata.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Metadata.Controls.Add(this.labelTime);
             this.Metadata.Controls.Add(this.radioButtonSpeedS);
             this.Metadata.Controls.Add(this.radioButtonSpeedM);
             this.Metadata.Controls.Add(this.radioButtonSpeedQ);
-            this.Metadata.Controls.Add(this.labelSpeed);
             this.Metadata.Controls.Add(this.textBoxComment);
             this.Metadata.Controls.Add(this.labelComment);
             this.Metadata.Controls.Add(this.textBoxGameName);
@@ -1687,38 +1457,10 @@ namespace DIYScript_Interpreter
             this.Metadata.TabIndex = 2;
             this.Metadata.Text = "元数据";
             // 
-            // labelTimeSet
-            // 
-            this.labelTimeSet.AutoSize = true;
-            this.labelTimeSet.Location = new System.Drawing.Point(167, 182);
-            this.labelTimeSet.Name = "labelTimeSet";
-            this.labelTimeSet.Size = new System.Drawing.Size(53, 12);
-            this.labelTimeSet.TabIndex = 11;
-            this.labelTimeSet.Text = "时间(ms)";
-            // 
-            // maskedTextBoxTime
-            // 
-            this.maskedTextBoxTime.Location = new System.Drawing.Point(226, 178);
-            this.maskedTextBoxTime.Mask = "000000ms";
-            this.maskedTextBoxTime.Name = "maskedTextBoxTime";
-            this.maskedTextBoxTime.Size = new System.Drawing.Size(100, 21);
-            this.maskedTextBoxTime.TabIndex = 10;
-            // 
-            // checkBoxTimeBOSS
-            // 
-            this.checkBoxTimeBOSS.AutoSize = true;
-            this.checkBoxTimeBOSS.Location = new System.Drawing.Point(74, 180);
-            this.checkBoxTimeBOSS.Name = "checkBoxTimeBOSS";
-            this.checkBoxTimeBOSS.Size = new System.Drawing.Size(78, 16);
-            this.checkBoxTimeBOSS.TabIndex = 9;
-            this.checkBoxTimeBOSS.Text = "BOSS 关卡";
-            this.checkBoxTimeBOSS.UseVisualStyleBackColor = true;
-            this.checkBoxTimeBOSS.CheckedChanged += new System.EventHandler(this.checkBoxTimeBOSS_CheckedChanged);
-            // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(15, 181);
+            this.labelTime.Location = new System.Drawing.Point(15, 148);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(53, 12);
             this.labelTime.TabIndex = 8;
@@ -1730,23 +1472,11 @@ namespace DIYScript_Interpreter
             this.radioButtonSpeedS.AutoSize = true;
             this.radioButtonSpeedS.Location = new System.Drawing.Point(141, 143);
             this.radioButtonSpeedS.Name = "radioButtonSpeedS";
-            this.radioButtonSpeedS.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonSpeedS.Size = new System.Drawing.Size(39, 22);
             this.radioButtonSpeedS.TabIndex = 7;
             this.radioButtonSpeedS.TabStop = true;
-            this.radioButtonSpeedS.Text = "慢";
+            this.radioButtonSpeedS.Text = "BOSS";
             this.radioButtonSpeedS.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonSpeedM
-            // 
-            this.radioButtonSpeedM.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonSpeedM.AutoSize = true;
-            this.radioButtonSpeedM.Location = new System.Drawing.Point(108, 143);
-            this.radioButtonSpeedM.Name = "radioButtonSpeedM";
-            this.radioButtonSpeedM.Size = new System.Drawing.Size(27, 22);
-            this.radioButtonSpeedM.TabIndex = 6;
-            this.radioButtonSpeedM.TabStop = true;
-            this.radioButtonSpeedM.Text = "中";
-            this.radioButtonSpeedM.UseVisualStyleBackColor = true;
             // 
             // radioButtonSpeedQ
             // 
@@ -1757,17 +1487,8 @@ namespace DIYScript_Interpreter
             this.radioButtonSpeedQ.Size = new System.Drawing.Size(27, 22);
             this.radioButtonSpeedQ.TabIndex = 5;
             this.radioButtonSpeedQ.TabStop = true;
-            this.radioButtonSpeedQ.Text = "快";
+            this.radioButtonSpeedQ.Text = "长";
             this.radioButtonSpeedQ.UseVisualStyleBackColor = true;
-            // 
-            // labelSpeed
-            // 
-            this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Location = new System.Drawing.Point(15, 148);
-            this.labelSpeed.Name = "labelSpeed";
-            this.labelSpeed.Size = new System.Drawing.Size(53, 12);
-            this.labelSpeed.TabIndex = 4;
-            this.labelSpeed.Text = "游戏速度";
             // 
             // textBoxComment
             // 
@@ -1819,8 +1540,8 @@ namespace DIYScript_Interpreter
             this.NUT.BackgroundImage = global::DIYScript_Interpreter.Properties.Resources.CyanBar;
             this.NUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NUT.Font = new System.Drawing.Font("Calibri", 32F);
-            this.NUT.ForeColor = System.Drawing.Color.Black;
-            this.NUT.Location = new System.Drawing.Point(1088, 502);
+            this.NUT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(69)))), ((int)(((byte)(20)))));
+            this.NUT.Location = new System.Drawing.Point(1160, 349);
             this.NUT.Name = "NUT";
             this.NUT.Size = new System.Drawing.Size(260, 67);
             this.NUT.TabIndex = 6;
@@ -1828,11 +1549,53 @@ namespace DIYScript_Interpreter
             this.NUT.UseVisualStyleBackColor = true;
             this.NUT.Click += new System.EventHandler(this.NUT_Click);
             // 
+            // pictureBoxTS
+            // 
+            this.pictureBoxTS.Location = new System.Drawing.Point(7, 3);
+            this.pictureBoxTS.Name = "pictureBoxTS";
+            this.pictureBoxTS.Size = new System.Drawing.Size(24, 24);
+            this.pictureBoxTS.TabIndex = 12;
+            this.pictureBoxTS.TabStop = false;
+            // 
+            // comboBoxTTType
+            // 
+            this.comboBoxTTType.AutoCompleteCustomSource.AddRange(new string[] {
+            "触摸",
+            "滑动"});
+            this.comboBoxTTType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxTTType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxTTType.FormattingEnabled = true;
+            this.comboBoxTTType.Items.AddRange(new object[] {
+            "无",
+            "线性",
+            "快速",
+            "缓慢",
+            "平滑",
+            "停留"});
+            this.comboBoxTTType.Location = new System.Drawing.Point(38, 5);
+            this.comboBoxTTType.Name = "comboBoxTTType";
+            this.comboBoxTTType.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxTTType.TabIndex = 2;
+            this.comboBoxTTType.Text = "运动类型";
+            this.comboBoxTTType.SelectedIndexChanged += new System.EventHandler(this.comboBoxTTType_SelectedIndexChanged);
+            // 
+            // radioButtonSpeedM
+            // 
+            this.radioButtonSpeedM.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonSpeedM.AutoSize = true;
+            this.radioButtonSpeedM.Location = new System.Drawing.Point(108, 143);
+            this.radioButtonSpeedM.Name = "radioButtonSpeedM";
+            this.radioButtonSpeedM.Size = new System.Drawing.Size(27, 22);
+            this.radioButtonSpeedM.TabIndex = 6;
+            this.radioButtonSpeedM.TabStop = true;
+            this.radioButtonSpeedM.Text = "短";
+            this.radioButtonSpeedM.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1360, 581);
+            this.ClientSize = new System.Drawing.Size(1432, 581);
             this.Controls.Add(this.groupBoxAIBGMMdata);
             this.Controls.Add(this.groupBoxBG);
             this.Controls.Add(this.groupBoxOBJ);
@@ -1854,7 +1617,6 @@ namespace DIYScript_Interpreter
             this.groupBoxAction.ResumeLayout(false);
             this.tabControlA.ResumeLayout(false);
             this.ATravel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTS)).EndInit();
             this.tabControlT.ResumeLayout(false);
             this.tabPageTOBJPosition.ResumeLayout(false);
             this.tabPageTDirection.ResumeLayout(false);
@@ -1869,20 +1631,19 @@ namespace DIYScript_Interpreter
             this.tabControlC.ResumeLayout(false);
             this.CTap.ResumeLayout(false);
             this.CTap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCTIndicator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.CTime.ResumeLayout(false);
             this.CTime.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTTO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTTFROM)).EndInit();
             this.CSwitch.ResumeLayout(false);
-            this.CSwitch.PerformLayout();
             this.CWonLoss.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOBJPic)).EndInit();
             this.BGM.ResumeLayout(false);
             this.BGM.PerformLayout();
             this.Metadata.ResumeLayout(false);
             this.Metadata.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1903,7 +1664,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.GroupBox groupBoxBG;
         private System.Windows.Forms.Button buttonDeleteBG;
         private System.Windows.Forms.Button buttonNewBG;
-        private System.Windows.Forms.ListView listViewBG;
         private System.Windows.Forms.GroupBox groupBoxOBJ;
         private System.Windows.Forms.Button buttonEditOBJ;
         private System.Windows.Forms.Button buttonDelOBJ;
@@ -1924,7 +1684,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Label labelGameName;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripDropDownButton Option;
-        private System.Windows.Forms.Button buttonRefreshBG;
         private System.Windows.Forms.Button buttonRefreshOBJ;
         private System.Windows.Forms.ToolStripMenuItem 首选项ToolStripMenuItem;
         private System.Windows.Forms.ImageList imageListOBJLarge;
@@ -1950,16 +1709,10 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ListBox listBoxAction;
-        private System.Windows.Forms.Button buttonNormalBG;
         private System.Windows.Forms.OpenFileDialog openFileDialogPj;
         private System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
-        private System.Windows.Forms.Label labelSpeed;
-        private System.Windows.Forms.Label labelTimeSet;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxTime;
-        private System.Windows.Forms.CheckBox checkBoxTimeBOSS;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.RadioButton radioButtonSpeedS;
-        private System.Windows.Forms.RadioButton radioButtonSpeedM;
         private System.Windows.Forms.RadioButton radioButtonSpeedQ;
         private System.Windows.Forms.Button buttonAOK;
         private System.Windows.Forms.TabControl tabControlA;
@@ -1977,7 +1730,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.TabPage CTime;
         private System.Windows.Forms.TabPage CSwitch;
         private System.Windows.Forms.TabPage CWonLoss;
-        private System.Windows.Forms.ComboBox comboBoxClickSlide;
         private System.Windows.Forms.CheckBox checkBoxArea;
         private System.Windows.Forms.RadioButton radioButtonTapN;
         private System.Windows.Forms.LinkLabel linkLabel1;
@@ -1988,12 +1740,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.RadioButton radioButtonTapSW;
         private System.Windows.Forms.RadioButton radioButtonTapW;
         private System.Windows.Forms.RadioButton radioButtonTapNW;
-        private System.Windows.Forms.PictureBox pictureBoxCTIndicator;
-        private System.Windows.Forms.PictureBox pictureBoxCS;
-        private System.Windows.Forms.RadioButton radioButtonSD;
-        private System.Windows.Forms.RadioButton radioButtonSC;
-        private System.Windows.Forms.RadioButton radioButtonSB;
-        private System.Windows.Forms.RadioButton radioButtonSA;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBoxSONOFF;
         private System.Windows.Forms.CheckBox checkBoxTISRandom;
         private System.Windows.Forms.TrackBar trackBarTTO;
@@ -2001,19 +1748,13 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.ComboBox comboBoxWL;
         private System.Windows.Forms.ComboBox comboBoxST;
         private System.Windows.Forms.CheckBox checkBoxWL;
-        private System.Windows.Forms.PictureBox pictureBoxTS;
         private System.Windows.Forms.TabControl tabControlT;
         private System.Windows.Forms.TabPage tabPageTPosition;
         private System.Windows.Forms.TabPage tabPageTOBJPosition;
         private System.Windows.Forms.TabPage tabPageTDirection;
         private System.Windows.Forms.TabPage tabPageTRoaming;
         private System.Windows.Forms.TabPage tabPageTStop;
-        private System.Windows.Forms.ComboBox comboBoxTTType;
         private System.Windows.Forms.Button buttonCSChoose;
-        private System.Windows.Forms.RadioButton radioButtonCSD;
-        private System.Windows.Forms.RadioButton radioButtonCSC;
-        private System.Windows.Forms.RadioButton radioButtonCSB;
-        private System.Windows.Forms.RadioButton radioButtonCSA;
         private System.Windows.Forms.ComboBox comboBoxTSpeed;
         private System.Windows.Forms.Button buttonTOOBJChoose;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -2026,7 +1767,9 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.RadioButton radioButtonATDS;
         private System.Windows.Forms.RadioButton radioButtonATDN;
         private System.Windows.Forms.ComboBox comboBoxTRTType;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.PictureBox pictureBoxTS;
+        private System.Windows.Forms.ComboBox comboBoxTTType;
+        private System.Windows.Forms.RadioButton radioButtonSpeedM;
     }
 }
 
