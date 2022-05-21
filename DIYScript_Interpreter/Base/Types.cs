@@ -62,6 +62,7 @@ namespace DIYScript_Interpreter {
         public void WriteValue(string Section, string Key, string Value) {
             WritePrivateProfileString(Section, Key, Value, path);
         }
+
         ///<summary>
         ///从ini文件中读数据
         ///</summary>
@@ -175,9 +176,6 @@ namespace DIYScript_Interpreter {
     }
     public class BGAddingStatus {
         public static ulong CurrentBGID = 0;
-        public static Bitmap bitmap;
-        public static Bitmap temp = new Bitmap(640, 480);
-        public static Graphics gt = Graphics.FromImage(temp);
     }
 
     public class OBJAddingStatus {

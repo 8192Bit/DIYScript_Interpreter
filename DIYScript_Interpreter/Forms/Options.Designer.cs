@@ -100,7 +100,7 @@ namespace DIYScript_Interpreter
             // 
             // comboBox1
             // 
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "LargeIcon",

@@ -54,9 +54,9 @@ namespace DIYScript_Interpreter
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GamePlay));
             this.ticker = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.glCanvas = new OpenTK.GLControl();
             this.labelSmall = new System.Windows.Forms.Label();
-            this.canvas = new System.Windows.Forms.PictureBox();
-            this.labelGDI = new System.Windows.Forms.Label();
+            this.labelOpenGL = new System.Windows.Forms.Label();
             this.labelMM42 = new System.Windows.Forms.Label();
             this.groupBoxDebugger = new System.Windows.Forms.GroupBox();
             this.listBoxOBJ = new System.Windows.Forms.ListBox();
@@ -81,7 +81,6 @@ namespace DIYScript_Interpreter
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.groupBoxDebugger.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxRender.SuspendLayout();
@@ -98,67 +97,72 @@ namespace DIYScript_Interpreter
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel1.Controls.Add(this.glCanvas);
             this.splitContainer1.Panel1.Controls.Add(this.labelSmall);
-            this.splitContainer1.Panel1.Controls.Add(this.canvas);
-            this.splitContainer1.Panel1.Controls.Add(this.labelGDI);
+            this.splitContainer1.Panel1.Controls.Add(this.labelOpenGL);
             this.splitContainer1.Panel1.Controls.Add(this.labelMM42);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxDebugger);
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxRender);
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxState);
-            this.splitContainer1.Size = new System.Drawing.Size(946, 548);
+            this.splitContainer1.Size = new System.Drawing.Size(940, 548);
             this.splitContainer1.SplitterDistance = 655;
             this.splitContainer1.TabIndex = 8;
+            // 
+            // glCanvas
+            // 
+            this.glCanvas.BackColor = System.Drawing.Color.Black;
+            this.glCanvas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.glCanvas.Location = new System.Drawing.Point(9, 10);
+            this.glCanvas.Name = "glCanvas";
+            this.glCanvas.Size = new System.Drawing.Size(640, 480);
+            this.glCanvas.TabIndex = 10;
+            this.glCanvas.VSync = false;
+            this.glCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
+            this.glCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
+            this.glCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
             // 
             // labelSmall
             // 
             this.labelSmall.AutoSize = true;
-            this.labelSmall.Font = new System.Drawing.Font("Nokia Sans", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSmall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSmall.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.labelSmall.Location = new System.Drawing.Point(392, 525);
+            this.labelSmall.Location = new System.Drawing.Point(370, 521);
             this.labelSmall.Name = "labelSmall";
-            this.labelSmall.Size = new System.Drawing.Size(73, 15);
+            this.labelSmall.Size = new System.Drawing.Size(81, 15);
             this.labelSmall.TabIndex = 7;
             this.labelSmall.Text = "Powered by";
             // 
-            // canvas
+            // labelOpenGL
             // 
-            this.canvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.canvas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.canvas.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.canvas.Location = new System.Drawing.Point(9, 9);
-            this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(640, 480);
-            this.canvas.TabIndex = 9;
-            this.canvas.TabStop = false;
-            this.canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
-            this.canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseMove);
-            this.canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseUp);
-            // 
-            // labelGDI
-            // 
-            this.labelGDI.AutoSize = true;
-            this.labelGDI.Font = new System.Drawing.Font("Nokia Sans S60", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGDI.Location = new System.Drawing.Point(458, 504);
-            this.labelGDI.Name = "labelGDI";
-            this.labelGDI.Size = new System.Drawing.Size(194, 39);
-            this.labelGDI.TabIndex = 8;
-            this.labelGDI.Text = "GDI+DirectX";
+            this.labelOpenGL.AutoSize = true;
+            this.labelOpenGL.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOpenGL.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelOpenGL.Location = new System.Drawing.Point(457, 499);
+            this.labelOpenGL.Name = "labelOpenGL";
+            this.labelOpenGL.Size = new System.Drawing.Size(147, 39);
+            this.labelOpenGL.TabIndex = 8;
+            this.labelOpenGL.Text = "OpenGL";
             // 
             // labelMM42
             // 
             this.labelMM42.AutoSize = true;
-            this.labelMM42.Font = new System.Drawing.Font("Nokia Sans S60", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMM42.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMM42.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelMM42.Location = new System.Drawing.Point(3, 504);
             this.labelMM42.Name = "labelMM42";
-            this.labelMM42.Size = new System.Drawing.Size(301, 32);
+            this.labelMM42.Size = new System.Drawing.Size(315, 33);
             this.labelMM42.TabIndex = 6;
             this.labelMM42.Text = "MakerMatic42 Runtime";
             // 
@@ -167,6 +171,7 @@ namespace DIYScript_Interpreter
             this.groupBoxDebugger.Controls.Add(this.listBoxOBJ);
             this.groupBoxDebugger.Controls.Add(this.listView);
             this.groupBoxDebugger.Controls.Add(this.groupBox1);
+            this.groupBoxDebugger.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBoxDebugger.Location = new System.Drawing.Point(7, 208);
             this.groupBoxDebugger.Name = "groupBoxDebugger";
             this.groupBoxDebugger.Size = new System.Drawing.Size(269, 331);
@@ -251,6 +256,7 @@ namespace DIYScript_Interpreter
             this.groupBoxRender.Controls.Add(this.labelRenderedFrame);
             this.groupBoxRender.Controls.Add(this.trackBarSmooth);
             this.groupBoxRender.Controls.Add(this.labelSmooth);
+            this.groupBoxRender.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBoxRender.Location = new System.Drawing.Point(7, 116);
             this.groupBoxRender.Name = "groupBoxRender";
             this.groupBoxRender.Size = new System.Drawing.Size(269, 86);
@@ -303,6 +309,7 @@ namespace DIYScript_Interpreter
             this.groupBoxState.Controls.Add(this.buttonTickStrat);
             this.groupBoxState.Controls.Add(this.trackBarSpeed);
             this.groupBoxState.Controls.Add(this.labelSpeed);
+            this.groupBoxState.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBoxState.Location = new System.Drawing.Point(7, 10);
             this.groupBoxState.Name = "groupBoxState";
             this.groupBoxState.Size = new System.Drawing.Size(269, 100);
@@ -366,7 +373,7 @@ namespace DIYScript_Interpreter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 548);
+            this.ClientSize = new System.Drawing.Size(940, 548);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GamePlay";
@@ -379,7 +386,6 @@ namespace DIYScript_Interpreter
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.groupBoxDebugger.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -397,8 +403,7 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.Timer ticker;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label labelSmall;
-        private System.Windows.Forms.PictureBox canvas;
-        private System.Windows.Forms.Label labelGDI;
+        private System.Windows.Forms.Label labelOpenGL;
         private System.Windows.Forms.Label labelMM42;
         private System.Windows.Forms.GroupBox groupBoxDebugger;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -419,5 +424,6 @@ namespace DIYScript_Interpreter
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ColumnHeader columnHeaderprop;
         private System.Windows.Forms.ColumnHeader columnHeadervalue;
+        private OpenTK.GLControl glCanvas;
     }
 }

@@ -24,15 +24,15 @@ namespace DIYScript_Interpreter {
 
         public StartMode getStartMode() {
             StartMode mode = StartMode.AreaAnywhere;
-            if(radioButtonPoint.Checked) {
+            if (radioButtonPoint.Checked) {
                 mode = StartMode.Point;
-            } else if(radioButtonArea.Checked) {
-                if(!checkBoxAllowOverlap.Checked) {
+            } else if (radioButtonArea.Checked) {
+                if (!checkBoxAllowOverlap.Checked) {
                     mode = StartMode.AreaAnywhere;
                 } else {
                     mode = StartMode.AreaNotOverlap;
                 }
-            } else if(OBJChoose.isAttach) {
+            } else if (OBJChoose.isAttach) {
                 mode = StartMode.Attach;
             }
             return mode;
@@ -44,21 +44,21 @@ namespace DIYScript_Interpreter {
             MouseState[1] = obj.StrtX[1];
             MouseState[2] = obj.StrtY[0];
             MouseState[3] = obj.StrtY[1];
-            if(obj.startMode == StartMode.Point) {
+            if (obj.startMode == StartMode.Point) {
                 radioButtonPoint.Checked = true;
                 radioButtonArea.Checked = false;
             }
-            if(obj.startMode == StartMode.AreaAnywhere) {
+            if (obj.startMode == StartMode.AreaAnywhere) {
                 radioButtonPoint.Checked = false;
                 radioButtonArea.Checked = true;
                 checkBoxAllowOverlap.Checked = true;
             }
-            if(obj.startMode == StartMode.AreaNotOverlap) {
+            if (obj.startMode == StartMode.AreaNotOverlap) {
                 radioButtonPoint.Checked = false;
                 radioButtonArea.Checked = true;
                 checkBoxAllowOverlap.Checked = false;
             }
-            if(obj.startMode == StartMode.Attach) {
+            if (obj.startMode == StartMode.Attach) {
                 radioButtonPoint.Checked = false;
                 radioButtonArea.Checked = false;
             }
@@ -78,7 +78,7 @@ namespace DIYScript_Interpreter {
             try {
                 BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
                 g.DrawImage(NormalBG.bitmap, new Point(0, 0));
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 isHaveBG = false;
                 MessageBox.Show("默认背景未被设置。\r" + ex.ToString(), "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -86,12 +86,12 @@ namespace DIYScript_Interpreter {
         }
 
         private void OK_Click(object sender, EventArgs e) {
-            if(textBoxOBJName.Text == "") {
+            if (textBoxOBJName.Text == "") {
                 errorProvider.SetError(textBoxOBJName, "未输入名字。");
 
             } else {
                 StartMode StartMode = getStartMode();
-                if(!isEdit) {
+                if (!isEdit) {
                     // new a obj
                     OBJTemp = new OBJ();
                     EditOBJ(StartMode);
@@ -146,32 +146,32 @@ namespace DIYScript_Interpreter {
         private void canvas_MouseMove(object sender, MouseEventArgs e) {
 
             reDraw(MouseState[0], MouseState[1], MouseState[2], MouseState[3], radioButtonArea.Checked && !radioButtonPoint.Checked);
-            if(MouseState[4] == 1) {
+            if (MouseState[4] == 1) {
 
                 MouseState[2] = e.X;
                 MouseState[3] = e.Y;
             }
 
-            if(Math.Abs(MouseState[2] - MouseState[0]) > 8 | Math.Abs(MouseState[3] - MouseState[1]) > 8) {
+            if (Math.Abs(MouseState[2] - MouseState[0]) > 8 | Math.Abs(MouseState[3] - MouseState[1]) > 8) {
 
-                if(MouseState[2] - MouseState[0] > 15) {
+                if (MouseState[2] - MouseState[0] > 15) {
                     direction = Directions.e;
-                    if(MouseState[3] - MouseState[1] > 15) {
+                    if (MouseState[3] - MouseState[1] > 15) {
                         direction = Directions.se;
-                    } else if(MouseState[3] - MouseState[1] < -15) {
+                    } else if (MouseState[3] - MouseState[1] < -15) {
                         direction = Directions.ne;
                     }
-                } else if(MouseState[2] - MouseState[0] < -15) {
+                } else if (MouseState[2] - MouseState[0] < -15) {
                     direction = Directions.w;
-                    if(MouseState[3] - MouseState[1] > 15) {
+                    if (MouseState[3] - MouseState[1] > 15) {
                         direction = Directions.sw;
-                    } else if(MouseState[3] - MouseState[1] < -15) {
+                    } else if (MouseState[3] - MouseState[1] < -15) {
                         direction = Directions.nw;
                     }
                 } else {
-                    if(MouseState[3] - MouseState[1] > 5) {
+                    if (MouseState[3] - MouseState[1] > 5) {
                         direction = Directions.s;
-                    } else if(MouseState[3] - MouseState[1] < -5) {
+                    } else if (MouseState[3] - MouseState[1] < -5) {
                         direction = Directions.n;
                     }
                 }
@@ -190,7 +190,7 @@ namespace DIYScript_Interpreter {
             Point p1 = new Point(x1, y1);
             Graphics g = Graphics.FromImage(b);
 
-            if(isHaveBG) {
+            if (isHaveBG) {
 
                 BG NormalBG = Current.BGList.Find(bg => bg.isNormal == true);
                 g.DrawImage(NormalBG.bitmap, new Point(0, 0));
@@ -198,13 +198,13 @@ namespace DIYScript_Interpreter {
 
             Pen p = new Pen(Color.Red, 2);
             Point pt = new Point(x2, y2);
-            if(isArea) {
+            if (isArea) {
                 p.DashStyle = DashStyle.Dash;
                 g.DrawLine(p, x1, y1, x2, y1);
                 g.DrawLine(p, x1, y1, x1, y2);
                 g.DrawLine(p, x2, y1, x2, y2);
                 g.DrawLine(p, x1, y2, x2, y2);
-            } else if(!isArea) {
+            } else if (!isArea) {
                 p.DashStyle = DashStyle.Solid;
                 p.LineJoin = LineJoin.Round;
                 g.DrawRectangle(p, x2 - 15, y2 - 15, 30, 30);
@@ -214,7 +214,7 @@ namespace DIYScript_Interpreter {
         }
         #endregion
         private void buttonNormalART_Click(object sender, EventArgs e) {
-            foreach(OBJArt art in OBJTemp.ArtList) {
+            foreach (OBJArt art in OBJTemp.ArtList) {
                 art.isNormal = false;
             }
 
@@ -226,8 +226,8 @@ namespace DIYScript_Interpreter {
             listViewART.Clear();
             imageList.Images.Clear();
             imageList.Images.Clear();
-            foreach(OBJArt art in OBJTemp.ArtList) {
-                foreach(Image i in art.i.Images) {
+            foreach (OBJArt art in OBJTemp.ArtList) {
+                foreach (Image i in art.i.Images) {
                     imageList.Images.Add(i);
                 }
                 listViewART.Items.Add(art.Name, OBJTemp.ArtList.IndexOf(art));

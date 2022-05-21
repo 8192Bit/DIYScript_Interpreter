@@ -16,14 +16,14 @@ namespace DIYScript_Interpreter {
         private void refresh() {
             listViewFrames.Items.Clear();
             int temp = -1;
-            foreach(Image i in imageList.Images) {
+            foreach (Image i in imageList.Images) {
                 temp++;
                 listViewFrames.Items.Add(temp.ToString(), temp);
             }
         }
 
         private void pictureBoxCurrent_DoubleClick(object sender, EventArgs e) {
-            if(!isFullView) {
+            if (!isFullView) {
                 Height += pictureBoxCurrent.Image.Height - pictureBoxCurrent.Height;
                 pictureBoxCurrent.Size = pictureBoxCurrent.Image.Size;
                 pictureBoxCurrent.SizeMode = PictureBoxSizeMode.Normal;
@@ -45,14 +45,14 @@ namespace DIYScript_Interpreter {
 
         private void openFileDialog_FileOK(object sendor, CancelEventArgs e) {
             Image i = new Bitmap(openFileDialog.FileName);
-            if(isFirstAdd) {
+            if (isFirstAdd) {
                 imageList.ImageSize = i.Size;
                 isFirstAdd = false;
-            } else if(i.Size != imageList.ImageSize) {
+            } else if (i.Size != imageList.ImageSize) {
                 MessageBox.Show("要添加的帧与帧列表中的大小不匹配。" + "\r" + "是否添加？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
 
             }
-            if(isFromFront) {
+            if (isFromFront) {
                 Image temp = imageList.Images[imageList.Images.Count - 1];
                 imageList.Images[imageList.Images.Count - 1] = i;
                 imageList.Images.Add(temp);
@@ -94,7 +94,7 @@ namespace DIYScript_Interpreter {
         }
 
         private void timer_Tick(object sender, EventArgs e) {
-            if(listViewFrames.FocusedItem.Index < imageList.Images.Count - 1) {
+            if (listViewFrames.FocusedItem.Index < imageList.Images.Count - 1) {
                 listViewFrames.FocusedItem = listViewFrames.Items[listViewFrames.FocusedItem.Index + 1];
             } else {
                 listViewFrames.FocusedItem = listViewFrames.Items[0];
