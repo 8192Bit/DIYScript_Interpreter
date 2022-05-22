@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using ICSharpCode.SharpZipLib.GZip;
 using static DIYScript_Interpreter.Document;
 
 
@@ -163,6 +164,17 @@ namespace DIYScript_Interpreter {
                 }
             }
             #endregion
+
+
+            ZipOperation.CompressDirectory(Directory.GetCurrentDirectory() + @"\TempDir", null, true);
+
+
+
+            FileInfo fi = new FileInfo(Directory.GetCurrentDirectory() + @"\TempDir.zip");
+
+            fi.CopyTo(saveFileDialogPj.FileName, true);
+            
+            
         }
 
         #region Section GamePlay
