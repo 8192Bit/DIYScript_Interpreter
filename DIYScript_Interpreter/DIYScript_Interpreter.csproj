@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\8192Bit\Desktop\publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,9 +24,15 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <SupportUrl>https://8192bit.github.io/MakerMatic42.github.io/</SupportUrl>
+    <ErrorReportUrl>https://8192bit.github.io/MakerMatic42.github.io/</ErrorReportUrl>
+    <ProductName>DIYScript Interpreter</ProductName>
+    <PublisherName>8192Bit</PublisherName>
+    <SuiteName>MakerMatic42 Pre-Test</SuiteName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -60,7 +66,7 @@
     <ManifestKeyFile>DIYScript_Interpreter_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Icon\Form\8192Bit.ico</ApplicationIcon>
+    <ApplicationIcon>PRGM.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>DIYScript_Interpreter.Program</StartupObject>
@@ -69,17 +75,17 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup />
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="OpenTK, Version=3.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenTK.3.1.0\lib\net20\OpenTK.dll</HintPath>
     </Reference>
@@ -175,16 +181,7 @@
     <EmbeddedResource Include="Forms\Locationer.resx">
       <DependentUpon>Locationer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.en-US.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.zh-CN.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.zh-Hans.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OBJMaker.resx">
@@ -225,8 +222,8 @@
     <None Include="Base\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Icon\Form\8192Bit.ico" />
     <Content Include="Misc\Manual.txt" />
+    <Content Include="PRGM.ico" />
     <Content Include="Resources\Icon\Function\linear.png" />
     <Content Include="Resources\Icon\Function\log.png" />
     <Content Include="Resources\Icon\Function\none.png" />
@@ -234,6 +231,7 @@
     <Content Include="Resources\Icon\Function\square.png" />
     <Content Include="Resources\Icon\Function\stay.png" />
     <Content Include="Resources\Icon\UI\CyanBar.png" />
+    <Content Include="Resources\Music\Roll.wav" />
     <None Include="Resources\Thu Feb 06 20-08-10.bmp" />
     <None Include="Resources\Icon\Switch\ON.png" />
     <None Include="Resources\Icon\Switch\OFF.png" />
