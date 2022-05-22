@@ -1,5 +1,6 @@
 ﻿using DIYScript_Interpreter.Properties;
 using System;
+using System.Media;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
@@ -215,8 +216,8 @@ namespace DIYScript_Interpreter {
         private void buttonDeleteBG_Click(object sender, EventArgs e) {
             try {
                 Current.BGList.RemoveAt(listViewBG.FocusedItem.Index);
-            } catch (Exception err) {
-                MessageBox.Show(err.Message);
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
             buttonRefreshBG.PerformClick();
         }
@@ -229,9 +230,9 @@ namespace DIYScript_Interpreter {
 
         private void openFileDialog_FileOk(object sender, CancelEventArgs e) {
             if (!e.Cancel) {
-            Importer importer = new Importer();
-            importer.setFile(openFileDialog.FileName.Split('.')[0], Image.FromFile(openFileDialog.FileName));
-            importer.ShowDialog();
+                Importer importer = new Importer();
+                importer.setFile(Path.GetFileNameWithoutExtension(openFileDialog.FileName), Image.FromFile(openFileDialog.FileName));
+                importer.ShowDialog();
             }
         }
         #endregion
@@ -470,7 +471,10 @@ namespace DIYScript_Interpreter {
         #endregion
 
         #region Section Music
-
+        private void buttonNewBGM_Click(object sender, EventArgs e) {
+            SoundPlayer sp = new SoundPlayer(Resources.Roll);
+            sp.Play();
+        }
         #endregion
 
         #region Section toolStrip
@@ -532,6 +536,7 @@ namespace DIYScript_Interpreter {
         #endregion
 
         #endregion
+
 
     }
 
